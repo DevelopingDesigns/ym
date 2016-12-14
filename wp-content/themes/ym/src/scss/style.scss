@@ -1,0 +1,20 @@
+/*! ##
+	Theme Name: YM
+	Theme URI: http://www.yourmembership.com/
+	Description: Child theme for Your Membership.
+	Author: Developing Designs
+	Author URI: https://www.developingdesigns.com/
+	Version: 1.0.0
+	Template: genesis
+	Template Version: 2.3.0
+*/
+
+// Importing Bourbon, Neat, Refills and _grid_settings.scss
+@import "vendor/normalize";
+@import "vendor/bourbon/bourbon";
+@import "base/grid-settings";
+@import "vendor/neat/neat";
+@import "base/base";
+
+// Original Styles
+@import "original-stylesheet";
