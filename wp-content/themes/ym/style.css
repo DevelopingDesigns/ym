@@ -544,10 +544,7 @@ table {
   border-collapse: collapse;
   margin: 0.75em 0;
   table-layout: fixed;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
+  width: 100%; }
 
 th {
   border-bottom: 1px solid #a6a6a6;

@@ -3,8 +3,8 @@ table {
   margin: $small-spacing 0;
   table-layout: fixed;
   width: 100%;
-  display: flex;
 }
+
 
 th {
   border-bottom: 1px solid shade($base-border-color, 25%);

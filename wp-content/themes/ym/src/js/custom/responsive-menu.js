@@ -60,7 +60,7 @@
 		}
 		$this.attr( 'id', 'mobile-' + $( nav ).attr( id ) );
 	}
-	
+
 	// Check CSS rule to determine width.
 	function _combineMenus(){
 		if ( ( $( '.js nav' ).css( 'position' ) == 'relative' ) && $( '.nav-primary' ).length > 0 ) { // Depends on .js nav having position: relative; in style.css.
@@ -190,7 +190,7 @@
 
 		// Run test on resize of the window.
 		$( window ).resize( _combineMenus );
-		
+
 		genesisSample.params = typeof genesisSampleL10n === 'undefined' ? '' : genesisSampleL10n;
 
 		if ( typeof genesisSample.params !== 'undefined' ) {
