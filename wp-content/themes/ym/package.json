@@ -6,18 +6,17 @@
   "scripts": {
     "scss": "node-sass --source-map true src/scss -o ./",
     "autoprefixer": "postcss -u autoprefixer *.css -d ./",
-    "uglify": "mkdir -p dist/js && uglifyjs src/js/custom/*.js -m -o dist/js/app.js && uglifyjs src/js/custom/*.js -m -c -o dist/js/app.min.js",
-    "eslint": "eslint src/js",
-    "babel": "babel src/js/custom --out-file dist/js/app.js --presets latest",
-    "serve": "browser-sync start --ws --proxy http://ym-new.kbox --logLevel 'info' --no-ghost-mode --no-notify --files 'style.css, !style.css.map,!src/scss/**,!src/js/**'",
+    "babel": "rm -rf dist/js/custom && mkdir -p dist/js/custom && babel src/js/custom -d dist/js/custom",
     "build:css": "npm run scss && npm run autoprefixer",
-    "build:js": "npm run babel && npm run uglify",
+    "build:js": "npm run babel",
     "build:all": "npm run build:css && npm run build:js",
     "watch:css": "onchange 'src/scss/**/*.scss' -- npm run build:css",
     "watch:js": "onchange 'src/js/custom/*.js' -- npm run build:js",
     "watch:all": "parallelshell 'npm run watch:css' 'npm run watch:js'",
-    "build": "npm run watch:all",
-    "postinstall": "npm run build"
+    "watch": "npm run watch:all",
+    "postinstall": "npm run watch",
+    "eslint": "eslint src/js/custom",
+    "serve": "browser-sync start --ws --proxy http://ym-new.kbox --logLevel 'info' --no-ghost-mode --no-notify --files 'style.css, !style.css.map,!src/scss/**,!src/js/custom**'"
   },
   "repository": {
     "type": "git",
@@ -33,7 +32,9 @@
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-cli": "^6.18.0",
+    "babel-preset-babili": "0.0.9",
     "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
     "browser-sync": "^2.17.5",
     "eslint": "^3.8.1",
     "node-sass": "^3.10.1",

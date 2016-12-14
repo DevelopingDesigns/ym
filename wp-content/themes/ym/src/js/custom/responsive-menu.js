@@ -12,7 +12,7 @@
 
 	'use strict';
 
-	var genesisSample              = {},
+	var genesisSample               = {},
 		mainMenuButtonClass = 'menu-toggle',
 		subMenuButtonClass  = 'sub-menu-toggle';
 
@@ -191,7 +191,7 @@
 		// Run test on resize of the window.
 		$( window ).resize( _combineMenus );
 
-		genesisSample.params = typeof genesisSampleL10n === 'undefined' ? '' : genesisSampleL10n;
+		genesisSample.params = typeof ymL10n === 'undefined' ? '' : ymL10n;
 
 		if ( typeof genesisSample.params !== 'undefined' ) {
 			genesisSample.init();
