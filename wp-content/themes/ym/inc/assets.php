@@ -13,10 +13,11 @@
 namespace DevDesigns\YM;
 
 
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 /**
- * Enqueue Scripts and Styles
+ * Enqueue scripts and styles in scripts-and-styles.php
  */
-function ym_enqueue_assets() {
+function enqueue_assets() {
 
 	wp_enqueue_style(
 		'ym-fonts',
@@ -29,7 +30,7 @@ function ym_enqueue_assets() {
 
 	wp_enqueue_script(
 		'ym-responsive-menu',
-		get_stylesheet_directory_uri() . '/js/responsive-menu.js',
+		get_stylesheet_directory_uri() . '/dist/js/custom/responsive-menu.js',
 		array( 'jquery' ),
 		'1.0.0',
 		true
