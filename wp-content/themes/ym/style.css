@@ -452,9 +452,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     button:disabled:hover, input[type="button"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="submit"]:disabled:hover {
       background-color: #1565c0; }
 
-p {
-  color: pink; }
-
 fieldset {
   background-color: transparent;
   border: 0;
