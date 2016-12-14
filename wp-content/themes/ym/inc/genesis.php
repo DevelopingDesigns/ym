@@ -72,16 +72,6 @@ function theme_setup() {
 	load_child_theme_textdomain( 'ym', apply_filters( 'child_theme_textdomain', get_stylesheet_directory() . '/languages', 'ym' ) );
 
 	/**
-	 * Enqueue scripts and styles in scripts-and-styles.php
-	 */
-	add_action( 'wp_enqueue_scripts', 'ym_enqueue_assets' );
-
-	/**
-	 * Register widgets in widgets.php
-	 */
-	// add_action( 'widgets_init', 'ym_register_widgets' );
-
-	/**
 	 * Reposition the secondary navigation menu
 	 */
 	remove_action( 'genesis_after_header', 'genesis_do_subnav' );

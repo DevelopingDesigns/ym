@@ -13,10 +13,11 @@
 namespace DevDesigns\YM;
 
 
+// add_action( 'widgets_init', __NAMESPACE__ . '\register_widgets' );
 /**
- * Register widgets. Function called in after_theme_setup in genesis.php
+ * Register widgets in widgets.php
  */
-function ym_register_widgets() {
+function register_widgets() {
 
 	genesis_register_sidebar( [
 			'id'          => 'shop-sidebar',
