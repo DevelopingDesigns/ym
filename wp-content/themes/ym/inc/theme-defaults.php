@@ -1,22 +1,29 @@
 <?php
 /**
- * Genesis Sample.
+ * YM
  *
- * This file adds the default theme settings to the Genesis Sample Theme.
+ * This file adds the default theme settings to the YM Theme.
  *
- * @package Genesis Sample
- * @author  StudioPress
- * @license GPL-2.0+
- * @link    http://www.studiopress.com/
+ * @package YM
+ * @author  DevelopingDesigns
+ * @link    https://www.developingdesigns.com/
  */
 
-add_filter( 'genesis_theme_settings_defaults', 'genesis_sample_theme_defaults' );
+
+namespace DevDesigns\YM;
+
+
+add_filter( 'genesis_theme_settings_defaults', __NAMESPACE__ . '\theme_defaults' );
 /**
-* Updates theme settings on reset.
-*
-* @since 2.2.3
-*/
-function genesis_sample_theme_defaults( $defaults ) {
+ * Updates theme settings on reset.
+ *
+ * @since 2.2.3
+ *
+ * @param $defaults
+ *
+ * @return mixed
+ */
+function theme_defaults( $defaults ) {
 
 	$defaults['blog_cat_num']              = 6;
 	$defaults['content_archive']           = 'full';
@@ -29,13 +36,14 @@ function genesis_sample_theme_defaults( $defaults ) {
 
 }
 
-add_action( 'after_switch_theme', 'genesis_sample_theme_setting_defaults' );
+
+add_action( 'after_switch_theme', __NAMESPACE__ . '\theme_setting_defaults' );
 /**
 * Updates theme settings on activation.
 *
 * @since 2.2.3
 */
-function genesis_sample_theme_setting_defaults() {
+function theme_setting_defaults() {
 
 	if ( function_exists( 'genesis_update_settings' ) ) {
 
@@ -53,3 +61,11 @@ function genesis_sample_theme_setting_defaults() {
 	update_option( 'posts_per_page', 6 );
 
 }
+
+
+/**
+ * Register custom image sizes
+ */
+add_action( 'init', function () {
+	add_image_size( 'featured-image', 720, 400, true );
+} );
