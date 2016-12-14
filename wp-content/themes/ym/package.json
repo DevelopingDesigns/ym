@@ -1,0 +1,47 @@
+{
+  "name": "your-membership-child-theme",
+  "version": "1.0.0",
+  "description": "Genesis child theme for Your Membership",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass --source-map true src/scss -o ./",
+    "autoprefixer": "postcss -u autoprefixer *.css -d ./",
+    "uglify": "mkdir -p dist/js && uglifyjs src/js/custom/*.js -m -o dist/js/app.js && uglifyjs src/js/custom/*.js -m -c -o dist/js/app.min.js",
+    "eslint": "eslint src/js",
+    "babel": "babel src/js/custom --out-file dist/js/app.js --presets latest",
+    "serve": "browser-sync start --ws --proxy http://ym-new.kbox --logLevel 'info' --no-ghost-mode --no-notify --files 'style.css, !style.css.map,!src/scss/**,!src/js/**'",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "build:js": "npm run babel && npm run uglify",
+    "build:all": "npm run build:css && npm run build:js",
+    "watch:css": "onchange 'src/scss/**/*.scss' -- npm run build:css",
+    "watch:js": "onchange 'src/js/custom/*.js' -- npm run build:js",
+    "watch:all": "parallelshell 'npm run watch:css' 'npm run watch:js'",
+    "build": "npm run watch:all",
+    "postinstall": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://codeserver.dev.365d2b19-adb0-4135-ac1d-f7b9115d6271@codeserver.dev.365d2b19-adb0-4135-ac1d-f7b9115d6271.drush.in:2222/~/repository.git"
+  },
+  "author": "Joe Dooley <hello@developingdesigns.com> (https://www.developingdesigns.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "bourbon": "^4.2.7",
+    "bourbon-neat": "^1.8.0",
+    "normalize.css": "^5.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.1",
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "browser-sync": "^2.17.5",
+    "eslint": "^3.8.1",
+    "node-sass": "^3.10.1",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^3.1.1",
+    "onchange": "^3.0.2",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.6.0",
+    "uglify-js": "^2.7.4"
+  }
+}
