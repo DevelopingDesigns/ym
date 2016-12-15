@@ -56,12 +56,6 @@ function theme_setup() {
 		]
 	);
 
-	add_theme_support( 'genesis-style-selector', [
-			'ym-red'    => 'Red',
-			'ym-orange' => 'Orange',
-		]
-	);
-
 	/**
 	 * Remove site description
 	 */
