@@ -15,7 +15,6 @@ namespace DevDesigns\YM;
 /**
  * Include theme files and declare child theme constants.
  */
-include_once get_template_directory() . '/lib/init.php';
 require_once __DIR__ . '/inc/customizer/customize.php';
 include_once __DIR__ . '/inc/customizer/output.php';
 require_once __DIR__ . '/inc/genesis.php';

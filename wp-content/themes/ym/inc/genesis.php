@@ -12,7 +12,7 @@
 namespace DevDesigns\YM;
 
 
-add_action( 'after_theme_setup', __NAMESPACE__ . '\theme_setup' );
+add_action( 'genesis_setup', __NAMESPACE__ . '\theme_setup', 15 );
 /**
  * Setup child theme
  */
@@ -53,6 +53,12 @@ function theme_setup() {
 	add_theme_support( 'genesis-menus', [
 		'primary' => __( 'After Header Menu', 'ym' ),
 		'secondary' => __( 'Footer Menu', 'ym' ),
+		]
+	);
+
+	add_theme_support( 'genesis-style-selector', [
+			'ym-red'    => 'Red',
+			'ym-orange' => 'Orange',
 		]
 	);
 
