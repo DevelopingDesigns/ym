@@ -12,7 +12,7 @@
 namespace DevDesigns\YM;
 
 
-add_action( 'after_theme_setup', __NAMESPACE__ . '\theme_setup' );
+add_action( 'genesis_setup', __NAMESPACE__ . '\theme_setup', 15 );
 /**
  * Setup child theme
  */
@@ -76,6 +76,30 @@ function theme_setup() {
 	 */
 	remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 	add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
+
+	/**
+	 * Disable Genesis SEO Menu item and in-post SEO
+	 */
+//	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
+//	remove_theme_support( 'genesis-seo-settings-menu' );
+
+	/**
+	 * Remove output of primary navigation right extras
+	 */
+//	remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
+//	remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
+
+	/**
+	 * Remove site layouts
+	 */
+	genesis_unregister_layout( 'content-sidebar-sidebar' );
+	genesis_unregister_layout( 'sidebar-sidebar-content' );
+	genesis_unregister_layout( 'sidebar-content-sidebar' );
+
+	/**
+	 * Set default layout
+	 */
+	genesis_set_default_layout( 'content-sidebar' );
 
 }
 
