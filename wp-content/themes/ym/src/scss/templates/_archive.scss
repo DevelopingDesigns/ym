@@ -8,6 +8,11 @@
 	margin-bottom: 40px;
 	padding: 60px;
 
+	@include media($medium-screen-up) {
+		padding: 30px;
+		margin-bottom: 5%;
+	}
+
 	p:last-child {
 		margin-bottom: 0;
 	}

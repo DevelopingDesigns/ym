@@ -15,6 +15,11 @@
 .two-thirds {
 	float: left;
 	margin-left: 2.564102564102564%;
+
+	@include media($medium-screen-up) {
+		@include margin(0);
+		width: 100%;
+	}
 }
 
 .one-half,
@@ -53,3 +58,4 @@
 	clear: both;
 	margin-left: 0;
 }
+

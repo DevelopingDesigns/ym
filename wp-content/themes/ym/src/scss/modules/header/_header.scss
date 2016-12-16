@@ -8,6 +8,25 @@
 		padding: 20px 0;
 	}
 
+	.wrap {
+		@include media($large-screen-up) {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+	}
+
+	.title-area {
+		@include media($large-screen-up) {
+			text-align: center;
+		}
+	}
+
+	ul.genesis-nav-menu {
+		@include media($large-screen-up) {
+			float: none;
+		}
+	}
+
 	.genesis-nav-menu li li {
 		margin-left: 0;
 	}

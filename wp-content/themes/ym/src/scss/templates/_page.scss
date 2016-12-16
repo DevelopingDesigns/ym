@@ -8,6 +8,11 @@
 	background-color: #fff;
 	margin-bottom: 40px;
 	padding: 70px 80px;
+
+	@include media($medium-screen-up) {
+		padding: 30px;
+		margin-bottom: 5%;
+	}
 }
 
 
