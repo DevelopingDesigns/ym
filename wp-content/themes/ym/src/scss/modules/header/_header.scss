@@ -1,0 +1,17 @@
+/* # Site Header
+---------------------------------------------------------------------------------------------------- */
+
+.site-header {
+	background-color: #fff;
+
+	& > .wrap {
+		padding: 20px 0;
+	}
+
+	.genesis-nav-menu li li {
+		margin-left: 0;
+	}
+}
+
+
+@import "title-area";
