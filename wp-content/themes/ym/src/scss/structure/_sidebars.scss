@@ -1,0 +1,12 @@
+/* # Sidebars
+---------------------------------------------------------------------------------------------------- */
+
+.sidebar {
+	@include font-size(16);
+	margin-bottom: 40px;
+
+	.widget {
+		background-color: #fff;
+		padding: 40px;
+	}
+}

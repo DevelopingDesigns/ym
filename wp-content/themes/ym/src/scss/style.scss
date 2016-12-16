@@ -9,6 +9,9 @@
 	Template Version: 2.3.0
 */
 
+@import "variables/variables";
+@import "mixins/mixens";
+
 // Importing Bourbon, Neat, Refills and _grid_settings.scss
 @import "vendor/normalize";
 @import "vendor/bourbon/bourbon";
@@ -19,3 +22,9 @@
 
 // Original Styles
 @import "original-stylesheet";
+
+@import "components/components";
+@import "structure/structure";
+@import "templates/templates";
+@import "widgets/widgets";
+@import "modules/modules";
