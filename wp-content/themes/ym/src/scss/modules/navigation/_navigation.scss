@@ -8,6 +8,10 @@
 	line-height: 1;
 	width: 100%;
 
+	@include media($large-screen-up) {
+		text-align: center;
+	}
+
 	.menu-item {
 		display: inline-block;
 		margin-bottom: 0;
@@ -21,6 +25,12 @@
 				left: auto;
 				opacity: 1;
 			}
+		}
+	}
+
+	li {
+		@include media($large-screen-up) {
+			float: none;
 		}
 	}
 
@@ -81,13 +91,10 @@
 }
 
 
-.js .genesis-nav-menu .sub-menu a,
-.js .genesis-nav-menu .sub-menu {
-	width: 100%;
-}
-
-
 .nav-primary {
 	background-color: #fff;
 	border-top: 1px solid #eee;
 }
+
+
+@import "responsive-nav";

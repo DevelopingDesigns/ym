@@ -4,6 +4,10 @@
 .pagination {
 	clear: both;
 	margin: 40px 0;
+
+	@include media($medium-screen-up) {
+		@include margin(5% auto);
+	}
 }
 
 .adjacent-entry-pagination {
@@ -30,4 +34,10 @@
 .archive-pagination .active a {
 	background-color: #c3251d;
 	color: #fff;
+}
+
+@include media($medium-screen-up) {
+	.archive-pagination li a {
+		margin-bottom: 4px;
+	}
 }

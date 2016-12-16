@@ -16,9 +16,17 @@ body {
   line-height: 1.625;
   margin: 0;
 
+  @include media($medium-screen-up) {
+    @include font-size(18);
+  }
+
   /* Chrome fix */
   & > div {
     font-size: 2rem;
+
+    @include media($medium-screen-up) {
+      font-size: 1.8rem;
+    }
   }
 }
 

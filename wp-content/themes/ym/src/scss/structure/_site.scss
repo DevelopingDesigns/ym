@@ -23,6 +23,16 @@
 	clear: both;
 	padding-top: 40px;
 	word-wrap: break-word;
+
+	@include media($medium-screen-up) {
+		@include padding(5% 5% 0);
+	}
+}
+
+.wrap {
+	@include media($medium-screen-up) {
+		@include padding(0 5%);
+	}
 }
 
 /* ## Column Widths and Positions
@@ -58,6 +68,10 @@
 
 .content-sidebar-sidebar .content-sidebar-wrap {
 	float: left;
+
+	@include media($large-screen-up) {
+		width: 100%;
+	}
 }
 
 .sidebar-content-sidebar .content-sidebar-wrap,
@@ -77,6 +91,10 @@
 
 	@include media($xlarge-screen-up) {
 		width: 620px;
+	}
+
+	@include media($large-screen-up) {
+		width: 100%;
 	}
 }
 
@@ -105,6 +123,10 @@
 	@include media($xxlarge-screen-up) {
 		width: 300px;
 	}
+
+	@include media($large-screen-up) {
+		width: 100%;
+	}
 }
 
 .sidebar-content .sidebar-primary,
@@ -117,9 +139,26 @@
 .sidebar-secondary {
 	float: left;
 	width: 180px;
+
+	@include media($large-screen-up) {
+		width: 100%;
+	}
 }
 
 .content-sidebar-sidebar .sidebar-secondary {
 	float: right;
 }
 
+.content-sidebar-sidebar .content {
+	width: 100%;
+}
+
+
+@include media($large-screen-up) {
+	.sidebar-content-sidebar .content,
+	.sidebar-content-sidebar .content-sidebar-wrap,
+	.sidebar-sidebar-content .content,
+	.sidebar-sidebar-content .content-sidebar-wrap {
+		width: 100%;
+	}
+}

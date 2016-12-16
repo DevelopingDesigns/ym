@@ -15,6 +15,10 @@
 	margin: 0 auto;
 	max-width: 300px;
 	padding: 0;
+
+	@include media($large-screen-up) {
+		float: none;
+	}
 }
 
 .header-full-width .title-area {
@@ -27,6 +31,10 @@
 	font-weight: 700;
 	line-height: 1.2;
 	margin-bottom: 0;
+
+	@include media($large-screen-up) {
+		text-align: center;
+	}
 
 	a,
 	a:hover,

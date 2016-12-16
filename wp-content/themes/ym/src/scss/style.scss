@@ -19,12 +19,11 @@
 @import "vendor/neat/neat";
 @import "base/base";
 
-
-// Original Styles
-@import "original-stylesheet";
-
+// Theme scss
 @import "components/components";
 @import "structure/structure";
 @import "templates/templates";
 @import "widgets/widgets";
 @import "modules/modules";
+
+@import "print";

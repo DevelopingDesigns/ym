@@ -58,5 +58,9 @@
 	}
 }
 
-
-
+@include media($medium-screen-up) {
+	.after-entry {
+		padding: 30px;
+		margin-bottom: 5%;
+	}
+}
