@@ -73,4 +73,3 @@ function webinars_create_post_type() {
 	register_post_type( 'webinar', $args );
 
 }
-
