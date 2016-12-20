@@ -11,3 +11,4 @@ require_once('resources/resources.php');
 require_once('team/team.php');
 require_once('videos/videos.php');
 require_once('webinars/webinars.php');
+require_once('menus/menus.php');
