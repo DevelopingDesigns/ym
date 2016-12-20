@@ -99,6 +99,8 @@ if ( ! class_exists( 'WPS_Brand' ) ) {
 		 * @since 1.0.0
 		 */
 		public function login_styles() {
+
+			// @todo Check login.css exists in theme, if so load it!
 			if ( is_string( $this->args['login_style'] ) ) {
 				printf( '<style type="text/css">body.login div#login h1 a { %s }</style>', $this->args['login_style'] );
 			} else {
@@ -110,7 +112,6 @@ if ( ! class_exists( 'WPS_Brand' ) ) {
 				);
 
 				$login_style = wp_parse_args( $args['login_style'], $defaults );
-
 
 				printf(
 					'<style type="text/css">body.login div#login h1 a { %s; }</style>',
