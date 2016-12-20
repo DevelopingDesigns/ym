@@ -83,7 +83,7 @@ function resources_create_taxonomy() {
 	$labels = array(
 		'name'                       => _x( 'Types', 'Taxonomy General Name', 'text_domain' ),
 		'singular_name'              => _x( 'Type', 'Taxonomy Singular Name', 'text_domain' ),
-		'menu_name'                  => __( 'Taxonomy', 'text_domain' ),
+		'menu_name'                  => __( 'Types', 'text_domain' ),
 		'all_items'                  => __( 'All Items', 'text_domain' ),
 		'parent_item'                => __( 'Parent Item', 'text_domain' ),
 		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
