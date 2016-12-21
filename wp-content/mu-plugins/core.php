@@ -104,3 +104,27 @@ WPS_WordPress_Cleanup::get_instance( array(
 //	),
 ) );
 WPS_Brand::get_instance();
+
+spl_autoload_register( 'ym_acf_core_autoload' );
+/**
+ *  SPL Class Autoloader for WPS_* classes.
+ *
+ *  @param string $class_name Class name being autoloaded.
+ *  @link http://us1.php.net/spl_autoload_register
+ *  @author	Travis Smith
+ *  @since 0.1.0
+ */
+function ym_acf_core_autoload( $class_name ) {
+
+	// Do nothing if class already exists, not prefixed WPS_ or K12_
+	if ( class_exists( $class_name, false ) || ( false === strpos( $class_name, 'YM_Core_' ) ) ) {
+		return;
+	}
+
+	// Load file
+	$file = plugin_dir_path( __FILE__ ) . "ym-core/classes/$class_name.php";
+	include_once( $file );
+
+}
+
+YM_Core_ACF::get_instance();
