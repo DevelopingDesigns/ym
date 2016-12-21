@@ -6,7 +6,7 @@ add_action( 'init', 'news_create_post_type', 0 );
  */
 function news_create_post_type() {
 
-	$labels = array(
+	$labels  = array(
 		'name'                  => _x( 'Articles', 'Post Type General Name', DD_MU_TEXT_DOMAIN ),
 		'singular_name'         => _x( 'Article', 'Post Type Singular Name', DD_MU_TEXT_DOMAIN ),
 		'menu_name'             => __( 'Articles', DD_MU_TEXT_DOMAIN ),
@@ -36,33 +36,72 @@ function news_create_post_type() {
 		'filter_items_list'     => __( 'Filter items list', DD_MU_TEXT_DOMAIN ),
 	);
 	$rewrite = array(
-		'slug'                  => 'article',
-		'with_front'            => true,
-		'pages'                 => true,
-		'feeds'                 => true,
+		'slug'       => 'article',
+		'with_front' => true,
+		'pages'      => true,
+		'feeds'      => true,
 	);
-	$args = array(
-		'label'                 => __( 'Articles', DD_MU_TEXT_DOMAIN ),
-		'description'           => __( 'For Articles', DD_MU_TEXT_DOMAIN ),
-		'labels'                => $labels,
-		'supports'              => array( 'title', 'content', 'excerpt', 'revisions', 'thumbnail', 'custom-fields', 'page-attributes' ),
-		'hierarchical'          => false,
-		'public'                => true,
-		'show_ui'               => true,
-		'show_in_menu'          => true,
-		'menu_position'         => 6.2,
-		'menu_icon'             => 'dashicons-welcome-write-blog',
-		'show_in_admin_bar'     => true,
-		'show_in_nav_menus'     => true,
-		'can_export'            => true,
-		'has_archive'           => 'articles',
-		'exclude_from_search'   => true,
-		'publicly_queryable'    => false,
-		'rewrite'               => $rewrite,
-		'capability_type'       => 'post',
-		'show_in_rest'          => true,
+	$args    = array(
+		'label'               => __( 'Articles', DD_MU_TEXT_DOMAIN ),
+		'description'         => __( 'For Articles', DD_MU_TEXT_DOMAIN ),
+		'labels'              => $labels,
+		'supports'            => array(
+			'title',
+			'editor',
+			'excerpt',
+			'revisions',
+			'thumbnail',
+			'custom-fields',
+		),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 6.2,
+		'menu_icon'           => 'dashicons-welcome-write-blog',
+		'show_in_admin_bar'   => true,
+		'show_in_nav_menus'   => true,
+		'can_export'          => true,
+		'has_archive'         => 'articles',
+		'exclude_from_search' => true,
+		'publicly_queryable'  => false,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'post',
+		'show_in_rest'        => true,
 	);
 	register_post_type( 'article', $args );
 
 }
 
+//add_action( 'acf/init', 'news_create_acf' );
+/**
+ * Creates ACF Fields for post type
+ */
+function news_create_acf() {
+
+	if ( function_exists( 'acf_add_local_field_group' ) ) {
+		acf_add_local_field_group( array(
+			'key'      => 'articles',
+			'title'    => __( 'Articles', WPSCORE_PLUGIN_DOMAIN ),
+			'fields'   => array(
+				array(
+					'key'      => 'field_data',
+					'label'    => __( 'Data', WPSCORE_PLUGIN_DOMAIN ),
+					'name'     => 'data',
+					'required' => 1,
+					'type'     => 'text',
+				),
+				a
+			),
+			'location' => array(
+				array(
+					array(
+						'param'    => 'post_type',
+						'operator' => '==',
+						'value'    => 'article',
+					),
+				),
+			),
+		) );
+	}
+}
