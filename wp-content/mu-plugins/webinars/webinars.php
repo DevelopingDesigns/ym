@@ -47,12 +47,10 @@ function webinars_create_post_type() {
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
-			'content',
+			'editor',
 			'excerpt',
 			'revisions',
 			'thumbnail',
-			'custom-fields',
-			'page-attributes',
 		),
 		'hierarchical'        => false,
 		'public'              => true,
