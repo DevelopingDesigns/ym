@@ -6,7 +6,7 @@ add_action( 'init', 'landing_pages_create_post_type', 0 );
  */
 function landing_pages_create_post_type() {
 
-	$labels = array(
+	$labels  = array(
 		'name'                  => _x( 'Landing Page', 'Post Type General Name', DD_MU_TEXT_DOMAIN ),
 		'singular_name'         => _x( 'Landing Page', 'Post Type Singular Name', DD_MU_TEXT_DOMAIN ),
 		'menu_name'             => __( 'Landing Pages', DD_MU_TEXT_DOMAIN ),
@@ -36,31 +36,38 @@ function landing_pages_create_post_type() {
 		'filter_items_list'     => __( 'Filter items list', DD_MU_TEXT_DOMAIN ),
 	);
 	$rewrite = array(
-		'slug'                  => 'landing',
-		'with_front'            => true,
-		'pages'                 => true,
-		'feeds'                 => true,
+		'slug'       => 'landing',
+		'with_front' => true,
+		'pages'      => true,
+		'feeds'      => true,
 	);
-	$args = array(
-		'label'                 => __( 'Landing Page', DD_MU_TEXT_DOMAIN ),
-		'description'           => __( 'For Landing Pages', DD_MU_TEXT_DOMAIN ),
-		'labels'                => $labels,
-		'supports'              => array( 'title', 'content', 'excerpt', 'revisions', 'thumbnail', 'custom-fields', 'page-attributes' ),
-		'hierarchical'          => true,
-		'public'                => true,
-		'show_ui'               => true,
-		'show_in_menu'          => true,
-		'menu_position'         => 6.3,
-		'menu_icon'             => 'dashicons-align-left',
-		'show_in_admin_bar'     => true,
-		'show_in_nav_menus'     => true,
-		'can_export'            => true,
-		'has_archive'           => false,
-		'exclude_from_search'   => true,
-		'publicly_queryable'    => false,
-		'rewrite'               => $rewrite,
-		'capability_type'       => 'page',
-		'show_in_rest'          => true,
+	$args    = array(
+		'label'               => __( 'Landing Page', DD_MU_TEXT_DOMAIN ),
+		'description'         => __( 'For Landing Pages', DD_MU_TEXT_DOMAIN ),
+		'labels'              => $labels,
+		'supports'            => array(
+			'title',
+			'editor',
+			'excerpt',
+			'revisions',
+			'thumbnail',
+			'custom-fields',
+		),
+		'hierarchical'        => true,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 6.3,
+		'menu_icon'           => 'dashicons-align-left',
+		'show_in_admin_bar'   => true,
+		'show_in_nav_menus'   => true,
+		'can_export'          => true,
+		'has_archive'         => false,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => false,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+		'show_in_rest'        => true,
 	);
 	register_post_type( 'landing-page', $args );
 
