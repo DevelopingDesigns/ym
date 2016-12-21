@@ -47,7 +47,7 @@ function partners_create_post_type() {
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
-			'content',
+			'editor',
 			'excerpt',
 			'revisions',
 			'thumbnail',
