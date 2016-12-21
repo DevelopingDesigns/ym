@@ -47,7 +47,7 @@ function resources_create_post_type() {
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
-			'content',
+			'editor',
 			'excerpt',
 			'revisions',
 			'thumbnail',
@@ -80,7 +80,7 @@ add_action( 'init', 'resources_create_taxonomy', 0 );
  */
 function resources_create_taxonomy() {
 
-	$labels = array(
+	$labels  = array(
 		'name'                       => _x( 'Types', 'Taxonomy General Name', 'text_domain' ),
 		'singular_name'              => _x( 'Type', 'Taxonomy Singular Name', 'text_domain' ),
 		'menu_name'                  => __( 'Types', 'text_domain' ),
@@ -103,20 +103,20 @@ function resources_create_taxonomy() {
 		'items_list_navigation'      => __( 'Items list navigation', 'text_domain' ),
 	);
 	$rewrite = array(
-		'slug'                       => 'resource-type',
-		'with_front'                 => true,
-		'hierarchical'               => false,
+		'slug'         => 'resource-type',
+		'with_front'   => true,
+		'hierarchical' => false,
 	);
-	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
-		'rewrite'                    => $rewrite,
-		'show_in_rest'               => true,
+	$args    = array(
+		'labels'            => $labels,
+		'hierarchical'      => true,
+		'public'            => true,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'show_in_nav_menus' => true,
+		'show_tagcloud'     => true,
+		'rewrite'           => $rewrite,
+		'show_in_rest'      => true,
 	);
 	register_taxonomy( 'resource_type', array( 'resource' ), $args );
 
