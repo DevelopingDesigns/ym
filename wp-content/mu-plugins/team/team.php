@@ -50,8 +50,6 @@ function employees_create_post_type() {
 			'content',
 			'excerpt',
 			'thumbnail',
-			'custom-fields',
-			'page-attributes',
 		),
 		'hierarchical'        => false,
 		'public'              => true,
@@ -73,3 +71,46 @@ function employees_create_post_type() {
 
 }
 
+
+add_action( 'acf/init', 'employees_create_acf' );
+/**
+ * Creates ACF Fields for post type
+ */
+function employees_create_acf() {
+
+	if ( function_exists( 'acf_add_local_field_group' ) ) {
+		acf_add_local_field_group( array(
+			'key'      => 'employees',
+			'title'    => __( 'Employees', WPSCORE_PLUGIN_DOMAIN ),
+			'fields'   => array(
+				array(
+					'key'           => 'field_title',
+					'label'         => __( 'Title', WPSCORE_PLUGIN_DOMAIN ),
+					'name'          => 'title',
+					'required'      => 1,
+					'type'          => 'text',
+					'placeholder'   => __( 'Director of YM Newbies', WPSCORE_PLUGIN_DOMAIN ),
+				),
+			),
+			'location' => array(
+				array(
+					array(
+						'param'    => 'post_type',
+						'operator' => '==',
+						'value'    => 'employee',
+					),
+				),
+			),
+		) );
+	}
+}
+
+/*
+add_filter( 'the_content', 'employees_filter_the_content' );
+function employees_filter_the_content( $content ) {
+	if ( 'employee' === get_the_post_type() ) {
+        return get_field( 'content' );
+	}
+	return $content;
+}
+ */
