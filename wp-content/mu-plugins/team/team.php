@@ -47,7 +47,7 @@ function employees_create_post_type() {
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
-			'content',
+			'editor',
 			'excerpt',
 			'thumbnail',
 		),
