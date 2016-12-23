@@ -41,14 +41,21 @@ function theme_setup() {
 		]
 	);
 
-	add_theme_support( 'custom-header', [
-		'width'           => 600,
-		'height'          => 160,
-		'header-selector' => '.site-title a',
-		'header-text'     => false,
-		'flex-height'     => true,
-		]
-	);
+
+	/**
+	 * Add theme support for selective refresh for widgets
+	 */
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	/**
+	 * Add theme support for Custom Logo
+	 */
+	add_theme_support( 'custom-logo', array(
+		'width'      => 360,
+		'height'     => 176,
+		'flex-width' => true,
+	) );
+
 
 	add_theme_support( 'genesis-menus', [
 		'primary' => __( 'After Header Menu', 'ym' ),
