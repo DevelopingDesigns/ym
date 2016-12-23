@@ -53,6 +53,7 @@ function theme_setup() {
 	add_theme_support( 'genesis-menus', [
 		'primary' => __( 'After Header Menu', 'ym' ),
 		'secondary' => __( 'Footer Menu', 'ym' ),
+	    'utility' => __( 'Utility Menu', 'ym' ),
 		]
 	);
 

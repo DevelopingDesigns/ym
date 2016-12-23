@@ -24,6 +24,7 @@ require_once __DIR__ . '/inc/widgets.php';
 require_once __DIR__ . '/inc/theme-functions.php';
 require_once __DIR__ . '/inc/template-tags.php';
 include_once __DIR__ . '/inc/theme-defaults.php';
+include_once __DIR__ . '/inc/layout.php';
 
 
 /**
