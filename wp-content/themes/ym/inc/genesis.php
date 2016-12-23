@@ -80,6 +80,12 @@ function theme_setup() {
 	load_child_theme_textdomain( 'ym', apply_filters( 'child_theme_textdomain', get_stylesheet_directory() . '/languages', 'ym' ) );
 
 	/**
+	 * Reposition primary navigation
+	 */
+	remove_action( 'genesis_after_header', 'genesis_do_nav' );
+	add_action( 'genesis_header', 'genesis_do_nav', 12 );
+
+	/**
 	 * Reposition the secondary navigation menu
 	 */
 	remove_action( 'genesis_after_header', 'genesis_do_subnav' );
@@ -88,14 +94,14 @@ function theme_setup() {
 	/**
 	 * Disable Genesis SEO Menu item and in-post SEO
 	 */
-//	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
-//	remove_theme_support( 'genesis-seo-settings-menu' );
+	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
+	remove_theme_support( 'genesis-seo-settings-menu' );
 
 	/**
 	 * Remove output of primary navigation right extras
 	 */
-//	remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
-//	remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
+	remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
+	remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
 
 	/**
 	 * Remove site layouts
