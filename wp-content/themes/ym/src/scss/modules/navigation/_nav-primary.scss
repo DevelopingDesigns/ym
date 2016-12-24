@@ -4,6 +4,10 @@
 	#ubermenu-main-2-primary {
 		float: right;
 
+		.ubermenu-item-level-0 {
+			@include padding(null 15px);
+		}
+
 		a {
 			color: $black1;
 			font-weight: bold;
@@ -57,7 +61,7 @@
 		// Who We Serve
 		#menu-item-75 {
 			.ubermenu-submenu {
-				@include padding(20px null);
+				@include padding(25px null 20px null);
 				margin-top: 7px;
 
 				.ubermenu-item-header {

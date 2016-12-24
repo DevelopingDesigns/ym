@@ -1498,6 +1498,9 @@ p.entry-meta {
   padding-top: 30px; }
   .nav-primary #ubermenu-main-2-primary {
     float: right; }
+    .nav-primary #ubermenu-main-2-primary .ubermenu-item-level-0 {
+      padding-right: 15px;
+      padding-left: 15px; }
     .nav-primary #ubermenu-main-2-primary a {
       color: #333;
       font-weight: bold; }
@@ -1523,7 +1526,7 @@ p.entry-meta {
         .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a:hover, .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a:active {
           color: #a8ad00; }
     .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu {
-      padding-top: 20px;
+      padding-top: 25px;
       padding-bottom: 20px;
       margin-top: 7px; }
       .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-header a {
