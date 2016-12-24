@@ -41,6 +41,16 @@ function theme_setup() {
 		]
 	);
 
+	add_theme_support( 'genesis-structural-wraps', [
+		'header',
+		//'menu-primary',
+		'menu-secondary',
+		'site-inner',
+		'footer-widgets',
+		'footer',
+		]
+	);
+
 
 	/**
 	 * Add theme support for selective refresh for widgets
@@ -52,7 +62,7 @@ function theme_setup() {
 	 */
 	add_theme_support( 'custom-logo', array(
 		'width'      => 360,
-		'height'     => 176,
+		'height'     => 166,
 		'flex-width' => true,
 	) );
 

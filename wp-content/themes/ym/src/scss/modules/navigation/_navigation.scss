@@ -47,7 +47,6 @@
 	.sub-menu .current-menu-item > a:hover,
 	.sub-menu .current-menu-item > a:focus {
 		color: #c3251d;
-		text-decoration: underline;
 	}
 
 	.sub-menu {
@@ -91,9 +90,5 @@
 }
 
 
-.nav-primary {
-	float: left;
-}
-
-
+@import "nav-primary";
 @import "responsive-nav";

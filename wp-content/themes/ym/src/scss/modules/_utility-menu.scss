@@ -1,4 +1,19 @@
 .before-header {
 	background-color: $white;
 	text-align: right;
+
+	.genesis-nav-menu {
+
+		a {
+			@include padding(10px null);
+			color: $grey;
+			font-size: 14px;
+
+			&:hover,
+			&:active {
+				color: $black1;
+			}
+		}
+
+	}
 }

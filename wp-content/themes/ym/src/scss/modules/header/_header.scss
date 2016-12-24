@@ -4,11 +4,10 @@
 .site-header {
 	background-color: #fff;
 
-	& > .wrap {
-		padding: 20px 0;
-	}
+	> .wrap {
+		@include display(flex);
+		position: relative;
 
-	.wrap {
 		@include media($large-screen-up) {
 			padding-left: 5%;
 			padding-right: 5%;
@@ -16,9 +15,16 @@
 	}
 
 	.title-area {
+		width: 15%;
+
 		@include media($large-screen-up) {
 			text-align: center;
 		}
+	}
+
+	.nav-primary {
+		text-align: right;
+		width: 85%;
 	}
 
 	ul.genesis-nav-menu {
