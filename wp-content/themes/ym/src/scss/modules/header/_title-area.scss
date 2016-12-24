@@ -2,9 +2,7 @@
 --------------------------------------------- */
 
 .title-area {
-	float: left;
 	min-height: 88px;
-	width: 180px;
 
 	@include media($large-screen-up) {
 		width: 100%;
