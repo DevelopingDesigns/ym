@@ -4,23 +4,16 @@
 .title-area {
 	min-height: 88px;
 
-	@include media($large-screen-up) {
-		width: 100%;
+	img {
+		@include media($xlarge-screen-up) {
+			padding-top: 13px;
+		}
 	}
 }
 
 .header-image .site-title {
 	display: block;
 	text-indent: -9999px;
-}
-
-.header-image .title-area {
-	margin: 0 auto;
-	padding: 0;
-
-	@include media($large-screen-up) {
-		float: none;
-	}
 }
 
 

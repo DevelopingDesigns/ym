@@ -2,6 +2,10 @@
 	background-color: $white;
 	text-align: right;
 
+	@include media($xlarge-screen-up) {
+		display: none;
+	}
+
 	.genesis-nav-menu {
 
 		a {
