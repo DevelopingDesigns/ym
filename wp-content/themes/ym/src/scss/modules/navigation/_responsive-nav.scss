@@ -15,6 +15,12 @@
 	}
 
 	#side-menu {
+		background-color: $white;
+
+		.sub-menu-toggle::before {
+			color: $black1;
+		}
+
 		.menu-close {
 			display: none;
 		}
@@ -26,9 +32,28 @@
 			a {
 				background-color: $green1;
 				border-radius: 50px;
+				color: $white !important;
 				text-align: center;
 				text-transform: uppercase;
 			}
 		}
+
+		.menu-item {
+			a {
+				border: 0;
+				color: $green2;
+			}
+
+			&.menu-item-has-children {
+				a {
+					background-color: $grey4;
+					border-bottom: 1px solid $white;
+					border-top: 1px solid $white;
+					color: $black1;
+				}
+			}
+		}
+
+
 	}
 }

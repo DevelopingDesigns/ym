@@ -1555,16 +1555,29 @@ p.entry-meta {
 @media screen and (max-width: 1200px) {
     .slide-nav-link::before {
       font-size: 40px !important; }
-  #side-menu .menu-close {
-    display: none; }
-  #side-menu .mobile-cta {
-    padding: 30px;
+  #side-menu {
     background-color: #fff; }
-    #side-menu .mobile-cta a {
-      background-color: #a8ad00;
-      border-radius: 50px;
-      text-align: center;
-      text-transform: uppercase; } }
+    #side-menu .sub-menu-toggle::before {
+      color: #333; }
+    #side-menu .menu-close {
+      display: none; }
+    #side-menu .mobile-cta {
+      padding: 30px;
+      background-color: #fff; }
+      #side-menu .mobile-cta a {
+        background-color: #a8ad00;
+        border-radius: 50px;
+        color: #fff !important;
+        text-align: center;
+        text-transform: uppercase; }
+    #side-menu .menu-item a {
+      border: 0;
+      color: #d0dd28; }
+    #side-menu .menu-item.menu-item-has-children a {
+      background-color: #e2e7eb;
+      border-bottom: 1px solid #fff;
+      border-top: 1px solid #fff;
+      color: #333; } }
 
 /* ## Comments
 --------------------------------------------- */
