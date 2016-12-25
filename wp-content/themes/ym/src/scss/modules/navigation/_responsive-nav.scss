@@ -13,4 +13,22 @@
 			font-size: 40px !important;
 		}
 	}
+
+	#side-menu {
+		.menu-close {
+			display: none;
+		}
+
+		.mobile-cta {
+			@include padding(30px);
+			background-color: $white;
+
+			a {
+				background-color: $green1;
+				border-radius: 50px;
+				text-align: center;
+				text-transform: uppercase;
+			}
+		}
+	}
 }
