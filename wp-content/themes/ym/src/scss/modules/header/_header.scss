@@ -17,9 +17,10 @@
 	.title-area {
 		width: 15%;
 
-		@include media($large-screen-up) {
-			text-align: center;
+		@include media($xlarge-screen-up) {
+			width: 180px;
 		}
+
 	}
 
 	.nav-primary {

@@ -28,24 +28,5 @@ function enqueue_assets() {
 
 	wp_enqueue_style( 'dashicons' );
 
-	wp_enqueue_script(
-		'ym-responsive-menu',
-		get_stylesheet_directory_uri() . '/dist/js/custom/responsive-menu.js',
-		array( 'jquery' ),
-		'1.0.0',
-		true
-	);
-
-	$output = array(
-		'mainMenu' => __( 'Menu', 'ym' ),
-		'subMenu'  => __( 'Menu', 'ym' ),
-	);
-
-	wp_localize_script(
-		'ym-responsive-menu',
-		'ymL10n',
-		$output
-	);
-
 }
 
