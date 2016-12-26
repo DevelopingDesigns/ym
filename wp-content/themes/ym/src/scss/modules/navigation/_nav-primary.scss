@@ -1,5 +1,4 @@
 .nav-primary {
-	padding-top: 30px;
 
 	#ubermenu-main-2-primary {
 		float: right;
@@ -28,7 +27,7 @@
 		// Products
 		.ubermenu-submenu-type-mega {
 			@include padding(20px 40px);
-			margin-top: 7px;
+			margin-top: 20px;
 
 			.ubermenu-submenu {
 
@@ -89,4 +88,8 @@
 		}
 
 	}
+}
+
+nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after {
+	display: none;
 }

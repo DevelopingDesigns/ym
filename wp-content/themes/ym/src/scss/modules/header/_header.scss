@@ -1,5 +1,6 @@
 /* # Site Header
 ---------------------------------------------------------------------------------------------------- */
+@import "title-area";
 
 .site-header {
 	background-color: #fff;
@@ -24,20 +25,28 @@
 	}
 
 	.nav-primary {
+		padding-top: 20px;
 		text-align: right;
 		width: 85%;
 	}
+}
 
-	ul.genesis-nav-menu {
-		@include media($large-screen-up) {
-			float: none;
-		}
-	}
+/* # Site Header - Smaller
+---------------------------------------------------------------------------------------------------- */
 
-	.genesis-nav-menu li li {
-		margin-left: 0;
+.site-header.smaller {
+	min-height: 100px;
+	padding-top: 7px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+	.nav-primary {
+		padding-top: 15px;
 	}
 }
 
 
-@import "title-area";
+
+
+

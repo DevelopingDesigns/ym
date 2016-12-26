@@ -1371,34 +1371,6 @@ p.entry-meta {
 
 /* # Site Header
 ---------------------------------------------------------------------------------------------------- */
-.site-header {
-  background-color: #fff; }
-  .site-header > .wrap {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    position: relative; }
-    @media screen and (max-width: 1023px) {
-      .site-header > .wrap {
-        padding-left: 5%;
-        padding-right: 5%; } }
-  .site-header .title-area {
-    width: 15%; }
-    @media screen and (max-width: 1200px) {
-      .site-header .title-area {
-        width: 180px; } }
-  .site-header .nav-primary {
-    text-align: right;
-    width: 85%; }
-  @media screen and (max-width: 1023px) {
-    .site-header ul.genesis-nav-menu {
-      float: none; } }
-  .site-header .genesis-nav-menu li li {
-    margin-left: 0; }
-
 /* ## Title Area
 --------------------------------------------- */
 .title-area {
@@ -1425,6 +1397,41 @@ p.entry-meta {
   .site-title a:focus {
     color: #333;
     text-decoration: none; }
+
+.site-header {
+  background-color: #fff; }
+  .site-header > .wrap {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative; }
+    @media screen and (max-width: 1023px) {
+      .site-header > .wrap {
+        padding-left: 5%;
+        padding-right: 5%; } }
+  .site-header .title-area {
+    width: 15%; }
+    @media screen and (max-width: 1200px) {
+      .site-header .title-area {
+        width: 180px; } }
+  .site-header .nav-primary {
+    padding-top: 20px;
+    text-align: right;
+    width: 85%; }
+
+/* # Site Header - Smaller
+---------------------------------------------------------------------------------------------------- */
+.site-header.smaller {
+  min-height: 100px;
+  padding-top: 7px;
+  position: fixed;
+  top: 0;
+  width: 100%; }
+  .site-header.smaller .nav-primary {
+    padding-top: 15px; }
 
 /* # Site Navigation
 ---------------------------------------------------------------------------------------------------- */
@@ -1490,55 +1497,56 @@ p.entry-meta {
   .genesis-nav-menu > .right {
     float: right; }
 
-.nav-primary {
-  padding-top: 30px; }
-  .nav-primary #ubermenu-main-2-primary {
-    float: right; }
-    .nav-primary #ubermenu-main-2-primary .ubermenu-item-level-0 {
-      padding-right: 15px;
-      padding-left: 15px; }
-    .nav-primary #ubermenu-main-2-primary a {
-      color: #333;
-      font-weight: bold; }
-      .nav-primary #ubermenu-main-2-primary a:hover, .nav-primary #ubermenu-main-2-primary a:active {
+.nav-primary #ubermenu-main-2-primary {
+  float: right; }
+  .nav-primary #ubermenu-main-2-primary .ubermenu-item-level-0 {
+    padding-right: 15px;
+    padding-left: 15px; }
+  .nav-primary #ubermenu-main-2-primary a {
+    color: #333;
+    font-weight: bold; }
+    .nav-primary #ubermenu-main-2-primary a:hover, .nav-primary #ubermenu-main-2-primary a:active {
+      color: #a8ad00; }
+  .nav-primary #ubermenu-main-2-primary .menu-cta > a {
+    background-color: #a8ad00;
+    border-radius: 50px;
+    color: #fff;
+    text-transform: uppercase; }
+  .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega {
+    padding: 20px 40px;
+    margin-top: 20px; }
+    .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu a {
+      padding: 0; }
+    .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-2 a {
+      font-size: 18px; }
+    .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a {
+      padding: 5px 0;
+      color: #a3a9ae;
+      font-size: 16px;
+      font-weight: normal; }
+      .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a:hover, .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a:active {
         color: #a8ad00; }
-    .nav-primary #ubermenu-main-2-primary .menu-cta > a {
-      background-color: #a8ad00;
-      border-radius: 50px;
-      color: #fff;
-      text-transform: uppercase; }
-    .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega {
-      padding: 20px 40px;
-      margin-top: 7px; }
-      .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu a {
-        padding: 0; }
-      .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-2 a {
-        font-size: 18px; }
-      .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a {
-        padding: 5px 0;
-        color: #a3a9ae;
-        font-size: 16px;
-        font-weight: normal; }
-        .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a:hover, .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a:active {
-          color: #a8ad00; }
-    .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu {
-      padding-top: 25px;
-      padding-bottom: 20px;
-      margin-top: 7px; }
-      .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-header a {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        color: #333;
-        font-size: 18px;
-        font-weight: bold; }
-      .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-auto a {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        color: #a3a9ae;
-        font-size: 16px;
-        font-weight: normal; }
-        .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-auto a:hover, .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-auto a:active {
-          color: #a8ad00; }
+  .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu {
+    padding-top: 25px;
+    padding-bottom: 20px;
+    margin-top: 7px; }
+    .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-header a {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #333;
+      font-size: 18px;
+      font-weight: bold; }
+    .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-auto a {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #a3a9ae;
+      font-size: 16px;
+      font-weight: normal; }
+      .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-auto a:hover, .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-auto a:active {
+        color: #a8ad00; }
+
+nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after {
+  display: none; }
 
 @media screen and (max-width: 1200px) {
   .slide-nav-link {
