@@ -26,7 +26,12 @@ function enqueue_assets() {
 		CHILD_THEME_VERSION
 	);
 
-	wp_enqueue_style( 'dashicons' );
-
+	wp_enqueue_script(
+		'app',
+		get_stylesheet_directory_uri() . '/dist/js/custom/app.js',
+		[ 'jquery' ],
+		CHILD_THEME_VERSION,
+		true
+	);
 }
 
