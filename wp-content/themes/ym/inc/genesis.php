@@ -41,18 +41,36 @@ function theme_setup() {
 		]
 	);
 
-	add_theme_support( 'custom-header', [
-		'width'           => 600,
-		'height'          => 160,
-		'header-selector' => '.site-title a',
-		'header-text'     => false,
-		'flex-height'     => true,
+	add_theme_support( 'genesis-structural-wraps', [
+		'header',
+		//'menu-primary',
+		'menu-secondary',
+		'site-inner',
+		'footer-widgets',
+		'footer',
 		]
 	);
+
+
+	/**
+	 * Add theme support for selective refresh for widgets
+	 */
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	/**
+	 * Add theme support for Custom Logo
+	 */
+	add_theme_support( 'custom-logo', array(
+		'width'      => 360,
+		'height'     => 166,
+		'flex-width' => true,
+	) );
+
 
 	add_theme_support( 'genesis-menus', [
 		'primary' => __( 'After Header Menu', 'ym' ),
 		'secondary' => __( 'Footer Menu', 'ym' ),
+	    'utility' => __( 'Utility Menu', 'ym' ),
 		]
 	);
 
@@ -72,6 +90,12 @@ function theme_setup() {
 	load_child_theme_textdomain( 'ym', apply_filters( 'child_theme_textdomain', get_stylesheet_directory() . '/languages', 'ym' ) );
 
 	/**
+	 * Reposition primary navigation
+	 */
+	remove_action( 'genesis_after_header', 'genesis_do_nav' );
+	add_action( 'genesis_header', 'genesis_do_nav', 12 );
+
+	/**
 	 * Reposition the secondary navigation menu
 	 */
 	remove_action( 'genesis_after_header', 'genesis_do_subnav' );
@@ -80,14 +104,14 @@ function theme_setup() {
 	/**
 	 * Disable Genesis SEO Menu item and in-post SEO
 	 */
-//	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
-//	remove_theme_support( 'genesis-seo-settings-menu' );
+	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
+	remove_theme_support( 'genesis-seo-settings-menu' );
 
 	/**
 	 * Remove output of primary navigation right extras
 	 */
-//	remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
-//	remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
+	remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
+	remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
 
 	/**
 	 * Remove site layouts

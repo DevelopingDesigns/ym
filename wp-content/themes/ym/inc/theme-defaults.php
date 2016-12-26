@@ -69,3 +69,5 @@ function theme_setting_defaults() {
 add_action( 'init', function () {
 	add_image_size( 'featured-image', 720, 400, true );
 } );
+
+

@@ -2,29 +2,20 @@
 --------------------------------------------- */
 
 .title-area {
-	float: left;
-	padding: 10px 0;
-	width: 300px;
+	min-height: 88px;
 
-	@include media($large-screen-up) {
-		width: 100%;
+	img {
+		@include media($xlarge-screen-up) {
+			padding-top: 13px;
+		}
 	}
 }
 
-.header-image .title-area {
-	margin: 0 auto;
-	max-width: 300px;
-	padding: 0;
-
-	@include media($large-screen-up) {
-		float: none;
-	}
+.header-image .site-title {
+	display: block;
+	text-indent: -9999px;
 }
 
-.header-full-width .title-area {
-	float: none;
-	width: 100%;
-}
 
 .site-title {
 	@include font-size(30);
@@ -44,23 +35,4 @@
 	}
 }
 
-.header-image .site-title > a {
-	background-position: center !important;
-	background-size: contain !important;
-	float: left;
-	min-height: 80px;
-	width: 100%;
-}
 
-.header-image .site-title {
-	display: block;
-	text-indent: -9999px;
-
-	& > a {
-		background-position: center !important;
-		background-size: contain !important;
-		float: left;
-		min-height: 80px;
-		width: 100%;
-	}
-}
