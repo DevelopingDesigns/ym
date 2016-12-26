@@ -1,0 +1,95 @@
+.nav-primary {
+
+	#ubermenu-main-2-primary {
+		float: right;
+
+		.ubermenu-item-level-0 {
+			@include padding(null 15px);
+		}
+
+		a {
+			color: $black1;
+			font-weight: bold;
+
+			&:hover,
+			&:active {
+				color: $green1;
+			}
+		}
+
+		.menu-cta > a {
+			background-color: $green1;
+			border-radius: 50px;
+			color: $white;
+			text-transform: uppercase;
+		}
+
+		// Products
+		.ubermenu-submenu-type-mega {
+			@include padding(20px 40px);
+			margin-top: 20px;
+
+			.ubermenu-submenu {
+
+				a {
+					@include padding(0);
+				}
+
+				.ubermenu-item-level-2 {
+					a {
+						font-size: 18px;
+					}
+				}
+
+				.ubermenu-item-level-3 {
+					a {
+						@include padding(5px 0);
+						color: $grey2;
+						font-size: 16px;
+						font-weight: normal;
+
+						&:hover,
+						&:active {
+							color: $green1;
+						}
+					}
+				}
+			}
+		}
+
+		// Who We Serve
+		#menu-item-75 {
+			.ubermenu-submenu {
+				@include padding(25px null 20px null);
+				margin-top: 7px;
+
+				.ubermenu-item-header {
+					a {
+						@include padding(5px null);
+						color: $black1;
+						font-size: 18px;
+						font-weight: bold;
+					}
+				}
+				.ubermenu-item-auto {
+					a {
+						@include padding(5px null);
+						color: $grey2;
+						font-size: 16px;
+						font-weight: normal;
+
+						&:hover,
+						&:active {
+							color: $green1;
+						}
+					}
+				}
+			}
+		}
+
+	}
+}
+
+nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after {
+	display: none;
+}
