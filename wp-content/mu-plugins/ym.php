@@ -54,43 +54,10 @@ require_once( 'advanced-custom-fields-pro/acf.php' );
 require_once( 'cpt-onomies/cpt-onomies.php' );
 require_once( 'cpt-onomies-extended/cpt-onomies-extended.php' );
 
-function ym_add_flexible_content_support( $supports ) {
-	global $_wp_theme_features;
-
-	$current_supports = (array) $_wp_theme_features['flexible-content-location'];
-
-//	$s = array(
-//		array (
-//			array (
-//				'param' => 'post_type',
-//				'operator' => '==',
-//				'value' => 'page',
-//			)
-//		)
-//	);
-
-//	echo '<h3>Supports</h3>' . "\n" .
-//	'<pre>' .
-//	     print_r( $supports, 1 ) .
-//	     '</pre>';
-//	echo '<h3>Current</h3>' . "\n" . '<pre>' .
-//	     print_r( $current_supports[0], 1 ) .
-//	     '</pre>';
-//	echo '<hr/>';
-
-	if ( empty( $current_supports ) ) {
-		$new_supports = array( (array) $supports );
-	} else {
-		$new_supports = $current_supports[0];
-//		$new_supports = $new_supports[0];
-		$new_supports[] = (array) $supports;
-	}
-
-	$_wp_theme_features['flexible-content-location'] = array( $new_supports );
-//	$_wp_theme_features['flexible-content-location'] = array( $new_supports );
-}
-
 add_action( 'plugins_loaded', 'ym_page_post_acf_content_blocks_support', 5 );
+/**
+ * Add ACF Content Blocks Support to Theme
+ */
 function ym_page_post_acf_content_blocks_support() {
 	global $_wp_theme_features;
 
