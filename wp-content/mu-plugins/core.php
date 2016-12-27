@@ -107,7 +107,8 @@ WPS_WordPress_Cleanup::get_instance( array(
 ) );
 WPS_Brand::get_instance();
 
-
+require_once( 'wps-core/acf/acf-flexible-content-blocks/acf-flexible-content-blocks.php' );
+require_once( 'wps-core/acf/acf-builder/autoload.php' );
 
 // @todo Events segmentation by category
 // @todo Webinar EducationEvent
