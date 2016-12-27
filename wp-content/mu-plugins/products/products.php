@@ -72,7 +72,7 @@ function products_create_post_type() {
 	);
 	register_post_type( 'product', $args );
 
-	new WPS_Schema( 'product', 'product' );
+	new WPS_Entry_Schema( 'product', 'product' );
 
 }
 

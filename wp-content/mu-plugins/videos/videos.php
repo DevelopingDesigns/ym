@@ -69,7 +69,7 @@ function videos_create_post_type() {
 	);
 	register_post_type( 'video', $args );
 
-	new WPS_Schema( 'video', 'video' );
+	new WPS_Entry_Schema( 'video', 'video' );
 }
 
 //add_action( 'plugins_loaded', 'videos_acf_content_blocks_support', 15 );

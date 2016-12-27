@@ -70,5 +70,5 @@ function webinars_create_post_type() {
 	);
 	register_post_type( 'webinar', $args );
 
-	new WPS_Schema( 'webinar', 'education-event' );
+	new WPS_Entry_Schema( 'webinar', 'education-event' );
 }

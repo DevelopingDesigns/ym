@@ -72,5 +72,5 @@ function landing_pages_create_post_type() {
 	);
 	register_post_type( 'landing-page', $args );
 
-	new WPS_Schema( 'landing-page', 'article' );
+	new WPS_Entry_Schema( 'landing-page', 'article' );
 }

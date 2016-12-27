@@ -66,7 +66,7 @@ function locations_create_post_type() {
 	);
 	register_post_type( 'location', $args );
 
-	new WPS_Schema( 'location', 'location' );
+	new WPS_Entry_Schema( 'location', 'location' );
 }
 
 
@@ -117,7 +117,6 @@ function locations_create_taxonomy() {
 	register_taxonomy( 'location_type', array( 'location' ), $args );
 
 }
-
 
 add_action( 'acf/init', 'location_create_acf' );
 /**
