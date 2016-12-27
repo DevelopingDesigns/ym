@@ -1,14 +1,14 @@
 /* # Site Header
 ---------------------------------------------------------------------------------------------------- */
+@import "title-area";
 
 .site-header {
 	background-color: #fff;
 
-	& > .wrap {
-		padding: 20px 0;
-	}
+	> .wrap {
+		@include display(flex);
+		position: relative;
 
-	.wrap {
 		@include media($large-screen-up) {
 			padding-left: 5%;
 			padding-right: 5%;
@@ -16,21 +16,37 @@
 	}
 
 	.title-area {
-		@include media($large-screen-up) {
-			text-align: center;
+		width: 15%;
+
+		@include media($xlarge-screen-up) {
+			width: 180px;
 		}
+
 	}
 
-	ul.genesis-nav-menu {
-		@include media($large-screen-up) {
-			float: none;
-		}
+	.nav-primary {
+		padding-top: 20px;
+		text-align: right;
+		width: 85%;
 	}
+}
 
-	.genesis-nav-menu li li {
-		margin-left: 0;
+/* # Site Header - Smaller
+---------------------------------------------------------------------------------------------------- */
+
+.site-header.smaller {
+	min-height: 100px;
+	padding-top: 7px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+	.nav-primary {
+		padding-top: 15px;
 	}
 }
 
 
-@import "title-area";
+
+
+
