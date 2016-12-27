@@ -1,5 +1,7 @@
 <?php
 
+use StoutLogic\AcfBuilder\FieldsBuilder;
+
 add_action( 'init', 'locations_create_post_type', 0 );
 /**
  * Register custom post type
@@ -68,78 +70,94 @@ function locations_create_post_type() {
 }
 
 
+add_action( 'init', 'locations_create_taxonomy', 0 );
+/**
+ * Register Custom Taxonomy
+ */
+function locations_create_taxonomy() {
+
+	$labels  = array(
+		'name'                       => _x( 'Types', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'Type', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'Types', 'text_domain' ),
+		'all_items'                  => __( 'All Items', 'text_domain' ),
+		'parent_item'                => __( 'Parent Item', 'text_domain' ),
+		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
+		'new_item_name'              => __( 'New Item Name', 'text_domain' ),
+		'add_new_item'               => __( 'Add New Item', 'text_domain' ),
+		'edit_item'                  => __( 'Edit Item', 'text_domain' ),
+		'update_item'                => __( 'Update Item', 'text_domain' ),
+		'view_item'                  => __( 'View Item', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+		'popular_items'              => __( 'Popular Items', 'text_domain' ),
+		'search_items'               => __( 'Search Items', 'text_domain' ),
+		'not_found'                  => __( 'Not Found', 'text_domain' ),
+		'no_terms'                   => __( 'No items', 'text_domain' ),
+		'items_list'                 => __( 'Items list', 'text_domain' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'text_domain' ),
+	);
+	$rewrite = array(
+		'slug'         => 'resource-type',
+		'with_front'   => true,
+		'hierarchical' => false,
+	);
+	$args    = array(
+		'labels'            => $labels,
+		'hierarchical'      => true,
+		'public'            => true,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'show_in_nav_menus' => true,
+		'show_tagcloud'     => true,
+		'rewrite'           => $rewrite,
+		'show_in_rest'      => true,
+	);
+	register_taxonomy( 'location_type', array( 'location' ), $args );
+
+}
+
+
 add_action( 'acf/init', 'location_create_acf' );
 /**
  * Creates ACF Fields for post type
  */
 function location_create_acf() {
 
-	if ( function_exists( 'acf_add_local_field_group' ) ) {
-		$fields = array();
-
-		$fields[] = array(
-			'key'         => 'field_address_1',
-			'label'       => __( 'Address 1', WPSCORE_PLUGIN_DOMAIN ),
-			'name'        => 'address_1',
+	$location = new FieldsBuilder( 'location', array(
+		'title' => __( 'Location Information', WPSCORE_PLUGIN_DOMAIN ),
+	) );
+	$location
+//		->addTaxonomy( 'location_type', array(
+//			'taxonomy' => 'location_type',
+//		) )
+		->addText( 'address_1', array(
 			'required'    => 1,
-			'type'        => 'text',
 			'placeholder' => __( '9620 Executive Center Dr.', WPSCORE_PLUGIN_DOMAIN ),
-		);
-		$fields[] = array(
-			'key'         => 'field_address_2',
-			'label'       => __( 'Address 2', WPSCORE_PLUGIN_DOMAIN ),
-			'name'        => 'address_2',
-			'required'    => 0,
-			'type'        => 'text',
+		) )
+		->addText( 'address_2', array(
 			'placeholder' => __( 'N #200', WPSCORE_PLUGIN_DOMAIN ),
-		);
-		$fields[] = array(
-			'key'         => 'field_city',
-			'label'       => __( 'City', WPSCORE_PLUGIN_DOMAIN ),
-			'name'        => 'city',
+		) )
+		->addText( 'city', array(
 			'required'    => 1,
-			'type'        => 'text',
 			'placeholder' => __( 'St. Petersburg', WPSCORE_PLUGIN_DOMAIN ),
-		);
-		$fields[] = array(
-			'key'         => 'field_state',
-			'label'       => __( 'State', WPSCORE_PLUGIN_DOMAIN ),
-			'name'        => 'state',
+		) )
+		->addText( 'state', array(
 			'required'    => 1,
-			'type'        => 'text',
 			'placeholder' => __( 'FL', WPSCORE_PLUGIN_DOMAIN ),
-		);
-		$fields[] = array(
-			'key'         => 'field_zip',
-			'label'       => __( 'Postal Code', WPSCORE_PLUGIN_DOMAIN ),
-			'name'        => 'zip',
+		) )
+		->addText( 'postal_code', array(
 			'required'    => 1,
-			'type'        => 'text',
-			'placeholder' => '33702',
-		);
-		$fields[] = array(
-			'key'           => 'field_country',
-			'label'         => __( 'Country', WPSCORE_PLUGIN_DOMAIN ),
-			'name'          => 'country',
-			'required'      => 1,
-			'type'          => 'text',
-			'default_value' => __( 'United States', WPSCORE_PLUGIN_DOMAIN ),
-		);
-
-		acf_add_local_field_group( array(
-			'key'      => 'locations',
-			'title'    => __( 'Location Information', WPSCORE_PLUGIN_DOMAIN ),
-			'fields'   => $fields,
-			'location' => array(
-				array(
-					array(
-						'param'    => 'post_type',
-						'operator' => '==',
-						'value'    => 'location',
-					),
-				),
-			),
-		) );
+			'placeholder' => 33702,
+		) )
+		->addText( 'country', array(
+			'required'    => 1,
+			'placeholder' => __( 'United States', WPSCORE_PLUGIN_DOMAIN ),
+		) )
+		->setLocation( 'post_type', '==', 'location' );
+	if ( function_exists( 'acf_add_local_field_group' ) ) {
+		acf_add_local_field_group( $location->build() );
 	}
 }
 
