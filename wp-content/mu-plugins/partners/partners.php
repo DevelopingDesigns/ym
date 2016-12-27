@@ -72,5 +72,16 @@ function partners_create_post_type() {
 	);
 	register_post_type( 'partner', $args );
 
+	new WPS_Schema( 'partner', 'business' );
 }
 
+//add_action( 'plugins_loaded', 'partner_acf_content_blocks_support', 15 );
+function partner_acf_content_blocks_support() {
+	if ( function_exists( 'ym_add_flexible_content_support' ) ) {
+		ym_add_flexible_content_support( array (
+			'param' => 'post_type',
+			'operator' => '==',
+			'value' => 'partner',
+		) );
+	}
+}
