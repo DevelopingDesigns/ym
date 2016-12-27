@@ -85,7 +85,7 @@ if ( ! class_exists( 'Gamajo_Template_Loader' ) ) {
 		 *
 		 * @param string $slug Template slug.
 		 * @param string $name Optional. Template variation name. Default null.
-		 * @param bool   $load Optional. Whether to load template. Default true.
+		 * @param bool $load Optional. Whether to load template. Default true.
 		 *
 		 * @return string
 		 */
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Gamajo_Template_Loader' ) ) {
 		 *
 		 * @since 1.2.0
 		 *
-		 * @param array  $data     Custom data for the template.
+		 * @param array $data Custom data for the template.
 		 * @param string $var_name Optional. Variable under which the custom data is available in the template.
 		 *                         Default is 'data'.
 		 */
@@ -160,9 +160,9 @@ if ( ! class_exists( 'Gamajo_Template_Loader' ) ) {
 			 *
 			 * @since 1.0.0
 			 *
-			 * @param array  $templates Names of template files that should be looked for, for given slug and name.
-			 * @param string $slug      Template slug.
-			 * @param string $name      Template variation name.
+			 * @param array $templates Names of template files that should be looked for, for given slug and name.
+			 * @param string $slug Template slug.
+			 * @param string $name Template variation name.
 			 */
 			return apply_filters( $this->filter_prefix . '_get_template_part', $templates, $slug, $name );
 		}
@@ -177,8 +177,8 @@ if ( ! class_exists( 'Gamajo_Template_Loader' ) ) {
 		 * @since 1.0.0
 		 *
 		 * @param string|array $template_names Template file(s) to search for, in order.
-		 * @param bool         $load           If true the template file will be loaded if it is found.
-		 * @param bool         $require_once   Whether to require_once or require. Default true.
+		 * @param bool $load If true the template file will be loaded if it is found.
+		 * @param bool $require_once Whether to require_once or require. Default true.
 		 *                                     Has no effect if $load is false.
 		 *
 		 * @return string The template filename if one is located.

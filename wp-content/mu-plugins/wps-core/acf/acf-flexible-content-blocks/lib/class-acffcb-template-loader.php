@@ -1,5 +1,5 @@
 <?php
- 
+
 /**
  * Template loader for ACF Flexible Content Blocks.
  *
@@ -7,7 +7,7 @@
  *
  */
 class ACFFCB_Template_Loader extends Gamajo_Template_Loader {
- 
+
 	/**
 	 * Prefix for filter names.
 	 *
@@ -15,7 +15,7 @@ class ACFFCB_Template_Loader extends Gamajo_Template_Loader {
 	 * @type string
 	 */
 	protected $filter_prefix = 'acffcb';
- 
+
 	/**
 	 * Directory name where custom templates for this plugin should be found in the theme.
 	 *
@@ -23,7 +23,7 @@ class ACFFCB_Template_Loader extends Gamajo_Template_Loader {
 	 * @type string
 	 */
 	protected $theme_template_directory = 'fcb-templates';
- 
+
 	/**
 	 * Reference to the root directory path of this plugin.
 	 *
@@ -31,5 +31,5 @@ class ACFFCB_Template_Loader extends Gamajo_Template_Loader {
 	 * @type string
 	 */
 	protected $plugin_directory = ACFFCB_PLUGIN_DIR;
- 
+
 }
