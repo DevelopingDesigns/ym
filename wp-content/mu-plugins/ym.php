@@ -53,7 +53,6 @@ YM_Core_ACF::get_instance();
 require_once( 'advanced-custom-fields-pro/acf.php' );
 require_once( 'cpt-onomies/cpt-onomies.php' );
 require_once( 'cpt-onomies-extended/cpt-onomies-extended.php' );
-require_once( 'acf-flexible-content-blocks/acf-flexible-content-blocks.php' );
 
 function ym_add_flexible_content_support( $supports ) {
 	global $_wp_theme_features;
