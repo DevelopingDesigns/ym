@@ -48,6 +48,7 @@ function news_create_post_type() {
 		'supports'            => array(
 			'title',
 			'editor',
+			'author',
 			'excerpt',
 			'revisions',
 			'thumbnail',
@@ -70,6 +71,8 @@ function news_create_post_type() {
 		'show_in_rest'        => true,
 	);
 	register_post_type( 'article', $args );
+
+	new WPS_Entry_Schema( 'article' );
 
 }
 
