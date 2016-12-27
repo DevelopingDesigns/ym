@@ -29,6 +29,7 @@ define( 'DD_MU_TEXT_DOMAIN', 'dd-mu-post-types' );
 
 // Custom Post Types
 require_once('articles/articles.php');
+require_once('ebooks/ebooks.php');
 require_once('employees/employees.php');
 require_once('features/features.php');
 require_once('infographics/infographics.php');
