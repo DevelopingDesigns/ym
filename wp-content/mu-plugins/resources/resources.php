@@ -64,14 +64,15 @@ function resources_create_post_type() {
 		'show_in_nav_menus'   => true,
 		'can_export'          => true,
 		'has_archive'         => 'resources',
-		'exclude_from_search' => true,
-		'publicly_queryable'  => false,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
 	);
 	register_post_type( 'resource', $args );
 
+	new WPS_Schema( 'infographic', 'image' );
 }
 
 add_action( 'init', 'resources_create_taxonomy', 0 );
