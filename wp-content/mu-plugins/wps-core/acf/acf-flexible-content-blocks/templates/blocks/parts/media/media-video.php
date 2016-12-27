@@ -1,3 +1,5 @@
-<div class="embed-container">
-	<?php the_sub_field('video'); ?>
-</div>
+<?php
+
+echo '<div class="embed-container">';
+the_sub_field( 'video' );
+echo '</div>';

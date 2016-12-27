@@ -1,6 +1,7 @@
-<?php if(get_sub_field('content')): ?>
-	<article class="block-the-content">
-    	<?php the_sub_field('content'); ?>
-    	<?php cfb_template('blocks/parts/block-cta', get_row_layout()); ?>
-	</article>
-<?php endif; ?>
+<?php
+if ( get_sub_field( 'content' ) ):
+	printf( '<article class="block-the-content %s">', fcb_get_content_classes() );
+	the_sub_field( 'content' );
+	cfb_template( 'blocks/parts/block-cta', get_row_layout() );
+	echo '</article>';
+endif;
