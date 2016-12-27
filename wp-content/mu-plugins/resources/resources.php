@@ -72,7 +72,7 @@ function resources_create_post_type() {
 	);
 	register_post_type( 'resource', $args );
 
-	new WPS_Schema( 'infographic', 'image' );
+	new WPS_Entry_Schema( 'resource', 'image' );
 }
 
 add_action( 'init', 'resources_create_taxonomy', 0 );

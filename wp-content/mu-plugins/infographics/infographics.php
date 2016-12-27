@@ -68,6 +68,6 @@ function infographics_create_post_type() {
 	);
 	register_post_type( 'infographic', $args );
 
-	new WPS_Schema( 'infographic', 'image' );
+	new WPS_Entry_Schema( 'infographic', 'image' );
 }
 

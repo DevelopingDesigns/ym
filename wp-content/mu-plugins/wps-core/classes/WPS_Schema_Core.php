@@ -22,12 +22,13 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 	class WPS_Schema_Core {
 
 		public $post_type;
+		public $schema;
 		public $attributes = array();
 
 		protected $schemas = array(
 			// Person Schema
 			'person'         => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemtype'  => 'http://schema.org/Person',
 				),
@@ -35,7 +36,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Organization
 			'organization'   => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/Organization',
@@ -44,7 +45,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Corporation
 			'corporation'    => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/Corporation',
@@ -53,7 +54,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Business
 			'local-business' => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/LocalBusiness',
@@ -90,7 +91,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 //TravelAgency
 
 			'invoice'         => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/Invoice',
@@ -99,7 +100,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Product
 			'product'         => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/Product',
@@ -108,16 +109,25 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Article
 			'article'         => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/Article',
 				),
 			),
 
+			// News/Press Releases
+			'news'            => array(
+				'entry' => array(
+					'itemscope' => 'itemscope',
+					'itemprop'  => '',
+					'itemtype'  => 'http://schema.org/NewsArticle',
+				),
+			),
+
 			// Image
 			'image'           => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/ImageObject',
@@ -126,7 +136,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Video
 			'video'           => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/VideoObject',
@@ -135,7 +145,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Review
 			'review'          => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => 'review',
 					'itemtype'  => 'http://schema.org/Review',
@@ -144,7 +154,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Event
 			'event'           => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/Event',
@@ -153,7 +163,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// EducationEvent
 			'education-event' => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => '',
 					'itemtype'  => 'http://schema.org/Event',
@@ -162,11 +172,20 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Location
 			'location'        => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemprop'  => 'location',
 					'itemtype'  => 'http://schema.org/Place',
 				),
+				'entry-address' => array(
+					'itemscope' => 'itemscope',
+					'itemprop'  => 'address',
+					'itemtype'  => 'http://schema.org/PostalAddress',
+				),
+				'entry-street'  => array( 'itemprop' => 'streetAddress', ),
+				'entry-city'    => array( 'itemprop' => 'addressLocality', ),
+				'entry-state'   => array( 'itemprop' => 'addressRegion', ),
+				'entry-country' => array( 'itemprop' => 'addressCountry', ),
 			),
 
 			'address' => array(
@@ -182,7 +201,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Books Schema
 			'book'    => array(
-				'content' => array(
+				'entry' => array(
 					'itemscope' => 'itemscope',
 					'itemtype'  => 'http://schema.org/Book',
 				),
@@ -195,7 +214,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 
 			// Offer
 			'offer'   => array(
-				'content' => array(
+				'entry' => array(
 					'itemtype'  => 'http://schema.org/Offer',
 					'itemscope' => 'itemscope',
 					'itemprop'  => 'offers',
@@ -207,12 +226,12 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 //			// <meta itemprop="startDate" content="' . date('c', strtotime( $date ) ).'">' . $date;
 //			'date-start'            => array(
 //				'itemprop' => 'startDate',
-//				'content'  => '', // date('c', strtotime( $date ) )
+//				'entry'  => '', // date('c', strtotime( $date ) )
 //			),
 //			// <meta itemprop="endDate" content="' . date('c', strtotime( $date ) ).'">' . $date;
 //			'date-end'              => array(
 //				'itemprop' => 'endDate',
-//				'content'  => '', // date('c', strtotime( $date ) )
+//				'entry'  => '', // date('c', strtotime( $date ) )
 //			),
 
 			// Books
@@ -257,7 +276,7 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 //			//<meta itemprop="datePublished" content="1991-05-01">May 1, 1991
 //			'book-published'        => array(
 //				'itemprop' => 'datePublished',
-//				// 'content' => '',
+//				// 'entry' => '',
 //			),
 //			'book-publisher'        => array( 'itemprop' => 'publisher', ),
 //			'book-pages'            => array( 'itemprop' => 'numberOfPages', ),
@@ -285,21 +304,56 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 			//<meta itemprop="openingHours" content="Mo-Sa 11:00-14:30">Mon-Sat 11am - 2:30pm
 //			'hours' => array(
 //				'itemprop' => 'openingHours',
-//				// 'content'   => '',
+//				// 'entry'   => '',
 //			),
 //			'serves' => array( 'itemprop' => 'servesCuisine', ),
 
 		);
 
+		/**
+		 * Constructor method
+		 *
+		 * @since  1.0.0
+		 * @date   2014-06-05
+		 * @author Travis Smith <t(at)wpsmith.net>}
+		 *
+		 * @param  string $type Schema context.
+		 * @param  array $attributes Array of attributes to add.
+		 *
+		 * @access private
+		 */
+		public function __construct( $type, $schema = '', $attributes = array() ) {
+			$this->schema = $schema = '' === $schema ? $type : $schema;
+
+			// Store Post Type
+			$this->post_type = $type;
+
+			// Save Schema
+			if ( isset( $this->schemas[ $schema ] ) ) {
+				$this->attributes = wp_parse_args( $attributes, $this->schemas[ $schema ] );
+			} else {
+				$this->attributes = $attributes;
+			}
+
+			if ( method_exists( $this, 'init' ) ) {
+				add_action( 'wp_loaded', array( $this, 'init' ) );
+			}
+		}
+
 		protected function get_genesis_attr_entry_hooks() {
 			return array(
-				'content',
+//				'content',
 				'entry',
 				'entry-title',
 				'entry-content',
 				'entry-author',
 			);
 
+		}
+
+		public function author_name( $attributes, $context ) {
+			$attributes['name'] = '';
+			return $attributes;
 		}
 
 		public function author_schema( $attributes ) {
@@ -321,8 +375,9 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 		public function add_schema( $context, $attributes ) {
 			if (
 				! empty( $this->post_type ) &&
-				( is_array( $this->attributes ) && ! empty( $this->attributes ) ) &&
-				isset( $this->attributes[ $context ] )
+				( is_array( $this->attributes ) &&
+				  ! empty( $this->attributes ) ) &&
+					isset( $this->attributes[ $context ] )
 			) {
 				$attributes = wp_parse_args( $this->attributes[ $context ], $attributes );
 			}
@@ -339,10 +394,28 @@ if ( ! class_exists( 'WPS_Schema_Core' ) ) {
 		 *
 		 * @return array Amended attributes.
 		 */
-		public function schema( $attributes = array() ) {
-			$attributes          = array_merge( $attributes, $this->attributes );
-			$class               = ( false !== strpos( $attributes['class'], $this->type ) ) ? trim( $attributes['class'] . ' ' . $this->type ) : $attributes['class'];
-			$attributes['class'] = apply_filters( 'wps_schema_class_' . $this->type, $class, $attributes );
+		public function schema( $attributes = array(), $context = '' ) {
+
+			// Make sure we have the correct post type
+			if ( $this->post_type !== get_post_type() ) {
+				return $attributes;
+			}
+
+			switch( $context ) {
+				case 'entry':
+					return $this->entry_schema( $attributes );
+				case 'title':
+					return $this->title_schema( $attributes );
+				case 'content':
+					return $this->content_schema( $attributes );
+				case 'author':
+					return $this->author_schema( $attributes );
+				default:
+					$attributes          = wp_parse_args( $this->attributes, $attributes );
+					$class               = ( false !== strpos( $attributes['class'], $this->type ) ) ? trim( $attributes['class'] . ' ' . $this->type ) : $attributes['class'];
+					$attributes['class'] = apply_filters( 'wps_schema_class_' . $this->type, $class, $attributes );
+					break;
+			}
 
 			return $attributes;
 		}
