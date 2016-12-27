@@ -64,6 +64,7 @@ function locations_create_post_type() {
 	);
 	register_post_type( 'location', $args );
 
+	new WPS_Schema( 'location', 'location' );
 }
 
 
@@ -88,7 +89,7 @@ function location_create_acf() {
 			'key'         => 'field_address_2',
 			'label'       => __( 'Address 2', WPSCORE_PLUGIN_DOMAIN ),
 			'name'        => 'address_2',
-			'required'    => 1,
+			'required'    => 0,
 			'type'        => 'text',
 			'placeholder' => __( 'N #200', WPSCORE_PLUGIN_DOMAIN ),
 		);
