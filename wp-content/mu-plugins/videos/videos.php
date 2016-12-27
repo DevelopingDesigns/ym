@@ -61,13 +61,24 @@ function videos_create_post_type() {
 		'show_in_nav_menus'   => true,
 		'can_export'          => true,
 		'has_archive'         => 'videos',
-		'exclude_from_search' => true,
-		'publicly_queryable'  => false,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
 	);
 	register_post_type( 'video', $args );
 
+	new WPS_Schema( 'video', 'video' );
 }
 
+//add_action( 'plugins_loaded', 'videos_acf_content_blocks_support', 15 );
+function videos_acf_content_blocks_support() {
+	if ( function_exists( 'ym_add_flexible_content_support' ) ) {
+		ym_add_flexible_content_support( array (
+			'param' => 'post_type',
+			'operator' => '==',
+			'value' => 'video',
+		) );
+	}
+}
