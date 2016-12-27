@@ -60,7 +60,7 @@ function employees_create_post_type() {
 		'show_in_admin_bar'   => true,
 		'show_in_nav_menus'   => true,
 		'can_export'          => true,
-		'has_archive'         => 'team',
+		'has_archive'         => 'employees',
 		'exclude_from_search' => true,
 		'publicly_queryable'  => false,
 		'rewrite'             => $rewrite,
@@ -69,6 +69,7 @@ function employees_create_post_type() {
 	);
 	register_post_type( 'employee', $args );
 
+	new WPS_Schema( 'employee', 'person' );
 }
 
 
@@ -114,3 +115,14 @@ function employees_filter_the_content( $content ) {
 	return $content;
 }
  */
+
+//add_action( 'plugins_loaded', 'employees_acf_content_blocks_support', 15 );
+function employees_acf_content_blocks_support() {
+	if ( function_exists( 'ym_add_flexible_content_support' ) ) {
+		ym_add_flexible_content_support( array (
+			'param' => 'post_type',
+			'operator' => '==',
+			'value' => 'employee',
+		) );
+	}
+}
