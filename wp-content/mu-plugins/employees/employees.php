@@ -62,14 +62,14 @@ function employees_create_post_type() {
 		'can_export'          => true,
 		'has_archive'         => 'employees',
 		'exclude_from_search' => true,
-		'publicly_queryable'  => false,
+		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
 	);
 	register_post_type( 'employee', $args );
 
-	new WPS_Schema( 'employee', 'person' );
+	new WPS_Entry_Schema( 'employee', 'person' );
 }
 
 
