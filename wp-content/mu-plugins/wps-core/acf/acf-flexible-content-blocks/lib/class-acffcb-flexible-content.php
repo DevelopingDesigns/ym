@@ -1,6 +1,6 @@
 <?php
 
-namespace MWD\ACFFCB;
+namespace WPS\ACFFCB;
 
 class FlexibleContent {
 
