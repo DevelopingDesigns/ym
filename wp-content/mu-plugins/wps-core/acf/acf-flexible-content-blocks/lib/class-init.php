@@ -1,5 +1,6 @@
 <?php
-namespace MWD\ACFFCB;
+
+namespace WPS\ACFFCB;
 
 /**
  * Main Flexible Content Blocks class
