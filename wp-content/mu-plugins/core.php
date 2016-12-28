@@ -68,7 +68,7 @@ function wps_core_autoload( $class_name ) {
 
 }
 
-
+// Do some basic cleanup
 WPS_Genesis_Cleanup::get_instance();
 WPS_WordPress_Cleanup::get_instance( array(
 	'widgets' => array(
@@ -109,8 +109,14 @@ WPS_Brand::get_instance();
 
 add_theme_support( 'flexible-content-dev-mode' );
 require_once( 'wps-core/acf/acf-flexible-content-blocks/acf-flexible-content-blocks.php' );
+
+// Load ACF Builder
 require_once( 'wps-core/acf/acf-builder/lib/autoload.php' );
 require_once( 'wps-core/acf/acf-builder/autoload.php' );
+
+// Load ACF Gravity Forms Field
+require_once( 'wps-core/acf/gravity-forms-acf-field/acf-gravity_forms.php' );
+
 
 // @todo Events segmentation by category
 // @todo Webinar EducationEvent
