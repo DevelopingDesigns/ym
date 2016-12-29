@@ -2,7 +2,7 @@
  * SuperSide Me main js engine
  * @package   SuperSideMe
  * @author    Robin Cornett <hello@robincornett.com>
- * @copyright 2015-2016 Robin Cornett
+ * @copyright 2015-2017 Robin Cornett
  * @license   GPL-2.0+
  */
 ;(function ( document, $, undefined ) {
@@ -133,7 +133,7 @@
 			text: buttonText
 		} ) );
 
-		if ( ! ssme.params.location || 'body' === ssme.params.location ) {
+		if ( ! ssme.params.location || 'body' === ssme.params.location || ! $( ssme.params.location ).length ) {
 			$( cssSelectors.button ).wrap( '<div />' );
 		}
 		$( cssSelectors.button ).parent().addClass( cssClasses.buttonWrap );
@@ -184,17 +184,20 @@
 	 * Main resizing function.
 	 */
 	var _doResize = _debounce( function () {
-		_addBodyClass( supersidemeDefaults.button );
+		var _button = supersidemeDefaults.button;
+		_addBodyClass( _button );
 		if ( ssme.params.swipe ) {
-			_enableSwipe( supersidemeDefaults.button, 'body' );
+			_enableSwipe( _button, 'body' );
 		}
 
 		ssme.skipLinks = typeof supersidemeSkipLinks === 'undefined' ? '' : supersidemeSkipLinks;
 		if ( typeof ssme.skipLinks !== 'undefined' ) {
-			_changeSkipLinks( supersidemeDefaults.button );
+			_changeSkipLinks( _button );
 		}
-		$( cssSelectors.searchInput ).hide();
-		_closeSesame();
+		if ( _isDisplayNone( _button ) ) {
+			$( cssSelectors.searchInput ).hide();
+			_closeSesame();
+		}
 	}, 250 );
 
 	/**
@@ -409,14 +412,18 @@
 	 *
 	 */
 	function _fillPanel() {
-		var navigationMenu = $( '<nav />', {
-			    'class': 'side-navigation',
-			    'role': 'navigation',
-			    'itemscope': 'itemscope',
-			    'itemtype': 'http://schema.org/SiteNavigationElement'
-		    } ).append( $( '<ul />', {
-			    'class': 'side-nav'
-		    } ) ),
+		var container = ssme.params.html5 ? 'nav' : 'div',
+			args      = ssme.params.html5 ? {
+					'class': 'side-navigation',
+					'role': 'navigation',
+					'itemscope': 'itemscope',
+					'itemtype': 'http://schema.org/SiteNavigationElement'
+				} : {
+					'class': 'side-navigation'
+				},
+			navigationMenu = $( '<' + container + ' />', args ).append( $( '<ul />', {
+				'class': 'side-nav'
+			} ) ),
 		    sidrInner      = $( '<div />', {
 			    'class': 'sidr-inner'
 		    } ),
