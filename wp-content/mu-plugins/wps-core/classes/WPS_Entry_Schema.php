@@ -24,8 +24,8 @@ if ( ! class_exists( 'WPS_Entry_Schema' ) ) {
 		public function init() {
 
 			// This assumes the the context is the post type
-			if ( isset( $attributes['empty'] ) ) {
-				unset( $attributes['empty'] );
+			if ( isset( $this->attributes['empty'] ) ) {
+				unset( $this->attributes['empty'] );
 				add_filter( 'genesis_attr_entry', array( $this, 'remove' ), 11 );
 			}
 
@@ -33,7 +33,7 @@ if ( ! class_exists( 'WPS_Entry_Schema' ) ) {
 			add_filter( 'genesis_attr_entry', array( $this, 'schema' ), 20, 2 );
 			add_filter( 'genesis_attr_entry-author-name', array( $this, 'author_name' ), 20, 2 );
 
-			switch( $schema ) {
+			switch( $this->schema ) {
 				case 'location':
 					add_filter( 'genesis_attr_entry-address', array( $this, 'schema' ), 20, 2 );
 					add_filter( 'genesis_attr_entry-street', array( $this, 'schema' ), 20, 2 );
@@ -44,7 +44,7 @@ if ( ! class_exists( 'WPS_Entry_Schema' ) ) {
 			}
 
 			// Fixes, @link
-			if ( post_type_supports( $type, 'title' ) && post_type_supports( $type, 'author' ) ) {
+			if ( post_type_supports( $this->post_type, 'title' ) && post_type_supports( $this->post_type, 'author' ) ) {
 				add_filter( 'genesis_post_title_output', array( $this, 'title_link' ), 20 );
 			}
 		}
