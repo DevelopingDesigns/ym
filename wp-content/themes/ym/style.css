@@ -1429,9 +1429,15 @@ p.entry-meta {
   padding-top: 7px;
   position: fixed;
   top: 0;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   width: 100%; }
   .site-header.smaller .nav-primary {
     padding-top: 15px; }
+    .site-header.smaller .nav-primary #ubermenu-main-2-primary a {
+      font-size: 18px; }
+  .site-header.smaller .title-area img {
+    width: 75px; }
 
 /* # Site Navigation
 ---------------------------------------------------------------------------------------------------- */
