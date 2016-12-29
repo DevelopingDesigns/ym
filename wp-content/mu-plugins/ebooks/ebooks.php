@@ -68,6 +68,6 @@ function ebooks_create_post_type() {
 	);
 	register_post_type( 'ebook', $args );
 
-	new WPS_Entry_Schema( 'ebook', 'image' );
+	new WPS_Entry_Schema( 'ebook', 'book' );
 }
 
