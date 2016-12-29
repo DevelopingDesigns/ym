@@ -49,24 +49,26 @@ spl_autoload_register( 'wps_core_autoload' );
 /**
  *  SPL Class Autoloader for WPS_* classes.
  *
- *  @param string $class_name Class name being autoloaded.
- *  @link http://us1.php.net/spl_autoload_register
- *  @author	Travis Smith
- *  @since 0.1.0
+ * @param string $class_name Class name being autoloaded.
+ *
+ * @link http://us1.php.net/spl_autoload_register
+ * @author    Travis Smith
+ * @since 0.1.0
  */
 function wps_core_autoload( $class_name ) {
 
-	// Do nothing if class already exists, not prefixed WPS_ or K12_
+// Do nothing if class already exists, not prefixed WPS_ or K12_
 	if ( class_exists( $class_name, false ) || ( false === strpos( $class_name, 'WPS_' ) ) ) {
 		return;
 	}
 
-	// Load file
+// Load file
 	$file = plugin_dir_path( __FILE__ ) . "wps-core/classes/$class_name.php";
 	include_once( $file );
 
 }
 
+// Do some basic cleanup
 WPS_Genesis_Cleanup::get_instance();
 WPS_WordPress_Cleanup::get_instance( array(
 	'widgets' => array(
@@ -104,3 +106,17 @@ WPS_WordPress_Cleanup::get_instance( array(
 //	),
 ) );
 WPS_Brand::get_instance();
+
+add_theme_support( 'flexible-content-dev-mode' );
+require_once( 'wps-core/acf/acf-flexible-content-blocks/acf-flexible-content-blocks.php' );
+
+// Load ACF Builder
+require_once( 'wps-core/acf/acf-builder/lib/autoload.php' );
+require_once( 'wps-core/acf/acf-builder/autoload.php' );
+
+// Load ACF Gravity Forms Field
+require_once( 'wps-core/acf/gravity-forms-acf-field/acf-gravity_forms.php' );
+
+
+// @todo Events segmentation by category
+// @todo Webinar EducationEvent

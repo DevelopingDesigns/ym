@@ -47,7 +47,7 @@ function partners_create_post_type() {
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
-			'content',
+			'editor',
 			'excerpt',
 			'revisions',
 			'thumbnail',
@@ -65,12 +65,23 @@ function partners_create_post_type() {
 		'can_export'          => true,
 		'has_archive'         => 'partners',
 		'exclude_from_search' => true,
-		'publicly_queryable'  => false,
+		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
 	);
 	register_post_type( 'partner', $args );
 
+	new WPS_Entry_Schema( 'partner', 'business' );
 }
 
+//add_action( 'plugins_loaded', 'partner_acf_content_blocks_support', 15 );
+function partner_acf_content_blocks_support() {
+	if ( function_exists( 'ym_add_flexible_content_support' ) ) {
+		ym_add_flexible_content_support( array (
+			'param' => 'post_type',
+			'operator' => '==',
+			'value' => 'partner',
+		) );
+	}
+}
