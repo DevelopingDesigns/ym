@@ -65,7 +65,7 @@ function partners_create_post_type() {
 		'can_export'          => true,
 		'has_archive'         => 'partners',
 		'exclude_from_search' => true,
-		'publicly_queryable'  => false,
+		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
