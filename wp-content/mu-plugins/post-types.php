@@ -35,6 +35,7 @@ require_once('features/features.php');
 require_once('infographics/infographics.php');
 require_once('landing-pages/landing-pages.php');
 require_once('locations/locations.php');
+require_once( 'events/events.php' );
 require_once('logins/logins.php');
 require_once('partners/partners.php');
 require_once('products/products.php');
