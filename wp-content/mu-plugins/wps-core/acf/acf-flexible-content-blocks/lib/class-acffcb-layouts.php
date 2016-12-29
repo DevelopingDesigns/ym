@@ -798,9 +798,10 @@ class Layouts {
 
 	/**
 	 *
-	 * Layout Field: Alignment
+	 * Layout Field: Complex Title
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Select
@@ -825,6 +826,40 @@ class Layouts {
 
 					$FCBFields->tab_layout(),
 					$FCBFields->alignment( 'field', 'title_layout' ),
+				)
+			)
+		)
+		);
+	}
+
+	/**
+	 *
+	 * Layout Field: Event
+	 *
+	 * @author Travis Smith
+	 * @since 1.1
+	 *
+	 * Select
+	 */
+	public function event() {
+		$FCBFields    = new Fields( __FUNCTION__ );
+		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
+
+		return (
+		array(
+			'order'  => '30',
+			'layout' => array(
+				'key'        => $this->key . __FUNCTION__,
+				'name'       => 'event',
+				'label'      => __( 'Event', ACFFCB_PLUGIN_DOMAIN ),
+				'display'    => 'block',
+				'sub_fields' => array(
+					$FCBFields->title(),
+					$FCBFields->subtitle(),
+					$FCBFields->date(),
+					$FCBFields->time(),
+					$FCBFields->content(),
+					$FCBFlexibleContent->location(),
 				)
 			)
 		)
