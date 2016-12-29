@@ -757,4 +757,39 @@ class Layouts {
 		)
 		);
 	}
+
+	/**
+	 *
+	 * Layout Field: Alignment
+	 *
+	 * @author Michael W. Delaney
+	 * @since 1.0
+	 *
+	 * Select
+	 */
+	function complex_title() {
+		$FCBFields    = new Fields( __FUNCTION__ );
+		$FCBRepeaters = new Repeaters( __FUNCTION__ );
+
+		return (
+		array(
+			'order' => '20',
+			'layout' => array(
+				'key'        => $this->key . __FUNCTION__,
+				'name'       => 'complex_title',
+				'label'      => 'Complex Title',
+				'display'    => 'block',
+				'sub_fields' => array(
+					$FCBFields->complex_title_preview_placeholder(),
+
+					$FCBFields->tab_title(),
+					$FCBRepeaters->build_title(),
+
+					$FCBFields->tab_layout(),
+					$FCBFields->alignment( 'field', 'title_layout' ),
+				)
+			)
+		)
+		);
+	}
 }

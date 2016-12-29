@@ -391,4 +391,63 @@ class Repeaters {
 		);
 	}
 
+	function build_title() {
+		return (
+		array(
+			'key'               => $this->key . __FUNCTION__,
+			'label'             => 'Build Title',
+			'name'              => 'build_title',
+			'type'              => 'repeater',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'collapsed'         => '',
+			'min'               => '',
+			'max'               => '',
+			'layout'            => 'table',
+			'button_label'      => 'Add Group',
+			'sub_fields'        => array(
+				$this->title_group(),
+			)
+		)
+		);
+	}
+
+	function title_group() {
+		$FCBRepeaterFields = new Fields( $this->layout, __FUNCTION__ );
+
+		return (
+		array(
+			'key'               => $this->key . __FUNCTION__,
+			'label'             => 'Title Group',
+			'name'              => 'title',
+			'type'              => 'repeater',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'collapsed'         => '',
+			'min'               => '',
+			'max'               => '',
+			'layout'            => 'table',
+			'button_label'      => 'Add Word',
+			'sub_fields'        => array(
+				$FCBRepeaterFields->word_or_phrase(),
+				$FCBRepeaterFields->size(),
+				$FCBRepeaterFields->emphasize(),
+				$FCBRepeaterFields->alignment(),
+			)
+		)
+		);
+	}
+
 }

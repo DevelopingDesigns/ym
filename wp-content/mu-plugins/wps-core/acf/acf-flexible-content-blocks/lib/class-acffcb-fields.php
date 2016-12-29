@@ -1859,4 +1859,241 @@ class Fields {
 		);
 	}
 
+	/**
+	 *
+	 * Field: Title Tab
+	 *
+	 * @author Travis Smith
+	 * @since 1.0
+	 *
+	 * Tab titled "Title"
+	 */
+	function tab_title( $thisKey = 'field' ) {
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'             => 'Title',
+			'name'              => '',
+			'type'              => 'tab',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'placement'         => 'top',
+			'endpoint'          => 0,
+		)
+		);
+	}
+
+	/**
+	 *
+	 * Field: Layout Tab
+	 *
+	 * @author Travis Smith
+	 * @since 1.0
+	 *
+	 * Tab titled "Layout"
+	 */
+	function tab_layout( $thisKey = 'field' ) {
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'             => 'Layout',
+			'name'              => '',
+			'type'              => 'tab',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'placement'         => 'top',
+			'endpoint'          => 0,
+		)
+		);
+	}
+
+	/**
+	 * Field: Word or Phrase
+	 *
+	 * @author Michael W. Delaney
+	 * @since 1.0
+	 *
+	 * Text
+	 */
+	function word_or_phrase( $thisKey = 'field' ) {
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'             => 'Word or Phrase',
+			'name'              => 'word_or_phrase',
+			'type'              => 'text',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'default_value'     => '',
+			'placeholder'       => '',
+			'prepend'           => '',
+			'append'            => '',
+			'maxlength'         => '',
+			'readonly'          => 0,
+			'disabled'          => 0,
+		)
+		);
+	}
+
+
+	/**
+	 * Field: Alignment
+	 *
+	 * @author Michael W. Delaney
+	 * @since 1.0
+	 *
+	 * Select
+	 */
+	function alignment( $thisKey = 'field', $name = 'alignment' ) {
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'             => 'Alignment',
+			'name'              => $name,
+			'type'              => 'select',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'choices'           => array(
+				'none'   => 'None',
+				'left'   => 'Left',
+				'right'  => 'Right',
+				'center' => 'Center',
+			),
+			'default_value'     => array(),
+			'allow_null'        => 0,
+			'multiple'          => 0,
+			'ui'                => 0,
+			'ajax'              => 0,
+			'placeholder'       => '',
+			'disabled'          => 0,
+			'readonly'          => 0,
+		)
+		);
+	}
+
+
+	/**
+	 * Field: Emphasize
+	 *
+	 * @author Michael W. Delaney
+	 * @since 1.0
+	 *
+	 * Checkbox
+	 */
+	function emphasize( $thisKey = 'field' ) {
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'             => 'Emphasize',
+			'name'              => 'emphasize',
+			'type'              => 'true_false',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'message'           => '',
+			'default_value'     => 0,
+		)
+		);
+	}
+
+
+	/**
+	 * Field: Size
+	 *
+	 * @author Michael W. Delaney
+	 * @since 1.0
+	 *
+	 * Select
+	 */
+	function size( $thisKey = 'field' ) {
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'             => 'Size',
+			'name'              => 'size',
+			'type'              => 'select',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'choices'           => array(
+				'md' => 'Medium',
+				'sm' => 'Small',
+				'lg' => 'Large',
+			),
+			'default_value'     => array(),
+			'allow_null'        => 0,
+			'multiple'          => 0,
+			'ui'                => 0,
+			'ajax'              => 0,
+			'placeholder'       => '',
+			'disabled'          => 0,
+			'readonly'          => 0,
+		)
+		);
+	}
+
+	/**
+	 * Field: Size
+	 *
+	 * @author Michael W. Delaney
+	 * @since 1.0
+	 *
+	 * Select
+	 */
+	function complex_title_preview_placeholder( $thisKey = 'field' ) {
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => 'Preview Placeholder',
+			'name' => '',
+			'type' => 'message',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'esc_html' => 0,
+			'new_lines' => 'wpautop',
+		)
+		);
+	}
+
 }
