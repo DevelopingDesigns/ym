@@ -21,6 +21,7 @@ class Fields {
 	 * Field: Title
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Title fields shared by all layouts
@@ -29,7 +30,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Title',
+			'label'             => __( 'Title', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'title',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -52,6 +53,7 @@ class Fields {
 	 * Field: Navigation Title
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Navigation Title fields shared by all layouts
@@ -60,7 +62,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Navigation Title',
+			'label'             => __( 'Navigation Title', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'navigation_title',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -87,6 +89,7 @@ class Fields {
 	 * Field: Number of Posts to Show
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Number field for posts to show per page
@@ -95,7 +98,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Number to Show',
+			'label'             => __( 'Number to Show', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'posts_per_page',
 			'type'              => 'number',
 			'instructions'      => '',
@@ -124,6 +127,7 @@ class Fields {
 	 * Field: Category
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Taxonomy field to select category
@@ -132,7 +136,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Category',
+			'label'             => __( 'Category', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'category',
 			'type'              => 'taxonomy',
 			'instructions'      => '',
@@ -160,6 +164,7 @@ class Fields {
 	 * Field: Show Author?
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * True/False field for showing author in post list
@@ -168,7 +173,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Show Author?',
+			'label'             => __( 'Show Author?', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'show_author',
 			'type'              => 'true_false',
 			'instructions'      => '',
@@ -190,6 +195,7 @@ class Fields {
 	 * Field: Show Featured Image?
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * True/False field for showing featured image in post list
@@ -198,7 +204,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Show Featured Image?',
+			'label'             => __( 'Show Featured Image?', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'show_featured_image',
 			'type'              => 'true_false',
 			'instructions'      => '',
@@ -220,6 +226,7 @@ class Fields {
 	 * Field: Show Date?
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * True/False field for showing date in post list
@@ -228,7 +235,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Show Date?',
+			'label'             => __( 'Show Date?', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'show_date',
 			'type'              => 'true_false',
 			'instructions'      => '',
@@ -250,6 +257,7 @@ class Fields {
 	 * Field: Column Width
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Select field for column width, 1-12
@@ -258,7 +266,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Column Width',
+			'label'             => __( 'Column Width', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'column_width',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -300,6 +308,7 @@ class Fields {
 	 * Field: Background Color
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Radio button field to choose background color
@@ -308,7 +317,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Background Color',
+			'label'             => __( 'Background Color', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'background_color',
 			'type'              => 'radio',
 			'instructions'      => '',
@@ -337,6 +346,7 @@ class Fields {
 	 * Field: Choose Color
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Background color selector field
@@ -345,7 +355,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Choose Color',
+			'label'             => __( 'Choose Color', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'choose_color',
 			'type'              => 'color_picker',
 			'instructions'      => '',
@@ -374,6 +384,7 @@ class Fields {
 	 * Field: Theme Color
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Select field for choosing a theme background color
@@ -382,7 +393,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Theme Color',
+			'label'             => __( 'Theme Color', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'theme_color',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -419,6 +430,7 @@ class Fields {
 	 * Field: Background Color Placeholder
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Placeholder for when the "background color" is not selected
@@ -427,7 +439,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Background Color Placeholder',
+			'label'             => __( 'Background Color Placeholder', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -446,7 +458,7 @@ class Fields {
 				'class' => '',
 				'id'    => '',
 			),
-			'message'           => 'No special background color selected.',
+			'message'           => __( 'No special background color selected.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -458,6 +470,7 @@ class Fields {
 	 * Field: Background Image
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Background image
@@ -466,7 +479,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Background Image',
+			'label'             => __( 'Background Image', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'background_image',
 			'type'              => 'image',
 			'instructions'      => '',
@@ -496,6 +509,7 @@ class Fields {
 	 * Field: Content Source
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Radio button to select the source of content to be shown.
@@ -504,7 +518,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Content Source',
+			'label'             => __( 'Content Source', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'content_source',
 			'type'              => 'radio',
 			'instructions'      => '',
@@ -532,6 +546,7 @@ class Fields {
 	 * Field: Excerpt Placeholder
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Placeholder for when the "excerpt" is selected as the source of content
@@ -540,7 +555,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Excerpt Placeholder',
+			'label'             => __( 'Excerpt Placeholder', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -559,7 +574,7 @@ class Fields {
 				'class' => 'acf-media',
 				'id'    => '',
 			),
-			'message'           => 'Content will be drawn from the linked item\'s excerpt.',
+			'message'           => __( 'Content will be drawn from the linked item\'s excerpt.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -571,6 +586,7 @@ class Fields {
 	 * Field: Content Conditional
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Content field shown when "manual" is entered as the content source.
@@ -579,7 +595,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Content',
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'content',
 			'type'              => 'wysiwyg',
 			'instructions'      => '',
@@ -611,6 +627,7 @@ class Fields {
 	 * Field: Content Field
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * WYSIWYG content field
@@ -619,7 +636,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Content',
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'content',
 			'type'              => 'wysiwyg',
 			'instructions'      => '',
@@ -643,6 +660,7 @@ class Fields {
 	 * Field: Call to Action Link
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Page Link field for call to action link
@@ -651,7 +669,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Link',
+			'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'call_to_action_link',
 			'type'              => 'page_link',
 			'instructions'      => '',
@@ -675,6 +693,7 @@ class Fields {
 	 * Field: Call to Action Arbitrary Link
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Text field for arbitrary (non-internal) CTA links
@@ -683,7 +702,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Link',
+			'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'call_to_action_external',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -710,6 +729,7 @@ class Fields {
 	 * Field: Call to Action Text
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Text field for CTA
@@ -718,7 +738,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Text',
+			'label'             => __( 'Text', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'call_to_action_text',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -745,6 +765,7 @@ class Fields {
 	 * Field: Call to Action Type
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Select field to choose the semantic button type for the CTA
@@ -753,7 +774,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Type',
+			'label'             => __( 'Type', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'call_to_action_type',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -782,6 +803,7 @@ class Fields {
 	 * Field: Featured Content
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Relationship field for featured content
@@ -790,7 +812,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Featured Content',
+			'label'             => __( 'Featured Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'featured_content',
 			'type'              => 'relationship',
 			'instructions'      => '',
@@ -821,6 +843,7 @@ class Fields {
 	 * Field: Link Text
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Text field for a link's text.
@@ -829,7 +852,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Link Text',
+			'label'             => __( 'Link Text', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'link_text',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -856,6 +879,7 @@ class Fields {
 	 * Field: Link
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Post Object field for link
@@ -864,7 +888,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Link',
+			'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'link',
 			'type'              => 'post_object',
 			'instructions'      => '',
@@ -890,6 +914,7 @@ class Fields {
 	 * Field: Type of Media
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Radio button field for Type of Media attachment
@@ -898,7 +923,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Type of Media',
+			'label'             => __( 'Type of Media', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'type_of_media',
 			'type'              => 'radio',
 			'instructions'      => '',
@@ -930,6 +955,7 @@ class Fields {
 	 * Field: Media Placeholder
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Placeholder for when no media is selected
@@ -938,7 +964,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Media Placeholder',
+			'label'             => __( 'Media Placeholder', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -949,7 +975,7 @@ class Fields {
 				'class' => 'acf-media',
 				'id'    => '',
 			),
-			'message'           => 'No media will be displayed.',
+			'message'           => __( 'No media will be displayed.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -961,6 +987,7 @@ class Fields {
 	 * Field: Media Image
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Image field for media selector
@@ -969,7 +996,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Image',
+			'label'             => __( 'Image', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'image',
 			'type'              => 'image',
 			'instructions'      => '',
@@ -999,6 +1026,7 @@ class Fields {
 	 * Field: Media Code
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Code field for media selector
@@ -1007,7 +1035,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Code',
+			'label'             => __( 'Code', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'code',
 			'type'              => 'textarea',
 			'instructions'      => '',
@@ -1029,6 +1057,7 @@ class Fields {
 	 * Field: Media Content
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * WYSIWYG field for media selector
@@ -1037,7 +1066,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Content',
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'media_content',
 			'type'              => 'wysiwyg',
 			'instructions'      => '',
@@ -1061,6 +1090,7 @@ class Fields {
 	 * Field: Media Video
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Video field for media selector
@@ -1069,7 +1099,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Video',
+			'label'             => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'video',
 			'type'              => 'oembed',
 			'instructions'      => '',
@@ -1091,6 +1121,7 @@ class Fields {
 	 * Field: Background Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Background"
@@ -1099,7 +1130,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Background',
+			'label'             => __( 'Background', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1121,6 +1152,7 @@ class Fields {
 	 * Field: Calls to Action Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Calls to Action"
@@ -1129,7 +1161,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Calls to Action',
+			'label'             => __( 'Calls to Action', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1151,6 +1183,7 @@ class Fields {
 	 * Field: Background Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Background"
@@ -1159,7 +1192,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Dev Mode',
+			'label'             => __( 'Dev Mode', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1181,6 +1214,7 @@ class Fields {
 	 * Field: Tabs Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Tabs"
@@ -1189,7 +1223,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Tabs',
+			'label'             => __( 'Tabs', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1211,6 +1245,7 @@ class Fields {
 	 * Field: Post List Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Post List"
@@ -1219,7 +1254,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Post List',
+			'label'             => __( 'Post List', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1241,6 +1276,7 @@ class Fields {
 	 * Field: Gallery
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Gallery Field
@@ -1249,7 +1285,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Gallery',
+			'label'             => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'gallery',
 			'type'              => 'gallery',
 			'instructions'      => '',
@@ -1280,6 +1316,7 @@ class Fields {
 	 * Field: Panel Type
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Select field to choose the semantic button type for the CTA
@@ -1288,7 +1325,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Type',
+			'label'             => __( 'Type', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'panel_type',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -1324,6 +1361,7 @@ class Fields {
 	 * Field: Map
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Map field
@@ -1332,7 +1370,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Map',
+			'label'             => __( 'Map', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'map',
 			'type'              => 'google_map',
 			'instructions'      => '',
@@ -1356,6 +1394,7 @@ class Fields {
 	 * Field: Collapsibles Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Collapsibles"
@@ -1364,7 +1403,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Collapsibles',
+			'label'             => __( 'Collapsibles', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1386,6 +1425,7 @@ class Fields {
 	 * Field: Content Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Content"
@@ -1394,7 +1434,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Content',
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1416,6 +1456,7 @@ class Fields {
 	 * Field: Tab Endpoint
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Endpoint field for content tabs
@@ -1424,7 +1465,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => '',
+			'label'             => __( '', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1446,6 +1487,7 @@ class Fields {
 	 * Field: Features Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Features"
@@ -1454,7 +1496,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Features',
+			'label'             => __( 'Features', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1476,6 +1518,7 @@ class Fields {
 	 * Field: Cards Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Cards"
@@ -1484,7 +1527,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Cards',
+			'label'             => __( 'Cards', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1506,6 +1549,7 @@ class Fields {
 	 * Field: Media Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Media"
@@ -1514,7 +1558,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Media',
+			'label'             => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1536,6 +1580,7 @@ class Fields {
 	 * Field: Slides Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Slides"
@@ -1544,7 +1589,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Slides',
+			'label'             => __( 'Slides', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1566,6 +1611,7 @@ class Fields {
 	 * Field: Gallery Tab
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Tab titled "Gallery"
@@ -1574,7 +1620,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Gallery',
+			'label'             => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1596,6 +1642,7 @@ class Fields {
 	 * Field: Data Attribute
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Data attribute for developer mode
@@ -1604,7 +1651,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Attribute',
+			'label'             => __( 'Attribute', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'attribute',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1631,6 +1678,7 @@ class Fields {
 	 * Field: Data Value
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Data value for developer mode
@@ -1639,7 +1687,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Value',
+			'label'             => __( 'Value', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'value',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1666,6 +1714,7 @@ class Fields {
 	 * Field: Block Classes
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Additional Classes for blocks
@@ -1674,7 +1723,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Classes',
+			'label'             => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'block_classes',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1702,6 +1751,7 @@ class Fields {
 	 * Field: Content Classes
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Additional Classes for "Content" blocks
@@ -1710,7 +1760,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Classes',
+			'label'             => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'content_classes',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1738,6 +1788,7 @@ class Fields {
 	 * Field: Media Classes
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Additional Classes for "Content" blocks
@@ -1746,7 +1797,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Classes',
+			'label'             => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'media_classes',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1774,6 +1825,7 @@ class Fields {
 	 * Field: Dev Mode Block Message
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * "Message" field for Dev Mode Content fields
@@ -1782,7 +1834,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Block',
+			'label'             => __( 'Block', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'dev_block_message',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -1793,7 +1845,7 @@ class Fields {
 				'class' => 'acf-dev',
 				'id'    => '',
 			),
-			'message'           => 'Developer fields for the whole block.',
+			'message'           => __( 'Developer fields for the whole block.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -1805,6 +1857,7 @@ class Fields {
 	 * Field: Dev Mode Content Message
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * "Message" field for Dev Mode Content fields
@@ -1813,7 +1866,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Content',
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'dev_content_message',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -1824,7 +1877,7 @@ class Fields {
 				'class' => 'acf-dev',
 				'id'    => '',
 			),
-			'message'           => 'Developer fields on the \'content\' tab.',
+			'message'           => __( 'Developer fields on the \'content\' tab.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -1836,6 +1889,7 @@ class Fields {
 	 * Field: Dev Mode Media Message
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * "Message" field for Dev Mode Media fields
@@ -1844,7 +1898,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Media',
+			'label'             => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'dev_media_message',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -1855,7 +1909,7 @@ class Fields {
 				'class' => 'acf-dev',
 				'id'    => '',
 			),
-			'message'           => 'Developer fields on the \'media\' tab.',
+			'message'           => __( 'Developer fields on the \'media\' tab.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -1875,7 +1929,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Title',
+			'label'             => __( 'Title', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1905,7 +1959,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Layout',
+			'label'             => __( 'Layout', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1926,6 +1980,7 @@ class Fields {
 	 * Field: Word or Phrase
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Text
@@ -1934,7 +1989,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Word or Phrase',
+			'label'             => __( 'Word or Phrase', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'word_or_phrase',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1961,6 +2016,7 @@ class Fields {
 	 * Field: Alignment
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Select
@@ -1969,7 +2025,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Alignment',
+			'label'             => __( 'Alignment', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => $name,
 			'type'              => 'select',
 			'instructions'      => '',
@@ -2003,6 +2059,7 @@ class Fields {
 	 * Field: Emphasize
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Checkbox
@@ -2011,7 +2068,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Emphasize',
+			'label'             => __( 'Emphasize', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'emphasize',
 			'type'              => 'true_false',
 			'instructions'      => '',
@@ -2033,6 +2090,7 @@ class Fields {
 	 * Field: Size
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Select
@@ -2041,7 +2099,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Size',
+			'label'             => __( 'Size', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'size',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -2073,6 +2131,7 @@ class Fields {
 	 * Field: Size
 	 *
 	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
 	 * Select
@@ -2081,7 +2140,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => 'Preview Placeholder',
+			'label'             => __( 'Preview Placeholder', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'message',
 			'instructions'      => '',
