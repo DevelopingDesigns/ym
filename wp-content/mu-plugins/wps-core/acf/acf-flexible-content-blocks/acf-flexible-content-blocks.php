@@ -18,6 +18,9 @@ if ( ! defined( 'ACFFCB_PLUGIN_DIR' ) ) {
 if ( ! defined( 'ACFFCB_PLUGIN_URL' ) ) {
 	define( 'ACFFCB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
+if ( ! defined( 'ACFFCB_PLUGIN_DOMAIN' ) ) {
+	define( 'ACFFCB_PLUGIN_DOMAIN', 'acf-flexible-content-blocks' );
+}
 
 // Our default set of layouts is defined as a string which references a class so that we can filter it
 function fcb_layouts_class( $s ) {
