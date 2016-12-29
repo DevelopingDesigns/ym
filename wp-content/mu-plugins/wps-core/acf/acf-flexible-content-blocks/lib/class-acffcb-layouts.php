@@ -386,7 +386,7 @@ class Layouts {
 	 *
 	 * A simple content block with optional media include (image or video) and optional Call to Action button
 	 */
-	function content_with_media() {
+	function content_with_media( $content_classes = null, $media_classes = null ) {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -432,11 +432,11 @@ class Layouts {
 
 					$FCBFields->dev_content_message(),
 					$FCBRepeaters->content_data_attributes(),
-					$FCBFields->content_classes(),
+					$FCBFields->content_classes( null, $content_classes ),
 
 					$FCBFields->dev_media_message(),
 					$FCBRepeaters->media_data_attributes(),
-					$FCBFields->media_classes(),
+					$FCBFields->media_classes( null, $media_classes ),
 
 
 					// Tab Endpoint
@@ -446,6 +446,42 @@ class Layouts {
 			)
 		)
 		);
+	}
+
+	/**
+	 *
+	 * Layout: Content With Media
+	 *
+	 * @author Michael W. Delaney
+	 * @since 1.0
+	 *
+	 * A simple content block with optional media include (image or video) and optional Call to Action button
+	 */
+	function left_content_right_media() {
+		$data = $this->content_with_media( 'one-half first', 'one-half' );
+		$data['order'] = '21';
+		$data['layout']['key'] = $this->key . __FUNCTION__;
+		$data['layout']['name'] = 'left_content_right_media';
+		$data['layout']['label'] = 'Content Left, Media Right';
+		return $data;
+	}
+
+	/**
+	 *
+	 * Layout: Content With Media
+	 *
+	 * @author Michael W. Delaney
+	 * @since 1.0
+	 *
+	 * A simple content block with optional media include (image or video) and optional Call to Action button
+	 */
+	function right_content_left_media() {
+		$data = $this->content_with_media( 'one-half', 'one-half first' );
+		$data['order'] = '21';
+		$data['layout']['key'] = $this->key . __FUNCTION__;
+		$data['layout']['name'] = 'right_content_left_media';
+		$data['layout']['label'] = 'Media Left, Content Right';
+		return $data;
 	}
 
 	/**

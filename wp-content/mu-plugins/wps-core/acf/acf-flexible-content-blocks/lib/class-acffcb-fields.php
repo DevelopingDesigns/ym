@@ -1670,7 +1670,7 @@ class Fields {
 	 *
 	 * Additional Classes for blocks
 	 */
-	function block_classes( $thisKey = 'field' ) {
+	function block_classes( $thisKey = 'field', $default = '' ) {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
@@ -1692,6 +1692,7 @@ class Fields {
 			'maxlength'         => '',
 			'readonly'          => 0,
 			'disabled'          => 0,
+			'default'           => $default,
 		)
 		);
 	}
@@ -1705,7 +1706,7 @@ class Fields {
 	 *
 	 * Additional Classes for "Content" blocks
 	 */
-	function content_classes( $thisKey = 'field' ) {
+	function content_classes( $thisKey = 'field', $default = '' ) {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
@@ -1727,6 +1728,7 @@ class Fields {
 			'maxlength'         => '',
 			'readonly'          => 0,
 			'disabled'          => 0,
+			'default'           => $default,
 		)
 		);
 	}
@@ -1740,7 +1742,7 @@ class Fields {
 	 *
 	 * Additional Classes for "Content" blocks
 	 */
-	function media_classes( $thisKey = 'field' ) {
+	function media_classes( $thisKey = 'field', $default = '' ) {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
@@ -1762,6 +1764,7 @@ class Fields {
 			'maxlength'         => '',
 			'readonly'          => 0,
 			'disabled'          => 0,
+			'default'           => $default,
 		)
 		);
 	}
@@ -2078,20 +2081,20 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label' => 'Preview Placeholder',
-			'name' => '',
-			'type' => 'message',
-			'instructions' => '',
-			'required' => 0,
+			'label'             => 'Preview Placeholder',
+			'name'              => '',
+			'type'              => 'message',
+			'instructions'      => '',
+			'required'          => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper'           => array(
 				'width' => '',
 				'class' => '',
-				'id' => '',
+				'id'    => '',
 			),
-			'message' => '',
-			'esc_html' => 0,
-			'new_lines' => 'wpautop',
+			'message'           => '',
+			'esc_html'          => 0,
+			'new_lines'         => 'wpautop',
 		)
 		);
 	}
