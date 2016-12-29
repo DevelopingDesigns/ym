@@ -30,7 +30,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Title', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Title', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'title',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -50,6 +50,24 @@ class Fields {
 
 	/**
 	 *
+	 * Field: Sub-Title
+	 *
+	 * @author Travis Smith
+	 * @since 1.1
+	 *
+	 * Title fields shared by all layouts
+	 */
+	public function subtitle( $thisKey = 'field' ) {
+		$field          = $this->title();
+		$field['key']   = $this->key . '-' . $thisKey . '-' . __FUNCTION__;
+		$field['label'] = __( 'Sub-Title', ACFFCB_PLUGIN_DOMAIN );
+		$field['name']  = 'subtitle';
+
+		return $field;
+	}
+
+	/**
+	 *
 	 * Field: Navigation Title
 	 *
 	 * @author Michael W. Delaney
@@ -62,7 +80,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Navigation Title', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Navigation Title', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'navigation_title',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -98,7 +116,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Number to Show', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Number to Show', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'posts_per_page',
 			'type'              => 'number',
 			'instructions'      => '',
@@ -136,7 +154,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Category', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Category', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'category',
 			'type'              => 'taxonomy',
 			'instructions'      => '',
@@ -173,7 +191,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Show Author?', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Show Author?', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'show_author',
 			'type'              => 'true_false',
 			'instructions'      => '',
@@ -204,7 +222,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Show Featured Image?', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Show Featured Image?', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'show_featured_image',
 			'type'              => 'true_false',
 			'instructions'      => '',
@@ -235,7 +253,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Show Date?', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Show Date?', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'show_date',
 			'type'              => 'true_false',
 			'instructions'      => '',
@@ -266,7 +284,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Column Width', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Column Width', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'column_width',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -317,7 +335,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Background Color', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Background Color', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'background_color',
 			'type'              => 'radio',
 			'instructions'      => '',
@@ -355,7 +373,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Choose Color', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Choose Color', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'choose_color',
 			'type'              => 'color_picker',
 			'instructions'      => '',
@@ -393,7 +411,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Theme Color', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Theme Color', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'theme_color',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -439,7 +457,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Background Color Placeholder', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Background Color Placeholder', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -458,7 +476,7 @@ class Fields {
 				'class' => '',
 				'id'    => '',
 			),
-			'message'             => __('No special background color selected.',ACFFCB_PLUGIN_DOMAIN),
+			'message'           => __( 'No special background color selected.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -479,7 +497,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Background Image', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Background Image', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'background_image',
 			'type'              => 'image',
 			'instructions'      => '',
@@ -518,7 +536,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Content Source', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Content Source', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'content_source',
 			'type'              => 'radio',
 			'instructions'      => '',
@@ -555,7 +573,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Excerpt Placeholder', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Excerpt Placeholder', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -574,7 +592,7 @@ class Fields {
 				'class' => 'acf-media',
 				'id'    => '',
 			),
-			'message'             => __('Content will be drawn from the linked item\'s excerpt.',ACFFCB_PLUGIN_DOMAIN),
+			'message'           => __( 'Content will be drawn from the linked item\'s excerpt.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -595,7 +613,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Content', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'content',
 			'type'              => 'wysiwyg',
 			'instructions'      => '',
@@ -636,7 +654,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Content', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'content',
 			'type'              => 'wysiwyg',
 			'instructions'      => '',
@@ -669,7 +687,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Link', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'call_to_action_link',
 			'type'              => 'page_link',
 			'instructions'      => '',
@@ -702,7 +720,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Link', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'call_to_action_external',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -738,7 +756,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Text', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Text', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'call_to_action_text',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -774,7 +792,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Type', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Type', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'call_to_action_type',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -812,7 +830,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Featured Content', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Featured Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'featured_content',
 			'type'              => 'relationship',
 			'instructions'      => '',
@@ -852,7 +870,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Link Text', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Link Text', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'link_text',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -888,7 +906,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Link', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'link',
 			'type'              => 'post_object',
 			'instructions'      => '',
@@ -923,7 +941,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Type of Media', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Type of Media', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'type_of_media',
 			'type'              => 'radio',
 			'instructions'      => '',
@@ -964,7 +982,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Media Placeholder', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Media Placeholder', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -975,7 +993,7 @@ class Fields {
 				'class' => 'acf-media',
 				'id'    => '',
 			),
-			'message'             => __('No media will be displayed.',ACFFCB_PLUGIN_DOMAIN),
+			'message'           => __( 'No media will be displayed.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -996,7 +1014,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Image', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Image', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'image',
 			'type'              => 'image',
 			'instructions'      => '',
@@ -1035,7 +1053,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Code', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Code', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'code',
 			'type'              => 'textarea',
 			'instructions'      => '',
@@ -1066,7 +1084,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Content', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'media_content',
 			'type'              => 'wysiwyg',
 			'instructions'      => '',
@@ -1099,7 +1117,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Video', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'video',
 			'type'              => 'oembed',
 			'instructions'      => '',
@@ -1130,7 +1148,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __('Background', ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Background', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1161,7 +1179,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Calls to Action',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Calls to Action', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1192,7 +1210,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Dev Mode',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Dev Mode', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1223,7 +1241,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Tabs',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Tabs', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1254,7 +1272,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Post List',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Post List', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1285,7 +1303,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Gallery',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'gallery',
 			'type'              => 'gallery',
 			'instructions'      => '',
@@ -1325,7 +1343,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Type',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Type', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'panel_type',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -1370,7 +1388,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Map',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Map', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'map',
 			'type'              => 'google_map',
 			'instructions'      => '',
@@ -1403,7 +1421,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Collapsibles',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Collapsibles', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1434,7 +1452,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Content',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1465,7 +1483,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( '', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1496,7 +1514,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Features',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Features', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1527,7 +1545,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Cards',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Cards', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1558,7 +1576,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Media',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1589,7 +1607,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Slides',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Slides', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1620,7 +1638,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Gallery',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1651,7 +1669,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Attribute',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Attribute', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'attribute',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1687,7 +1705,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Value',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Value', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'value',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1723,7 +1741,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Classes',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'block_classes',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1760,7 +1778,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Classes',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'content_classes',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1797,7 +1815,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Classes',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'media_classes',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -1834,7 +1852,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Block',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Block', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'dev_block_message',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -1845,7 +1863,7 @@ class Fields {
 				'class' => 'acf-dev',
 				'id'    => '',
 			),
-			'message'             => __('Developer fields for the whole block.',ACFFCB_PLUGIN_DOMAIN),
+			'message'           => __( 'Developer fields for the whole block.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -1866,7 +1884,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Content',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'dev_content_message',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -1877,7 +1895,7 @@ class Fields {
 				'class' => 'acf-dev',
 				'id'    => '',
 			),
-			'message'             => __('Developer fields on the \'content\' tab.',ACFFCB_PLUGIN_DOMAIN),
+			'message'           => __( 'Developer fields on the \'content\' tab.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -1898,7 +1916,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Media',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'dev_media_message',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -1909,7 +1927,7 @@ class Fields {
 				'class' => 'acf-dev',
 				'id'    => '',
 			),
-			'message'             => __('Developer fields on the \'media\' tab.',ACFFCB_PLUGIN_DOMAIN),
+			'message'           => __( 'Developer fields on the \'media\' tab.', ACFFCB_PLUGIN_DOMAIN ),
 			'new_lines'         => 'wpautop',
 			'esc_html'          => 0,
 		)
@@ -1929,7 +1947,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Title',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Title', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1959,7 +1977,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Layout',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Layout', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'tab',
 			'instructions'      => '',
@@ -1989,7 +2007,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Word or Phrase',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Word or Phrase', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'word_or_phrase',
 			'type'              => 'text',
 			'instructions'      => '',
@@ -2025,7 +2043,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Alignment',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Alignment', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => $name,
 			'type'              => 'select',
 			'instructions'      => '',
@@ -2068,7 +2086,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Emphasize',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Emphasize', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'emphasize',
 			'type'              => 'true_false',
 			'instructions'      => '',
@@ -2099,7 +2117,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Size',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Size', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'size',
 			'type'              => 'select',
 			'instructions'      => '',
@@ -2140,7 +2158,7 @@ class Fields {
 		return (
 		array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			 'label'             => __('Preview Placeholder',ACFFCB_PLUGIN_DOMAIN),
+			'label'             => __( 'Preview Placeholder', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => '',
 			'type'              => 'message',
 			'instructions'      => '',
@@ -2157,5 +2175,104 @@ class Fields {
 		)
 		);
 	}
+
+	/**
+	 * Field: Date
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.0
+	 *
+	 * Select
+	 */
+	public function date( $thisKey = 'field' ) {
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'name'              => 'date',
+			'type'              => 'date_picker',
+			'display_format'    => 'F j, Y',
+			'return_format'     => 'F j, Y',
+			'first_day'         => 1,
+			'label'             => __( 'Date', ACFFCB_PLUGIN_DOMAIN ),
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+		)
+		);
+	}
+
+	/**
+	 * Field: Time
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.0
+	 *
+	 * Select
+	 */
+	public function time( $thisKey = 'field' ) {
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'name'              => 'time',
+			'type'              => 'time_picker',
+			'display_format'    => 'g:i a',
+			'return_format'     => 'g:i a',
+			'label'             => __( 'Time', ACFFCB_PLUGIN_DOMAIN ),
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+		)
+		);
+	}
+
+	public function text( $args = array() ) {
+		return wp_parse_args( (array) $args, array(
+			'type'              => 'text',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'default_value'     => '',
+			'placeholder'       => '',
+			'prepend'           => '',
+			'append'            => '',
+			'maxlength'         => '',
+			'readonly'          => 0,
+			'disabled'          => 0,
+		) );
+	}
+
+	public function select( $args = array() ) {
+		return wp_parse_args( (array)$args, array(
+			'type'              => 'select',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '50',
+				'class' => '',
+				'id'    => '',
+			),
+			'choices'           => array(),
+			'default_value'     => array(),
+			'allow_null'        => 0,
+			'multiple'          => 0,
+			'ui'                => 0,
+			'ajax'              => 0,
+			'placeholder'       => '',
+			'disabled'          => 0,
+			'readonly'          => 0,
+		));
+	}
+
 
 }
