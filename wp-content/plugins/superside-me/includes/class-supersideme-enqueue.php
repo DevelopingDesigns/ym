@@ -4,7 +4,7 @@
  *
  * @package   SuperSideMe
  * @author    Robin Cornett <hello@robincornett.com>
- * @copyright 2015-2016 Robin Cornett
+ * @copyright 2015-2017 Robin Cornett
  * @license   GPL-2.0+
  */
 class SuperSideMeEnqueue extends SuperSide_Me_CSS {
@@ -67,7 +67,7 @@ class SuperSideMeEnqueue extends SuperSide_Me_CSS {
 		$plugin_file      = $this->setting['fontawesome']['css'] ? plugins_url( 'includes/css/supersideme-fontawesome.css', dirname( __FILE__ ) ) : '';
 		$fontawesome_file = apply_filters( 'supersideme_fontawesome_css', $plugin_file );
 		$fontawesome_css  = 'supersideme-fontawesome';
-		wp_register_style( $fontawesome_css, esc_url( $fontawesome_file ), array(), '4.6.3', 'screen' );
+		wp_register_style( $fontawesome_css, esc_url( $fontawesome_file ), array(), '4.7', 'screen' );
 
 		if ( ! $this->panel_has_content() ) {
 			return;
