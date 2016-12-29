@@ -4,7 +4,7 @@
  *
  * @package   SuperSideMe
  * @author    Robin Cornett <hello@robincornett.com>
- * @copyright 2015-2016 Robin Cornett
+ * @copyright 2015-2017 Robin Cornett
  * @license   GPL-2.0+
  */
 
@@ -24,20 +24,14 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 
 	/**
 	 * License key
-	 * @var $supersideme_license
+	 * @var $license
 	 */
-	protected $supersideme_license = '';
+	protected $license = '';
 
 	/** License status
-	 * @var $supersideme_status
+	 * @var $status
 	 */
-	protected $supersideme_status = false;
-
-	/**
-	 * License data for this site (expiration date, latest version)
-	 * @var $supersideme_data
-	 */
-	protected $supersideme_data = false;
+	protected $status = false;
 
 	/**
 	 * Store URL for Easy Digital Downloads.
@@ -70,16 +64,6 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 	protected $nonce  = 'superside_license_nonce';
 
 	/**
-	 * SuperSide_Me_Licensing constructor.
-	 */
-	public function __construct() {
-		// set class variables
-		$this->supersideme_license = get_option( 'supersidemelicense_key', '' );
-		$this->supersideme_status  = get_option( 'supersidemelicense_status', false );
-		$this->supersideme_data    = get_option( 'supersidemelicense_data', false );
-	}
-
-	/**
 	 * Set up EDD licensing updates
 	 * @since 1.4.0
 	 */
@@ -90,9 +74,10 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 			include plugin_dir_path( __FILE__ ) . 'class-eddpluginupdater.php';
 		}
 
-		$edd_updater = new EDD_SL_Plugin_Updater( $this->store_url, SUPERSIDEME_BASENAME, array(
+		$this->license = get_option( 'supersidemelicense_key', '' );
+		$edd_updater   = new EDD_SL_Plugin_Updater( $this->store_url, SUPERSIDEME_BASENAME, array(
 			'version'   => SUPERSIDEME_VERSION,
-			'license'   => trim( $this->supersideme_license ),
+			'license'   => trim( $this->license ),
 			'item_name' => $this->name,
 			'author'    => 'Robin Cornett',
 		) );
@@ -159,7 +144,7 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 	 * @since 1.4.0
 	 */
 	public function do_license_key_field( $args ) {
-		if ( 'valid' === $this->supersideme_status ) {
+		if ( 'valid' === $this->status ) {
 			$style = 'color:white;background-color:green;border-radius:100%;margin-right:8px;vertical-align:middle;';
 			printf( '<span class="dashicons dashicons-yes" style="%s"></span>',
 				esc_attr( $style )
@@ -167,12 +152,12 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 		}
 		printf( '<input type="password" class="regular-text" id="%1$s" name="%1$s" value="%2$s" />',
 			esc_attr( $args['setting'] ),
-			esc_attr( $this->supersideme_license )
+			esc_attr( $this->license )
 		);
-		if ( ! empty( $this->supersideme_license ) && 'valid' === $this->supersideme_status ) {
+		if ( ! empty( $this->license ) && 'valid' === $this->status ) {
 			$this->add_deactivation_button();
 		}
-		if ( 'valid' === $this->supersideme_status ) {
+		if ( 'valid' === $this->status ) {
 			return;
 		}
 		printf( '<p class="description"><label for="%3$s[%1$s]">%2$s</label></p>', esc_attr( $args['setting'] ), esc_html( $args['label'] ), esc_attr( $this->page ) );
@@ -183,7 +168,7 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 	 */
 	public function add_deactivation_button() {
 
-		if ( 'valid' !== $this->supersideme_status ) {
+		if ( 'valid' !== $this->status ) {
 			return;
 		}
 
@@ -202,10 +187,11 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 	 */
 	public function sanitize_license( $new_value ) {
 		$license = get_option( 'supersidemelicense_key' );
+		$status  = get_option( 'supersidemelicense_status', '' );
 		if ( ( $license && $license !== $new_value ) || empty( $new_value ) ) {
 			delete_option( 'supersideme_status' );
 		}
-		if ( $license !== $new_value || 'valid' !== $this->supersideme_status ) {
+		if ( $license !== $new_value || 'valid' !== $status ) {
 			$this->activate_license( $new_value );
 		}
 		return sanitize_text_field( $new_value );
@@ -234,7 +220,7 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 			}
 
 			// retrieve the license from the database
-			$license = trim( $this->supersideme_license );
+			$license = trim( $this->license );
 			$license = $new_value !== $license ? trim( $new_value ) : $license;
 
 			if ( empty( $license ) || empty( $new_value ) ) {
@@ -284,7 +270,7 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 		 	}
 
 			// retrieve the license from the database
-			$license = trim( $this->supersideme_license );
+			$license = trim( $this->license );
 
 			// data to send in our API request
 			$api_params = array(
@@ -316,13 +302,14 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 			return;
 		}
 
-		if ( empty( $this->supersideme_license ) ) {
+		$license = get_option( 'supersidemelicense_key', '' );
+		if ( empty( $license ) ) {
 			delete_option( 'supersidemelicense_status' );
 			return;
 		}
 
 		// Update local plugin status
-		$license_data = $this->check_license();
+		$license_data = $this->check_license( $license );
 		$status       = 'invalid';
 		if ( $license_data ) {
 			$status = $license_data->license;
@@ -331,7 +318,7 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 			}
 			$this->update_supersideme_data_option( $license_data );
 		}
-		if ( $status !== $this->supersideme_status ) {
+		if ( $status !== $this->status ) {
 			update_option( 'supersidemelicense_status', $status );
 		}
 	}
@@ -342,7 +329,8 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 	 */
 	protected function update_supersideme_data_option( $license_data ) {
 		$data_setting = 'supersidemelicense_data';
-		if ( ! isset( $this->supersideme_data['expires'] ) || $license_data->expires !== $this->supersideme_data['expires'] ) {
+		$data         = get_option( $data_setting, false );
+		if ( ! isset( $data['expires'] ) || $license_data->expires !== $data['expires'] ) {
 			$this->update_settings( array(
 				'expires' => $license_data->expires,
 				'limit'   => (int) $license_data->license_limit,
@@ -354,7 +342,7 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 		}
 
 		$latest_version = $this->get_latest_version();
-		if ( ! isset( $this->supersideme_data['latest_version'] ) || $latest_version !== $this->supersideme_data['latest_version'] ) {
+		if ( ! isset( $data['latest_version'] ) || $latest_version !== $data['latest_version'] ) {
 			$this->update_settings( array(
 				'latest_version' => $latest_version,
 			), $data_setting );
@@ -373,7 +361,7 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 
 		$api_params = array(
 			'edd_action' => 'check_license',
-			'license'    => empty( $license ) ? $this->supersideme_license : $license,
+			'license'    => $license,
 			'item_name'  => urlencode( $this->name ), // the name of our product in EDD
 			'url'        => esc_url( home_url() ),
 		);
@@ -492,7 +480,8 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
-		if ( 'valid' === $this->supersideme_status ) {
+		$this->status = get_option( 'supersidemelicense_status', false );
+		if ( 'valid' === $this->status || apply_filters( 'supersideme_skip_license_check', false ) ) {
 			return;
 		}
 		$screen   = get_current_screen();
@@ -502,19 +491,20 @@ class SuperSide_Me_Licensing extends SuperSide_Me_Helper {
 			return;
 		}
 		$licensing_tab = admin_url( 'themes.php?page=supersideme&tab=licensing' );
-		if ( empty( $this->supersideme_license ) || false === $this->supersideme_status ) {
+		if ( empty( $this->license ) || false === $this->status ) {
 			$message = '<p>' . sprintf( __( 'Please make sure you <a href="%s">activate your %s license</a> in order to receive automatic updates and support.', 'superside-me' ), esc_url( $licensing_tab ), esc_attr( $this->name ) ) . '</p>';
 		} else {
 			$message = '<p>' . sprintf( __( 'Sorry, there is an issue with your license for %s. Please check the <a href="%s">plugin license</a>.', 'superside-me' ), esc_attr( $this->name ), esc_url( $licensing_tab ) );
-			if ( $this->supersideme_license && ! in_array( $this->supersideme_status, array( 'valid', false ), true ) ) {
-				if ( 'invalid' !== $this->supersideme_status ) {
+			if ( $this->license && ! in_array( $this->status, array( 'valid', false ), true ) ) {
+				if ( 'invalid' !== $this->status ) {
 					$class = 'error';
 				}
-				$message .= $this->license_data_error( $this->supersideme_status );
+				$message .= $this->license_data_error( $this->status );
 			}
 			$message .= '</p>';
-			if ( isset( $this->supersideme_data['latest_version'] ) && SUPERSIDEME_VERSION < $this->supersideme_data['latest_version'] ) {
-				$message .= '<p>' . sprintf( __( 'The latest version of %s is %s and you are running %s. ', 'superside-me' ), esc_attr( $this->name ), esc_attr( $this->supersideme_data['latest_version'] ), esc_attr( SUPERSIDEME_VERSION ) ) . '</p>';
+			$data     = get_option( 'supersidemelicense_data', false );
+			if ( isset( $data['latest_version'] ) && SUPERSIDEME_VERSION < $data['latest_version'] ) {
+				$message .= '<p>' . sprintf( __( 'The latest version of %s is %s and you are running %s. ', 'superside-me' ), esc_attr( $this->name ), esc_attr( $data['latest_version'] ), esc_attr( SUPERSIDEME_VERSION ) ) . '</p>';
 			}
 		}
 

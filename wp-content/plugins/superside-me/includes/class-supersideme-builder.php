@@ -4,7 +4,7 @@
  *
  * @package   SuperSideMe
  * @author    Robin Cornett <hello@robincornett.com>
- * @copyright 2015-2016 Robin Cornett
+ * @copyright 2015-2017 Robin Cornett
  * @license   GPL-2.0+
  */
 
@@ -80,7 +80,8 @@ class SuperSide_Me_Builder {
 				'button_text' => esc_attr( $this->setting['search_button_text'] ),
 				'button_aria' => esc_attr__( 'Search', 'superside-me' ),
 			),
-			'second'      => apply_filters( 'supersideme_second_panel', array() ),
+			'second'       => apply_filters( 'supersideme_second_panel', array() ),
+			'html5'        => (bool) current_theme_supports( 'html5' ),
 		);
 		if ( is_customize_preview() ) {
 			$output['search_on'] = (bool) apply_filters( 'supersideme_do_search', $this->setting['search'] );

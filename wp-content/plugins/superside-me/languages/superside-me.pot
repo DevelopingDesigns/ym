@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SuperSide Me 2.2.0\n"
-"POT-Creation-Date: 2016-09-19 15:04-0400\n"
+"POT-Creation-Date: 2016-12-26 10:30-0500\n"
 "PO-Revision-Date: 2015-04-29 08:09-0500\n"
 "Last-Translator: Robin Cornett <hello@robincornett.com>\n"
 "Language-Team: Robin Cornett <hello@robincornett.com>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -21,24 +21,24 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 
-#: includes/class-eddpluginupdater.php:196
+#: includes/class-eddpluginupdater.php:204
 #, php-format
 msgid ""
 "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
 msgstr ""
 
-#: includes/class-eddpluginupdater.php:204
+#: includes/class-eddpluginupdater.php:212
 #, php-format
 msgid ""
 "There is a new version of %1$s available. %2$sView version %3$s details%4$s "
 "or %5$supdate now%6$s."
 msgstr ""
 
-#: includes/class-eddpluginupdater.php:358
+#: includes/class-eddpluginupdater.php:366
 msgid "You do not have permission to install plugin updates"
 msgstr ""
 
-#: includes/class-eddpluginupdater.php:358
+#: includes/class-eddpluginupdater.php:366
 msgid "Error"
 msgstr ""
 
@@ -647,76 +647,76 @@ msgid ""
 "all."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:132
+#: includes/class-supersideme-licensing.php:116
 msgid "SuperSide Me[nu] License"
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:145
+#: includes/class-supersideme-licensing.php:129
 msgid "License Key"
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:150
+#: includes/class-supersideme-licensing.php:134
 msgid "Enter your license key."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:191
+#: includes/class-supersideme-licensing.php:175
 msgid "Deactivate"
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:229
-#: includes/class-supersideme-licensing.php:279
+#: includes/class-supersideme-licensing.php:214
+#: includes/class-supersideme-licensing.php:264
 #: includes/class-supersideme-settings.php:228
 msgid "Something unexpected happened. Please try again."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:448
+#: includes/class-supersideme-licensing.php:435
 #, php-format
 msgid "It looks like your license expired on %s."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:456
+#: includes/class-supersideme-licensing.php:443
 #, php-format
 msgid ""
 " To continue receiving updates, <a href=\"%s\">renew now and receive a "
 "discount</a>."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:460
+#: includes/class-supersideme-licensing.php:447
 msgid "Your license key has been disabled."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:464
-#: includes/class-supersideme-licensing.php:473
+#: includes/class-supersideme-licensing.php:451
+#: includes/class-supersideme-licensing.php:460
 #, php-format
 msgid "This appears to be an invalid license key for %s."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:469
-#: includes/class-supersideme-licensing.php:481
+#: includes/class-supersideme-licensing.php:456
+#: includes/class-supersideme-licensing.php:468
 msgid ""
 "If you're seeing this message and have recently migrated from another site, "
 "you should just need to reactivate your license."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:477
+#: includes/class-supersideme-licensing.php:464
 msgid "Your license key has reached its activation limit."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:507
+#: includes/class-supersideme-licensing.php:495
 #, php-format
 msgid ""
 "Please make sure you <a href=\"%s\">activate your %s license</a> in order to "
 "receive automatic updates and support."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:509
+#: includes/class-supersideme-licensing.php:497
 #, php-format
 msgid ""
 "Sorry, there is an issue with your license for %s. Please check the <a href="
 "\"%s\">plugin license</a>."
 msgstr ""
 
-#: includes/class-supersideme-licensing.php:518
+#: includes/class-supersideme-licensing.php:507
 #, php-format
 msgid "The latest version of %s is %s and you are running %s. "
 msgstr ""

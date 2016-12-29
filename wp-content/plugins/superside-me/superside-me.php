@@ -4,7 +4,7 @@
  *
  * @package   SuperSideMe
  * @author    Robin Cornett <hello@robincornett.com>
- * @copyright 2015-2016 Robin Cornett
+ * @copyright 2015-2017 Robin Cornett
  * @license   GPL-2.0+
  * @link      https://robincornett.com
  *
@@ -12,7 +12,7 @@
  * Plugin Name:       SuperSide Me
  * Plugin URI:        https://robincornett.com/downloads/superside-me
  * Description:       SuperSide Me is a super app-style mobile navigation plugin for WordPress.
- * Version:           2.2.0
+ * Version:           2.2.2
  * Author:            Robin Cornett
  * Author URI:        https://robincornett.com
  * Text Domain:       superside-me
@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 // Define the current plugin version
 if ( ! defined( 'SUPERSIDEME_VERSION' ) ) {
-	define( 'SUPERSIDEME_VERSION', '2.2.0' );
+	define( 'SUPERSIDEME_VERSION', '2.2.2' );
 }
 
 // Define the plugin basename
