@@ -72,7 +72,7 @@ function news_create_post_type() {
 	);
 	register_post_type( 'article', $args );
 
-	new WPS_Entry_Schema( 'article' );
+	new WPS_Entry_Schema( 'article', 'news' );
 
 }
 
