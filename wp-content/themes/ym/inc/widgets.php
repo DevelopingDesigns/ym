@@ -13,23 +13,23 @@
 namespace DevDesigns\YM;
 
 
-// add_action( 'widgets_init', __NAMESPACE__ . '\register_widgets' );
+add_action( 'widgets_init', __NAMESPACE__ . '\register_widgets' );
 /**
  * Register widgets in widgets.php
  */
 function register_widgets() {
 
 	genesis_register_sidebar( [
-			'id'          => 'shop-sidebar',
-			'name'        => __( 'Shop Sidebar', 'ym' ),
-			'description' => __( 'This widget will show up on the shop pages.', 'ym' ),
+			'id'          => 'footer-top',
+			'name'        => __( 'Footer Top', 'ym' ),
+			'description' => __( 'This widget is for the horizontal bar above the footer widgets.', 'ym' ),
 		]
 	);
 
 	genesis_register_sidebar( [
-			'id'          => 'before-header-right',
-			'name'        => __( 'Before Header Right', 'ym' ),
-			'description' => __( 'This is the Before Header Right widget area', 'ym' ),
+			'id'          => 'footer-bottom',
+			'name'        => __( 'Footer Bottom', 'ym' ),
+			'description' => __( 'This widget is for the horizontal bar below the footer widgets.', 'ym' ),
 		]
 	);
 
