@@ -54,7 +54,7 @@ function events_create_post_type() {
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
-		'menu_position'       => 6.15,
+		'menu_position'       => 6.7,
 		'menu_icon'           => 'dashicons-megaphone',
 		'show_in_admin_bar'   => true,
 		'show_in_nav_menus'   => true,
