@@ -4,8 +4,8 @@ Contributors: littler.chicken
 Donate link: https://robincornett.com/downloads/superside-me
 Tags: mobile menu, navigation, sidr
 Requires at least: 4.1
-Tested up to: 4.6
-Stable tag: 2.2.0
+Tested up to: 4.7
+Stable tag: 2.2.2
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -151,6 +151,17 @@ If you want even more control over SuperSide Me's inline CSS, which hides other 
 2.2.0 new option for search button with menu button; some significant CSS changes, primarily on submenu toggle buttons
 
 == Changelog ==
+
+= 2.2.2 =
+* updated: software licensing update class
+* fixed: fallback markup for XHTML themes
+
+= 2.2.1 =
+* updated: Font Awesome 4.7
+* improved: licensing options efficiency
+* fixed: overly aggressive closing panels/search inputs (Android)
+* fixed: search button container fallback
+* fixed: submenu toggle width
 
 = 2.2.0 =
 * added: setting to add a search button/input next to the menu button, outside of the panel
