@@ -78,7 +78,7 @@ function ym_page_post_acf_content_blocks_support() {
 		),
 	);
 
-	// Add to page, post, article, partner, resource, landing-page, product
+	// Add to page, post, article, partner, resource, landing-page, product, event
 	$supports = array(
 		array(
 			array(
@@ -127,6 +127,13 @@ function ym_page_post_acf_content_blocks_support() {
 				'param'    => 'post_type',
 				'operator' => '==',
 				'value'    => 'product',
+			),
+		),
+		array(
+			array(
+				'param'    => 'post_type',
+				'operator' => '==',
+				'value'    => 'event',
 			),
 		),
 	);

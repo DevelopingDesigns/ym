@@ -9,7 +9,7 @@ SuperSide Me adds an awesome mobile menu panel to your website. It automagically
 Optionally, you can add a small widget or two to your panel as well, but this widget area is best suited for small/minor widgets, such as a search box.
 
 ## Requirements
-* WordPress 4.1, tested up to 4.6
+* WordPress 4.1, tested up to 4.7
 
 ## Installation
 
@@ -170,6 +170,17 @@ function altitude_full_width_supersideme( $display_css, $side_tweaks, $hidden ) 
 * Built by [Robin Cornett](https://robincornett.com/)
 
 ## Changelog
+
+###
+* updated: software licensing update class
+* fixed: fallback markup for XHTML themes
+
+### 2.2.1
+* updated: Font Awesome 4.7
+* improved: licensing options efficiency
+* fixed: overly aggressive closing panels/search inputs (Android)
+* fixed: search button container fallback
+* fixed: submenu toggle width
 
 ### 2.2.0
 * added: setting to add a search button/input next to the menu button, outside of the panel

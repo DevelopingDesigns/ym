@@ -6,7 +6,7 @@
  *
  * @package   SuperSideMe
  * @author    Robin Cornett <hello@robincornett.com>
- * @copyright 2015-2016 Robin Cornett
+ * @copyright 2015-2017 Robin Cornett
  * @license   GPL-2.0+
  */
 class SuperSideMeDefineSettings {
