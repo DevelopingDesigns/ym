@@ -14,7 +14,7 @@ class CreateBlocks {
 
 	private $args;
 
-	function __construct() {
+	public function __construct() {
 
 		//Initialize shortcodes
 		$this->add_shortcodes();
@@ -31,11 +31,11 @@ class CreateBlocks {
 
 		$this->args = array(
 			'key'                   => 'cfb_blocks',
-			'title'                 => 'Content Blocks',
+			'title'                 => __( 'Content Blocks', ACFFCB_PLUGIN_DOMAIN),
 			'fields'                => array(
 				array(
 					'key'               => 'cfb_content_blocks',
-					'label'             => 'Blocks',
+					'label'             => __( 'Blocks', ACFFCB_PLUGIN_DOMAIN),
 					'name'              => 'blocks',
 					'type'              => 'flexible_content',
 					'instructions'      => '',
@@ -46,7 +46,7 @@ class CreateBlocks {
 						'class' => '',
 						'id'    => '',
 					),
-					'button_label'      => 'Add Block',
+					'button_label'      => __( 'Add Block', ACFFCB_PLUGIN_DOMAIN),
 					'min'               => '',
 					'max'               => '',
 					'layouts'           => array(),
@@ -152,16 +152,16 @@ class CreateBlocks {
 	/**
 	 * Enqueue admin scripts and styles
 	 */
-	function admin_scripts() {
+	public function admin_scripts() {
 		wp_enqueue_script( 'acf-flexible-content-fields-ace', ACFFCB_PLUGIN_URL . 'assets/js/ace/ace.js' );
 		wp_enqueue_script( 'acf-flexible-content-fields-admin-script', ACFFCB_PLUGIN_URL . 'assets/js/admin-script.js' );
 	}
 
-	function admin_styles() {
+	public function admin_styles() {
 		wp_enqueue_style( 'acf-flexible-content-fields-admin-style', ACFFCB_PLUGIN_URL . 'assets/css/admin.css' );
 	}
 
-	function dev_mode() {
+	public function dev_mode() {
 		if ( current_theme_supports( 'flexible-content-dev-mode' ) ) {
 			wp_enqueue_style( 'acf-flexible-content-fields-dev-mode', ACFFCB_PLUGIN_URL . 'assets/css/dev-mode.css' );
 		} else {
@@ -174,7 +174,7 @@ class CreateBlocks {
 	 *
 	 * @param array $layouts_array the current layouts array
 	 */
-	function add_layouts( $class, $layouts_array ) {
+	public function add_layouts( $class, $layouts_array ) {
 		return $this->insert_the_layouts( $class, $layouts_array );
 	}
 
@@ -186,7 +186,7 @@ class CreateBlocks {
 	 *
 	 * @return array                 the layouts array with all class functions inserted into it
 	 */
-	function insert_the_layouts( $class, $layouts_array ) {
+	public function insert_the_layouts( $class, $layouts_array ) {
 		foreach ( get_class_methods( $class ) as $layout_name ) {
 			$layouts = new $class();
 			if ( $layout_name != '__construct' ) {
@@ -200,7 +200,7 @@ class CreateBlocks {
 	/**
 	 * Check for theme support and extending classes and enable all appropriate layouts
 	 */
-	function filter_layouts( $layouts_array ) {
+	public function filter_layouts( $layouts_array ) {
 
 		//Check if theme support is explicitly defined. If so, only enable layouts declared in theme support.
 		if ( current_theme_supports( 'flexible-content-blocks' ) ) {
@@ -218,7 +218,7 @@ class CreateBlocks {
 	/**
 	 * Sort the layouts array
 	 */
-	function layout_sort( $array ) {
+	public function layout_sort( $array ) {
 		// Sort layouts by the 'order' element
 		usort( $array, function ( $a, $b ) {
 			if ( $a['order'] == $b['order'] ) {
@@ -236,14 +236,14 @@ class CreateBlocks {
 	 *
 	 * @uses acffcb_blocks Function to build the shorcode
 	 */
-	function add_shortcodes() {
+	public function add_shortcodes() {
 		add_shortcode( 'acffcb-blocks', array( $this, 'acffcb_blocks' ) );
 	}
 
 	/**
 	 * Build the shortcode, call templates
 	 */
-	function acffcb_blocks() {
+	public function acffcb_blocks() {
 		ob_start();
 		do_action( 'before_blocks' );
 		cfb_template( 'content', 'blocks' );

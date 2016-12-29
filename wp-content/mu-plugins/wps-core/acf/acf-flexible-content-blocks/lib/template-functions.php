@@ -55,11 +55,11 @@ function build_block_title( $title ) {
  */
 function fcb_bg_colors() {
 	$colors = array(
-		'primary' => 'Primary',
-		'success' => 'Success',
-		'info'    => 'Info',
-		'warning' => 'Warning',
-		'danger'  => 'Danger',
+		'primary' => __( 'Primary', ACFFCB_PLUGIN_DOMAIN),
+		'success' => __( 'Success', ACFFCB_PLUGIN_DOMAIN),
+		'info'    => __( 'Info', ACFFCB_PLUGIN_DOMAIN),
+		'warning' => __( 'Warning', ACFFCB_PLUGIN_DOMAIN),
+		'danger'  => __( 'Danger', ACFFCB_PLUGIN_DOMAIN),
 	);
 	$colors = apply_filters( 'fcb_bg_colors', $colors );
 
@@ -76,13 +76,13 @@ function fcb_bg_colors() {
  */
 function fcb_btn_colors() {
 	$colors = array(
-		'primary' => 'Primary',
-		'default' => 'Default',
-		'success' => 'Success',
-		'info'    => 'Info',
-		'warning' => 'Warning',
-		'danger'  => 'Danger',
-		'link'    => 'Link Only',
+		'primary' => __( 'Primary', ACFFCB_PLUGIN_DOMAIN),
+		'default' => __( 'Default', ACFFCB_PLUGIN_DOMAIN),
+		'success' => __( 'Success', ACFFCB_PLUGIN_DOMAIN),
+		'info'    => __( 'Info', ACFFCB_PLUGIN_DOMAIN),
+		'warning' => __( 'Warning', ACFFCB_PLUGIN_DOMAIN),
+		'danger'  => __( 'Danger', ACFFCB_PLUGIN_DOMAIN),
+		'link'    => __( 'Link Only', ACFFCB_PLUGIN_DOMAIN),
 	);
 	$colors = apply_filters( 'fcb_btn_colors', $colors );
 
