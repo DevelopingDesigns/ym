@@ -6,7 +6,7 @@ class Repeaters {
 
 	private $layout;
 
-	function __construct( $layout ) {
+	public function __construct( $layout ) {
 		$this->layout = $layout;
 		$this->key    = 'acffcb-';
 		$this->key .= 'layout-' . $layout;
@@ -22,7 +22,7 @@ class Repeaters {
 	 *
 	 * Linked content items repeater
 	 */
-	function cards() {
+	public function cards() {
 		$FCBRepeaterFields          = new Fields( $this->layout, __FUNCTION__ );
 		$FCBRepeaterFlexibleContent = new FlexibleContent( __FUNCTION__ );
 
@@ -87,7 +87,7 @@ class Repeaters {
 	 *
 	 * Tabs repeater
 	 */
-	function tabs() {
+	public function tabs() {
 		$FCBRepeaterFields          = new Fields( $this->layout, __FUNCTION__ );
 		$FCBRepeaterFlexibleContent = new FlexibleContent( __FUNCTION__ );
 
@@ -153,7 +153,7 @@ class Repeaters {
 	 *
 	 * Collapsibles repeater
 	 */
-	function collapsibles() {
+	public function collapsibles() {
 		$FCBRepeaterFields          = new Fields( $this->layout, __FUNCTION__ );
 		$FCBRepeaterFlexibleContent = new FlexibleContent( __FUNCTION__ );
 
@@ -220,7 +220,7 @@ class Repeaters {
 	 *
 	 * Repeater field for slides
 	 */
-	function slides() {
+	public function slides() {
 		$FCBRepeaterFields          = new Fields( $this->layout, __FUNCTION__ );
 		$FCBRepeaterFlexibleContent = new FlexibleContent( __FUNCTION__ );
 
@@ -280,7 +280,7 @@ class Repeaters {
 	 *
 	 * Repeater for data attributes on blocks
 	 */
-	function block_data_attributes() {
+	public function block_data_attributes() {
 		$FCBRepeaterFields = new Fields( $this->layout, __FUNCTION__ );
 
 		return (
@@ -320,7 +320,7 @@ class Repeaters {
 	 *
 	 * Repeater for data attributes on content tabs
 	 */
-	function content_data_attributes() {
+	public function content_data_attributes() {
 		$FCBRepeaterFields = new Fields( $this->layout, __FUNCTION__ );
 
 		return (
@@ -360,7 +360,7 @@ class Repeaters {
 	 *
 	 * Repeater for data attributes on media tabs
 	 */
-	function media_data_attributes() {
+	public function media_data_attributes() {
 		$FCBRepeaterFields = new Fields( $this->layout, __FUNCTION__ );
 
 		return (
@@ -391,7 +391,7 @@ class Repeaters {
 		);
 	}
 
-	function build_title() {
+	public function build_title() {
 		return (
 		array(
 			'key'               => $this->key . __FUNCTION__,
@@ -418,7 +418,7 @@ class Repeaters {
 		);
 	}
 
-	function title_group() {
+	public function title_group() {
 		$FCBRepeaterFields = new Fields( $this->layout, __FUNCTION__ );
 
 		return (

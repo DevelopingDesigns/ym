@@ -5,7 +5,7 @@ namespace WPS\ACFFCB;
 class Layouts {
 	public $key = '';
 
-	function __construct() {
+	public function __construct() {
 		$this->key = 'acffcb-';
 		$this->key .= 'layout-';
 	}
@@ -19,7 +19,7 @@ class Layouts {
 	 *
 	 * Basic content block
 	 */
-	function content() {
+	public function content() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -30,7 +30,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'content',
-				'label'      => 'Content',
+				'label'      => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -81,7 +81,7 @@ class Layouts {
 	 *
 	 * Basic content block
 	 */
-	function strap() {
+	public function strap() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -92,7 +92,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'strap',
-				'label'      => 'Strap',
+				'label'      => __( 'Strap', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 
@@ -136,7 +136,7 @@ class Layouts {
 	 *
 	 * Layout for tabbed content
 	 */
-	function tabs() {
+	public function tabs() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -147,7 +147,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'tabs',
-				'label'      => 'Tabs',
+				'label'      => __( 'Tabs', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -198,7 +198,7 @@ class Layouts {
 	 *
 	 * Image gallery layout
 	 */
-	function gallery() {
+	public function gallery() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -209,7 +209,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'gallery',
-				'label'      => 'Gallery',
+				'label'      => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -261,7 +261,7 @@ class Layouts {
 	 *
 	 * Layout for collapsible or "accordion" content
 	 */
-	function collapsibles() {
+	public function collapsibles() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -272,7 +272,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'collapsibles',
-				'label'      => 'Collapsibles',
+				'label'      => __( 'Collapsibles', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -324,7 +324,7 @@ class Layouts {
 	 *
 	 * Layout for a carousel of images or other media content
 	 */
-	function slides() {
+	public function slides() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -335,7 +335,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'slides',
-				'label'      => 'Slides',
+				'label'      => __( 'Slides', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -386,7 +386,7 @@ class Layouts {
 	 *
 	 * A simple content block with optional media include (image or video) and optional Call to Action button
 	 */
-	function content_with_media( $content_classes = null, $media_classes = null ) {
+	public function content_with_media( $content_classes = null, $media_classes = null ) {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -397,7 +397,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'content_with_media',
-				'label'      => 'Content with Media',
+				'label'      => __( 'Content with Media', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -457,12 +457,13 @@ class Layouts {
 	 *
 	 * A simple content block with optional media include (image or video) and optional Call to Action button
 	 */
-	function left_content_right_media() {
-		$data = $this->content_with_media( 'one-half first', 'one-half' );
-		$data['order'] = '21';
-		$data['layout']['key'] = $this->key . __FUNCTION__;
-		$data['layout']['name'] = 'left_content_right_media';
-		$data['layout']['label'] = 'Content Left, Media Right';
+	public function left_content_right_media() {
+		$data                    = $this->content_with_media( 'one-half first', 'one-half' );
+		$data['order']           = '21';
+		$data['layout']['key']   = $this->key . __FUNCTION__;
+		$data['layout']['name']  = 'left_content_right_media';
+		$data['layout']['label'] = __( 'Content Left, Media Right', ACFFCB_PLUGIN_DOMAIN );
+
 		return $data;
 	}
 
@@ -475,12 +476,13 @@ class Layouts {
 	 *
 	 * A simple content block with optional media include (image or video) and optional Call to Action button
 	 */
-	function right_content_left_media() {
-		$data = $this->content_with_media( 'one-half', 'one-half first' );
-		$data['order'] = '21';
-		$data['layout']['key'] = $this->key . __FUNCTION__;
-		$data['layout']['name'] = 'right_content_left_media';
-		$data['layout']['label'] = 'Media Left, Content Right';
+	public function right_content_left_media() {
+		$data                    = $this->content_with_media( 'one-half', 'one-half first' );
+		$data['order']           = '21';
+		$data['layout']['key']   = $this->key . __FUNCTION__;
+		$data['layout']['name']  = 'right_content_left_media';
+		$data['layout']['label'] = __( 'Media Left, Content Right', ACFFCB_PLUGIN_DOMAIN );
+
 		return $data;
 	}
 
@@ -493,7 +495,7 @@ class Layouts {
 	 *
 	 * Content block with relationship field to feature other site content and optional Call to Action button
 	 */
-	function featured_content() {
+	public function featured_content() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -504,7 +506,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'featured_content',
-				'label'      => 'Featured Content',
+				'label'      => __( 'Featured Content', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -555,7 +557,7 @@ class Layouts {
 	 *
 	 * List of links with titles and content
 	 */
-	function cards() {
+	public function cards() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -566,7 +568,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'cards',
-				'label'      => 'Cards',
+				'label'      => __( 'Cards', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -617,7 +619,7 @@ class Layouts {
 	 *
 	 * A simple media block optional Call to Action button
 	 */
-	function media() {
+	public function media() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -628,7 +630,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'media',
-				'label'      => 'Media',
+				'label'      => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -675,7 +677,7 @@ class Layouts {
 	 *
 	 * Media slider with optional Call to Action button
 	 */
-	function slider() {
+	public function slider() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -686,7 +688,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'slider',
-				'label'      => 'Slider',
+				'label'      => __( 'Slider', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -737,7 +739,7 @@ class Layouts {
 	 *
 	 * List of posts
 	 */
-	function post_list() {
+	public function post_list() {
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
@@ -748,7 +750,7 @@ class Layouts {
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'post_list',
-				'label'      => 'Post List',
+				'label'      => __( 'Post List', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
@@ -803,17 +805,17 @@ class Layouts {
 	 *
 	 * Select
 	 */
-	function complex_title() {
+	public function complex_title() {
 		$FCBFields    = new Fields( __FUNCTION__ );
 		$FCBRepeaters = new Repeaters( __FUNCTION__ );
 
 		return (
 		array(
-			'order' => '20',
+			'order'  => '20',
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'complex_title',
-				'label'      => 'Complex Title',
+				'label'      => __( 'Complex Title', ACFFCB_PLUGIN_DOMAIN ),
 				'display'    => 'block',
 				'sub_fields' => array(
 					$FCBFields->complex_title_preview_placeholder(),

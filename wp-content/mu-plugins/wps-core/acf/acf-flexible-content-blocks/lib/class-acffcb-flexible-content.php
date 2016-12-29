@@ -43,13 +43,13 @@ class FlexibleContent {
 	 *
 	 * Flexible Content field for Calls to Action
 	 */
-	function cta( $thisKey = 'flexible' ) {
+	public function cta( $thisKey = 'flexible' ) {
 		$FCBFlexibleContentFields = new Fields( $this->layout, __FUNCTION__ );
 
 		return (
 		array(
 			'key'               => $this->key . $thisKey . '-' . $this->getCallingFunctionName() . __FUNCTION__,
-			'label'             => 'Calls to Action',
+			'label'             => __( 'Calls to Action', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'calls_to_action',
 			'type'              => 'flexible_content',
 			'instructions'      => '',
@@ -62,12 +62,12 @@ class FlexibleContent {
 			),
 			'min'               => '',
 			'max'               => '',
-			'button_label'      => 'Add Call to Action',
+			'button_label'      => __( 'Add Call to Action', ACFFCB_PLUGIN_DOMAIN ),
 			'layouts'           => array(
 				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-internal_link',
 					'name'       => 'internal_link',
-					'label'      => 'Internal Link',
+					'message'    => __( 'Internal Link', ACFFCB_PLUGIN_DOMAIN ),
 					'display'    => 'block',
 					'sub_fields' => array(
 
@@ -80,7 +80,7 @@ class FlexibleContent {
 				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-external_link',
 					'name'       => 'external_link',
-					'label'      => 'External Link',
+					'message'    => __( 'External Link', ACFFCB_PLUGIN_DOMAIN ),
 					'display'    => 'block',
 					'sub_fields' => array(
 
@@ -95,7 +95,7 @@ class FlexibleContent {
 		)
 		);
 	}
-	
+
 	/**
 	 *
 	 * Flexible Content: Media
@@ -105,13 +105,13 @@ class FlexibleContent {
 	 *
 	 * Flexible Content field for Calls to Action
 	 */
-	function media( $min = 0, $max = 1, $thisKey = 'flexible' ) {
+	public function media( $min = 0, $max = 1, $thisKey = 'flexible' ) {
 		$FCBFlexibleContentFields = new Fields( $this->layout, __FUNCTION__ );
 
 		return (
 		array(
 			'key'               => $this->key . $thisKey . '-' . $this->getCallingFunctionName() . __FUNCTION__,
-			'label'             => 'Media',
+			'label'             => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'media',
 			'type'              => 'flexible_content',
 			'instructions'      => '',
@@ -124,12 +124,12 @@ class FlexibleContent {
 			),
 			'min'               => $min,
 			'max'               => $max,
-			'button_label'      => 'Add Media',
+			'button_label'      => __( 'Add Media', ACFFCB_PLUGIN_DOMAIN ),
 			'layouts'           => array(
 				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-image',
 					'name'       => 'image',
-					'label'      => 'Image',
+					'message'    => __( 'Image', ACFFCB_PLUGIN_DOMAIN ),
 					'display'    => 'block',
 					'sub_fields' => array(
 
@@ -141,7 +141,7 @@ class FlexibleContent {
 				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-video',
 					'name'       => 'video',
-					'label'      => 'Video',
+					'message'    => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
 					'display'    => 'block',
 					'sub_fields' => array(
 
@@ -153,7 +153,7 @@ class FlexibleContent {
 				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-gallery',
 					'name'       => 'gallery',
-					'label'      => 'Gallery',
+					'message'    => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
 					'display'    => 'block',
 					'sub_fields' => array(
 
@@ -165,7 +165,7 @@ class FlexibleContent {
 				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-content',
 					'name'       => 'content',
-					'label'      => 'Content',
+					'message'    => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 					'display'    => 'block',
 					'sub_fields' => array(
 
@@ -177,7 +177,7 @@ class FlexibleContent {
 				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-code',
 					'name'       => 'code',
-					'label'      => 'Code',
+					'message'    => __( 'Code', ACFFCB_PLUGIN_DOMAIN ),
 					'display'    => 'block',
 					'sub_fields' => array(
 
@@ -189,7 +189,7 @@ class FlexibleContent {
 				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-map',
 					'name'       => 'map',
-					'label'      => 'Map',
+					'message'    => __( 'Map', ACFFCB_PLUGIN_DOMAIN ),
 					'display'    => 'block',
 					'sub_fields' => array(
 
