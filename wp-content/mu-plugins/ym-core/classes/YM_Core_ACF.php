@@ -21,27 +21,55 @@ class YM_Core_ACF extends WPS_Singleton {
 
 		}
 
-		$company = new FieldsBuilder('company', array(
-			'title'    => __( 'Company', WPSCORE_PLUGIN_DOMAIN ),
-		));
+		$company = new FieldsBuilder( 'company', array(
+			'title' => __( 'Company Settings', WPSCORE_PLUGIN_DOMAIN ),
+		) );
 		$company
-			->addText('phone', array(
+			->addText( 'phone', array(
 				'required'      => 1,
 				'placeholder'   => '1-800-827-0046',
 				'default_value' => '1-800-827-0046',
-			))
-			->addEmail('primary', array(
+			) )
+			->addEmail( 'primary', array(
 				'required'      => 1,
 				'placeholder'   => 'connectwithus@yourmembership.com',
 				'default_value' => 'connectwithus@yourmembership.com',
-			))
-			->addImage('logo', array(
+			) )
+			->addImage( 'logo', array(
 				'default_value' => 89,
-			))
-			->setLocation('options_page', '==', 'ym-settings');
+			) )
+			->setLocation( 'options_page', '==', 'ym-settings' );
+
+
+		$social = new FieldsBuilder( 'social', array(
+			'title' => __( 'Social Settings', WPSCORE_PLUGIN_DOMAIN ),
+		) );
+
+		$accounts = array();
+
+		$social
+			->addRepeater(
+				'social_accounts',
+				array(
+					'layout'       => 'table',
+					'button_label' => __( 'Add Account', WPSCORE_PLUGIN_DOMAIN ),
+				)
+			)
+				->addText( 'account_name' )
+				->addUrl( 'account_url' )
+				->addText( 'account_icon' )
+				->addColorPicker( 'account_color' )
+			->endRepeater()
+			->addMessage(
+				__( 'Instructions', WPSCORE_PLUGIN_DOMAIN ),
+				__( 'See <a href="http://designpieces.com/2012/12/social-media-colours-hex-and-rgb/">This reference</a> for official social media account colors.', WPSCORE_PLUGIN_DOMAIN )
+			)
+			->setLocation( 'options_page', '==', 'ym-settings' );
+
 
 		if ( function_exists( 'acf_add_local_field_group' ) ) {
 			acf_add_local_field_group( $company->build() );
+			acf_add_local_field_group( $social->build() );
 		}
 	}
 
