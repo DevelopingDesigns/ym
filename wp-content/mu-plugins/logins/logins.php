@@ -47,12 +47,7 @@ function logins_create_post_type() {
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
-			'content',
-			'excerpt',
-			'revisions',
 			'thumbnail',
-			'custom-fields',
-			'page-attributes',
 		),
 		'hierarchical'        => false,
 		'public'              => true,
@@ -72,5 +67,72 @@ function logins_create_post_type() {
 	);
 	register_post_type( 'login', $args );
 
+}
+
+add_action( 'acf/init', 'login_create_acf' );
+/**
+ * Creates ACF Fields for post type
+ */
+function login_create_acf() {
+
+	if ( function_exists( 'acf_add_local_field_group' ) ) {
+		$fields = array();
+
+		$fields[] = array(
+			'key'      => 'field_url',
+			'label'    => __( 'Login URL', WPSCORE_PLUGIN_DOMAIN ),
+			'name'     => 'url',
+			'required' => 1,
+			'type'     => 'url',
+		);
+		$fields[] = array(
+			'key'           => 'field_phone',
+			'label'         => __( 'Support Phone Number', WPSCORE_PLUGIN_DOMAIN ),
+			'name'          => 'phone',
+			'required'      => 1,
+			'type'          => 'text',
+			'placeholder'   => '1-800-827-0046',
+			'default_value' => '1-800-827-0046',
+		);
+		$fields[] = array(
+			'key'           => 'field_email',
+			'label'         => __( 'Support Email', WPSCORE_PLUGIN_DOMAIN ),
+			'name'          => 'email',
+			'required'      => 1,
+			'type'          => 'email',
+			'placeholder'   => 'support@yourmembership.com',
+			'default_value' => 'support@yourmembership.com',
+		);
+		$fields[] = array(
+			'key'         => 'field_learn_more_text',
+			'label'       => __( 'Learn More Text', WPSCORE_PLUGIN_DOMAIN ),
+			'name'        => 'learn_more_text',
+			'required'    => 1,
+			'type'        => 'text',
+			'placeholder' => __( 'FL', WPSCORE_PLUGIN_DOMAIN ),
+		);
+		$fields[] = array(
+			'key'      => 'field_learn_more_url',
+			'label'    => __( 'Learn More URL', WPSCORE_PLUGIN_DOMAIN ),
+			'name'     => 'learn_more_url',
+			'required' => 1,
+			'type'     => 'url',
+		);
+
+		acf_add_local_field_group( array(
+			'key'      => 'logins',
+			'title'    => __( 'Login Information', WPSCORE_PLUGIN_DOMAIN ),
+			'fields'   => $fields,
+			'location' => array(
+				array(
+					array(
+						'param'    => 'post_type',
+						'operator' => '==',
+						'value'    => 'login',
+					),
+				),
+			),
+		) );
+	}
 }
 

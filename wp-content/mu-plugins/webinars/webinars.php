@@ -47,12 +47,10 @@ function webinars_create_post_type() {
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
-			'content',
+			'editor',
 			'excerpt',
 			'revisions',
 			'thumbnail',
-			'custom-fields',
-			'page-attributes',
 		),
 		'hierarchical'        => false,
 		'public'              => true,
@@ -64,12 +62,13 @@ function webinars_create_post_type() {
 		'show_in_nav_menus'   => true,
 		'can_export'          => true,
 		'has_archive'         => 'webinars',
-		'exclude_from_search' => true,
-		'publicly_queryable'  => false,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
 	);
 	register_post_type( 'webinar', $args );
 
+	new WPS_Entry_Schema( 'webinar', 'education-event' );
 }

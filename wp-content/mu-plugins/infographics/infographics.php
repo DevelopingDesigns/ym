@@ -45,7 +45,11 @@ function infographics_create_post_type() {
 		'label'               => __( 'Infographic', DD_MU_TEXT_DOMAIN ),
 		'description'         => __( 'For infographics', DD_MU_TEXT_DOMAIN ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'thumbnail', ),
+		'supports'            => array(
+			'title',
+			'excerpt',
+			'thumbnail',
+		),
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -64,5 +68,6 @@ function infographics_create_post_type() {
 	);
 	register_post_type( 'infographic', $args );
 
+	new WPS_Entry_Schema( 'infographic', 'image' );
 }
 
