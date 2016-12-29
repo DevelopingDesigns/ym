@@ -5,6 +5,25 @@ namespace WPS\ACFFCB;
 class Layouts {
 	public $key = '';
 
+	private $order = array(
+		'content'                  => '10',
+		'strap'                    => '10',
+		'tabs'                     => '300',
+		'gallery'                  => '70',
+		'collapsibles'             => '400',
+		'slides'                   => '90',
+		'content_with_media'       => '20',
+		'left_content_right_media' => '21',
+		'right_content_left_media' => '22',
+		'featured_content'         => '100',
+		'cards'                    => '100',
+		'media'                    => '60',
+		'slider'                   => '200',
+		'post_list'                => '500',
+		'complex_title'            => '20',
+		'event'                    => '30',
+	);
+
 	public function __construct() {
 		$this->key = 'acffcb-';
 		$this->key .= 'layout-';
@@ -26,7 +45,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '10',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'content',
@@ -88,7 +107,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '10',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'strap',
@@ -143,7 +162,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '300',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'tabs',
@@ -205,7 +224,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '70',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'gallery',
@@ -268,7 +287,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '400',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'collapsibles',
@@ -331,7 +350,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '90',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'slides',
@@ -393,7 +412,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '20',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'content_with_media',
@@ -459,7 +478,7 @@ class Layouts {
 	 */
 	public function left_content_right_media() {
 		$data                    = $this->content_with_media( 'one-half first', 'one-half' );
-		$data['order']           = '21';
+		$data['order']           = $this->order[ __FUNCTION__ ];
 		$data['layout']['key']   = $this->key . __FUNCTION__;
 		$data['layout']['name']  = 'left_content_right_media';
 		$data['layout']['label'] = __( 'Content Left, Media Right', ACFFCB_PLUGIN_DOMAIN );
@@ -478,7 +497,7 @@ class Layouts {
 	 */
 	public function right_content_left_media() {
 		$data                    = $this->content_with_media( 'one-half', 'one-half first' );
-		$data['order']           = '21';
+		$data['order']           = $this->order[ __FUNCTION__ ];
 		$data['layout']['key']   = $this->key . __FUNCTION__;
 		$data['layout']['name']  = 'right_content_left_media';
 		$data['layout']['label'] = __( 'Media Left, Content Right', ACFFCB_PLUGIN_DOMAIN );
@@ -502,7 +521,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '100',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'featured_content',
@@ -564,7 +583,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '100',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'cards',
@@ -626,7 +645,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '60',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'media',
@@ -684,7 +703,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '200',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'slider',
@@ -746,7 +765,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '500',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'post_list',
@@ -812,7 +831,7 @@ class Layouts {
 
 		return (
 		array(
-			'order'  => '20',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'complex_title',
@@ -842,12 +861,12 @@ class Layouts {
 	 * Select
 	 */
 	public function event() {
-		$FCBFields    = new Fields( __FUNCTION__ );
+		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
 
 		return (
 		array(
-			'order'  => '30',
+			'order'  => $this->order[ __FUNCTION__ ],
 			'layout' => array(
 				'key'        => $this->key . __FUNCTION__,
 				'name'       => 'event',
