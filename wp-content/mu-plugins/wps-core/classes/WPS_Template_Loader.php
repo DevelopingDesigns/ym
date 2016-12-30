@@ -9,6 +9,11 @@
  * @version   1.2.0
  */
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Template loader.
  *
@@ -21,7 +26,7 @@
  * @author  Travis Smith <t@wpsmith.net>
  */
 if ( !class_exists( 'WPS_Template_Loader' ) ) {
-	class WPS_Template_Loader implements WPS_Singleton {
+	class WPS_Template_Loader {
 
 		/**
 		 * Prefix for filter names. _ will be added at the end.
@@ -102,7 +107,11 @@ if ( !class_exists( 'WPS_Template_Loader' ) ) {
 		public function init( $obj ) {
 
 			if ( method_exists( $obj, 'loaded' ) ) {
-				add_action( 'after_setup_theme', array( $obj, 'loaded' ), 99 );
+				if ( ! did_action( 'after_setup_theme' ) ) {
+					add_action( 'after_setup_theme', array( $obj, 'loaded' ), 99 );
+				} else {
+					$this->loaded();
+				}
 			}
 		}
 
