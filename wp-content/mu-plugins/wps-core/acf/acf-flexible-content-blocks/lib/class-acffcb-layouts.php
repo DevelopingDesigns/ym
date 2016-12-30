@@ -786,56 +786,80 @@ class Layouts {
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
 
-		return (
-		array(
-			'order'  => $this->order[ __FUNCTION__ ],
-			'layout' => array(
-				'key'        => $this->key . __FUNCTION__,
-				'name'       => 'post_list',
-				'label'      => __( 'Post List', ACFFCB_PLUGIN_DOMAIN ),
-				'display'    => 'block',
-				'sub_fields' => array(
-					// Titles
-					$FCBFields->title(),
-					$FCBFields->navigation_title(),
+		// Build sub_fields array.
+		$sub_fields = array(
+			// Titles
+			$FCBFields->title(),
+			$FCBFields->navigation_title(),
 
-					// Content tab
-					$FCBFields->tab_content(),
-					$FCBFields->content(),
+			// Content tab
+			$FCBFields->tab_content(),
+			$FCBFields->content(),
 
-					// Post List Tab
-					$FCBFields->tab_post_list(),
-					$FCBFields->posts_per_page(),
-					$FCBFields->show_author(),
-					$FCBFields->show_date(),
-					$FCBFields->show_featured_image(),
-					$FCBFields->category(),
-
-					// Background tab
-					$FCBFields->tab_background(),
-					$FCBFields->background_image(),
-					$FCBFields->background_color(),
-					$FCBFields->background_color_placeholder(),
-					$FCBFields->theme_color(),
-					$FCBFields->choose_color(),
-
-					// Call to Action
-					$FCBFields->tab_cta(),
-					$FCBFlexibleContent->cta(),
-
-					// Dev Mode tab
-					$FCBFields->tab_dev(),
-					$FCBFields->dev_block_message(),
-					$FCBRepeaters->block_data_attributes(),
-					$FCBFields->block_classes(),
-
-					// Tab Endpoint
-					$FCBFields->tab_endpoint(),
-
-				)
-			)
-		)
+			// Post List Tab
+			$FCBFields->tab_post_list(),
+			$FCBFields->post_type(),
+			$FCBFields->posts_per_page(),
+			$FCBFields->show_author(),
+			$FCBFields->show_date(),
+			$FCBFields->show_featured_image(),
 		);
+
+		// Dynamically add taxonomies conditionally based on post type chosen.
+		$post_types = get_post_types( array( 'public' => true, ), 'names' );
+		foreach( $post_types as $post_type ) {
+			$taxonomy_objects = get_object_taxonomies( $post_type, 'objects' );
+			foreach( $taxonomy_objects as $taxonomy => $taxonomy_object ) {
+				$sub_fields[] = $FCBFields->taxonomy( null, $taxonomy, array(
+					'key' => $FCBFields->key . '-field-' . $taxonomy,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field'    => $FCBFields->key . '-field-post_type',
+								'operator' => '==',
+								'value'    => $post_type,
+							),
+						),
+					),
+				) );
+			}
+		}
+
+		// Complete sub_fields array.
+		$sub_fields = array_merge( $sub_fields, array(
+			// Background tab
+			$FCBFields->tab_background(),
+			$FCBFields->background_image(),
+			$FCBFields->background_color(),
+			$FCBFields->background_color_placeholder(),
+			$FCBFields->theme_color(),
+			$FCBFields->choose_color(),
+
+			// Call to Action
+			$FCBFields->tab_cta(),
+			$FCBFlexibleContent->cta(),
+
+			// Dev Mode tab
+			$FCBFields->tab_dev(),
+			$FCBFields->dev_block_message(),
+			$FCBRepeaters->block_data_attributes(),
+			$FCBFields->block_classes(),
+
+			// Tab Endpoint
+			$FCBFields->tab_endpoint(),
+		) );
+
+		return
+			array(
+				'order'  => $this->order[ __FUNCTION__ ],
+				'layout' => array(
+					'key'        => $this->key . __FUNCTION__,
+					'name'       => 'post_list',
+					'label'      => __( 'Post List', ACFFCB_PLUGIN_DOMAIN ),
+					'display'    => 'block',
+					'sub_fields' => $sub_fields,
+				)
+			);
 	}
 
 	/**
