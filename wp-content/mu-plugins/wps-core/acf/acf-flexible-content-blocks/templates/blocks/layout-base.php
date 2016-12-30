@@ -2,8 +2,8 @@
 	<div class="<?php fcb_block_classes(); ?>">
 		<div class="block-inner">
 
-			<?php cfb_template( 'blocks/parts/block-title', get_row_layout() ); ?>
-			<?php cfb_template( 'blocks/layout', get_row_layout() ); ?>
+			<?php fcb_template( 'blocks/parts/block-title', get_row_layout(), 1 ); ?>
+			<?php fcb_template( 'blocks/layout', get_row_layout(), 1 ); ?>
 
 		</div> <!-- /block-inner -->
 	</div> <!-- /block -->

@@ -6,9 +6,27 @@
  * @param string $slug The slug name for the generic template.
  * @param string $load The name of the specialised template.
  */
-function cfb_template( $slug, $load = null ) {
-	$acffcb_templates = new ACFFCB_Template_Loader;
-	$acffcb_templates->get_template_part( $slug, $load );
+function fcb_template( $slug, $name = null, $load = false ) {
+	static $acffcb_templates;
+
+	if (!$acffcb_templates) {
+//		$acffcb_templates = WPS_Template_Loader::get_instance( array(
+		$acffcb_templates = new WPS_Template_Loader( array(
+			'filter_prefix'            => 'acffcb',
+			'theme_template_directory' => 'templates',
+			'templates_directory'      => 'templates',
+			'plugin_directory'         => ACFFCB_PLUGIN_DIR,
+		) );
+	}
+
+//	wps_printr(array(
+//		'$acffcb_templates' =>  $acffcb_templates,
+//		'$slug' =>  $slug,
+//		'$load' =>  $load,
+//	));
+
+	return $acffcb_templates->get_template_part( $slug, $name, 1 );
+
 }
 
 /**
@@ -55,11 +73,11 @@ function build_block_title( $title ) {
  */
 function fcb_bg_colors() {
 	$colors = array(
-		'primary' => __( 'Primary', ACFFCB_PLUGIN_DOMAIN),
-		'success' => __( 'Success', ACFFCB_PLUGIN_DOMAIN),
-		'info'    => __( 'Info', ACFFCB_PLUGIN_DOMAIN),
-		'warning' => __( 'Warning', ACFFCB_PLUGIN_DOMAIN),
-		'danger'  => __( 'Danger', ACFFCB_PLUGIN_DOMAIN),
+		'primary' => __( 'Primary', ACFFCB_PLUGIN_DOMAIN ),
+		'success' => __( 'Success', ACFFCB_PLUGIN_DOMAIN ),
+		'info'    => __( 'Info', ACFFCB_PLUGIN_DOMAIN ),
+		'warning' => __( 'Warning', ACFFCB_PLUGIN_DOMAIN ),
+		'danger'  => __( 'Danger', ACFFCB_PLUGIN_DOMAIN ),
 	);
 	$colors = apply_filters( 'fcb_bg_colors', $colors );
 
@@ -76,13 +94,13 @@ function fcb_bg_colors() {
  */
 function fcb_btn_colors() {
 	$colors = array(
-		'primary' => __( 'Primary', ACFFCB_PLUGIN_DOMAIN),
-		'default' => __( 'Default', ACFFCB_PLUGIN_DOMAIN),
-		'success' => __( 'Success', ACFFCB_PLUGIN_DOMAIN),
-		'info'    => __( 'Info', ACFFCB_PLUGIN_DOMAIN),
-		'warning' => __( 'Warning', ACFFCB_PLUGIN_DOMAIN),
-		'danger'  => __( 'Danger', ACFFCB_PLUGIN_DOMAIN),
-		'link'    => __( 'Link Only', ACFFCB_PLUGIN_DOMAIN),
+		'primary' => __( 'Primary', ACFFCB_PLUGIN_DOMAIN ),
+		'default' => __( 'Default', ACFFCB_PLUGIN_DOMAIN ),
+		'success' => __( 'Success', ACFFCB_PLUGIN_DOMAIN ),
+		'info'    => __( 'Info', ACFFCB_PLUGIN_DOMAIN ),
+		'warning' => __( 'Warning', ACFFCB_PLUGIN_DOMAIN ),
+		'danger'  => __( 'Danger', ACFFCB_PLUGIN_DOMAIN ),
+		'link'    => __( 'Link Only', ACFFCB_PLUGIN_DOMAIN ),
 	);
 	$colors = apply_filters( 'fcb_btn_colors', $colors );
 
@@ -213,6 +231,7 @@ function fcb_get_content_classes() {
 	$classes[] = get_sub_field( 'content_classes' );
 
 	$classes = array_filter( array_map( 'trim', $classes ) );
+
 	return trim( implode( ' ', apply_filters( 'fcb_set_content_classes', $classes ) ) );
 }
 
@@ -250,6 +269,7 @@ function fcb_get_media_classes() {
 	$classes[] = get_sub_field( 'media_classes' );
 
 	$classes = array_filter( array_map( 'trim', $classes ) );
+
 	return trim( implode( ' ', apply_filters( 'fcb_set_media_classes', $classes ) ) );
 }
 
