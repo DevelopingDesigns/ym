@@ -83,7 +83,6 @@ add_action( 'wp_loaded', 'register_feature_cptonomy', 999 );
  * @link http://rachelcarden.com/cpt-onomies/documentation/register_cpt_onomy/
  */
 function register_feature_cptonomy() {
-	global $cpt_onomies_manager;
 
 	register_cptonomy( array(
 		'post_type' => 'feature',
