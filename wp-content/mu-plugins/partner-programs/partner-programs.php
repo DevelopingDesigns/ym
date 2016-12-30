@@ -1,16 +1,16 @@
 <?php
 
-add_action( 'init', 'partners_create_post_type', 0 );
+add_action( 'init', 'partner_programs_create_post_type', 0 );
 /**
  * Register custom post type
  */
-function partners_create_post_type() {
+function partner_programs_create_post_type() {
 
 	$labels  = array(
-		'name'                  => _x( 'Partners', 'Post Type General Name', DD_MU_TEXT_DOMAIN ),
-		'singular_name'         => _x( 'Partner', 'Post Type Singular Name', DD_MU_TEXT_DOMAIN ),
-		'menu_name'             => __( 'Partners', DD_MU_TEXT_DOMAIN ),
-		'name_admin_bar'        => __( 'Partners', DD_MU_TEXT_DOMAIN ),
+		'name'                  => _x( 'Partner Programs', 'Post Type General Name', DD_MU_TEXT_DOMAIN ),
+		'singular_name'         => _x( 'Partner Program', 'Post Type Singular Name', DD_MU_TEXT_DOMAIN ),
+		'menu_name'             => __( 'Partner Programs', DD_MU_TEXT_DOMAIN ),
+		'name_admin_bar'        => __( ' Partner Programs', DD_MU_TEXT_DOMAIN ),
 		'archives'              => __( 'Item Archives', DD_MU_TEXT_DOMAIN ),
 		'attributes'            => __( 'Item Attributes', DD_MU_TEXT_DOMAIN ),
 		'parent_item_colon'     => __( 'Parent Item:', DD_MU_TEXT_DOMAIN ),
@@ -36,14 +36,14 @@ function partners_create_post_type() {
 		'filter_items_list'     => __( 'Filter items list', DD_MU_TEXT_DOMAIN ),
 	);
 	$rewrite = array(
-		'slug'       => 'partner',
+		'slug'       => 'partner-program',
 		'with_front' => true,
 		'pages'      => true,
 		'feeds'      => true,
 	);
 	$args    = array(
-		'label'               => __( 'Partners', DD_MU_TEXT_DOMAIN ),
-		'description'         => __( 'For Partners', DD_MU_TEXT_DOMAIN ),
+		'label'               => __( ' Partner Programs', DD_MU_TEXT_DOMAIN ),
+		'description'         => __( 'For  Partner Programs', DD_MU_TEXT_DOMAIN ),
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
@@ -63,25 +63,14 @@ function partners_create_post_type() {
 		'show_in_admin_bar'   => true,
 		'show_in_nav_menus'   => true,
 		'can_export'          => true,
-		'has_archive'         => 'partners',
+		'has_archive'         => 'partner-programs',
 		'exclude_from_search' => true,
 		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
 	);
-	register_post_type( 'partner', $args );
+	register_post_type( 'partner-program', $args );
 
-	new WPS_Entry_Schema( 'partner', 'business' );
-}
-
-//add_action( 'plugins_loaded', 'partner_acf_content_blocks_support', 15 );
-function partner_acf_content_blocks_support() {
-	if ( function_exists( 'ym_add_flexible_content_support' ) ) {
-		ym_add_flexible_content_support( array (
-			'param' => 'post_type',
-			'operator' => '==',
-			'value' => 'partner',
-		) );
-	}
+	new WPS_Entry_Schema( 'partner-program', 'business' );
 }

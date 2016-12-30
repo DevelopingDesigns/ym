@@ -37,7 +37,7 @@ require_once('landing-pages/landing-pages.php');
 require_once('locations/locations.php');
 require_once( 'events/events.php' );
 require_once('logins/logins.php');
-require_once('partners/partners.php');
+require_once('partner-programs/partner-programs.php');
 require_once('products/products.php');
 //require_once('resources/resources.php');
 require_once('testimonials/testimonials.php');
