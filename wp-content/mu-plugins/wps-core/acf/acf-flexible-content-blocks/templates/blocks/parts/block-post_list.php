@@ -1,10 +1,27 @@
 <?php
 
-$args  = array(
-	'post_type'      => get_sub_field( 'post_type' ),
+$post_type        = get_sub_field( 'post_type' );
+$args             = array(
+	'post_type'      => $post_type,
 	'posts_per_page' => get_sub_field( 'posts_per_page' ),
-	'category'       => implode( ",", get_sub_field( 'category' ) )
 );
+$taxonomy_objects = get_object_taxonomies( $post_type, 'objects' );
+$tax_query        = array( 'relation' => 'OR', );
+foreach ( $taxonomy_objects as $taxonomy => $taxonomy_object ) {
+	if ( 'category' === $taxonomy ) {
+		$args['category'] = implode( ",", get_sub_field( 'category' ) );
+	} else {
+		$tax_query[] = array(
+			'taxonomy'         => $taxonomy,
+			'field'            => 'slug',
+			'terms'            => get_sub_field( $taxonomy ),
+			'include_children' => true,
+			'operator'         => 'IN'
+		);
+	}
+}
+$args['tax_query'] = $tax_query;
+
 $posts = get_posts( $args );
 
 if ( $posts ): ?>
