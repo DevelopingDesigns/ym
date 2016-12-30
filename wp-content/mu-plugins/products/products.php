@@ -54,7 +54,7 @@ function products_create_post_type() {
 			'custom-fields',
 			'page-attributes',
 		),
-		'hierarchical'        => false,
+		'hierarchical'        => true,
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
@@ -67,7 +67,7 @@ function products_create_post_type() {
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
-		'capability_type'     => 'post',
+		'capability_type'     => 'page',
 		'show_in_rest'        => true,
 	);
 	register_post_type( 'product', $args );
