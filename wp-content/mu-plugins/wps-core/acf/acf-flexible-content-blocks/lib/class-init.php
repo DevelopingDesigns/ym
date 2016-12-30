@@ -62,6 +62,7 @@ class CreateBlocks {
 			'active'                => 1,
 			'description'           => '',
 		);
+
 	}
 
 
@@ -246,7 +247,7 @@ class CreateBlocks {
 	public function acffcb_blocks() {
 		ob_start();
 		do_action( 'before_blocks' );
-		cfb_template( 'content', 'blocks' );
+		fcb_template( 'content', 'blocks', 1 );
 		do_action( 'after_blocks' );
 
 		return ob_get_clean();
