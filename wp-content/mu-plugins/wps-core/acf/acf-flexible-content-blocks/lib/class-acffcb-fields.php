@@ -142,6 +142,47 @@ class Fields {
 
 	/**
 	 *
+	 * Field: Number of Posts to Show
+	 *
+	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
+	 * @since 1.0
+	 *
+	 * Number field for posts to show per page
+	 */
+	public function single_post_type_list( $thisKey = 'field', $post_type = 'post' ) {
+		$post_type_object = get_post_type_object( $post_type );
+
+		return (
+		array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'             => $post_type_object->label,
+			'name'              => 'post_type',
+			'type'              => 'post_object',
+			'post_type'         => (array) $post_type,
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '20',
+				'class' => '',
+				'id'    => '',
+			),
+			'default_value'     => '',
+			'placeholder'       => '',
+			'prepend'           => '',
+			'append'            => '',
+			'min'               => '',
+			'max'               => '',
+			'step'              => '',
+			'readonly'          => 0,
+			'disabled'          => 0,
+		)
+		);
+	}
+
+	/**
+	 *
 	 * Field: Category
 	 *
 	 * @author Michael W. Delaney
@@ -1796,7 +1837,7 @@ class Fields {
 			'maxlength'         => '',
 			'readonly'          => 0,
 			'disabled'          => 0,
-			'default'           => $default,
+			'default_value'     => $default,
 		)
 		);
 	}
@@ -1833,7 +1874,7 @@ class Fields {
 			'maxlength'         => '',
 			'readonly'          => 0,
 			'disabled'          => 0,
-			'default'           => $default,
+			'default_value'     => $default,
 		)
 		);
 	}
@@ -2252,7 +2293,7 @@ class Fields {
 	}
 
 	public function select( $args = array() ) {
-		return wp_parse_args( (array)$args, array(
+		return wp_parse_args( (array) $args, array(
 			'type'              => 'select',
 			'instructions'      => '',
 			'required'          => 0,
@@ -2271,7 +2312,33 @@ class Fields {
 			'placeholder'       => '',
 			'disabled'          => 0,
 			'readonly'          => 0,
-		));
+		) );
+	}
+
+	/**
+	 *
+	 * Field: Tab
+	 *
+	 * @author Travis Smith
+	 * @since 1.1
+	 *
+	 * Tab
+	 */
+	public function tab( $args = array() ) {
+		return wp_parse_args( (array) $args, array(
+			'name'              => '',
+			'type'              => 'tab',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'placement'         => 'top',
+			'endpoint'          => 0,
+		) );
 	}
 
 
