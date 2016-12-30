@@ -40,6 +40,7 @@ require_once('logins/logins.php');
 require_once('partners/partners.php');
 require_once('products/products.php');
 //require_once('resources/resources.php');
+require_once('testimonials/testimonials.php');
 require_once('videos/videos.php');
 require_once('webinars/webinars.php');
 
