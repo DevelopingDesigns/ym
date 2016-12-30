@@ -16,7 +16,7 @@ if ( have_rows( 'blocks' ) ): ?>
 
 		<?php
 		do_action( 'fcb_before_block' );
-		cfb_template( 'blocks/layout-base', get_row_layout() );
+		fcb_template( 'blocks/layout-base', get_row_layout(), 1 );
 		do_action( 'fcb_after_block' );
 		$GLOBALS['fcb_rows_count'] ++;
 

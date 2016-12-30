@@ -6,7 +6,7 @@
 		     class="tab-pane fade <?php fcb_is_active( $i, 'in' ); ?> tab-<?php fcb_the_block_id( get_sub_field( 'navigation_title' ) ); ?>"
 		     id="tab-<?php fcb_the_block_id( get_sub_field( 'title' ) ); ?>"
 		     style="<?php fcb_block_wrapper_styles(); ?>">
-			<?php cfb_template( 'blocks/parts/tabs/tabs-content', get_row_layout() ); ?>
+			<?php fcb_template( 'blocks/parts/tabs/tabs-content', get_row_layout(), 1 ); ?>
 		</div>
 
 		<?php $i ++; endwhile; ?>

@@ -28,8 +28,8 @@ $title_attr = preg_replace( '/[^A-Za-z0-9]/', '', strtolower( str_replace( ' ', 
 
 					<div class="carousel-content">
 						<div class="carousel-content-inner">
-							<?php cfb_template( 'blocks/parts/block-media', get_row_layout() ); ?>
-							<?php cfb_template( 'blocks/parts/block-content', get_row_layout() ); ?>
+							<?php fcb_template( 'blocks/parts/block-media', get_row_layout(), 1 ); ?>
+							<?php fcb_template( 'blocks/parts/block-content', get_row_layout(), 1 ); ?>
 							<div class="carousel-caption">
 								<?php the_sub_field( 'title' ); ?>
 							</div>
