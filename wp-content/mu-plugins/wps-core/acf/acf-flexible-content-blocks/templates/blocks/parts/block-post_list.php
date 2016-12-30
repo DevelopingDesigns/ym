@@ -1,6 +1,7 @@
 <?php
 
 $args  = array(
+	'post_type'      => get_sub_field( 'post_type' ),
 	'posts_per_page' => get_sub_field( 'posts_per_page' ),
 	'category'       => implode( ",", get_sub_field( 'category' ) )
 );
