@@ -36,7 +36,7 @@ function resources_create_post_type() {
 		'filter_items_list'     => __( 'Filter items list', DD_MU_TEXT_DOMAIN ),
 	);
 	$rewrite = array(
-		'slug'       => 'resource',
+		'slug'       => 'resource-library',
 		'with_front' => true,
 		'pages'      => true,
 		'feeds'      => true,
@@ -63,7 +63,7 @@ function resources_create_post_type() {
 		'show_in_admin_bar'   => true,
 		'show_in_nav_menus'   => true,
 		'can_export'          => true,
-		'has_archive'         => 'resources',
+		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
