@@ -39,10 +39,21 @@
 	padding-top: 7px;
 	position: fixed;
 	top: 0;
+	transition: all 0.25s ease-in-out;
 	width: 100%;
 
 	.nav-primary {
 		padding-top: 15px;
+		
+		#ubermenu-main-2-primary a {
+			font-size: 18px;
+		}
+	}
+	
+	.title-area {
+		img {
+			width: 75px;
+		}
 	}
 }
 
