@@ -109,3 +109,22 @@ function swiftmaps_theme_customize_register( $wp_customize ) {
 	$wp_customize->remove_control( 'blog_title' );
 
 }
+
+
+/**
+ * Output utility menu before the header
+ */
+remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
+remove_action( 'genesis_footer', 'genesis_do_footer' );
+remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
+add_action( 'genesis_footer', function () {
+	if ( ! is_active_sidebar( 'footer-bottom' ) ) {
+		return;
+	}
+
+	echo '<div class="footer-bottom"><div class="wrap">';
+
+	dynamic_sidebar( 'footer-bottom' );
+
+	echo '</div></div>';
+} );
