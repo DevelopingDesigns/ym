@@ -22,6 +22,8 @@ class Layouts {
 		'post_list'                => '500',
 		'complex_title'            => '20',
 		'event'                    => '30',
+//		'hero'                     => '40',
+//		'title'                    => '50',
 	);
 
 	public function __construct() {
@@ -405,66 +407,81 @@ class Layouts {
 	 *
 	 * A simple content block with optional media include (image or video) and optional Call to Action button
 	 */
-	public function content_with_media( $content_classes = null, $media_classes = null ) {
+	public function content_with_media( $args = array() ) {
+		// Extracts $key, $content_classes, & $media_classes
+		extract( wp_parse_args( $args, array(
+			'key'             => $this->key . __FUNCTION__,
+			'order'           => $this->order[ __FUNCTION__ ],
+			'name'            => 'content_with_media',
+			'label'           => __( 'Content with Media', ACFFCB_PLUGIN_DOMAIN ),
+			'content_classes' => '',
+			'media_classes'   => '',
+		) ) );
+
 		$FCBFields          = new Fields( __FUNCTION__ );
 		$FCBRepeaters       = new Repeaters( __FUNCTION__ );
 		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
 
-		return (
-		array(
-			'order'  => $this->order[ __FUNCTION__ ],
+		$field_key    = str_replace( $this->key, '', $key ) . '-field';
+		$flexible_key = str_replace( $this->key, '', $key ) . '-flexible';
+		$repeater_key = str_replace( $this->key, '', $key ) . '-repeater';
+		$data         = array(
+			'order'  => $order,
 			'layout' => array(
-				'key'        => $this->key . __FUNCTION__,
-				'name'       => 'content_with_media',
-				'label'      => __( 'Content with Media', ACFFCB_PLUGIN_DOMAIN ),
+				'key'        => $key,
+				'name'       => $name,
+				'label'      => $label,
 				'display'    => 'block',
 				'sub_fields' => array(
 					// Titles
-					$FCBFields->title(),
-					$FCBFields->navigation_title(),
+					$FCBFields->title( $field_key ),
+					$FCBFields->navigation_title( $field_key ),
 
 					// Content tab
-					$FCBFields->tab_content(),
-					$FCBFields->content(),
+					$FCBFields->tab_content( $field_key ),
+					$FCBFields->content( $field_key ),
 
 					// Media tab
-					$FCBFields->tab_media(),
-					$FCBFlexibleContent->media(),
+					$FCBFields->tab_media( $field_key ),
+					$FCBFlexibleContent->media( 0, 1, $flexible_key ),
 
 					// Background tab
-					$FCBFields->tab_background(),
-					$FCBFields->background_image(),
-					$FCBFields->background_color(),
-					$FCBFields->background_color_placeholder(),
-					$FCBFields->theme_color(),
-					$FCBFields->choose_color(),
+					$FCBFields->tab_background( $field_key ),
+					$FCBFields->background_image( $field_key ),
+					$FCBFields->background_color( $field_key ),
+					$FCBFields->background_color_placeholder( $field_key ),
+					$FCBFields->theme_color( $field_key ),
+					$FCBFields->choose_color( $field_key ),
 
 					// Call to Action
-					$FCBFields->tab_cta(),
-					$FCBFlexibleContent->cta(),
+					$FCBFields->tab_cta( $field_key ),
+					$FCBFlexibleContent->cta( $flexible_key ),
 
 					// Dev Mode tab
-					$FCBFields->tab_dev(),
-					$FCBFields->dev_block_message(),
-					$FCBRepeaters->block_data_attributes(),
-					$FCBFields->block_classes(),
+					$FCBFields->tab_dev( $field_key ),
+					$FCBFields->dev_block_message( $field_key ),
+					$FCBRepeaters->block_data_attributes( $repeater_key ),
+					$FCBFields->block_classes( $field_key ),
 
-					$FCBFields->dev_content_message(),
-					$FCBRepeaters->content_data_attributes(),
-					$FCBFields->content_classes( null, $content_classes ),
+					$FCBFields->dev_content_message( $field_key ),
+					$FCBRepeaters->content_data_attributes( $repeater_key ),
+					$FCBFields->content_classes( $field_key, $content_classes ),
 
-					$FCBFields->dev_media_message(),
-					$FCBRepeaters->media_data_attributes(),
-					$FCBFields->media_classes( null, $media_classes ),
+					$FCBFields->dev_media_message( $field_key ),
+					$FCBRepeaters->media_data_attributes( $repeater_key ),
+					$FCBFields->media_classes( $field_key, $media_classes ),
 
 
 					// Tab Endpoint
-					$FCBFields->tab_endpoint(),
+					$FCBFields->tab_endpoint( $field_key ),
 
 				)
 			)
-		)
 		);
+
+//		wps_printr( $data, $label );
+
+		return $data;
 	}
 
 	/**
@@ -477,11 +494,14 @@ class Layouts {
 	 * A simple content block with optional media include (image or video) and optional Call to Action button
 	 */
 	public function left_content_right_media() {
-		$data                    = $this->content_with_media( 'one-half first', 'one-half' );
-		$data['order']           = $this->order[ __FUNCTION__ ];
-		$data['layout']['key']   = $this->key . __FUNCTION__;
-		$data['layout']['name']  = 'left_content_right_media';
-		$data['layout']['label'] = __( 'Content Left, Media Right', ACFFCB_PLUGIN_DOMAIN );
+		$data = $this->content_with_media( array(
+			'key'             => $this->key . __FUNCTION__,
+			'name'            => 'left_content_right_media',
+			'label'           => __( 'Content Left, Media Right', ACFFCB_PLUGIN_DOMAIN ),
+			'order'           => $this->order[ __FUNCTION__ ],
+			'content_classes' => 'one-half first',
+			'media_classes'   => 'one-half',
+		) );
 
 		return $data;
 	}
@@ -496,11 +516,14 @@ class Layouts {
 	 * A simple content block with optional media include (image or video) and optional Call to Action button
 	 */
 	public function right_content_left_media() {
-		$data                    = $this->content_with_media( 'one-half', 'one-half first' );
-		$data['order']           = $this->order[ __FUNCTION__ ];
-		$data['layout']['key']   = $this->key . __FUNCTION__;
-		$data['layout']['name']  = 'right_content_left_media';
-		$data['layout']['label'] = __( 'Media Left, Content Right', ACFFCB_PLUGIN_DOMAIN );
+		$data = $this->content_with_media( array(
+			'key'             => $this->key . __FUNCTION__,
+			'name'            => 'right_content_left_media',
+			'label'           => __( 'Media Left, Content Right', ACFFCB_PLUGIN_DOMAIN ),
+			'order'           => $this->order[ __FUNCTION__ ],
+			'content_classes' => 'one-half',
+			'media_classes'   => 'one-half first',
+		) );
 
 		return $data;
 	}
@@ -884,4 +907,5 @@ class Layouts {
 		)
 		);
 	}
+
 }
