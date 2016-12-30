@@ -106,6 +106,10 @@ WPS_WordPress_Cleanup::get_instance( array(
 //	),
 ) );
 WPS_Brand::get_instance();
+add_filter( 'wpseo_metabox_prio', function() {
+	return 'default';
+});
+
 
 add_theme_support( 'flexible-content-dev-mode' );
 require_once( 'wps-core/acf/acf-flexible-content-blocks/acf-flexible-content-blocks.php' );
