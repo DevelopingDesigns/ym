@@ -68,6 +68,6 @@ function testimonials_create_post_type() {
 	);
 	register_post_type( 'testimonial', $args );
 
-	new WPS_Entry_Schema( 'testimonial', 'quote' );
+	new WPS_Entry_Schema( 'testimonial', 'review' );
 }
 
