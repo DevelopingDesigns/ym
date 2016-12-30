@@ -20,9 +20,9 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 function enqueue_assets() {
 
 	wp_enqueue_style(
-		'ym-fonts',
-		'//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700',
-		array(),
+		'fonts',
+		'https//cloud.typography.com/6816494/7507552/css/fonts.css',
+		[],
 		CHILD_THEME_VERSION
 	);
 
