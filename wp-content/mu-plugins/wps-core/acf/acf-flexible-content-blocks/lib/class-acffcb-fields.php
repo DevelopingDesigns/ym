@@ -77,29 +77,56 @@ class Fields {
 	 * Navigation Title fields shared by all layouts
 	 */
 	public function navigation_title( $thisKey = 'field' ) {
-		return (
-		array(
-			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Navigation Title', ACFFCB_PLUGIN_DOMAIN ),
-			'name'              => 'navigation_title',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => 'acf-title',
+		return
+			array(
+				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+				'label'             => __( 'Navigation Title', ACFFCB_PLUGIN_DOMAIN ),
+				'name'              => 'navigation_title',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => 50,
+					'class' => 'acf-title',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			);
+	}
+
+	/**
+	 *
+	 * Field: Number of Posts to Show
+	 *
+	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
+	 * @since 1.0
+	 *
+	 * Number field for posts to show per page
+	 */
+	public function post_type( $thisKey = 'field' ) {
+		$post_types = get_post_types( array( 'public' => true, ), 'objects' );
+
+		return $this->select( array(
+			'key'           => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'         => __( 'Post Type', ACFFCB_PLUGIN_DOMAIN ),
+			'name'          => 'post_type',
+			'type'          => 'select',
+			'choices'       => wp_list_pluck( $post_types, 'label' ),
+			'default_value' => 'post',
+			'wrapper'       => array(
+				'width' => '20',
+				'class' => '',
 				'id'    => '',
 			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		)
-		);
+		) );
 	}
 
 	/**
@@ -113,31 +140,30 @@ class Fields {
 	 * Number field for posts to show per page
 	 */
 	public function posts_per_page( $thisKey = 'field' ) {
-		return (
-		array(
-			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Number to Show', ACFFCB_PLUGIN_DOMAIN ),
-			'name'              => 'posts_per_page',
-			'type'              => 'number',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '20',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'min'               => '',
-			'max'               => '',
-			'step'              => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		)
-		);
+		return
+			array(
+				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+				'label'             => __( 'Number to Show', ACFFCB_PLUGIN_DOMAIN ),
+				'name'              => 'posts_per_page',
+				'type'              => 'number',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '20',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'min'               => '',
+				'max'               => '',
+				'step'              => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			);
 	}
 
 	/**
@@ -192,11 +218,29 @@ class Fields {
 	 * Taxonomy field to select category
 	 */
 	public function category( $thisKey = 'field' ) {
-		return (
-		array(
+		return $this->taxonomy( $thisKey, 'category', array(
+			'key' => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+		) );
+	}
+
+	/**
+	 *
+	 * Field: Taxonomy
+	 *
+	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
+	 * @since 1.0
+	 *
+	 * Taxonomy field to select category
+	 */
+	public function taxonomy( $thisKey = 'field', $taxonomy = 'category', $args = array() ) {
+		$tax = get_taxonomy( $taxonomy );
+
+		return wp_parse_args( $args, array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Category', ACFFCB_PLUGIN_DOMAIN ),
-			'name'              => 'category',
+			'label'             => $tax->label,
+			'name'              => $taxonomy,
+			'taxonomy'          => $taxonomy,
 			'type'              => 'taxonomy',
 			'instructions'      => '',
 			'required'          => 0,
@@ -206,7 +250,6 @@ class Fields {
 				'class' => '',
 				'id'    => '',
 			),
-			'taxonomy'          => 'category',
 			'field_type'        => 'checkbox',
 			'allow_null'        => 0,
 			'add_term'          => 0,
@@ -214,8 +257,7 @@ class Fields {
 			'load_terms'        => 0,
 			'return_format'     => 'id',
 			'multiple'          => 0,
-		)
-		);
+		) );
 	}
 
 	/**
