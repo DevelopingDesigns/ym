@@ -66,6 +66,23 @@ if ( ! class_exists( 'WPS_WordPress_Cleanup' ) ) {
 			'options-general.php', // Settings
 		);
 
+//		private $_metaboxes = array(
+			// WordPress
+//			'revisionsdiv',
+//			'postcustom',
+//			'commentstatusdiv',
+//			'commentsdiv',
+//			'slugdiv',
+//			'authordiv',
+//			'pageparentdiv',
+//			'postimagediv',
+//			'postexcerpt',
+//			'trackbacksdiv',
+
+			// Plugins
+//			'wpseo_meta',
+//		);
+
 		public $widgets;
 		public $dashboard;
 		public $menu;
