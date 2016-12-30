@@ -95,7 +95,7 @@ function register_feature_cptonomy() {
 		),
 		'args' => array(
 			'label' => __( 'Features', DD_MU_TEXT_DOMAIN ),
-			'meta_box_format' => 'checklist',
+//			'meta_box_format' => 'checklist',
 		),
 	) );
 

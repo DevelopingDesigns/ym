@@ -95,7 +95,7 @@ function register_service_cptonomy() {
 		),
 		'args' => array(
 			'label' => __( 'Services', DD_MU_TEXT_DOMAIN ),
-			'meta_box_format' => 'checklist',
+//			'meta_box_format' => 'checklist',
 		),
 	) );
 }
