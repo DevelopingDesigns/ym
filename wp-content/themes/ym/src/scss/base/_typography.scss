@@ -9,7 +9,7 @@ html {
 body {
   background-color: #eee;
   color: #333;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: $base-font-family;
   @include font-size(20);
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
