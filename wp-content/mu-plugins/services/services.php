@@ -58,7 +58,7 @@ function services_create_post_type() {
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'menu_position'       => 6.2,
-		'menu_icon'           => 'dashicons-star-filled',
+		'menu_icon'           => 'dashicons-hammer',
 		'show_in_admin_bar'   => true,
 		'show_in_nav_menus'   => true,
 		'can_export'          => true,
