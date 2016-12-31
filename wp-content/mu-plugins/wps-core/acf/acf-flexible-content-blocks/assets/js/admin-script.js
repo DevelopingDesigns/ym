@@ -485,10 +485,11 @@ console.log('groups_layout change');
 
         $iconFont.on('change', function(evt) {
             font = $(evt.currentTarget).val();
-            $iconPreview.html();
+            $iconPreview.html(getPreview(font, icon));
         });
         $icon.on('change', function(evt) {
             icon = $(evt.currentTarget).val();
+            $iconPreview.html(getPreview(font, icon));head.load.min.js.map
         });
     });
 })(jQuery);
