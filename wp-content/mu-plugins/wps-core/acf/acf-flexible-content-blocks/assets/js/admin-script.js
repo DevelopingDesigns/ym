@@ -1,34 +1,33 @@
-(function () {
-    (function () {
-        function appendAce($el) {
-            jQuery($el).each(function () {
-                if (jQuery(jQuery(this)).is(":visible")) {
-                    var textarea = jQuery(this);
-                    var mode = textarea.data('editor');
-                    var editDiv = jQuery('<div>', {
-                        position: 'absolute',
-                        width: '100%',
-                        height: textarea.closest('.acf-field').height(),
-                        'class': textarea.attr('class')
-                    }).insertBefore(textarea);
-                    textarea.css('display', 'none').removeClass('aced');
-                    var editor = ace.edit(editDiv[0]);
-                    editor.renderer.setShowGutter(true);
-                    editor.getSession().setValue(textarea.val());
-                    editor.getSession().setMode("ace/mode/html");
-                    editor.setTheme("ace/theme/ambiance");
-                    // editor.setTheme("ace/theme/idle_fingers");
+(function ($) {
+    function appendAce($el) {
+        $($el).each(function () {
+            if ($($(this)).is(":visible")) {
+                var textarea = $(this);
+                var mode = textarea.data('editor');
+                var editDiv = $('<div>', {
+                    position: 'absolute',
+                    width: '100%',
+                    height: textarea.closest('.acf-field').height(),
+                    'class': textarea.attr('class')
+                }).insertBefore(textarea);
+                textarea.css('display', 'none').removeClass('aced');
+                var editor = ace.edit(editDiv[0]);
+                editor.renderer.setShowGutter(true);
+                editor.getSession().setValue(textarea.val());
+                editor.getSession().setMode("ace/mode/html");
+                editor.setTheme("ace/theme/ambiance");
+                // editor.setTheme("ace/theme/idle_fingers");
 
-                    // copy back to textarea on form submit...
-                    textarea.closest('form').submit(function () {
-                        textarea.val(editor.getSession().getValue());
-                    })
-                }
-            });
-        }
+                // copy back to textarea on form submit...
+                textarea.closest('form').submit(function () {
+                    textarea.val(editor.getSession().getValue());
+                })
+            }
+        });
+    }
 
-        jQuery(document).ready(function () {
-            jQuery('.acf-code textarea').addClass('aced');
+    $(document).ready(function () {
+            $('.acf-code textarea').addClass('aced');
 
             appendAce('.acf-code textarea.aced');
 
@@ -45,10 +44,9 @@
             }
 
         });
-    })();
-})();
+})(jQuery);
 
-(function () {
+(function ($) {
     /**
      * ---- Advanced Custom Fields Complex Titles ----
      *
@@ -67,7 +65,7 @@
      * Get the closest matching descendents of an element
      * @return object
      */
-    (function ($) {
+    (function () {
         $.fn.closest_descendents = function (filter) {
             var $found = $(),
                 $currentSet = this.children(); // Current place
@@ -81,10 +79,10 @@
             }
             return $found; // Return first match of the collection
         };
-    })(jQuery);
+    })();
 
 
-    jQuery(document).ready(function ($) {
+    $(document).ready(function () {
 
         /**
          * Script configuration
@@ -458,4 +456,39 @@ console.log('groups_layout change');
         }
 
     });
-})();
+})(jQuery);
+
+(function ($) {
+    // '<i class="%1$s %1$s-%2$s" data-prefixes="%1$s" data-icon="%2$s"></i>'
+    $('.acf-fields [data-name="icon_preview"]').each(function(index, el) {
+        var $iconPreview = $(el),
+            $iconFont = $iconPreview.siblings('[data-name="icon_font"]').find('select'),
+            $icon = $iconPreview.siblings('[data-name="media_icon"]').find('select'),
+            icon = $icon.val(),
+            font = $iconFont.val();
+
+        function getPreview(iconFont, icon) {
+            var prefix;
+            switch(iconFont) {
+                case 'font-awesome':
+                    prefix = 'fa';
+                    break;
+                default:
+                    prefix = iconFont;
+                    break;
+            }
+
+            var html = document.createElement('span');
+            html.className = prefix + ' ' + prefix + '-' + icon;
+            return d;
+        }
+
+        $iconFont.on('change', function(evt) {
+            font = $(evt.currentTarget).val();
+            $iconPreview.html();
+        });
+        $icon.on('change', function(evt) {
+            icon = $(evt.currentTarget).val();
+        });
+    });
+})(jQuery);
