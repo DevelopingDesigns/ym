@@ -31,11 +31,11 @@ class CreateBlocks {
 
 		$this->args = array(
 			'key'                   => 'cfb_blocks',
-			'title'                 => __( 'Content Blocks', ACFFCB_PLUGIN_DOMAIN),
+			'title'                 => __( 'Content Blocks', ACFFCB_PLUGIN_DOMAIN ),
 			'fields'                => array(
 				array(
 					'key'               => 'cfb_content_blocks',
-					'label'             => __( 'Blocks', ACFFCB_PLUGIN_DOMAIN),
+					'label'             => __( 'Blocks', ACFFCB_PLUGIN_DOMAIN ),
 					'name'              => 'blocks',
 					'type'              => 'flexible_content',
 					'instructions'      => '',
@@ -46,7 +46,7 @@ class CreateBlocks {
 						'class' => '',
 						'id'    => '',
 					),
-					'button_label'      => __( 'Add Block', ACFFCB_PLUGIN_DOMAIN),
+					'button_label'      => __( 'Add Block', ACFFCB_PLUGIN_DOMAIN ),
 					'min'               => '',
 					'max'               => '',
 					'layouts'           => array(),
@@ -154,6 +154,19 @@ class CreateBlocks {
 	 * Enqueue admin scripts and styles
 	 */
 	public function admin_scripts() {
+		$suffix = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '.js' : '.min.js';
+		$version = 'ver=' . get_bloginfo( 'version' );
+
+		// Add Scripts
+		wp_enqueue_script( 'acf-flexible-content-fields-headjs', ACFFCB_PLUGIN_URL . 'assets/js/headjs/1.0.3/head.load' . $suffix );
+		wp_localize_script( 'acf-flexible-content-fields-headjs', 'acffcb', array(
+			'scripts' => array(
+				'dashicons'    => includes_url( "css/dashicons$suffix.css?$version" ),
+				'font-awesome' => '',
+				'genericon'    => '',
+			),
+		) );
+
 		wp_enqueue_script( 'acf-flexible-content-fields-ace', ACFFCB_PLUGIN_URL . 'assets/js/ace/ace.js' );
 		wp_enqueue_script( 'acf-flexible-content-fields-admin-script', ACFFCB_PLUGIN_URL . 'assets/js/admin-script.js' );
 	}
@@ -277,5 +290,5 @@ class CreateBlocks {
 			}
 		}
 	}
-	
+
 }
