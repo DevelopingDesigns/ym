@@ -227,6 +227,23 @@ class FlexibleContent {
 					),
 				),
 				array(
+					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-icon',
+					'name'       => 'icon',
+					'message'    => __( 'Icon', ACFFCB_PLUGIN_DOMAIN ),
+					'label'      => __( 'Icon', ACFFCB_PLUGIN_DOMAIN ),
+					'display'    => 'block',
+					'sub_fields' => array(
+
+						// Image Field
+						$FCBFlexibleContentFields->icon_font( $thisKey ),
+						$FCBFlexibleContentFields->media_icon( $thisKey, 'dashicons' ),
+						$FCBFlexibleContentFields->media_icon( $thisKey, 'font-awesome' ),
+						$FCBFlexibleContentFields->media_icon( $thisKey, 'genericon' ),
+						$FCBFlexibleContentFields->icon_preview( $thisKey ),
+
+					),
+				),
+				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-video',
 					'name'       => 'video',
 					'message'    => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
