@@ -1,0 +1,1 @@
+/srv/www/ym-new/htdocs/wp-content/plugins/query-monitor/wp-content/db.php

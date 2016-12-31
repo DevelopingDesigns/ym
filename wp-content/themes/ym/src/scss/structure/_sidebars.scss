@@ -1,0 +1,21 @@
+/* # Sidebars
+---------------------------------------------------------------------------------------------------- */
+
+.sidebar {
+	@include font-size(16);
+	margin-bottom: 40px;
+
+	@include media($medium-screen-up) {
+		margin-bottom: 5%;
+	}
+
+	.widget {
+		background-color: #fff;
+		padding: 40px;
+
+		@include media($medium-screen-up) {
+			padding: 30px;
+			margin-bottom: 5%;
+		}
+	}
+}

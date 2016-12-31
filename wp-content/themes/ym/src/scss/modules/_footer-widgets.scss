@@ -1,0 +1,9 @@
+/* # Footer Widgets
+---------------------------------------------------------------------------------------------------- */
+
+.footer-widgets {
+	background-color: #fff;
+	@include font-size(18);
+	clear: both;
+	padding: 60px 0;
+}
