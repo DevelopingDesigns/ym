@@ -30,7 +30,7 @@ add_action( 'genesis_before_header', function () {
 } );
 
 
-add_filter( 'genesis_seo_title', 'swiftmaps_custom_logo', 10, 3 );
+add_filter( 'genesis_seo_title', 'ym_custom_logo', 10, 3 );
 /**
  * Add an image inline in the site title element for the main logo
  *
@@ -43,7 +43,7 @@ add_filter( 'genesis_seo_title', 'swiftmaps_custom_logo', 10, 3 );
  * @author @_AlphaBlossom
  * @author @_neilgee
  */
-function swiftmaps_custom_logo( $title, $inside, $wrap ) {
+function ym_custom_logo( $title, $inside, $wrap ) {
 	// Check to see if the Custom Logo function exists and set what goes inside the wrapping tags.
 	if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) :
 		$logo = the_custom_logo();
@@ -64,7 +64,7 @@ function swiftmaps_custom_logo( $title, $inside, $wrap ) {
 }
 
 
-add_filter( 'genesis_attr_site-description', 'swiftmaps_add_site_description_class' );
+add_filter( 'genesis_attr_site-description', 'ym_add_site_description_class' );
 /**
  * Add class for screen readers to site description.
  * This will keep the site description mark up but will not have any visual presence on the page
@@ -74,7 +74,7 @@ add_filter( 'genesis_attr_site-description', 'swiftmaps_add_site_description_cla
  *
  * @author @_neilgee
  */
-function swiftmaps_add_site_description_class( $attributes ) {
+function ym_add_site_description_class( $attributes ) {
 	if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
 		$attributes['class'] .= ' screen-reader-text';
 
@@ -85,7 +85,7 @@ function swiftmaps_add_site_description_class( $attributes ) {
 }
 
 
-add_action( 'genesis_theme_settings_metaboxes', 'swiftmaps_remove_metaboxes' );
+add_action( 'genesis_theme_settings_metaboxes', 'ym_remove_metaboxes' );
 /**
  * Removing custom title/logo metabox from Genesis theme options page.
  * See http://www.billerickson.net/code/remove-metaboxes-from-genesis-theme-settings/
@@ -93,38 +93,42 @@ add_action( 'genesis_theme_settings_metaboxes', 'swiftmaps_remove_metaboxes' );
  *
  * @param $_genesis_admin_settings
  */
-function swiftmaps_remove_metaboxes( $_genesis_admin_settings ) {
+function ym_remove_metaboxes( $_genesis_admin_settings ) {
 	remove_meta_box( 'genesis-theme-settings-header', $_genesis_admin_settings, 'main' );
 }
 
 
-add_action( 'customize_register', 'swiftmaps_theme_customize_register', 99 );
+add_action( 'customize_register', 'ym_theme_customize_register', 99 );
 /**
  * Removing custom title/logo metabox from Genesis customizer
  * See https://developer.wordpress.org/themes/advanced-topics/customizer-api/
  *
  * @param $wp_customize
  */
-function swiftmaps_theme_customize_register( $wp_customize ) {
+function ym_theme_customize_register( $wp_customize ) {
 	$wp_customize->remove_control( 'blog_title' );
 
 }
 
 
+remove_action( 'genesis_footer', 'genesis_do_footer' );
 /**
  * Output utility menu before the header
  */
-remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
-remove_action( 'genesis_footer', 'genesis_do_footer' );
-remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
-add_action( 'genesis_footer', function () {
-	if ( ! is_active_sidebar( 'footer-bottom' ) ) {
-		return;
-	}
+add_action( 'genesis_footer', function() {
+//	if ( ! is_active_sidebar( 'footer-bottom' ) ) {
+//		return;
+//	}
+
+	echo current_filter();
 
 	echo '<div class="footer-bottom"><div class="wrap">';
+
+	echo '<h1>Testing</h1>';
 
 	dynamic_sidebar( 'footer-bottom' );
 
 	echo '</div></div>';
 } );
+
+

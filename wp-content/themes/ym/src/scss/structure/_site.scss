@@ -59,10 +59,10 @@
 	.sidebar-sidebar-content .content,
 	.content-sidebar-sidebar .content {
 		width: 580px;
-	}
 
-	@include media($xlarge-screen-up) {
-		width: 400px;
+		@include media($xlarge-screen-up) {
+			width: 400px;
+		}
 	}
 }
 

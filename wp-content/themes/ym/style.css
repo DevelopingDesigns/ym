@@ -1064,9 +1064,11 @@ img.alignright,
   .sidebar-sidebar-content .content,
   .content-sidebar-sidebar .content {
     width: 580px; } }
-
-@media screen and (max-width: 1340px) and (max-width: 1200px) {
-  width: 400px; }
+  @media screen and (max-width: 1340px) and (max-width: 1200px) {
+    .sidebar-content-sidebar .content,
+    .sidebar-sidebar-content .content,
+    .content-sidebar-sidebar .content {
+      width: 400px; } }
 
 .content-sidebar-sidebar .content-sidebar-wrap {
   float: left; }
@@ -1402,9 +1404,6 @@ p.entry-meta {
   background-color: #fff; }
   .site-header > .wrap {
     display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
     position: relative; }
@@ -1510,7 +1509,8 @@ p.entry-meta {
     padding-left: 15px; }
   .nav-primary #ubermenu-main-2-primary a {
     color: #333;
-    font-weight: bold; }
+    font-weight: bold;
+    padding-right: 10px; }
     .nav-primary #ubermenu-main-2-primary a:hover, .nav-primary #ubermenu-main-2-primary a:active {
       color: #a8ad00; }
   .nav-primary #ubermenu-main-2-primary .menu-cta > a {
