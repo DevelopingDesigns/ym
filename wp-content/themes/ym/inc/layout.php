@@ -116,9 +116,11 @@ remove_action( 'genesis_footer', 'genesis_do_footer' );
  * Output utility menu before the header
  */
 add_action( 'genesis_footer', function() {
-	if ( ! is_active_sidebar( 'footer-bottom' ) ) {
-		return;
-	}
+//	if ( ! is_active_sidebar( 'footer-bottom' ) ) {
+//		return;
+//	}
+
+	echo current_filter();
 
 	echo '<div class="footer-bottom"><div class="wrap">';
 

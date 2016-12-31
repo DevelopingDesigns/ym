@@ -1509,7 +1509,8 @@ p.entry-meta {
     padding-left: 15px; }
   .nav-primary #ubermenu-main-2-primary a {
     color: #333;
-    font-weight: bold; }
+    font-weight: bold;
+    padding-right: 10px; }
     .nav-primary #ubermenu-main-2-primary a:hover, .nav-primary #ubermenu-main-2-primary a:active {
       color: #a8ad00; }
   .nav-primary #ubermenu-main-2-primary .menu-cta > a {
