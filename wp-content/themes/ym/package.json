@@ -44,6 +44,7 @@
     "npm-run-all": "^3.1.1",
     "onchange": "^3.0.2",
     "parallelshell": "^2.0.0",
+    "postcss-assets": "^4.1.0",
     "postcss-cli": "^2.6.0",
     "uglify-js": "^2.7.4"
   }
