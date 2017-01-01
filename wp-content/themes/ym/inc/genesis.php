@@ -18,7 +18,6 @@ add_action( 'genesis_setup', __NAMESPACE__ . '\theme_setup', 15 );
  */
 function theme_setup() {
 
-	add_theme_support( 'custom-background' );
 	add_theme_support( 'genesis-responsive-viewport' );
 	add_theme_support( 'genesis-after-entry-widget-area' );
 
@@ -44,7 +43,7 @@ function theme_setup() {
 	add_theme_support( 'genesis-structural-wraps', [
 		'header',
 		//'menu-primary',
-		'menu-secondary',
+		//'menu-secondary',
 		'site-inner',
 		'footer-widgets',
 		'footer',
@@ -91,12 +90,6 @@ function theme_setup() {
 	 */
 	remove_action( 'genesis_after_header', 'genesis_do_nav' );
 	add_action( 'genesis_header', 'genesis_do_nav', 12 );
-
-	/**
-	 * Reposition the secondary navigation menu
-	 */
-	remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-	add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
 
 	/**
 	 * Disable Genesis SEO Menu item and in-post SEO

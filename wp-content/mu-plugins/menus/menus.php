@@ -24,3 +24,4 @@ function menus_create() {
 add_action( 'init', function () {
 	unregister_nav_menu( 'secondary' );
 } );
+

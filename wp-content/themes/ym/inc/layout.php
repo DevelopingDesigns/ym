@@ -119,9 +119,14 @@ add_action( 'genesis_before_footer', function () {
 		return;
 	}
 
+	echo '<section class="footer-top"><div class="wrap">';
+
 	dynamic_sidebar( 'footer-top' );
 
+	echo '</div></section>';
+
 } );
+
 
 /**
  * Output footer bottom widget
