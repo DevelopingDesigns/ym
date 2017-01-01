@@ -6,4 +6,14 @@
 ///
 /// @type List
 
-$georgia: "GeoGotham A", "Gotham B";
+$gotham: "GeoGotham A", "Gotham B";
+
+$base-font-family: $gotham;
+$heading-font-family: $base-font-family;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;

@@ -8,9 +8,9 @@
 		}
 
 		a {
+			@include font(normal, 700);
 			color: $black1;
-			font-weight: bold;
-			padding-right: 10px;
+			padding-right: 0;
 
 			&:hover,
 			&:active {
@@ -21,6 +21,7 @@
 		.menu-cta > a {
 			background-color: $green1;
 			border-radius: 50px;
+			box-shadow: 0px 0px 9px 2px #eee;
 			color: $white;
 			text-transform: uppercase;
 		}
