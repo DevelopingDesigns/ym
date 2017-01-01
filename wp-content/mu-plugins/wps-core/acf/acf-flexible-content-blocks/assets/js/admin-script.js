@@ -27,23 +27,23 @@
     }
 
     $(document).ready(function () {
-            $('.acf-code textarea').addClass('aced');
+        $('.acf-code textarea').addClass('aced');
 
-            appendAce('.acf-code textarea.aced');
+        appendAce('.acf-code textarea.aced');
 
-            if (typeof acf !== 'undefined') {
-                acf.add_action('append', function ($el) {
-                    appendAce('.acf-code textarea.aced');
-                })
-            }
+        if (typeof acf !== 'undefined') {
+            acf.add_action('append', function ($el) {
+                appendAce('.acf-code textarea.aced');
+            })
+        }
 
-            if (typeof acf !== 'undefined') {
-                acf.add_action('show_field', function ($field, context) {
-                    appendAce('.acf-code textarea.aced');
-                });
-            }
+        if (typeof acf !== 'undefined') {
+            acf.add_action('show_field', function ($field, context) {
+                appendAce('.acf-code textarea.aced');
+            });
+        }
 
-        });
+    });
 })(jQuery);
 
 (function ($) {
@@ -236,7 +236,7 @@
                         }
 
                     }
-console.log('groups_layout change');
+                    console.log('groups_layout change');
                     // Apply style or class
                     $(element).addClass(group_basename);
                     if (thisclass !== word && thisclass.length > 0) {
@@ -458,38 +458,87 @@ console.log('groups_layout change');
     });
 })(jQuery);
 
-(function ($) {
-    // '<i class="%1$s %1$s-%2$s" data-prefixes="%1$s" data-icon="%2$s"></i>'
-    $('.acf-fields [data-name="icon_preview"]').each(function(index, el) {
-        var $iconPreview = $(el),
-            $iconFont = $iconPreview.siblings('[data-name="icon_font"]').find('select'),
-            $icon = $iconPreview.siblings('[data-name="media_icon"]').find('select'),
-            icon = $icon.val(),
-            font = $iconFont.val();
+(function ($, h) {
+    $(document).ready(function () {
+        var fontScripts = {},
+            isFontLoaded = {};
 
-        function getPreview(iconFont, icon) {
-            var prefix;
-            switch(iconFont) {
-                case 'font-awesome':
-                    prefix = 'fa';
-                    break;
-                default:
-                    prefix = iconFont;
-                    break;
+        function isCSSLoaded(css) {
+            if (isFontLoaded[css] || 'dashicons' === css) {
+                return true;
             }
 
-            var html = document.createElement('span');
-            html.className = prefix + ' ' + prefix + '-' + icon;
-            return d;
+            for (var i = 0, l = document.styleSheets.length; i < l; i++) {
+                if (document.styleSheets[i].href) {
+                    console.log('stylesheet ', document.styleSheets[i].href)
+                }
+                if (document.styleSheets[i].href && document.styleSheets[i].href.match(css)) {
+                    debugger;
+                    if (document.styleSheets[i].cssRules.length == 0) {
+                        // Fallback. There is a request for the css file, but it failed.
+                        return false;
+                    }
+                    return true;
+                } else if (i == document.styleSheets.length - 1) {
+                    // Fallback. There is no request for the css file.
+                    return false;
+                }
+            }
+            return false;
         }
+        
+        // '<i class="%1$s %1$s-%2$s" data-prefixes="%1$s" data-icon="%2$s"></i>'
+        $('.acf-fields [data-name="icon_preview"]').each(function (index, el) {
+            var $iconPreview = $(el),
+                $iconFont = $iconPreview.siblings('[data-name="icon_font"]').find('select'),
+                $icon = $iconPreview.siblings('[data-name="media_icon"]').find('select'),
+                icon = $icon.val(),
+                font = $iconFont.val();
 
-        $iconFont.on('change', function(evt) {
-            font = $(evt.currentTarget).val();
-            $iconPreview.html(getPreview(font, icon));
-        });
-        $icon.on('change', function(evt) {
-            icon = $(evt.currentTarget).val();
-            $iconPreview.html(getPreview(font, icon));head.load.min.js.map
+            function maybeLoadFont(f, cb) {
+                if (!isCSSLoaded(f)) {
+                    fontScripts[f] = acffcb.scripts[f];
+                    console.log('loading', fontScripts[f]);
+                    head.load(acffcb.scripts[f], function() {
+                    });
+                }
+            }
+
+            function getPreview(iconFont, icon) {
+                var prefix;
+                switch (iconFont) {
+                    case 'font-awesome':
+                        prefix = 'fa';
+                        break;
+                    default:
+                        prefix = iconFont;
+                        break;
+                }
+
+                var spanEl = document.createElement('span');
+                spanEl.className = prefix + ' ' + prefix + '-' + icon;
+                return spanEl;
+            }
+
+            function doPreview(f, i) {
+                $iconPreview.find('.acf-input')
+                    .html('')
+                    .append(getPreview(f, i));
+            }
+
+            $iconFont.on('change', function (evt) {
+                console.log('iconFont change %0', evt);
+                font = $(evt.currentTarget).val();
+                maybeLoadFont(font);
+                doPreview(font, icon);
+
+            });
+            $icon.on('change', function (evt) {
+                console.log('icon change %0', evt);
+                icon = $(evt.currentTarget).val();
+                maybeLoadFont(font);
+                doPreview(font, icon);
+            });
         });
     });
-})(jQuery);
+})(jQuery, head);
