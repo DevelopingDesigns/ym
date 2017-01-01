@@ -1709,49 +1709,8 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   .site-footer p {
     margin-bottom: 0; }
 
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  max-width: 980px;
-  margin-left: auto;
-  margin-right: auto; }
-
-.quarter {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  width: calc(99.9% * 1/4 - (30px - 30px * 1/4)); }
-
-.quarter:nth-child(1n) {
-  margin-right: 30px;
-  margin-left: 0; }
-
-.quarter:last-child {
-  margin-right: 0; }
-
-.quarter:nth-child(4n) {
-  margin-right: 0;
-  margin-left: auto; }
-
-.half {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  width: calc(99.9% * 1/2 - (30px - 30px * 1/2)); }
-
-.half:nth-child(1n) {
-  margin-right: 30px;
-  margin-left: 0; }
-
-.half:last-child {
-  margin-right: 0; }
-
-.half:nth-child(2n) {
-  margin-right: 0;
-  margin-left: auto; }
+.site-footer .wrap > p {
+  display: none; }
 
 /* # Print Styles
 ---------------------------------------------------------------------------------------------------- */
