@@ -33,5 +33,36 @@ function enqueue_assets() {
 		CHILD_THEME_VERSION,
 		true
 	);
+
+	wp_deregister_script( 'superfish' );
+	wp_deregister_script( 'superfish-args' );
+
 }
 
+
+
+function print_scripts_styles() {
+
+	$result            = [];
+	$result['scripts'] = [];
+	$result['styles']  = [];
+
+	// Print all loaded Scripts
+	global $wp_scripts;
+	foreach ( $wp_scripts->queue as $script ) :
+		$result['scripts'][] = $wp_scripts->registered[ $script ]->src . '<br>';
+	endforeach;
+
+	// Print all loaded Styles (CSS)
+	global $wp_styles;
+	foreach ( $wp_styles->queue as $style ) :
+		$result['styles'][] = $wp_styles->registered[ $style ]->src . '<br>';
+	endforeach;
+
+	return $result;
+}
+
+
+//add_action( 'genesis_footer', function () {
+//	print_r( print_scripts_styles() );
+//} );

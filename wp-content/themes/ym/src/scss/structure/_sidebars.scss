@@ -10,11 +10,10 @@
 	}
 
 	.widget {
+		@include padding(30px null);
 		background-color: #fff;
-		padding: 40px;
 
 		@include media($medium-screen-up) {
-			padding: 30px;
 			margin-bottom: 5%;
 		}
 	}

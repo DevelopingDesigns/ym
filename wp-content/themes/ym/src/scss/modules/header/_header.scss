@@ -6,7 +6,7 @@
 	background-color: #fff;
 
 	> .wrap {
-		@include display(flex);
+		display: flex;
 		position: relative;
 
 		@include media($large-screen-up) {
@@ -44,12 +44,12 @@
 
 	.nav-primary {
 		padding-top: 15px;
-		
+
 		#ubermenu-main-2-primary a {
 			font-size: 18px;
 		}
 	}
-	
+
 	.title-area {
 		img {
 			width: 75px;

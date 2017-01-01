@@ -14,14 +14,14 @@
  * Output utility menu before the header
  */
 add_action( 'genesis_before_header', function () {
-	if ( ! has_nav_menu( 'utility' ) ) {
+	if ( ! has_nav_menu( 'header_utility' ) ) {
 		return;
 	}
 
 	echo '<div class="before-header"><div class="wrap">';
 
 	wp_nav_menu( [
-		'theme_location' => 'utility',
+		'theme_location' => 'header_utility',
 		'container_class' => 'genesis-nav-menu',
 		]
 	);
@@ -112,19 +112,25 @@ function swiftmaps_theme_customize_register( $wp_customize ) {
 
 
 /**
- * Output utility menu before the header
+ * Output footer top widget
  */
-remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
+add_action( 'genesis_before_footer', function () {
+	if ( ! is_active_sidebar( 'footer-top' ) ) {
+		return;
+	}
+
+	dynamic_sidebar( 'footer-top' );
+
+} );
+
+/**
+ * Output footer bottom widget
+ */
 remove_action( 'genesis_footer', 'genesis_do_footer' );
-remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
 add_action( 'genesis_footer', function () {
 	if ( ! is_active_sidebar( 'footer-bottom' ) ) {
 		return;
 	}
 
-	echo '<div class="footer-bottom"><div class="wrap">';
-
 	dynamic_sidebar( 'footer-bottom' );
-
-	echo '</div></div>';
 } );

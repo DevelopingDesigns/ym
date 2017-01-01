@@ -66,14 +66,6 @@ function theme_setup() {
 		'flex-width' => true,
 	) );
 
-
-	add_theme_support( 'genesis-menus', [
-		'primary' => __( 'After Header Menu', 'ym' ),
-		'secondary' => __( 'Footer Menu', 'ym' ),
-	    'utility' => __( 'Utility Menu', 'ym' ),
-		]
-	);
-
 	/**
 	 * Remove site description
 	 */
@@ -83,6 +75,11 @@ function theme_setup() {
 	 * Unregister Header Right Sidebar
 	 */
 	unregister_sidebar( 'header-right' );
+
+	/**
+	 * Unregister Secondary Sidebar
+	 */
+	unregister_sidebar( 'sidebar-alt' );
 
 	/**
 	 * Load child theme text domain
@@ -119,11 +116,6 @@ function theme_setup() {
 	genesis_unregister_layout( 'content-sidebar-sidebar' );
 	genesis_unregister_layout( 'sidebar-sidebar-content' );
 	genesis_unregister_layout( 'sidebar-content-sidebar' );
-
-	/**
-	 * Set default layout
-	 */
-	genesis_set_default_layout( 'content-sidebar' );
 
 }
 
