@@ -12,9 +12,21 @@
 namespace DevDesigns\YM;
 
 /**
+ * Define child theme constants
+ */
+define( 'CHILD_THEME_NAME', 'YM' );
+define( 'CHILD_THEME_URL', 'http://www.yourmembership.com/' );
+define( 'CHILD_THEME_VERSION', '1.0.0' );
+
+/**
  * Include theme files and declare child theme constants.
  */
-add_action( 'after_setup_theme', function () {
+add_action( 'after_setup_theme', __NAMESPACE__ . '\includes', 15 );
+
+/**
+ * Setup child theme
+ */
+function includes() {
 	require_once __DIR__ . '/inc/customizer/helper-functions.php';
 	require_once __DIR__ . '/inc/customizer/customize.php';
 	include_once __DIR__ . '/inc/customizer/output.php';
@@ -25,12 +37,5 @@ add_action( 'after_setup_theme', function () {
 	require_once __DIR__ . '/inc/template-tags.php';
 	include_once __DIR__ . '/inc/theme-defaults.php';
 	include_once __DIR__ . '/inc/layout.php';
-} );
-
-/**
- * Define child theme constants
- */
-define( 'CHILD_THEME_NAME', 'YM' );
-define( 'CHILD_THEME_URL', 'http://www.yourmembership.com/' );
-define( 'CHILD_THEME_VERSION', '1.0.0' );
+}
 
