@@ -21,6 +21,8 @@ function theme_setup() {
 	add_theme_support( 'genesis-responsive-viewport' );
 	add_theme_support( 'genesis-after-entry-widget-area' );
 
+	add_theme_support( 'genesis-footer-widgets', 5 );
+
 	add_theme_support( 'html5', [
 		'caption',
 		'comment-form',

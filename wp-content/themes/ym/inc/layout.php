@@ -119,11 +119,12 @@ add_action( 'genesis_before_footer', function () {
 		return;
 	}
 
-	echo '<section class="footer-top"><div class="wrap">';
+	echo '<section class="footer-top"><div class="wrap"><div class="flex-wrap">';
 
 	dynamic_sidebar( 'footer-top' );
 
-	echo '</div></section>';
+	echo '</div></div></section>';
+
 
 } );
 
@@ -137,5 +138,10 @@ add_action( 'genesis_footer', function () {
 		return;
 	}
 
+	echo '<div class="flex-wrap">';
+
 	dynamic_sidebar( 'footer-bottom' );
+
+	echo '</div>';
+
 } );
