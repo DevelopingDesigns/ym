@@ -30,7 +30,7 @@ function enqueue_assets() {
 		'app',
 		get_stylesheet_directory_uri() . '/dist/js/custom/app.js',
 		[ 'jquery' ],
-		CHILD_THEME_VERSION,
+		filemtime( get_stylesheet_directory() . '/dist/js/custom/app.js' ),
 		true
 	);
 }
