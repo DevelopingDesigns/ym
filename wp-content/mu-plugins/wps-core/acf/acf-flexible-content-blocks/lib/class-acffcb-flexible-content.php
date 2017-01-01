@@ -194,7 +194,14 @@ class FlexibleContent {
 	 */
 	public function media( $min = 0, $max = 1, $thisKey = 'flexible' ) {
 		$FCBFlexibleContentFields = new Fields( $this->layout, __FUNCTION__ );
-
+		$icon_fonts = fcb_get_icon_fonts();
+		$icon_sub_fields = array(
+			$FCBFlexibleContentFields->icon_font( $thisKey ),
+		);
+		foreach( $icon_fonts as $key => $icon_font ) {
+			$icon_sub_fields[] = $FCBFlexibleContentFields->media_icon( $thisKey, $key );
+		}
+		$icon_sub_fields[] = $FCBFlexibleContentFields->icon_preview( $thisKey );
 		return (
 		array(
 			'key'               => $this->key . $thisKey . '-' . $this->getCallingFunctionName() . __FUNCTION__,
@@ -232,16 +239,7 @@ class FlexibleContent {
 					'message'    => __( 'Icon', ACFFCB_PLUGIN_DOMAIN ),
 					'label'      => __( 'Icon', ACFFCB_PLUGIN_DOMAIN ),
 					'display'    => 'block',
-					'sub_fields' => array(
-
-						// Image Field
-						$FCBFlexibleContentFields->icon_font( $thisKey ),
-						$FCBFlexibleContentFields->media_icon( $thisKey, 'dashicons' ),
-						$FCBFlexibleContentFields->media_icon( $thisKey, 'font-awesome' ),
-						$FCBFlexibleContentFields->media_icon( $thisKey, 'genericon' ),
-						$FCBFlexibleContentFields->icon_preview( $thisKey ),
-
-					),
+					'sub_fields' => $icon_sub_fields,
 				),
 				array(
 					'key'        => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-video',

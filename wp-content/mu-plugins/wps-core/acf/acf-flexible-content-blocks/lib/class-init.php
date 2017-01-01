@@ -154,21 +154,31 @@ class CreateBlocks {
 	 * Enqueue admin scripts and styles
 	 */
 	public function admin_scripts() {
-		$suffix = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '.js' : '.min.js';
+
+		$suffix  = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '.' : '.min.';
 		$version = 'ver=' . get_bloginfo( 'version' );
 
 		// Add Scripts
-		wp_enqueue_script( 'acf-flexible-content-fields-headjs', ACFFCB_PLUGIN_URL . 'assets/js/headjs/1.0.3/head.load' . $suffix );
+		wp_enqueue_script( 'acf-flexible-content-fields-headjs', ACFFCB_PLUGIN_URL . 'assets/js/headjs/1.0.3/head.load' . $suffix . 'js' );
+
 		wp_localize_script( 'acf-flexible-content-fields-headjs', 'acffcb', array(
 			'scripts' => array(
-				'dashicons'    => includes_url( "css/dashicons$suffix.css?$version" ),
-				'font-awesome' => '',
-				'genericon'    => '',
+				'dashicons'       => includes_url( "css/dashicons{$suffix}css?$version" ),
+				'font-awesome'    => ACFFCB_PLUGIN_URL . "assets/lib/font-awesome/css/font-awesome{$suffix}css",
+				'genericons-neue' => ACFFCB_PLUGIN_URL . "assets/lib/genericons-neue/icon-font/Genericons-Neue{$suffix}css",
 			),
 		) );
 
 		wp_enqueue_script( 'acf-flexible-content-fields-ace', ACFFCB_PLUGIN_URL . 'assets/js/ace/ace.js' );
-		wp_enqueue_script( 'acf-flexible-content-fields-admin-script', ACFFCB_PLUGIN_URL . 'assets/js/admin-script.js' );
+		wp_enqueue_script(
+			'acf-flexible-content-fields-admin-script',
+			ACFFCB_PLUGIN_URL . 'assets/js/admin-script.js',
+			array(
+				'jquery',
+				'acf-flexible-content-fields-headjs',
+			),
+			filemtime( ACFFCB_PLUGIN_DIR . 'assets/js/admin-script.js' )
+		);
 	}
 
 	public function admin_styles() {

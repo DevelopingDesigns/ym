@@ -1962,7 +1962,7 @@ class Fields {
 			'key'       => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'     => __( 'Icon Font', ACFFCB_PLUGIN_DOMAIN ),
 			'name'      => 'icon_font',
-			'choices'   => fcb_get_icon_fonts(),
+			'choices'   => fcb_get_icon_font_names(),
 			'wrapper'   => array(
 				'width' => '33',
 				'class' => '',

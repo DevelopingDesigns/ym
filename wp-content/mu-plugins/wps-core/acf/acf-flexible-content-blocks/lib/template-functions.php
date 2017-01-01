@@ -338,25 +338,9 @@ function acfcfb_content_after( $content_after ) {
 
 function fcb_get_icon_fonts() {
 	return apply_filters( 'fcb_get_icon_fonts', array(
-		'dashicons'    => __( 'Dashicons', ACFFCB_PLUGIN_DOMAIN ),
-		'font-awesome' => __( 'Font Awesome', ACFFCB_PLUGIN_DOMAIN ),
-		'genericon'    => __( 'Genericon', ACFFCB_PLUGIN_DOMAIN ),
-	) );
-}
-
-function fcb_get_icon_font_prefixes() {
-	return apply_filters( 'fcb_get_icon_font_prefixes', array(
-		'dashicons'    => 'dashicons',
-		'font-awesome' => 'fa',
-		'genericon'    => 'genericon',
-	) );
-}
-
-function fcb_get_icons( $font = 'dashicons' ) {
-	$icon_choices = array();
-	switch ( $font ) {
-		case 'dashicons':
-			$icons = array(
+		'dashicons'    => array(
+			'name'  => __( 'Dashicons', ACFFCB_PLUGIN_DOMAIN ),
+			'icons' => array(
 				"blank",    // there is no "blank" but we need the option
 				"menu",
 				"admin-site",
@@ -522,10 +506,12 @@ function fcb_get_icons( $font = 'dashicons' ) {
 				"backup",
 				"lightbulb",
 				"smiley",
-			);
-			break;
-		case 'font-awesome':
-			$icons = array(
+			),
+			'prefix' => 'dashicons',
+		),
+		'font-awesome' => array(
+			'name'  => __( 'Font Awesome', ACFFCB_PLUGIN_DOMAIN ),
+			'icons' => array(
 				"blank",
 				// Mail
 				"inbox",
@@ -914,148 +900,140 @@ function fcb_get_icons( $font = 'dashicons' ) {
 				"tags",
 				"qrcode",
 				"barcode",
-			);
-			break;
-		case 'genericon':
-			$icons = array(
+			),
+			'prefix' => 'fa',
+		),
+		'genericons-neue'    => array(
+			'name'  => __( 'Genericon Neue', ACFFCB_PLUGIN_DOMAIN ),
+			'icons' => array(
 				"blank",
-				"standard",
+				"activity",
+				"anchor",
 				"aside",
-				"image",
-				"gallery",
-				"video",
-				"status",
-				"quote",
-				"link",
-				"chat",
-				"audio",
-
-				/* Social icons */
-				"github",
-				"dribbble",
-				"twitter",
-				"facebook",
-				"facebook-alt",
-				"wordpress",
-				"googleplus",
-				"linkedin",
-				"linkedin-alt",
-				"pinterest",
-				"pinterest-alt",
-				"flickr",
-				"vimeo",
-				"youtube",
-				"tumblr",
-				"instagram",
-				"codepen",
-				"polldaddy",
-				"googleplus-alt",
-				"path",
-				"skype",
-				"digg",
-				"reddit",
-				"stumbleupon",
-				"pocket",
-
-				/* Meta icons */
-				"comment",
-				"category",
-				"tag",
-				"time",
-				"user",
-				"day",
-				"week",
-				"month",
-				"pinned",
-
-				/* Other icons */
-				"search",
-				"unzoom",
-				"zoom",
-				"show",
-				"hide",
-				"close",
-				"close-alt",
-				"trash",
-				"star",
-				"home",
-				"mail",
-				"edit",
-				"reply",
-				"feed",
-				"warning",
-				"share",
 				"attachment",
-				"location",
+				"audio-mute",
+				"audio",
+				"bold",
+				"book",
+				"bug",
+				"cart",
+				"category",
+				"chat",
 				"checkmark",
-				"menu",
-				"refresh",
-				"minimize",
-				"maximize",
-				"404",
-				"spam",
-				"summary",
-				"cloud",
-				"key",
-				"dot",
-				"next",
-				"previous",
-				"expand",
-				"collapse",
-				"dropdown",
-				"dropdown-left",
-				"top",
-				"draggable",
-				"phone",
-				"send-to-phone",
-				"plugin",
+				"close-alt",
+				"close",
 				"cloud-download",
 				"cloud-upload",
-				"external",
-				"document",
-				"book",
-				"cog",
-				"unapprove",
-				"cart",
-				"pause",
-				"stop",
-				"skip-back",
-				"skip-ahead",
-				"play",
-				"tablet",
-				"send-to-tablet",
-				"info",
-				"notice",
-				"help",
-				"fastforward",
-				"rewind",
-				"portfolio",
-				"heart",
+				"cloud",
 				"code",
-				"subscribe",
-				"unsubscribe",
-				"subscribed",
-				"reply-alt",
-				"reply-single",
+				"cog",
+				"collapse",
+				"comment",
+				"day",
+				"document",
+				"download",
+				"edit",
+				"ellipsis",
+				"expand",
+				"external",
+				"fastforward",
+				"feed",
 				"flag",
-				"print",
-				"lock",
-				"bold",
+				"fullscreen",
+				"gallery",
+				"heart",
+				"help",
+				"hide",
+				"hierarchy",
+				"home",
+				"image",
+				"info",
 				"italic",
+				"key",
+				"link",
+				"location",
+				"lock",
+				"mail",
+				"menu",
+				"microphone",
+				"minus",
+				"month",
+				"move",
+				"next",
+				"notice",
+				"paintbrush",
+				"pause",
+				"phone",
 				"picture",
+				"pinned",
+				"play",
+				"plugin",
+				"plus",
+				"previous",
+				"print",
+				"quote",
+				"refresh",
+				"reply",
+				"rewind",
+				"search",
+				"send-to-phone",
+				"send-to-tablet",
+				"share",
+				"show",
+				"shuffle",
+				"sitemap",
+				"skip-ahead",
+				"skip-back",
+				"spam",
+				"standard",
+				"star-empty",
+				"star-half",
+				"star",
+				"status",
+				"stop",
+				"subscribe",
+				"subscribed",
+				"summary",
+				"tablet",
+				"tag",
+				"time",
+				"top",
+				"trash",
+				"unapprove",
+				"unsubscribe",
+				"unzoom",
+				"user",
+				"video",
+				"videocamera",
+				"warning",
+				"website",
+				"week",
+				"xpost",
+				"zoom",
+			),
+			'prefix' => 'genericons-neue',
+		),
+	) );
+}
 
-				/* Generic shapes */
-				"uparrow",
-				"rightarrow",
-				"downarrow",
-				"leftarrow",
-			);
-			break;
-		default:
-			$icons = apply_filters( 'fcb_get_icons', array(), $font );
-			break;
-	}
+function fcb_get_icon_font_names() {
+	return apply_filters( 'fcb_get_icon_fonts', wp_list_pluck( fcb_get_icon_fonts(), 'name' ) );
+}
 
+function fcb_get_icon_font_prefixes() {
+	return apply_filters( 'fcb_get_icon_font_prefixes', array(
+		'dashicons'    => 'dashicons',
+		'font-awesome' => 'fa',
+		'genericons-neue'    => 'genericons-neue',
+	) );
+}
+
+function fcb_get_icons( $font = 'dashicons' ) {
+	$font_icons = apply_filters( 'fcb_get_icon_fonts', wp_list_pluck( fcb_get_icon_fonts(), 'icons' ) );
+
+	$icons = isset( $font_icons[ $font ] ) ? $font_icons[ $font ] : array();
+
+	$icon_choices = array();
 	foreach ( $icons as $icon ) {
 		$icon_choices[ $icon ] = ucwords( str_replace( '_', ' ', str_replace( '-', ' ', $icon ) ) );
 	}
