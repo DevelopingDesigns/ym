@@ -36,6 +36,25 @@
 }
 
 
+/* makes the font 33% larger relative to the icon container */
+.genericons-neue-lg {
+	font-size: 1.33333333em;
+	line-height: 0.75em;
+	vertical-align: -15%;
+}
+.genericons-neue-2x {
+	font-size: 2em;
+}
+.genericons-neue-3x {
+	font-size: 3em;
+}
+.genericons-neue-4x {
+	font-size: 4em;
+}
+.genericons-neue-5x {
+	font-size: 5em;
+}
+
 /* Icons */
 
 
