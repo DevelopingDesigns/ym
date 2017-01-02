@@ -1254,9 +1254,6 @@ img.alignright,
     @media screen and (max-width: 860px) {
       .sidebar .widget {
         margin-bottom: 5%; } }
-
-body *:not(input):not(textarea):not(select) {
-  background-color: rgba(0, 0, 255, 0.1); }
 .landing-page .site-inner {
   max-width: 800px; }
 
@@ -1372,7 +1369,7 @@ p.entry-meta {
 .widget-title {
   font-size: 18px;
   font-size: 1.8rem;
-  margin-bottom: 20px; }
+  margin-bottom: 15px; }
   .widget-title a {
     color: #333;
     text-decoration: none; }
@@ -1717,8 +1714,17 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   .footer-widgets .widget-area:nth-child(5n) {
   margin-right: 0;
   margin-left: auto; }
+  .footer-widgets .menu li {
+    padding-bottom: 0;
+    margin-bottom: 0; }
+  .footer-widgets .menu a {
+    color: #7b848d;
+    font-size: 14px;
+    font-size: 1.4rem;
+    text-decoration: none; }
 
 .footer-top .flex-wrap {
+  border-bottom: 1px solid #b5bcc6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1748,8 +1754,6 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
 /* # Site Footer
 ---------------------------------------------------------------------------------------------------- */
 .site-footer {
-  background-color: #fff;
-  border-top: 1px solid #eee;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1;
@@ -1766,6 +1770,26 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto; }
+    .site-footer .flex-wrap .textwidget {
+      color: #b5bcc6;
+      text-align: left; }
+      .site-footer .flex-wrap .textwidget p {
+        font-size: 14px;
+        font-size: 1.4rem; }
+    .site-footer .flex-wrap .menu {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+      .site-footer .flex-wrap .menu a {
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 14px;
+        font-size: 1.4rem;
+        color: #b5bcc6;
+        text-decoration: none; }
   .site-footer .widget {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
@@ -1779,9 +1803,6 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   .site-footer .widget:nth-child(2n) {
   margin-right: 0;
   margin-left: auto; }
-
-.site-footer .wrap > p {
-  display: none; }
 
 /* # Print Styles
 ---------------------------------------------------------------------------------------------------- */

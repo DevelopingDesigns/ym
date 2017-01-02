@@ -2,8 +2,6 @@
 ---------------------------------------------------------------------------------------------------- */
 
 .site-footer {
-	background-color: #fff;
-	border-top: 1px solid #eee;
 	@include font-size(16);
 	line-height: 1;
 	padding: 60px 0;
@@ -15,6 +13,27 @@
 
 	.flex-wrap {
 		lost-center: 1280px;
+
+		.textwidget {
+			color: $grey;
+			text-align: left;
+
+			p {
+				@include font-size(14);
+			}
+		}
+
+		.menu {
+			display: flex;
+			justify-content: flex-end;
+
+			a {
+				@include padding(null 10px);
+				@include font-size(14);
+				color: $grey;
+				text-decoration: none;
+			}
+		}
 	}
 
 	.widget {
@@ -23,9 +42,6 @@
 }
 
 
-.site-footer .wrap > p {
-	display: none;
-}
 
 
 

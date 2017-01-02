@@ -14,12 +14,26 @@
 	.widget-area {
 		lost-column: 1/5;
 	}
+
+	.menu {
+		li {
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
+
+		a {
+			color: $grey1;
+			@include font-size(14);
+			text-decoration: none;
+		}
+	}
 }
 
 
 // Footer Top
 .footer-top {
 	.flex-wrap {
+		border-bottom: 1px solid $grey;
 		lost-center: 1280px;
 	}
 
