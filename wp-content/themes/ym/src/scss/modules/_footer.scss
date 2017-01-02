@@ -2,11 +2,8 @@
 ---------------------------------------------------------------------------------------------------- */
 
 .site-footer {
-	background-color: #fff;
-	border-top: 1px solid #eee;
 	@include font-size(16);
 	line-height: 1;
-	padding: 60px 0;
 	text-align: center;
 
 	p {
@@ -15,6 +12,43 @@
 
 	.flex-wrap {
 		lost-center: 1280px;
+
+		.widget {
+			margin-bottom: 0;
+			@include media($small-screen-up) {
+				width: 100%;
+			}
+		}
+
+		.textwidget {
+			color: $grey;
+			text-align: left;
+
+			@include media($small-screen-up) {
+				margin-bottom: 20px;
+				text-align: center;
+			}
+
+			p {
+				@include font-size(14);
+			}
+		}
+
+		.menu {
+			display: flex;
+			justify-content: flex-end;
+
+			@include media($small-screen-up) {
+				justify-content: center;
+			}
+
+			a {
+				@include padding(null 10px);
+				@include font-size(14);
+				color: $grey;
+				text-decoration: none;
+			}
+		}
 	}
 
 	.widget {
@@ -23,9 +57,6 @@
 }
 
 
-.site-footer .wrap > p {
-	display: none;
-}
 
 
 
