@@ -202,11 +202,19 @@ class FlexibleContent {
 			$icon_sub_fields[] = $FCBFlexibleContentFields->media_icon( $thisKey, $icon );
 		}
 		$icon_sub_fields[] = $FCBFlexibleContentFields->size( $thisKey, array(
+
 			'name' => 'icon_size',
 			'choices'           => array(
 				'' => __( 'Default', ACFFCB_PLUGIN_DOMAIN ),
-				'-2x' => __( 'Medium', ACFFCB_PLUGIN_DOMAIN ),
-				'-3x' => __( 'Large', ACFFCB_PLUGIN_DOMAIN ),
+				'-2x' => __( '2x', ACFFCB_PLUGIN_DOMAIN ),
+				'-3x' => __( '3x', ACFFCB_PLUGIN_DOMAIN ),
+				'-4x' => __( '4x', ACFFCB_PLUGIN_DOMAIN ),
+				'-5x' => __( '5x', ACFFCB_PLUGIN_DOMAIN ),
+			),
+			'wrapper'           => array(
+				'width' => '25',
+				'class' => '',
+				'id'    => '',
 			),
 		) );
 		$icon_sub_fields[] = $FCBFlexibleContentFields->icon_preview( $thisKey );
