@@ -12,19 +12,21 @@
 	p {
 		margin-bottom: 0;
 	}
+
+	.flex-wrap {
+		lost-center: 1280px;
+	}
+
+	.widget {
+		lost-column: 1/2;
+	}
 }
 
-.row {
-	lost-utility: clearfix;
+
+.site-footer .wrap > p {
+	display: none;
 }
 
-.quarter {
-	lost-column: 1/4 0;
-}
-
-.half {
-	lost-column: 1/2 0;
-}
 
 
 

@@ -1,17 +1,27 @@
 <?php
+/**
+ * Theme menu functions
+ */
 
 add_action( 'init', 'menus_create' );
 /**
  * Register Navigation Menus
  */
 function menus_create() {
+	$locations = [
+		'header_utility' => __( 'Header Utility', 'ym' ),
+		'footer_utility' => __( 'Footer Utility', 'ym' ),
+		'primary' => __( 'Primary', 'ym' ),
+	];
 
-	$locations = array(
-		'Header Utility' => __( '', DD_MU_TEXT_DOMAIN ),
-		'Footer Utility' => __( '', DD_MU_TEXT_DOMAIN ),
-		'Footer Menus' => __( '', DD_MU_TEXT_DOMAIN ),
-		'Primary' => __( '', DD_MU_TEXT_DOMAIN ),
-	);
 	register_nav_menus( $locations );
-
 }
+
+
+/**
+ * Unregister secondary navigation
+ */
+add_action( 'init', function () {
+	unregister_nav_menu( 'secondary' );
+} );
+

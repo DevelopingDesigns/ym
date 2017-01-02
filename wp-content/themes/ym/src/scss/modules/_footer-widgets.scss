@@ -6,4 +6,24 @@
 	@include font-size(18);
 	clear: both;
 	padding: 60px 0;
+
+	.wrap {
+		lost-center: 1280px;
+	}
+
+	.widget-area {
+		lost-column: 1/5;
+	}
+}
+
+
+// Footer Top
+.footer-top {
+	.flex-wrap {
+		lost-center: 1280px;
+	}
+
+	.widget {
+		lost-column: 1/3;
+	}
 }

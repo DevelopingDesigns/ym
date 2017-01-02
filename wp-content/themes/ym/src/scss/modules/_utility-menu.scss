@@ -10,7 +10,8 @@
 
 		a {
 			@include padding(10px null);
-			color: $grey;
+			@include font(normal, 400);
+			color: $grey1;
 			font-size: 14px;
 
 			&:hover,
