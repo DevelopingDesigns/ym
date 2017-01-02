@@ -469,11 +469,8 @@
             }
 
             for (var i = 0, l = document.styleSheets.length; i < l; i++) {
-                if (document.styleSheets[i].href) {
-                    console.log('stylesheet ', document.styleSheets[i].href)
-                }
+                console.log('stylesheet ', document.styleSheets[i]);
                 if (document.styleSheets[i].href && document.styleSheets[i].href.match(css)) {
-                    debugger;
                     if (document.styleSheets[i].cssRules.length == 0) {
                         // Fallback. There is a request for the css file, but it failed.
                         return false;
@@ -490,55 +487,66 @@
         // '<i class="%1$s %1$s-%2$s" data-prefixes="%1$s" data-icon="%2$s"></i>'
         $('.acf-fields [data-name="icon_preview"]').each(function (index, el) {
             var $iconPreview = $(el),
-                $iconFont = $iconPreview.siblings('[data-name="icon_font"]').find('select'),
-                $icon = $iconPreview.siblings('[data-name="media_icon"]').find('select'),
-                icon = $icon.val(),
-                font = $iconFont.val();
-
+                $iconSize = $iconPreview.siblings('[data-name="icon_size"]').not('.hidden-by-conditional-logic').find('select'),
+                $iconFont = $iconPreview.siblings('[data-name="icon_font"]').not('.hidden-by-conditional-logic').find('select'),
+                $icon = $iconPreview.siblings('[data-name="media_icon"]').not('.hidden-by-conditional-logic').find('select'),
+                icon = $icon.find('option:selected').val(),
+                font = $iconFont.find('option:selected').val(),
+                size = $iconSize.find('option:selected').val();
+// debugger;
             function maybeLoadFont(f, cb) {
                 if (!isCSSLoaded(f)) {
                     fontScripts[f] = acffcb.scripts[f];
-                    console.log('loading', fontScripts[f]);
+                    console.log('loading ' + f + ' ' + fontScripts[f]);
                     head.load(acffcb.scripts[f], function() {
+                        console.log();
                     });
                 }
             }
 
-            function getPreview(iconFont, icon) {
-                var prefix;
-                switch (iconFont) {
-                    case 'font-awesome':
-                        prefix = 'fa';
-                        break;
-                    default:
-                        prefix = iconFont;
-                        break;
+            function getPreview(f, i, s) {
+                var prefix = f,
+                    _size = s && prefix + s || '';
+                if ('font-awesome' === f) {
+                    prefix = 'fa';
                 }
 
                 var spanEl = document.createElement('span');
-                spanEl.className = prefix + ' ' + prefix + '-' + icon;
+
+                spanEl.className = prefix + ' ' + prefix + '-' + i + ' ' + _size;
                 return spanEl;
             }
 
-            function doPreview(f, i) {
+            function doPreview(f, i, s) {
                 $iconPreview.find('.acf-input')
                     .html('')
-                    .append(getPreview(f, i));
+                    .append(getPreview(f, i, s));
             }
 
             $iconFont.on('change', function (evt) {
                 console.log('iconFont change %0', evt);
                 font = $(evt.currentTarget).val();
                 maybeLoadFont(font);
-                doPreview(font, icon);
+                doPreview(font, icon, size);
 
+            });
+            $iconSize.on('change', function (evt) {
+                console.log('size change %0', evt);
+                size = $(evt.currentTarget).val();
+                maybeLoadFont(font);
+                doPreview(font, icon, size);
             });
             $icon.on('change', function (evt) {
                 console.log('icon change %0', evt);
                 icon = $(evt.currentTarget).val();
                 maybeLoadFont(font);
-                doPreview(font, icon);
+                doPreview(font, icon, size);
             });
+
+            if ($iconPreview.is(':visible')) {
+                maybeLoadFont(font);
+                doPreview(font, icon, size);
+            }
         });
     });
 })(jQuery, head);
