@@ -154,6 +154,5 @@ function theme_setup() {
 	add_theme_support( 'genesis-footer-widgets', 5 );
 
 	// Load additional child theme files here
-	include_once __DIR__ . '/theme-defaults.php';
 	include_once __DIR__ . '/layout.php';
 }

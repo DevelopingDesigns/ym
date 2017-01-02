@@ -24,6 +24,5 @@ require_once __DIR__ . '/inc/customizer/customize.php';
 include_once __DIR__ . '/inc/customizer/output.php';
 require_once __DIR__ . '/inc/assets.php';
 require_once __DIR__ . '/inc/widgets.php';
-require_once __DIR__ . '/inc/theme-functions.php';
-require_once __DIR__ . '/inc/template-tags.php';
 require_once __DIR__ . '/inc/genesis.php';
+
