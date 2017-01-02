@@ -31,11 +31,19 @@ class CreateBlocks {
 
 		$this->args = array(
 			'key'                   => 'cfb_blocks',
+<<<<<<< HEAD
 			'title'                 => __( 'Content Blocks', ACFFCB_PLUGIN_DOMAIN ),
 			'fields'                => array(
 				array(
 					'key'               => 'cfb_content_blocks',
 					'label'             => __( 'Blocks', ACFFCB_PLUGIN_DOMAIN ),
+=======
+			'title'                 => __( 'Content Blocks', ACFFCB_PLUGIN_DOMAIN),
+			'fields'                => array(
+				array(
+					'key'               => 'cfb_content_blocks',
+					'label'             => __( 'Blocks', ACFFCB_PLUGIN_DOMAIN),
+>>>>>>> master
 					'name'              => 'blocks',
 					'type'              => 'flexible_content',
 					'instructions'      => '',
@@ -46,7 +54,11 @@ class CreateBlocks {
 						'class' => '',
 						'id'    => '',
 					),
+<<<<<<< HEAD
 					'button_label'      => __( 'Add Block', ACFFCB_PLUGIN_DOMAIN ),
+=======
+					'button_label'      => __( 'Add Block', ACFFCB_PLUGIN_DOMAIN),
+>>>>>>> master
 					'min'               => '',
 					'max'               => '',
 					'layouts'           => array(),
@@ -154,6 +166,7 @@ class CreateBlocks {
 	 * Enqueue admin scripts and styles
 	 */
 	public function admin_scripts() {
+<<<<<<< HEAD
 
 		$suffix  = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '.' : '.min.';
 		$version = 'ver=' . get_bloginfo( 'version' );
@@ -188,6 +201,10 @@ class CreateBlocks {
 			),
 			filemtime( ACFFCB_PLUGIN_DIR . 'assets/js/admin-script.js' )
 		);
+=======
+		wp_enqueue_script( 'acf-flexible-content-fields-ace', ACFFCB_PLUGIN_URL . 'assets/js/ace/ace.js' );
+		wp_enqueue_script( 'acf-flexible-content-fields-admin-script', ACFFCB_PLUGIN_URL . 'assets/js/admin-script.js' );
+>>>>>>> master
 	}
 
 	public function admin_styles() {
@@ -309,5 +326,9 @@ class CreateBlocks {
 			}
 		}
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> master
 }
