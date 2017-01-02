@@ -336,11 +336,15 @@ function acfcfb_content_after( $content_after ) {
 	return $content_after . '</article></div></div></section>';
 }
 
-function fcb_get_icon_fonts() {
-	return apply_filters( 'fcb_get_icon_fonts', array(
-		'dashicons'    => array(
-			'name'  => __( 'Dashicons', ACFFCB_PLUGIN_DOMAIN ),
-			'icons' => array(
+function fcb_get_icon_fonts( $single_font = null ) {
+	$suffix  = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '.' : '.min.';
+	$version = 'ver=' . get_bloginfo( 'version' );
+
+	$icon_fonts = apply_filters( 'fcb_get_icon_fonts', array(
+		'dashicons'       => array(
+			'name'   => __( 'Dashicons', ACFFCB_PLUGIN_DOMAIN ),
+			'url'    => includes_url( "css/dashicons{$suffix}css" ),
+			'icons'  => array(
 				"blank",    // there is no "blank" but we need the option
 				"menu",
 				"admin-site",
@@ -508,10 +512,12 @@ function fcb_get_icon_fonts() {
 				"smiley",
 			),
 			'prefix' => 'dashicons',
+			'version' => $version
 		),
-		'font-awesome' => array(
-			'name'  => __( 'Font Awesome', ACFFCB_PLUGIN_DOMAIN ),
-			'icons' => array(
+		'font-awesome'    => array(
+			'name'   => __( 'Font Awesome', ACFFCB_PLUGIN_DOMAIN ),
+			'url'    => ACFFCB_PLUGIN_URL . "assets/lib/font-awesome/css/font-awesome{$suffix}css",
+			'icons'  => array(
 				"blank",
 				// Mail
 				"inbox",
@@ -903,9 +909,10 @@ function fcb_get_icon_fonts() {
 			),
 			'prefix' => 'fa',
 		),
-		'genericons-neue'    => array(
-			'name'  => __( 'Genericon Neue', ACFFCB_PLUGIN_DOMAIN ),
-			'icons' => array(
+		'genericons-neue' => array(
+			'name'   => __( 'Genericon Neue', ACFFCB_PLUGIN_DOMAIN ),
+			'url'    => ACFFCB_PLUGIN_URL . "assets/lib/genericons-neue/icon-font/Genericons-Neue{$suffix}css",
+			'icons'  => array(
 				"blank",
 				"activity",
 				"anchor",
@@ -1014,6 +1021,12 @@ function fcb_get_icon_fonts() {
 			'prefix' => 'genericons-neue',
 		),
 	) );
+
+	if ( $single_font && isset( $icon_fonts[ $single_font ] ) ) {
+		return $icon_fonts[ $single_font ];
+	}
+
+	return $icon_fonts;
 }
 
 function fcb_get_icon_font_names() {
@@ -1022,9 +1035,9 @@ function fcb_get_icon_font_names() {
 
 function fcb_get_icon_font_prefixes() {
 	return apply_filters( 'fcb_get_icon_font_prefixes', array(
-		'dashicons'    => 'dashicons',
-		'font-awesome' => 'fa',
-		'genericons-neue'    => 'genericons-neue',
+		'dashicons'       => 'dashicons',
+		'font-awesome'    => 'fa',
+		'genericons-neue' => 'genericons-neue',
 	) );
 }
 
