@@ -1920,34 +1920,16 @@ class Fields {
 	 * Select
 	 */
 	public function size( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Size', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'size',
-				'type'              => 'select',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'choices'           => array(
-					'md' => __( 'Medium', ACFFCB_PLUGIN_DOMAIN ),
-					'sm' => __( 'Small', ACFFCB_PLUGIN_DOMAIN ),
-					'lg' => __( 'Large', ACFFCB_PLUGIN_DOMAIN ),
-				),
-				'default_value'     => array(),
-				'allow_null'        => 0,
-				'multiple'          => 0,
-				'ui'                => 0,
-				'ajax'              => 0,
-				'placeholder'       => '',
-				'disabled'          => 0,
-				'readonly'          => 0,
-			);
+		return $this->select( wp_parse_args( (array) $args, array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'             => __( 'Size', ACFFCB_PLUGIN_DOMAIN ),
+			'name'              => 'size',
+			'choices'           => array(
+				'md' => __( 'Medium', ACFFCB_PLUGIN_DOMAIN ),
+				'sm' => __( 'Small', ACFFCB_PLUGIN_DOMAIN ),
+				'lg' => __( 'Large', ACFFCB_PLUGIN_DOMAIN ),
+			),
+		) ) );
 	}
 
 	/**
@@ -1959,16 +1941,15 @@ class Fields {
 	 */
 	public function icon_font( $thisKey = 'field', $args = array() ) {
 		return $this->select( wp_parse_args( (array) $args, array(
-			'key'       => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'     => __( 'Icon Font', ACFFCB_PLUGIN_DOMAIN ),
-			'name'      => 'icon_font',
-			'choices'   => fcb_get_icon_font_names(),
-			'wrapper'   => array(
-				'width' => '33',
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Icon Font', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'icon_font',
+			'choices' => fcb_get_icon_font_names(),
+			'wrapper' => array(
+				'width' => '25',
 				'class' => '',
 				'id'    => '',
 			),
-			'data-icon-font' => $icon_font,
 		) ) );
 	}
 
@@ -1980,7 +1961,6 @@ class Fields {
 	 *
 	 */
 	public function media_icon( $thisKey = 'field', $icon_font = 'dashicons', $args = array() ) {
-
 		return $this->select( wp_parse_args( (array) $args, array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__ . '-' . $icon_font,
 			'label'             => __( 'Icon', ACFFCB_PLUGIN_DOMAIN ),
@@ -1996,7 +1976,7 @@ class Fields {
 				),
 			),
 			'wrapper'           => array(
-				'width' => '33',
+				'width' => '25',
 				'class' => '',
 				'id'    => '',
 			),
@@ -2011,21 +1991,17 @@ class Fields {
 	 *
 	 */
 	public function icon_preview( $thisKey = 'field', $args = array() ) {
-		$prefix  = fcb_get_icon_font_prefixes();
-		$pattern = '<i class="%1$s %1$s-%2$s" data-prefixes="%1$s" data-icon="%2$s"></i>';
-
 		return $this->message( wp_parse_args( (array) $args, array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'             => __( 'Icon Preview', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'icon_preview',
 			'conditional_logic' => 0,
 			'wrapper'           => array(
-				'width' => '33',
+				'width' => '25',
 				'class' => '',
 				'id'    => '',
 			),
-			'message'           => '...',
-			'pattern'           => $pattern,
+			'message'           => '',
 		) ) );
 	}
 
