@@ -12,14 +12,7 @@
 namespace DevDesigns\YM;
 
 
-/**
- * Setup child theme
- */
-/**
- * Include theme files and declare child theme constants.
- */
 add_action( 'genesis_setup', __NAMESPACE__ . '\theme_setup', 15 );
-
 /**
  * Setup child theme
  */

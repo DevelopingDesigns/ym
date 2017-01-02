@@ -14,14 +14,14 @@
  * Output utility menu before the header
  */
 add_action( 'genesis_before_header', function () {
-	if ( ! has_nav_menu( 'utility' ) ) {
+	if ( ! has_nav_menu( 'header_utility' ) ) {
 		return;
 	}
 
 	echo '<div class="before-header"><div class="wrap">';
 
 	wp_nav_menu( [
-		'theme_location' => 'utility',
+		'theme_location' => 'header_utility',
 		'container_class' => 'genesis-nav-menu',
 		]
 	);
@@ -113,22 +113,38 @@ function ym_theme_customize_register( $wp_customize ) {
 
 remove_action( 'genesis_footer', 'genesis_do_footer' );
 /**
- * Output utility menu before the header
+ * Output footer top widget
  */
-add_action( 'genesis_footer', function() {
-//	if ( ! is_active_sidebar( 'footer-bottom' ) ) {
-//		return;
-//	}
+add_action( 'genesis_before_footer', function () {
+	if ( ! is_active_sidebar( 'footer-top' ) ) {
+		return;
+	}
 
-	echo current_filter();
+	echo '<section class="footer-top"><div class="wrap"><div class="flex-wrap">';
 
-	echo '<div class="footer-bottom"><div class="wrap">';
+	dynamic_sidebar( 'footer-top' );
 
-	echo '<h1>Testing</h1>';
+	echo '</div></div></section>';
+
+
+} );
+
+
+remove_action( 'genesis_footer', 'genesis_do_footer' );
+/**
+ * Output footer bottom widget
+ */
+add_action( 'genesis_footer', function () {
+	if ( ! is_active_sidebar( 'footer-bottom' ) ) {
+		return;
+	}
+
+	echo '<div class="flex-wrap">';
 
 	dynamic_sidebar( 'footer-bottom' );
 
-	echo '</div></div>';
+	echo '</div>';
+
 } );
 
 

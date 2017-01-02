@@ -10,3 +10,10 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+
+// Font Family
+@mixin font($style, $weight) {
+	font-style: $style;
+	font-weight: $weight;
+}
