@@ -17,6 +17,7 @@ add_action( 'genesis_setup', __NAMESPACE__ . '\theme_setup', 15 );
  * Setup child theme
  */
 function theme_setup() {
+
 	add_theme_support( 'custom-background' );
 	add_theme_support( 'genesis-responsive-viewport' );
 	add_theme_support( 'genesis-after-entry-widget-area' );
@@ -150,4 +151,7 @@ function theme_setup() {
 		return $args;
 	} );
 
+	// Load additional child theme files here
+	include_once __DIR__ . '/inc/theme-defaults.php';
+	include_once __DIR__ . '/inc/layout.php';
 }
