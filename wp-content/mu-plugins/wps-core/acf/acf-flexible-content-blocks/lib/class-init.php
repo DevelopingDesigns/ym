@@ -161,13 +161,22 @@ class CreateBlocks {
 		// Add Scripts
 		wp_enqueue_script( 'acf-flexible-content-fields-headjs', ACFFCB_PLUGIN_URL . 'assets/js/headjs/1.0.3/head.load' . $suffix . 'js' );
 
-		wp_localize_script( 'acf-flexible-content-fields-headjs', 'acffcb', array(
-			'scripts' => array(
-				'dashicons'       => includes_url( "css/dashicons{$suffix}css?$version" ),
-				'font-awesome'    => ACFFCB_PLUGIN_URL . "assets/lib/font-awesome/css/font-awesome{$suffix}css",
-				'genericons-neue' => ACFFCB_PLUGIN_URL . "assets/lib/genericons-neue/icon-font/Genericons-Neue{$suffix}css",
-			),
-		) );
+		$icon_fonts = fcb_get_icon_fonts();
+		$acffcb_l10n = array(
+			'scripts' => array(),
+		);
+		foreach( $icon_fonts as $icon_name => $icon_font) {
+			$acffcb_l10n['scripts'][ $icon_name ] = $icon_font['url'];
+			if ('dashicons' !== $icon_name) {
+				wp_register_style(
+					$icon_name,
+					$icon_font['url'],
+					null,
+					$icon_font['version']
+				);
+			}
+		}
+		wp_localize_script( 'acf-flexible-content-fields-headjs', 'acffcb', $acffcb_l10n );
 
 		wp_enqueue_script( 'acf-flexible-content-fields-ace', ACFFCB_PLUGIN_URL . 'assets/js/ace/ace.js' );
 		wp_enqueue_script(
