@@ -23,31 +23,31 @@ function theme_setup() {
 	add_theme_support( 'genesis-after-entry-widget-area' );
 
 	add_theme_support( 'html5', [
-		'caption',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'search-form',
+			'caption',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'search-form',
 		]
 	);
 
 	add_theme_support( 'genesis-accessibility', [
-		'404-page',
-		'drop-down-menu',
-		'headings',
-		'rems',
-		'search-form',
-		'skip-links',
+			'404-page',
+			'drop-down-menu',
+			'headings',
+			'rems',
+			'search-form',
+			'skip-links',
 		]
 	);
 
 	add_theme_support( 'genesis-structural-wraps', [
-		'header',
-		//'menu-primary',
-		'menu-secondary',
-		'site-inner',
-		'footer-widgets',
-		'footer',
+			'header',
+			//'menu-primary',
+			'menu-secondary',
+			'site-inner',
+			'footer-widgets',
+			'footer',
 		]
 	);
 
@@ -68,9 +68,9 @@ function theme_setup() {
 
 
 	add_theme_support( 'genesis-menus', [
-		'primary' => __( 'After Header Menu', 'ym' ),
-		'secondary' => __( 'Footer Menu', 'ym' ),
-	    'utility' => __( 'Utility Menu', 'ym' ),
+			'primary'   => __( 'After Header Menu', 'ym' ),
+			'secondary' => __( 'Footer Menu', 'ym' ),
+			'utility'   => __( 'Utility Menu', 'ym' ),
 		]
 	);
 
@@ -125,31 +125,34 @@ function theme_setup() {
 	 */
 	genesis_set_default_layout( 'content-sidebar' );
 
+
+	/**
+	 * Modify size of the Gravatar in the author box
+	 *
+	 * @param $size
+	 *
+	 * @return int
+	 */
+	add_filter( 'genesis_author_box_gravatar_size', function ( $size ) {
+		return 90;
+	} );
+
+
+	/**
+	 * Modify size of the Gravatar in the entry comments
+	 *
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	add_filter( 'genesis_comment_list_args', function ( $args ) {
+		$args['avatar_size'] = 60;
+
+		return $args;
+	} );
+
+	add_theme_support( 'genesis-footer-widgets', 5 );
+
+	// Load additional child theme files here
+	include_once __DIR__ . '/layout.php';
 }
-
-
-/**
- * Modify size of the Gravatar in the author box
- *
- * @param $size
- *
- * @return int
- */
-add_filter( 'genesis_author_box_gravatar_size', function ( $size ) {
-	return 90;
-} );
-
-
-/**
- * Modify size of the Gravatar in the entry comments
- *
- * @param $args
- *
- * @return mixed
- */
-add_filter( 'genesis_comment_list_args', function ( $args ) {
-	$args['avatar_size'] = 60;
-
-	return $args;
-} );
-

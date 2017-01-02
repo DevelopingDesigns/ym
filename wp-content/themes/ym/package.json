@@ -7,8 +7,9 @@
     "scss": "node-sass --source-map true src/scss -o ./",
     "autoprefixer": "postcss -u autoprefixer *.css -d ./",
     "lostgrid": "postcss -u lost -o style.css style.css",
+    "assets": "postcss -u postcss-assets -o style.css style.css",
     "babel": "rm -rf dist/js/custom && mkdir -p dist/js/custom && babel src/js/custom -d dist/js/custom",
-    "build:css": "npm run scss && npm run autoprefixer && npm run lostgrid",
+    "build:css": "npm run scss && npm run lostgrid && npm run assets && npm run autoprefixer ",
     "build:js": "npm run babel",
     "build:all": "npm run build:css && npm run build:js",
     "watch:css": "onchange 'src/scss/**/*.scss' -- npm run build:css",
@@ -44,6 +45,7 @@
     "npm-run-all": "^3.1.1",
     "onchange": "^3.0.2",
     "parallelshell": "^2.0.0",
+    "postcss-assets": "^4.1.0",
     "postcss-cli": "^2.6.0",
     "uglify-js": "^2.7.4"
   }
