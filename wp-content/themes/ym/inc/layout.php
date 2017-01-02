@@ -126,7 +126,7 @@ add_action( 'genesis_before_footer', function () {
 	echo '</div></div></section>';
 
 
-} );
+}, 5 );
 
 remove_action( 'genesis_footer', 'genesis_do_footer' );
 /**
