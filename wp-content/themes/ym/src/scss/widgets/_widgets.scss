@@ -31,6 +31,7 @@
 
 .widget-title {
 	@include font-size(18);
+	font-weight: 700;
 	margin-bottom: 15px;
 
 	a {
