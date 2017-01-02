@@ -111,7 +111,6 @@ function ym_theme_customize_register( $wp_customize ) {
 }
 
 
-remove_action( 'genesis_footer', 'genesis_do_footer' );
 /**
  * Output footer top widget
  */
@@ -128,7 +127,6 @@ add_action( 'genesis_before_footer', function () {
 
 
 } );
-
 
 remove_action( 'genesis_footer', 'genesis_do_footer' );
 /**
