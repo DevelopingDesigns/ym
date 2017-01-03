@@ -111,11 +111,18 @@
 // Footer Top
 .footer-top {
 	.flex-wrap {
+		@include padding(45px 0);
 		border-bottom: 1px solid $grey;
 		lost-center: 1280px;
+		align-items: center;
+	}
+
+	.widget-title {
+		margin-bottom: 0;
 	}
 
 	.widget {
+		margin-bottom: 0;
 		lost-column: 1/3;
 
 		@include media($large-screen-up) {
@@ -123,19 +130,58 @@
 		}
 	}
 
+	// Phone Number Widget
+	#text-3 {
+		h5 {
+			margin-bottom: 0;
+		}
+
+		span {
+			font-weight: 400;
+			padding-left: 10px;
+		}
+	}
+
+	// Newsletter Widget
 	#gform_widget-2 {
 
 		.widget-wrap {
 			display: flex;
+			align-items: center;
 		}
 
-		.gfield_required {
+		.widget-title {
+			font-weight: 800;
+			padding-right: 10px;
+		}
+
+		.gform_wrapper {
+			@include margin(0);
+		}
+
+		#field_1_1 {
+			@include margin(0);
+			padding-bottom: 0;
+		}
+
+		.ginput_container {
+			margin-top: 0;
+
+			input {
+				@include font-size(14);
+				background-color: $grey6;
+				color: $grey1;
+				margin-bottom: 0;
+				padding-left: 15px;
+			}
+		}
+
+		.gfield_required,
+		.gfield_label,
+		.gform_wrapper .gform_footer {
 			display: none;
 		}
 
-		#gform_submit_button_1 {
-			display: none;
-		}
 	}
 }
 
