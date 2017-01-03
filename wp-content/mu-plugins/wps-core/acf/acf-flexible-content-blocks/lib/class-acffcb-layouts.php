@@ -876,6 +876,7 @@ class Layouts {
 		$FCBFields    = new Fields( __FUNCTION__ );
 		$FCBRepeaters = new Repeaters( __FUNCTION__ );
 
+
 		return (
 		array(
 			'order'  => $this->order[ __FUNCTION__ ],
@@ -921,6 +922,7 @@ class Layouts {
 
 		$FCBFields    = new Fields( __FUNCTION__ );
 		$FCBRepeaters = new Repeaters( __FUNCTION__ );
+		$FCBFlexibleContent = new FlexibleContent( __FUNCTION__ );
 
 		$field_key    = str_replace( $this->key, '', $key ) . '-field';
 		$flexible_key = str_replace( $this->key, '', $key ) . '-flexible';
