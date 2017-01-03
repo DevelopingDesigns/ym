@@ -22,7 +22,7 @@ class Layouts {
 		'post_list'                => '500',
 		'complex_title'            => '20',
 		'event'                    => '30',
-//		'hero'                     => '40',
+		'hero'                     => '40',
 //		'title'                    => '50',
 	);
 
