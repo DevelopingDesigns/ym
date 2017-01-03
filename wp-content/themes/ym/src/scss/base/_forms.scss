@@ -7,14 +7,14 @@ fieldset {
 
 legend {
   font-weight: 600;
-  margin-bottom: $small-spacing / 2;
+  margin-bottom: 10px;
   padding: 0;
 }
 
 label {
   display: block;
   font-weight: 600;
-  margin-bottom: $small-spacing / 2;
+  margin-bottom: 10px;
 }
 
 input,
@@ -26,16 +26,15 @@ select {
 
 #{$all-text-inputs},
 select[multiple] {
-  background-color: $base-background-color;
+  background-color: $grey1;
   border: $base-border;
   border-radius: $base-border-radius;
-  box-shadow: $form-box-shadow;
   box-sizing: border-box;
   font-family: $base-font-family;
   font-size: $base-font-size;
-  margin-bottom: $small-spacing;
-  padding: $base-spacing / 3;
-  transition: border-color $base-duration $base-timing;
+  margin-bottom: 10px;
+  padding: 5px;
+  transition: border-color 150ms;
   width: 100%;
 
   &:hover {
@@ -43,13 +42,12 @@ select[multiple] {
   }
 
   &:focus {
-    border-color: $action-color;
-    box-shadow: $form-box-shadow-focus;
+    border-color: $green-bright;
     outline: none;
   }
 
   &:disabled {
-    background-color: shade($base-background-color, 5%);
+    background-color: shade($grey1, 5%);
     cursor: not-allowed;
 
     &:hover {
@@ -69,16 +67,16 @@ textarea {
 [type="checkbox"],
 [type="radio"] {
   display: inline;
-  margin-right: $small-spacing / 2;
+  margin-right: 5px;
 }
 
 [type="file"] {
-  margin-bottom: $small-spacing;
+  margin-bottom: 10px;
   width: 100%;
 }
 
 select {
-  margin-bottom: $base-spacing;
+  margin-bottom: 10px;
   max-width: 100%;
   width: auto;
 }
