@@ -1002,23 +1002,10 @@ class Fields {
 	 * Tab titled "Background"
 	 */
 	public function tab_background( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Background', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Background', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1032,23 +1019,10 @@ class Fields {
 	 * Tab titled "Calls to Action"
 	 */
 	public function tab_cta( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Calls to Action', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Calls to Action', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1062,23 +1036,10 @@ class Fields {
 	 * Tab titled "Background"
 	 */
 	public function tab_dev( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Dev Mode', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => 'acf-dev',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Dev Mode', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1092,23 +1053,10 @@ class Fields {
 	 * Tab titled "Tabs"
 	 */
 	public function tab_tabs( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Tabs', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Tabs', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1122,23 +1070,10 @@ class Fields {
 	 * Tab titled "Post List"
 	 */
 	public function tab_post_list( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Post List', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Post List', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1297,23 +1232,10 @@ class Fields {
 	 * Tab titled "Content"
 	 */
 	public function tab_content( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1327,23 +1249,11 @@ class Fields {
 	 * Endpoint field for content tabs
 	 */
 	public function tab_endpoint( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( '', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 1,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'      => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'    => __( '', ACFFCB_PLUGIN_DOMAIN ),
+			'endpoint' => 1,
+		) ) );
 	}
 
 	/**
@@ -1357,23 +1267,10 @@ class Fields {
 	 * Tab titled "Features"
 	 */
 	public function tab_features( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Features', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Features', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1387,23 +1284,10 @@ class Fields {
 	 * Tab titled "Cards"
 	 */
 	public function tab_cards( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Cards', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Cards', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1417,23 +1301,10 @@ class Fields {
 	 * Tab titled "Media"
 	 */
 	public function tab_media( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1447,23 +1318,10 @@ class Fields {
 	 * Tab titled "Slides"
 	 */
 	public function tab_slides( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Slides', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Slides', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1477,23 +1335,10 @@ class Fields {
 	 * Tab titled "Gallery"
 	 */
 	public function tab_gallery( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1756,23 +1601,10 @@ class Fields {
 	 * Tab titled "Title"
 	 */
 	public function tab_title( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Title', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Title', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1785,23 +1617,10 @@ class Fields {
 	 * Tab titled "Layout"
 	 */
 	public function tab_layout( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Layout', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Layout', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1814,30 +1633,12 @@ class Fields {
 	 * Text
 	 */
 	public function word_or_phrase( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Word or Phrase', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'word_or_phrase',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
-				'maxlength'         => '',
-				'readonly'          => 0,
-				'disabled'          => 0,
-			);
+		return $this->text( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Word or Phrase', ACFFCB_PLUGIN_DOMAIN ),
+			'name'  => 'word_or_phrase',
+		) ) );
 	}
-
 
 	/**
 	 * Field: Alignment
@@ -1848,38 +1649,19 @@ class Fields {
 	 *
 	 * Select
 	 */
-	public function alignment( $thisKey = 'field', $name = 'alignment' ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Alignment', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => $name,
-				'type'              => 'select',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'choices'           => array(
-					'none'   => 'None',
-					'left'   => 'Left',
-					'right'  => 'Right',
-					'center' => 'Center',
-				),
-				'default_value'     => array(),
-				'allow_null'        => 0,
-				'multiple'          => 0,
-				'ui'                => 0,
-				'ajax'              => 0,
-				'placeholder'       => '',
-				'disabled'          => 0,
-				'readonly'          => 0,
-			);
+	public function alignment( $thisKey = 'field', $name = 'alignment', $args = array() ) {
+		return $this->select( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Alignment', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => $name,
+			'choices' => array(
+				'none'   => __( 'None', ACFFCB_PLUGIN_DOMAIN ),
+				'left'   => __( 'Left', ACFFCB_PLUGIN_DOMAIN ),
+				'right'  => __( 'Right', ACFFCB_PLUGIN_DOMAIN ),
+				'center' => __( 'Center', ACFFCB_PLUGIN_DOMAIN ),
+			),
+		) ) );
 	}
-
 
 	/**
 	 * Field: Emphasize
@@ -1891,25 +1673,12 @@ class Fields {
 	 * Checkbox
 	 */
 	public function emphasize( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Emphasize', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'emphasize',
-				'type'              => 'true_false',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'message'           => '',
-				'default_value'     => 0,
-			);
+		return wp_parse_args( (array) $args, $this->true_false( array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Emphasize', ACFFCB_PLUGIN_DOMAIN ),
+			'name'  => 'emphasize',
+		) ) );
 	}
-
 
 	/**
 	 * Field: Size
@@ -1922,10 +1691,10 @@ class Fields {
 	 */
 	public function size( $thisKey = 'field', $args = array() ) {
 		return $this->select( wp_parse_args( (array) $args, array(
-			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Size', ACFFCB_PLUGIN_DOMAIN ),
-			'name'              => 'size',
-			'choices'           => array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Size', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'size',
+			'choices' => array(
 				'md' => __( 'Medium', ACFFCB_PLUGIN_DOMAIN ),
 				'sm' => __( 'Small', ACFFCB_PLUGIN_DOMAIN ),
 				'lg' => __( 'Large', ACFFCB_PLUGIN_DOMAIN ),
@@ -2032,24 +1801,15 @@ class Fields {
 	 * Select
 	 */
 	public function date( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'name'              => 'date',
-				'type'              => 'date_picker',
-				'display_format'    => 'F j, Y',
-				'return_format'     => 'F j, Y',
-				'first_day'         => 1,
-				'label'             => __( 'Date', ACFFCB_PLUGIN_DOMAIN ),
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-			);
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'key'            => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'name'           => 'date',
+			'type'           => 'date_picker',
+			'display_format' => 'F j, Y',
+			'return_format'  => 'F j, Y',
+			'first_day'      => 1,
+			'label'          => __( 'Date', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -2061,25 +1821,15 @@ class Fields {
 	 * Select
 	 */
 	public function time( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'name'              => 'time',
-				'type'              => 'time_picker',
-				'display_format'    => 'g:i a',
-				'return_format'     => 'g:i a',
-				'label'             => __( 'Time', ACFFCB_PLUGIN_DOMAIN ),
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-			);
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'key'            => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'name'           => 'time',
+			'type'           => 'time_picker',
+			'display_format' => 'g:i a',
+			'return_format'  => 'g:i a',
+			'label'          => __( 'Time', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
-
 
 	public function email( $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
