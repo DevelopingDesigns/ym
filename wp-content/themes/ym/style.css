@@ -446,6 +446,19 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
           user-select: none;
   vertical-align: middle;
   white-space: nowrap; }
+  .button:hover, .button:focus,
+  button:hover,
+  button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus {
+    background-color: #9aa51a;
+    box-shadow: none;
+    color: #fff; }
+  .button:disabled,
+  button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5; }
+    .button:disabled:hover,
+    button:disabled:hover, input[type="button"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="submit"]:disabled:hover {
+      background-color: #6e7612; }
 
 fieldset {
   background-color: transparent;
@@ -1360,8 +1373,9 @@ p.entry-meta {
     padding: 0; }
 
 .widget-title {
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 16px;
+  font-size: 1.6rem;
+  color: #343F49;
   font-weight: 700;
   margin-bottom: 15px; }
   .widget-title a {
@@ -1548,10 +1562,17 @@ p.entry-meta {
     .nav-primary #ubermenu-main-2-primary a:hover, .nav-primary #ubermenu-main-2-primary a:active {
       color: #a8ad00; }
   .nav-primary #ubermenu-main-2-primary .menu-cta > a {
+    font-size: 14px;
+    font-size: 1.4rem;
     background-color: #C1CE20;
     border-radius: 50px;
+    box-shadow: 0 2px 4px #343f49;
     color: #fff;
     text-transform: uppercase; }
+    .nav-primary #ubermenu-main-2-primary .menu-cta > a:hover, .nav-primary #ubermenu-main-2-primary .menu-cta > a:focus {
+      background-color: #9aa51a;
+      box-shadow: none;
+      color: #fff; }
   .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega {
     padding: 20px 40px;
     margin-top: 20px; }
@@ -1701,6 +1722,9 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto; }
+  .footer-widgets .widget-title {
+    font-size: 14px;
+    font-size: 1.4rem; }
   .footer-widgets .widget-area {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
@@ -1750,7 +1774,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     padding-bottom: 0;
     margin-bottom: 0; }
   .footer-widgets .menu a {
-    color: #E6E6E6;
+    color: #5C6872;
     font-size: 12px;
     font-size: 1.2rem;
     text-decoration: none; }
