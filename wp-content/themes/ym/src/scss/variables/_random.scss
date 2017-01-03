@@ -1,14 +1,8 @@
 // Other Sizes
-$base-border-radius: 3px;
+$base-border-radius: 50px;
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
-
-// Colors
-$blue: #1565c0;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
 
 // Font Colors
 $base-font-color: $dark-gray;
@@ -29,3 +23,4 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 // Animations
 $base-duration: 150ms;
 $base-timing: ease;
+

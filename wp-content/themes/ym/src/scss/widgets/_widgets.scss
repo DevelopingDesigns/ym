@@ -31,7 +31,8 @@
 
 .widget-title {
 	@include font-size(18);
-	margin-bottom: 20px;
+	font-weight: 700;
+	margin-bottom: 15px;
 
 	a {
 		color: #333;

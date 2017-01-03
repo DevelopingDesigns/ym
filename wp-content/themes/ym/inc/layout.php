@@ -128,6 +128,29 @@ add_action( 'genesis_before_footer', function () {
 
 }, 5 );
 
+
+add_filter( 'genesis_structural_wrap-footer-widgets', 'ym_add_inner_wrap', 10, 2 );
+/**
+ * Filter the footer-widgets context of the genesis_structural_wrap
+ * to add a div before the closing wrap div.
+ *
+ * @param    string $output          The markup to be returned
+ * @param    string $original_output Set to either 'open' or 'close'
+ *
+ * @return  string    The footer markup
+ */
+function ym_add_inner_wrap( $output, $original_output ) {
+	if ( 'open' === $original_output ) {
+		$output .= '<div class="flex-wrap">';
+	} elseif ( 'close' === $original_output ) {
+		$output = '</div>' . $output;
+	}
+
+	return $output;
+}
+
+
+
 remove_action( 'genesis_footer', 'genesis_do_footer' );
 /**
  * Output footer bottom widget

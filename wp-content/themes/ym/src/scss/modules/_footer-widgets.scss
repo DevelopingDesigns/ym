@@ -7,23 +7,181 @@
 	clear: both;
 	padding: 60px 0;
 
-	.wrap {
+	.flex-wrap {
 		lost-center: 1280px;
 	}
 
 	.widget-area {
 		lost-column: 1/5;
+
+		&:last-child {
+			@include media($small-screen-up) {
+				margin-bottom: 0;
+			}
+		}
+
+		@include media($large-screen-up) {
+			margin-bottom: 40px;
+			lost-column: 3/9 3;
+		}
+
+		@include media($small-screen-up) {
+			lost-column: 2/4 2;
+		}
+	}
+
+	.menu {
+		li {
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
+
+		a {
+			color: $grey1;
+			@include font-size(12);
+			text-decoration: none;
+		}
+	}
+
+	.button {
+		@include font-size(12);
+		@include padding(13px 40px);
+	}
+
+	// Footer Widgets 1 Tree
+	.footer-widgets-1 {
+		background: inline('dist/images/tree.png') no-repeat;
+		background-size: 35%;
+
+		@include media($large-screen-up) {
+			background: none;
+		}
+	}
+
+	// Footer 1 Menu
+	#nav_menu-3 {
+		width: 60%;
+		float: right;
+
+		@include media($large-screen-up) {
+			width: 100%;
+			float: none;
+		}
+	}
+
+	.footer-widgets-2,
+	.footer-widgets-3 {
+		padding-left: 40px;
+
+		@include media($large-screen-up) {
+			padding-left: 0;
+		}
 	}
 }
 
+// ASAE Partner Widget
+#text-7 {
+	width: 60%;
+	float: right;
+
+	@include media($large-screen-up) {
+		float: none;
+	}
+
+	.textwidget {
+		display: flex;
+		align-items: center;
+
+		.text-wrap {
+			padding-bottom: 5px;
+			padding-left: 5px;
+		}
+	}
+
+	p {
+		@include font-size(10);
+		color: $grey1;
+	}
+
+	img {
+		width: 100%;
+	}
+}
 
 // Footer Top
 .footer-top {
 	.flex-wrap {
+		@include padding(45px 0);
+		border-bottom: 1px solid $grey;
 		lost-center: 1280px;
+		align-items: center;
+	}
+
+	.widget-title {
+		margin-bottom: 0;
 	}
 
 	.widget {
+		margin-bottom: 0;
 		lost-column: 1/3;
+
+		@include media($large-screen-up) {
+			lost-column: 1;
+		}
+	}
+
+	// Phone Number Widget
+	#text-3 {
+		h5 {
+			margin-bottom: 0;
+		}
+
+		span {
+			font-weight: 400;
+			padding-left: 10px;
+		}
+	}
+
+	// Newsletter Widget
+	#gform_widget-2 {
+
+		.widget-wrap {
+			display: flex;
+			align-items: center;
+		}
+
+		.widget-title {
+			font-weight: 800;
+			padding-right: 10px;
+		}
+
+		.gform_wrapper {
+			@include margin(0);
+		}
+
+		#field_1_1 {
+			@include margin(0);
+			padding-bottom: 0;
+		}
+
+		.ginput_container {
+			margin-top: 0;
+
+			input {
+				@include font-size(14);
+				background-color: $grey6;
+				color: $grey1;
+				margin-bottom: 0;
+				padding-left: 15px;
+			}
+		}
+
+		.gfield_required,
+		.gfield_label,
+		.gform_wrapper .gform_footer {
+			display: none;
+		}
+
 	}
 }
+
