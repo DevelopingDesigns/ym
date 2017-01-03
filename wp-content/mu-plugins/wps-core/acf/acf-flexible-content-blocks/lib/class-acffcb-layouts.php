@@ -900,6 +900,90 @@ class Layouts {
 
 	/**
 	 *
+	 * Layout Field: Complex Title
+	 *
+	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
+	 * @since 1.0
+	 *
+	 * Select
+	 */
+	public function hero( $args = array() ) {
+		// Extracts $key, $content_classes, & $media_classes
+		extract( wp_parse_args( $args, array(
+			'key'             => $this->key . __FUNCTION__,
+			'order'           => $this->order[ __FUNCTION__ ],
+			'name'            => 'hero',
+			'label'           => __( 'Hero', ACFFCB_PLUGIN_DOMAIN ),
+			'content_classes' => '',
+			'media_classes'   => '',
+		) ) );
+
+		$FCBFields    = new Fields( __FUNCTION__ );
+		$FCBRepeaters = new Repeaters( __FUNCTION__ );
+
+		$field_key    = str_replace( $this->key, '', $key ) . '-field';
+		$flexible_key = str_replace( $this->key, '', $key ) . '-flexible';
+		$repeater_key = str_replace( $this->key, '', $key ) . '-repeater';
+
+		$data         = array(
+			'order'  => $order,
+			'layout' => array(
+				'key'        => $key,
+				'name'       => $name,
+				'label'      => $label,
+				'display'    => 'block',
+				'sub_fields' => array(
+					// Titles
+					$FCBFields->complex_title_preview_placeholder(),
+
+					$FCBFields->tab_title(),
+					$FCBRepeaters->build_title(),
+					$FCBFields->subtitle(),
+
+					// Content tab
+					$FCBFields->tab_content( $field_key ),
+					$FCBFields->content( $field_key ),
+
+					// Background tab
+					$FCBFields->tab_background( $field_key ),
+					$FCBFields->background_image( $field_key ),
+					$FCBFields->background_color( $field_key ),
+					$FCBFields->background_color_placeholder( $field_key ),
+					$FCBFields->theme_color( $field_key ),
+					$FCBFields->choose_color( $field_key ),
+
+					// Call to Action
+					$FCBFields->tab_cta( $field_key ),
+					$FCBFlexibleContent->cta( $flexible_key ),
+
+					// Dev Mode tab
+					$FCBFields->tab_dev( $field_key ),
+					$FCBFields->dev_block_message( $field_key ),
+					$FCBRepeaters->block_data_attributes( $repeater_key ),
+					$FCBFields->block_classes( $field_key ),
+
+					$FCBFields->dev_content_message( $field_key ),
+					$FCBRepeaters->content_data_attributes( $repeater_key ),
+					$FCBFields->content_classes( $field_key, $content_classes ),
+
+					$FCBFields->dev_media_message( $field_key ),
+					$FCBRepeaters->media_data_attributes( $repeater_key ),
+					$FCBFields->media_classes( $field_key, $media_classes ),
+
+
+					// Tab Endpoint
+					$FCBFields->tab_endpoint( $field_key ),
+
+				)
+			)
+		);
+
+		return $data;
+	}
+
+	/**
+	 *
 	 * Layout Field: Event
 	 *
 	 * @author Travis Smith
