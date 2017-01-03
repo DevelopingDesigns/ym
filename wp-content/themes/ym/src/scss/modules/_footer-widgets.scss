@@ -112,7 +112,7 @@
 .footer-top {
 	.flex-wrap {
 		@include padding(45px 0);
-		border-bottom: 1px solid $grey;
+		border-bottom: 1px solid $grey1;
 		lost-center: 1280px;
 		align-items: center;
 	}
@@ -169,7 +169,7 @@
 
 			input {
 				@include font-size(14);
-				background-color: $grey6;
+				background-color: $grey4;
 				color: $grey1;
 				margin-bottom: 0;
 				padding-left: 15px;

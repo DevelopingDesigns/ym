@@ -2,36 +2,37 @@
 #{$all-buttons} {
   @include font-size(14);
   appearance: none;
-  background-color: $black2;
+  background-color: $green-main;
   border: 0;
   border-radius: $base-border-radius;
-  color: #fff;
+  box-shadow: 0 2px 4px $black2;
+  color: $white;
   cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
-  padding: $small-spacing $base-spacing;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color $base-duration $base-timing;
+  transition: background-color 300ms;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 
-  &:hover,
-  &:focus {
-    background-color: shade($action-color, 20%);
-    color: #fff;
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-
-    &:hover {
-      background-color: $action-color;
-    }
-  }
+  //&:hover,
+  //&:focus {
+  //  background-color: shade($green-bright, 20%);
+  //  color: #fff;
+  //}
+  //
+  //&:disabled {
+  //  cursor: not-allowed;
+  //  opacity: 0.5;
+  //
+  //  &:hover {
+  //    background-color: $green-bright;
+  //  }
+  //}
 }
+
