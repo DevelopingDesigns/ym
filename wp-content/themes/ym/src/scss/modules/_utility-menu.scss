@@ -11,8 +11,9 @@
 		a {
 			@include padding(10px null);
 			@include font(normal, 400);
-			color: $grey1;
-			font-size: 14px;
+			@include font-size(12);
+			color: $slate;
+
 
 			&:hover,
 			&:active {
