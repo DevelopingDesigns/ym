@@ -1558,11 +1558,13 @@ p.entry-meta {
     .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu a {
       padding: 0; }
     .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-2 a {
-      font-size: 18px; }
+      font-size: 14px;
+      font-size: 1.4rem; }
     .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a {
       padding: 5px 0;
-      color: #EEEEEE;
-      font-size: 16px;
+      font-size: 14px;
+      font-size: 1.4rem;
+      color: #5C6872;
       font-weight: normal; }
       .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a:hover, .nav-primary #ubermenu-main-2-primary .ubermenu-submenu-type-mega .ubermenu-submenu .ubermenu-item-level-3 a:active {
         color: #a8ad00; }
@@ -1573,14 +1575,16 @@ p.entry-meta {
     .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-header a {
       padding-top: 5px;
       padding-bottom: 5px;
-      color: #333;
-      font-size: 18px;
+      color: #343F49;
+      font-size: 14px;
+      font-size: 1.4rem;
       font-weight: bold; }
     .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-auto a {
       padding-top: 5px;
       padding-bottom: 5px;
-      color: #EEEEEE;
-      font-size: 16px;
+      color: #5C6872;
+      font-size: 14px;
+      font-size: 1.4rem;
       font-weight: normal; }
       .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-auto a:hover, .nav-primary #ubermenu-main-2-primary #menu-item-75 .ubermenu-submenu .ubermenu-item-auto a:active {
         color: #a8ad00; }
