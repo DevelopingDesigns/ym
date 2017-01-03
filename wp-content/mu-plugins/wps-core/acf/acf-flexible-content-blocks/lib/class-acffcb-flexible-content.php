@@ -194,32 +194,40 @@ class FlexibleContent {
 	 */
 	public function media( $min = 0, $max = 1, $thisKey = 'flexible' ) {
 		$FCBFlexibleContentFields = new Fields( $this->layout, __FUNCTION__ );
-		$icon_fonts = fcb_get_icon_fonts();
+
+		$icon_fonts      = fcb_get_icon_fonts();
 		$icon_sub_fields = array(
 			$FCBFlexibleContentFields->icon_font( $thisKey ),
 		);
-		foreach( $icon_fonts as $icon => $icon_font ) {
+		foreach ( $icon_fonts as $icon => $icon_font ) {
 			$icon_sub_fields[] = $FCBFlexibleContentFields->media_icon( $thisKey, $icon );
 		}
+		$icon_sub_fields[] = $FCBFlexibleContentFields->colorpicker( $thisKey, array(
+			'name'    => 'icon_color',
+			'wrapper' => array(
+				'width' => '25',
+				'class' => '',
+				'id'    => '',
+			),
+		) );
 		$icon_sub_fields[] = $FCBFlexibleContentFields->size( $thisKey, array(
-
-			'name' => 'icon_size',
-			'choices'           => array(
-				'' => __( 'Default', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'icon_size',
+			'choices' => array(
+				''    => __( 'Default', ACFFCB_PLUGIN_DOMAIN ),
 				'-2x' => __( '2x', ACFFCB_PLUGIN_DOMAIN ),
 				'-3x' => __( '3x', ACFFCB_PLUGIN_DOMAIN ),
 				'-4x' => __( '4x', ACFFCB_PLUGIN_DOMAIN ),
 				'-5x' => __( '5x', ACFFCB_PLUGIN_DOMAIN ),
 			),
-			'wrapper'           => array(
+			'wrapper' => array(
 				'width' => '25',
 				'class' => '',
 				'id'    => '',
 			),
 		) );
 		$icon_sub_fields[] = $FCBFlexibleContentFields->icon_preview( $thisKey );
-		return (
-		array(
+
+		return array(
 			'key'               => $this->key . $thisKey . '-' . $this->getCallingFunctionName() . __FUNCTION__,
 			'label'             => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'media',
@@ -323,7 +331,6 @@ class FlexibleContent {
 					),
 				),
 			)
-		)
 		);
 	}
 
