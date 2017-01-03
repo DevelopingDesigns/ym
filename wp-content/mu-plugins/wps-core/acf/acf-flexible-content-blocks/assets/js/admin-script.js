@@ -483,7 +483,6 @@
             return false;
         }
         
-        // '<i class="%1$s %1$s-%2$s" data-prefixes="%1$s" data-icon="%2$s"></i>'
         $('.acf-fields [data-name="icon_preview"]').each(function (index, el) {
             var $iconPreview = $(el),
                 $iconSize = $iconPreview.siblings('[data-name="icon_size"]').not('.hidden-by-conditional-logic').find('select'),
@@ -542,10 +541,10 @@
                 doPreview(font, icon, size);
             });
 
-            if ($iconPreview.is(':visible')) {
+            // if ($iconPreview.is(':visible')) {
                 maybeLoadFont(font);
                 doPreview(font, icon, size);
-            }
+            // }
         });
     });
 })(jQuery, head);
