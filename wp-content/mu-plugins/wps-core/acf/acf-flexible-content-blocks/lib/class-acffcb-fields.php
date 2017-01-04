@@ -1573,7 +1573,7 @@ class Fields {
 	}
 
 	public function defaults( $args ) {
-		return apply_filters( 'fcb_' . $args['type'] . '_defaults', wp_parse_args( (array) $args, array(
+		return apply_filters( 'fcb_field_' . $args['type'] . '_defaults', wp_parse_args( (array) $args, array(
 			'instructions'      => '',
 			'message'           => '',
 			'required'          => 0,
