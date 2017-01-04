@@ -1459,7 +1459,6 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Taxonomy
 	 *
 	 * @author Michael W. Delaney
@@ -1472,19 +1471,19 @@ class Fields {
 		$tax = get_taxonomy( $taxonomy );
 
 		return wp_parse_args( (array) $args, $this->defaults( array(
-			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => $tax->label,
-			'name'              => $taxonomy,
-			'taxonomy'          => $taxonomy,
-			'type'              => 'taxonomy',
-			'field_type'        => 'checkbox',
-			'add_term'          => 0,
-			'save_terms'        => 0,
-			'load_terms'        => 0,
-			'return_format'     => 'id',
-			'allow_null'        => 0,
-			'multiple'          => 0,
-		) ));
+			'key'           => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'         => $tax->label,
+			'name'          => $taxonomy,
+			'taxonomy'      => $taxonomy,
+			'type'          => 'taxonomy',
+			'field_type'    => 'checkbox',
+			'add_term'      => 0,
+			'save_terms'    => 0,
+			'load_terms'    => 0,
+			'return_format' => 'id',
+			'allow_null'    => 0,
+			'multiple'      => 0,
+		) ) );
 	}
 
 	public function post_object( $args = array() ) {
@@ -1545,6 +1544,24 @@ class Fields {
 		) ) );
 	}
 
+	public function image( $args = array() ) {
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'label'         => __( 'Image', ACFFCB_PLUGIN_DOMAIN ),
+			'type'          => 'image',
+			'wrapper'       => fcb_get_wrapper( null, 'acf-media' ),
+			'return_format' => 'array',
+			'preview_size'  => 'large',
+			'library'       => 'all',
+			'min_width'     => '',
+			'min_height'    => '',
+			'min_size'      => '',
+			'max_width'     => '',
+			'max_height'    => '',
+			'max_size'      => '',
+			'mime_types'    => '',
+		) ) );
+	}
+
 	public function oembed( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'label'   => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
@@ -1584,8 +1601,8 @@ class Fields {
 			'append'            => '',
 			'maxlength'         => '',
 
-			'readonly'          => 0,
-			'disabled'          => 0,
+			'readonly' => 0,
+			'disabled' => 0,
 		) ), $args );
 	}
 }
