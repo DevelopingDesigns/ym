@@ -104,7 +104,7 @@
 
 	p {
 		@include font-size(10);
-		color: $grey1;
+		color: $slate;
 	}
 
 	img {
@@ -174,7 +174,7 @@
 			input {
 				@include font-size(14);
 				background-color: $grey4;
-				color: $grey1;
+				color: $slate;
 				margin-bottom: 0;
 				padding-left: 15px;
 			}

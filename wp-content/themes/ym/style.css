@@ -428,7 +428,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   background-color: #C1CE20;
   border: 0;
   border-radius: 50px;
-  box-shadow: 0 2px 4px #343f49;
+  box-shadow: 0 0.375em 0.313em -0.313em rgba(0, 0, 0, 0.8), inset 0 0.063em #fff, inset 0 -0.188em rgba(0, 0, 0, 0.15);
   color: #fff;
   cursor: pointer;
   display: inline-block;
@@ -438,8 +438,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
-  -webkit-transition: background-color 300ms;
-  transition: background-color 300ms;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -459,6 +459,61 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     .button:disabled:hover,
     button:disabled:hover, input[type="button"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="submit"]:disabled:hover {
       background-color: #6e7612; }
+
+.btn-green {
+  background-color: #C1CE20; }
+
+.btn-teal {
+  background-color: #1EAEB4; }
+
+.btn-slate {
+  background-color: #343F49; }
+
+.btn-sec-green {
+  background-color: transparent;
+  border: 1px solid #C1CE20;
+  color: #C1CE20; }
+  .btn-sec-green:hover, .btn-sec-greenfocus {
+    background-color: #C1CE20;
+    color: #fff; }
+
+.btn-sec-teal {
+  background-color: transparent;
+  border: 1px solid #1EAEB4;
+  color: #1EAEB4; }
+  .btn-sec-teal:hover, .btn-sec-tealfocus {
+    background-color: #1EAEB4;
+    color: #fff; }
+
+.btn-sec-slate {
+  background-color: transparent;
+  border: 1px solid #343F49;
+  color: #343F49; }
+  .btn-sec-slate:hover, .btn-sec-slatefocus {
+    background-color: #343F49;
+    color: #fff; }
+
+.btn-red {
+  background-color: #EE552A; }
+
+.btn-orange {
+  background-color: #EC8323; }
+
+.btn-tiny {
+  font-size: 10px;
+  font-size: 1rem; }
+
+.btn-small {
+  font-size: 11px;
+  font-size: 1.1rem; }
+
+.btn-primary {
+  font-size: 12px;
+  font-size: 1.2rem; }
+
+.btn-large {
+  font-size: 14px;
+  font-size: 1.4rem; }
 
 fieldset {
   background-color: transparent;
@@ -1822,7 +1877,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   #text-7 p {
     font-size: 10px;
     font-size: 1rem;
-    color: #E6E6E6; }
+    color: #5C6872; }
   #text-7 img {
     width: 100%; }
 
@@ -1908,7 +1963,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     font-size: 14px;
     font-size: 1.4rem;
     background-color: #F4F4F4;
-    color: #E6E6E6;
+    color: #5C6872;
     margin-bottom: 0;
     padding-left: 15px; }
 
