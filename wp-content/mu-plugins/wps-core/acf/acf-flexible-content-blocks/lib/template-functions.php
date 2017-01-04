@@ -291,3 +291,24 @@ function acfcfb_content_before( $content_before ) {
 function acfcfb_content_after( $content_after ) {
 	return $content_after . '</article></div></div></section>';
 }
+
+function fcb_get_calling_function_name( $completeTrace = false ) {
+	$trace = debug_backtrace();
+	if ( $completeTrace ) {
+		$str = '';
+		foreach ( $trace as $caller ) {
+			$str .= $caller['function'];
+			if ( isset( $caller['class'] ) ) {
+				$str .= '-' . $caller['class'];
+			}
+		}
+	} else {
+		$caller = $trace[2];
+		$str    = $caller['function'];
+		if ( isset( $caller['class'] ) ) {
+			$str .= '-' . $caller['class'];
+		}
+	}
+
+	return $str;
+}
