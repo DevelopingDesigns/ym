@@ -35,6 +35,7 @@ add_action( 'plugins_loaded', function () {
 	require_once( ACFFCB_PLUGIN_DIR . 'lib/class-acffcb-repeaters.php' );
 	require_once( ACFFCB_PLUGIN_DIR . 'lib/class-acffcb-flexible-content.php' );
 	require_once( ACFFCB_PLUGIN_DIR . 'lib/class-acffcb-layouts.php' );
+	require_once( ACFFCB_PLUGIN_DIR . 'lib/choice-functions.php' );
 	require_once( ACFFCB_PLUGIN_DIR . 'lib/template-functions.php' );
 
 	class_alias( 'WPS\ACFFCB\CreateBlocks', 'ACFFlexibleContentBlocks' );

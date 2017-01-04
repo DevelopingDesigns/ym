@@ -86,19 +86,14 @@ class Fields {
 	public function post_type( $thisKey = 'field', $args = array() ) {
 		$post_types = get_post_types( array( 'public' => true, ), 'objects' );
 
-		return $this->select( array(
+		return $this->select( wp_parse_args( (array) $args, array(
 			'key'           => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'         => __( 'Post Type', ACFFCB_PLUGIN_DOMAIN ),
 			'name'          => 'post_type',
-			'type'          => 'select',
 			'choices'       => wp_list_pluck( $post_types, 'label' ),
 			'default_value' => 'post',
-			'wrapper'       => array(
-				'width' => '20',
-				'class' => '',
-				'id'    => '',
-			),
-		) );
+			'wrapper'       => fcb_get_wrapper( 20 ),
+		) ) );
 	}
 
 	/**
@@ -142,11 +137,7 @@ class Fields {
 			'instructions'      => '',
 			'required'          => 0,
 			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '20',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper'           => fcb_get_wrapper( 20 ),
 			'default_value'     => '',
 			'placeholder'       => '',
 			'prepend'           => '',
@@ -197,11 +188,7 @@ class Fields {
 			'instructions'      => '',
 			'required'          => 0,
 			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper'           => fcb_get_wrapper(),
 			'field_type'        => 'checkbox',
 			'allow_null'        => 0,
 			'add_term'          => 0,
@@ -277,45 +264,16 @@ class Fields {
 	 * Select field for column width, 1-12
 	 */
 	public function column_width( $thisKey = 'field', $args = array() ) {
-		return array(
-			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Column Width', ACFFCB_PLUGIN_DOMAIN ),
-			'name'              => 'column_width',
-			'type'              => 'select',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'1'  => '1',
-				'2'  => '2',
-				'3'  => '3',
-				'4'  => '4',
-				'5'  => '5',
-				'6'  => '6',
-				'7'  => '7',
-				'8'  => '8',
-				'9'  => '9',
-				'10' => '10',
-				'11' => '11',
-				'12' => '12',
-			),
-			'default_value'     => '6',
-			'allow_null'        => 0,
-			'multiple'          => 0,
-			'ui'                => 0,
-			'ajax'              => 0,
-			'placeholder'       => '',
-			'disabled'          => 0,
-			'readonly'          => 0,
-		);
+		return $this->select( array(
+			'key'           => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'         => __( 'Column Width', ACFFCB_PLUGIN_DOMAIN ),
+			'name'          => 'column_width',
+			'choices'       => fcb_get_columns(),
+			'default_value' => '6',
+		) );
 	}
 
-	/**
+	/**-
 	 *
 	 * Field: Background Color
 	 *
@@ -353,11 +311,7 @@ class Fields {
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'             => __( 'Background Color', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'background_color',
-			'choices'           => array(
-				'none'   => __( 'None', ACFFCB_PLUGIN_DOMAIN ),
-				'theme'  => __( 'Theme Color', ACFFCB_PLUGIN_DOMAIN ),
-				'choose' => __( 'Choose Color', ACFFCB_PLUGIN_DOMAIN ),
-			),
+			'choices'           => fcb_get_bg_colors(),
 			'other_choice'      => 0,
 			'save_other_choice' => 0,
 			'default_value'     => '',
@@ -407,7 +361,7 @@ class Fields {
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'             => __( 'Theme Color', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'theme_color',
-			'choices'           => fcb_bg_colors(),
+			'choices'           => fcb_get_theme_colors(),
 			'conditional_logic' => array(
 				array(
 					array(
@@ -480,15 +434,7 @@ class Fields {
 			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'   => __( 'Content Source', ACFFCB_PLUGIN_DOMAIN ),
 			'name'    => 'content_source',
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices' => array(
-				'excerpt' => __( 'Excerpt', ACFFCB_PLUGIN_DOMAIN ),
-				'manual'  => __( 'Manual Entry', ACFFCB_PLUGIN_DOMAIN ),
-			),
+			'choices' => fcb_get_content_sources(),
 		) ) );
 	}
 
@@ -515,11 +461,7 @@ class Fields {
 					),
 				),
 			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => 'acf-media',
-				'id'    => '',
-			),
+			'wrapper'           => fcb_get_wrapper( null, 'acf-media' ),
 			'message'           => __( 'Content will be drawn from the linked item\'s excerpt.', ACFFCB_PLUGIN_DOMAIN ),
 		) ) );
 	}
@@ -580,8 +522,7 @@ class Fields {
 	 * Page Link field for call to action link
 	 */
 	public function cta_link( $thisKey = 'field', $args = array() ) {
-		return (
-		array(
+		return array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'call_to_action_link',
@@ -589,16 +530,11 @@ class Fields {
 			'instructions'      => '',
 			'required'          => 0,
 			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => 30,
-				'class' => 'acf-cta',
-				'id'    => '',
-			),
+			'wrapper'           => fcb_get_wrapper( 30, 'acf-cta' ),
 			'post_type'         => array(),
 			'taxonomy'          => array(),
 			'allow_null'        => 0,
 			'multiple'          => 0,
-		)
 		);
 	}
 
@@ -613,28 +549,12 @@ class Fields {
 	 * Text field for arbitrary (non-internal) CTA links
 	 */
 	public function cta_external( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'call_to_action_external',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => 30,
-					'class' => 'acf-cta',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
-				'maxlength'         => '',
-				'readonly'          => 0,
-				'disabled'          => 0,
-			);
+		return $this->text( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'call_to_action_external',
+			'wrapper' => fcb_get_wrapper( 30, 'acf-cta' ),
+		) ) );
 	}
 
 	/**
@@ -648,28 +568,12 @@ class Fields {
 	 * Text field for CTA
 	 */
 	public function cta_text( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Text', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'call_to_action_text',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => 30,
-					'class' => 'acf-cta',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
-				'maxlength'         => '',
-				'readonly'          => 0,
-				'disabled'          => 0,
-			);
+		return $this->text( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Text', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'call_to_action_text',
+			'wrapper' => fcb_get_wrapper( 30, 'acf-cta' ),
+		) ) );
 	}
 
 	/**
@@ -683,30 +587,13 @@ class Fields {
 	 * Select field to choose the semantic button type for the CTA
 	 */
 	public function cta_type( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Type', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'call_to_action_type',
-				'type'              => 'select',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => 40,
-					'class' => 'acf-cta',
-					'id'    => '',
-				),
-				'choices'           => fcb_btn_colors(),
-				'default_value'     => array(),
-				'allow_null'        => 0,
-				'multiple'          => 0,
-				'ui'                => 0,
-				'ajax'              => 0,
-				'placeholder'       => '',
-				'disabled'          => 0,
-				'readonly'          => 0,
-			);
+		return $this->select( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Type', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'call_to_action_type',
+			'choices' => fcb_get_btn_colors(),
+			'wrapper' => fcb_get_wrapper( 40, 'acf-cta' ),
+		) ) );
 	}
 
 	/**
@@ -729,11 +616,7 @@ class Fields {
 				'instructions'      => '',
 				'required'          => 0,
 				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
+				'wrapper'           => fcb_get_wrapper(),
 				'post_type'         => array(),
 				'taxonomy'          => array(),
 				'filters'           => array(
@@ -759,28 +642,12 @@ class Fields {
 	 * Text field for a link's text.
 	 */
 	public function link_text( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Link Text', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'link_text',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => 50,
-					'class' => '',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
-				'maxlength'         => '',
-				'readonly'          => 0,
-				'disabled'          => 0,
-			);
+		return $this->text( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Link Text', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'link_text',
+			'wrapper' => fcb_get_wrapper( 50 ),
+		) ) );
 	}
 
 	/**
@@ -803,11 +670,7 @@ class Fields {
 				'instructions'      => '',
 				'required'          => 0,
 				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => 50,
-					'class' => '',
-					'id'    => '',
-				),
+				'wrapper'           => fcb_get_wrapper( 50 ),
 				'post_type'         => array(),
 				'taxonomy'          => array(),
 				'allow_null'        => 0,
@@ -837,19 +700,8 @@ class Fields {
 				'instructions'      => '',
 				'required'          => 0,
 				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'choices'           => array(
-					'none'          => __( 'None', ACFFCB_PLUGIN_DOMAIN ),
-					'image'         => __( 'Image', ACFFCB_PLUGIN_DOMAIN ),
-					'video'         => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
-					'media_content' => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
-					'code'          => __( 'Code', ACFFCB_PLUGIN_DOMAIN ),
-
-				),
+				'wrapper'           => fcb_get_wrapper(),
+				'choices'           => fcb_get_media(),
 				'other_choice'      => 0,
 				'save_other_choice' => 0,
 				'default_value'     => '',
@@ -871,11 +723,7 @@ class Fields {
 		return $this->message( wp_parse_args( (array) $args, array(
 			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'   => __( 'Media Placeholder', ACFFCB_PLUGIN_DOMAIN ),
-			'wrapper' => array(
-				'width' => '',
-				'class' => 'acf-media',
-				'id'    => '',
-			),
+			'wrapper' => fcb_get_wrapper( null, 'acf-media' ),
 			'message' => __( 'No media will be displayed.', ACFFCB_PLUGIN_DOMAIN ),
 		) ) );
 	}
@@ -919,11 +767,7 @@ class Fields {
 				'instructions'      => '',
 				'required'          => 0,
 				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => 'acf-media acf-code',
-					'id'    => '',
-				),
+				'wrapper'           => fcb_get_wrapper( null, 'acf-media acf-code' ),
 				'default_value'     => '',
 				'placeholder'       => '',
 			);
@@ -940,25 +784,11 @@ class Fields {
 	 * WYSIWYG field for media selector
 	 */
 	public function media_content( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'media_content',
-				'type'              => 'wysiwyg',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => 'acf-media',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'tabs'              => 'all',
-				'toolbar'           => 'full',
-				'media_upload'      => 1,
-			);
+		return $this->wysiwyg( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
+			'name'  => 'media_content',
+		) ) );
 	}
 
 	/**
@@ -981,11 +811,7 @@ class Fields {
 				'instructions'      => '',
 				'required'          => 0,
 				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => 'acf-media',
-					'id'    => '',
-				),
+				'wrapper'           => fcb_get_wrapper( null, 'acf-media' ),
 				'width'             => '',
 				'height'            => '',
 			);
@@ -1096,11 +922,7 @@ class Fields {
 				'instructions'      => '',
 				'required'          => 0,
 				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
+				'wrapper'           => fcb_get_wrapper(),
 				'min'               => '',
 				'max'               => '',
 				'preview_size'      => 'medium',
@@ -1126,37 +948,12 @@ class Fields {
 	 * Select field to choose the semantic button type for the CTA
 	 */
 	public function panel_type( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Type', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'panel_type',
-				'type'              => 'select',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'choices'           => array(
-					'default' => 'Default',
-					'primary' => 'Primary',
-					'success' => 'Success',
-					'info'    => 'Info',
-					'warning' => 'Warning',
-					'danger'  => 'Danger',
-				),
-				'default_value'     => array(),
-				'allow_null'        => 0,
-				'multiple'          => 0,
-				'ui'                => 0,
-				'ajax'              => 0,
-				'placeholder'       => '',
-				'disabled'          => 0,
-				'readonly'          => 0,
-			);
+		return $this->select( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Type', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'panel_type',
+			'choices' => fcb_get_theme_choices(),
+		) ) );
 	}
 
 	/**
@@ -1170,25 +967,11 @@ class Fields {
 	 * Map field
 	 */
 	public function media_map( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Map', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'map',
-				'type'              => 'google_map',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => 'acf-media',
-					'id'    => '',
-				),
-				'center_lat'        => '',
-				'center_lng'        => '',
-				'zoom'              => '',
-				'height'            => '',
-			);
+		return $this->map( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'type'    => 'google_map',
+			'wrapper' => fcb_get_wrapper( null, 'acf-media' ),
+		) ) );
 	}
 
 	/**
@@ -1202,23 +985,10 @@ class Fields {
 	 * Tab titled "Collapsibles"
 	 */
 	public function tab_collapsibles( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Collapsibles', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'top',
-				'endpoint'          => 0,
-			);
+		return $this->tab( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Collapsibles', ACFFCB_PLUGIN_DOMAIN ),
+		) ) );
 	}
 
 	/**
@@ -1352,28 +1122,13 @@ class Fields {
 	 * Data attribute for developer mode
 	 */
 	public function data_attribute( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Attribute', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'attribute',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => 'data-',
-				'append'            => '',
-				'maxlength'         => '',
-				'readonly'          => 0,
-				'disabled'          => 0,
-			);
+		return $this->text( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Attribute', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'attribute',
+			'type'    => 'text',
+			'prepend' => 'data-',
+		) ) );
 	}
 
 	/**
@@ -1387,28 +1142,12 @@ class Fields {
 	 * Data value for developer mode
 	 */
 	public function data_value( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Value', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'value',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => 50,
-					'class' => '',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
-				'maxlength'         => '',
-				'readonly'          => 0,
-				'disabled'          => 0,
-			);
+		return $this->text( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Value', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'value',
+			'wrapper' => fcb_get_wrapper( 50 ),
+		) ) );
 	}
 
 	/**
@@ -1421,30 +1160,11 @@ class Fields {
 	 *
 	 * Additional Classes for blocks
 	 */
-	public function block_classes( $thisKey = 'field', $default = '' ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'block_classes',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => 'acf-dev',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
-				'maxlength'         => '',
-				'readonly'          => 0,
-				'disabled'          => 0,
-				'default'           => $default,
-			);
+	public function block_classes( $thisKey = 'field', $default = '', $args = array() ) {
+		return $this->classes( $default, wp_parse_args( (array) $args, array(
+			'key'  => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'name' => 'block_classes',
+		) ) );
 	}
 
 	/**
@@ -1457,30 +1177,11 @@ class Fields {
 	 *
 	 * Additional Classes for "Content" blocks
 	 */
-	public function content_classes( $thisKey = 'field', $default = '' ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'content_classes',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => 'acf-dev',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
-				'maxlength'         => '',
-				'readonly'          => 0,
-				'disabled'          => 0,
-				'default_value'     => $default,
-			);
+	public function content_classes( $thisKey = 'field', $default = '', $args = array() ) {
+		return $this->classes( $default, wp_parse_args( (array) $args, array(
+			'key'  => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'name' => 'content_classes',
+		) ) );
 	}
 
 	/**
@@ -1493,30 +1194,11 @@ class Fields {
 	 *
 	 * Additional Classes for "Content" blocks
 	 */
-	public function media_classes( $thisKey = 'field', $default = '' ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'media_classes',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => 'acf-dev',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
-				'maxlength'         => '',
-				'readonly'          => 0,
-				'disabled'          => 0,
-				'default_value'     => $default,
-			);
+	public function media_classes( $thisKey = 'field', $default = '', $args = array() ) {
+		return $this->classes( $default, wp_parse_args( (array) $args, array(
+			'key'  => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'name' => 'media_classes',
+		) ) );
 	}
 
 	/**
@@ -1534,11 +1216,7 @@ class Fields {
 			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'   => __( 'Block', ACFFCB_PLUGIN_DOMAIN ),
 			'name'    => 'dev_block_message',
-			'wrapper' => array(
-				'width' => '',
-				'class' => 'acf-dev',
-				'id'    => '',
-			),
+			'wrapper' => fcb_get_wrapper( null, 'acf-dev' ),
 			'message' => __( 'Developer fields for the whole block.', ACFFCB_PLUGIN_DOMAIN ),
 		) ) );
 	}
@@ -1558,11 +1236,7 @@ class Fields {
 			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'   => __( 'Content', ACFFCB_PLUGIN_DOMAIN ),
 			'name'    => 'dev_content_message',
-			'wrapper' => array(
-				'width' => '',
-				'class' => 'acf-dev',
-				'id'    => '',
-			),
+			'wrapper' => fcb_get_wrapper( null, 'acf-dev' ),
 			'message' => __( 'Developer fields on the \'content\' tab.', ACFFCB_PLUGIN_DOMAIN ),
 		) ) );
 	}
@@ -1582,11 +1256,7 @@ class Fields {
 			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'   => __( 'Media', ACFFCB_PLUGIN_DOMAIN ),
 			'name'    => 'dev_media_message',
-			'wrapper' => array(
-				'width' => '',
-				'class' => 'acf-dev',
-				'id'    => '',
-			),
+			'wrapper' => fcb_get_wrapper( null, 'acf-dev' ),
 			'message' => __( 'Developer fields on the \'media\' tab.', ACFFCB_PLUGIN_DOMAIN ),
 		) ) );
 	}
@@ -1654,12 +1324,7 @@ class Fields {
 			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'   => __( 'Alignment', ACFFCB_PLUGIN_DOMAIN ),
 			'name'    => $name,
-			'choices' => array(
-				'none'   => __( 'None', ACFFCB_PLUGIN_DOMAIN ),
-				'left'   => __( 'Left', ACFFCB_PLUGIN_DOMAIN ),
-				'right'  => __( 'Right', ACFFCB_PLUGIN_DOMAIN ),
-				'center' => __( 'Center', ACFFCB_PLUGIN_DOMAIN ),
-			),
+			'choices' => fcb_get_alignment(),
 		) ) );
 	}
 
@@ -1694,11 +1359,7 @@ class Fields {
 			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'   => __( 'Size', ACFFCB_PLUGIN_DOMAIN ),
 			'name'    => 'size',
-			'choices' => array(
-				'md' => __( 'Medium', ACFFCB_PLUGIN_DOMAIN ),
-				'sm' => __( 'Small', ACFFCB_PLUGIN_DOMAIN ),
-				'lg' => __( 'Large', ACFFCB_PLUGIN_DOMAIN ),
-			),
+			'choices' => fcb_get_sizes(),
 		) ) );
 	}
 
@@ -1715,11 +1376,7 @@ class Fields {
 			'label'   => __( 'Icon Font', ACFFCB_PLUGIN_DOMAIN ),
 			'name'    => 'icon_font',
 			'choices' => fcb_get_icon_font_names(),
-			'wrapper' => array(
-				'width' => '25',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper' => fcb_get_wrapper( 25),
 		) ) );
 	}
 
@@ -1745,11 +1402,7 @@ class Fields {
 					),
 				),
 			),
-			'wrapper'           => array(
-				'width' => '25',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper'           => fcb_get_wrapper( 25),
 		) ) );
 	}
 
@@ -1766,29 +1419,41 @@ class Fields {
 			'label'             => __( 'Icon Preview', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'icon_preview',
 			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '25',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper'           => fcb_get_wrapper( 25),
 			'message'           => '',
 		) ) );
 	}
 
 	/**
-	 * Field: Size
+	 * Field: Complex Title Preview Placeholder
 	 *
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
-	 * @since 1.0
+	 * @since 1.1
 	 *
-	 * Select
 	 */
 	public function complex_title_preview_placeholder( $thisKey = 'field', $args = array() ) {
 		return $this->message( wp_parse_args( (array) $args, array(
 			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'   => __( 'Preview Placeholder', ACFFCB_PLUGIN_DOMAIN ),
 			'message' => '',
+		) ) );
+	}
+
+	/**
+	 *
+	 * Field: Classes Helper
+	 *
+	 * @author Travis Smith
+	 * @since 1.1
+	 *
+	 * Additional Classes for blocks
+	 */
+	public function classes( $default = '', $args = array() ) {
+		return $this->text( wp_parse_args( (array) $args, array(
+			'label'   => __( 'Classes', ACFFCB_PLUGIN_DOMAIN ),
+			'wrapper' => fcb_get_wrapper( null, 'acf-dev' ),
+			'default' => $default,
 		) ) );
 	}
 
@@ -1809,6 +1474,7 @@ class Fields {
 			'return_format'  => 'F j, Y',
 			'first_day'      => 1,
 			'label'          => __( 'Date', ACFFCB_PLUGIN_DOMAIN ),
+			'wrapper'        => fcb_get_wrapper( null, 'acf-date' ),
 		) ) );
 	}
 
@@ -1828,35 +1494,35 @@ class Fields {
 			'display_format' => 'g:i a',
 			'return_format'  => 'g:i a',
 			'label'          => __( 'Time', ACFFCB_PLUGIN_DOMAIN ),
+			'wrapper'        => fcb_get_wrapper( null, 'acf-time' ),
 		) ) );
 	}
 
 	public function email( $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
-			'type' => 'email',
+			'type'    => 'email',
+			'wrapper' => fcb_get_wrapper( null, 'acf-email' ),
 		) ) );
 	}
 
 	public function number( $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
-			'type' => 'number',
+			'type'    => 'number',
+			'wrapper' => fcb_get_wrapper( null, 'acf-number' ),
 		) ) );
 	}
 
 	public function text( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
-			'type' => 'text',
+			'type'    => 'text',
+			'wrapper' => fcb_get_wrapper( null, 'acf-text' ),
 		) ) );
 	}
 
 	public function wysiwyg( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'         => 'wysiwyg',
-			'wrapper'      => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper'      => fcb_get_wrapper( null, 'acf-media' ),
 			'tabs'         => 'all',
 			'toolbar'      => 'full',
 			'media_upload' => 1,
@@ -1866,33 +1532,21 @@ class Fields {
 	public function true_false( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'    => 'true_false',
-			'wrapper' => array(
-				'width' => '20',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper' => fcb_get_wrapper( 20, 'acf-true-false'),
 		) ) );
 	}
 
 	public function colorpicker( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'    => 'color_picker',
-			'wrapper' => array(
-				'width' => '50',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper' => fcb_get_wrapper( 50, 'acf-colorpicker' ),
 		) ) );
 	}
 
 	public function radio( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'              => 'radio',
-			'wrapper'           => array(
-				'width' => '50',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper'           => fcb_get_wrapper( 50, 'acf-radio' ),
 			'choices'           => array(),
 			'other_choice'      => 0,
 			'save_other_choice' => 0,
@@ -1903,11 +1557,7 @@ class Fields {
 	public function select( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'          => 'select',
-			'wrapper'       => array(
-				'width' => '50',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper'       => fcb_get_wrapper( 50, 'acf-select' ),
 			'choices'       => array(),
 			'default_value' => array(),
 			'allow_null'    => 0,
@@ -1921,13 +1571,22 @@ class Fields {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'name'      => '',
 			'type'      => 'message',
-			'wrapper'   => array(
-				'width' => '50',
-				'class' => '',
-				'id'    => '',
-			),
+			'wrapper'   => fcb_get_wrapper( 50, 'acf-message' ),
 			'new_lines' => 'wpautop',
 			'esc_html'  => 0,
+		) ) );
+	}
+
+	public function map( $args = array() ) {
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'label'      => __( 'Map', ACFFCB_PLUGIN_DOMAIN ),
+			'name'       => 'map',
+			'type'       => 'google_map',
+			'wrapper'    => fcb_get_wrapper( null, 'acf-map' ),
+			'center_lat' => '',
+			'center_lng' => '',
+			'zoom'       => '',
+			'height'     => '',
 		) ) );
 	}
 
@@ -1935,11 +1594,7 @@ class Fields {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'label'         => __( 'Image', ACFFCB_PLUGIN_DOMAIN ),
 			'type'          => 'image',
-			'wrapper'       => array(
-				'width' => '',
-				'class' => 'acf-media',
-				'id'    => '',
-			),
+			'wrapper'       => fcb_get_wrapper( null, 'acf-media' ),
 			'return_format' => 'array',
 			'preview_size'  => 'large',
 			'library'       => 'all',
@@ -1963,24 +1618,16 @@ class Fields {
 	 * Tab
 	 */
 	public function tab( $args = array() ) {
-		return wp_parse_args( (array) $args, array(
-			'name'              => '',
-			'type'              => 'tab',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'placement'         => 'top',
-			'endpoint'          => 0,
-		) );
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'name'      => '',
+			'type'      => 'tab',
+			'placement' => 'top',
+			'endpoint'  => 0,
+		) ) );
 	}
 
 	public function defaults( $args ) {
-		return wp_parse_args( (array) $args, array(
+		return apply_filters( 'fcb_' . $args['type'] . '_defaults', wp_parse_args( (array) $args, array(
 			'instructions'      => '',
 			'message'           => '',
 			'required'          => 0,
@@ -1992,6 +1639,6 @@ class Fields {
 			'maxlength'         => '',
 			'readonly'          => 0,
 			'disabled'          => 0,
-		) );
+		) ), $args );
 	}
 }
