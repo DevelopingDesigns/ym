@@ -47,12 +47,12 @@ class FlexibleContent {
 		$FCBFlexibleContentFields = new Fields( $this->layout, __FUNCTION__ );
 
 		return wp_parse_args( (array) $args, $this->defaults( array(
-			'key'               => $this->key . $thisKey . '-' . $this->getCallingFunctionName() . __FUNCTION__,
-			'label'             => __( 'Calls to Action', ACFFCB_PLUGIN_DOMAIN ),
-			'name'              => 'calls_to_action',
+			'key'          => $this->key . $thisKey . '-' . $this->getCallingFunctionName() . __FUNCTION__,
+			'label'        => __( 'Calls to Action', ACFFCB_PLUGIN_DOMAIN ),
+			'name'         => 'calls_to_action',
 			'wrapper'      => fcb_get_wrapper( null, 'acf-cta' ),
-			'button_label'      => __( 'Add Call to Action', ACFFCB_PLUGIN_DOMAIN ),
-			'layouts'           => array(
+			'button_label' => __( 'Add Call to Action', ACFFCB_PLUGIN_DOMAIN ),
+			'layouts'      => array(
 				array(
 					'key'          => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-internal_link',
 					'name'         => 'internal_link',
@@ -83,7 +83,7 @@ class FlexibleContent {
 				),
 
 			)
-		)));
+		) ) );
 	}
 
 	/**
