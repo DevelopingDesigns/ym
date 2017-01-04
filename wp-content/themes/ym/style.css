@@ -420,6 +420,7 @@ html {
 
 .button,
 button, input[type="button"], input[type="reset"], input[type="submit"] {
+  padding: 10px 15px;
   font-size: 14px;
   font-size: 1.4rem;
   -webkit-appearance: none;
@@ -462,12 +463,21 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
 
 .btn-green {
   background-color: #C1CE20; }
+  .btn-green:hover, .btn-greenfocus {
+    background-color: #a4af1b;
+    box-shadow: none; }
 
 .btn-teal {
   background-color: #1EAEB4; }
+  .btn-teal:hover, .btn-tealfocus {
+    background-color: #1a9499;
+    box-shadow: none; }
 
 .btn-slate {
   background-color: #343F49; }
+  .btn-slate:hover, .btn-slatefocus {
+    background-color: #2c363e;
+    box-shadow: none; }
 
 .btn-sec-green {
   background-color: transparent;
@@ -495,25 +505,35 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
 
 .btn-red {
   background-color: #EE552A; }
+  .btn-red:hover, .btn-redfocus {
+    background-color: #ca4824;
+    box-shadow: none; }
 
 .btn-orange {
   background-color: #EC8323; }
+  .btn-orange:hover, .btn-orangefocus {
+    background-color: #c96f1e;
+    box-shadow: none; }
 
 .btn-tiny {
   font-size: 10px;
-  font-size: 1rem; }
+  font-size: 1rem;
+  padding: 11px 25px; }
 
 .btn-small {
   font-size: 11px;
-  font-size: 1.1rem; }
+  font-size: 1.1rem;
+  padding: 15px 27.5px; }
 
 .btn-primary {
   font-size: 12px;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  padding: 18px 32.5px; }
 
 .btn-large {
   font-size: 14px;
-  font-size: 1.4rem; }
+  font-size: 1.4rem;
+  padding: 17.5px 40px; }
 
 fieldset {
   background-color: transparent;

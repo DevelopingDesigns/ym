@@ -5,6 +5,7 @@ $btn-slate: $slate-dark;
 
 .button,
 #{$all-buttons} {
+  @include padding(10px 15px);
   @include font-size(14);
   appearance: none;
   background-color: $green-main;
@@ -45,25 +46,43 @@ $btn-slate: $slate-dark;
 // Button Color Variations
 .btn-green {
   background-color: $green-main;
+
+  &:hover,
+  &focus {
+    background-color: shade($green-main, 15%);
+    box-shadow: none;
+  }
 }
 
 
 .btn-teal {
   background-color: $teal1;
+
+  &:hover,
+  &focus {
+    background-color: shade($teal1, 15%);
+    box-shadow: none;
+  }
 }
 
 .btn-slate {
   background-color: $slate-dark;
+
+  &:hover,
+  &focus {
+    background-color: shade($slate-dark, 15%);
+    box-shadow: none;
+  }
 }
 
 .btn-sec-green {
   background-color: transparent;
-  border: 1px solid $btn-green;
-  color: $btn-green;
+  border: 1px solid $green-main;
+  color: $green-main;
 
   &:hover,
   &focus {
-    background-color: $btn-green;
+    background-color: $green-main;
     color: $white;
   }
 }
@@ -95,25 +114,41 @@ $btn-slate: $slate-dark;
 
 .btn-red {
   background-color: $red1;
+
+  &:hover,
+  &focus {
+    background-color: shade($red1, 15%);
+    box-shadow: none;
+  }
 }
 
 .btn-orange {
   background-color: $orange1;
+
+  &:hover,
+  &focus {
+    background-color: shade($orange1, 15%);
+    box-shadow: none;
+  }
 }
 
 // Button Size Variations
 .btn-tiny {
   @include font-size(10);
+  @include padding(11px 25px);
 }
 
 .btn-small {
   @include font-size(11);
+  @include padding(15px 27.5px);
 }
 
 .btn-primary {
   @include font-size(12);
+  @include padding(18px 32.5px);
 }
 
 .btn-large {
   @include font-size(14);
+  @include padding(17.5px 40px);
 }
