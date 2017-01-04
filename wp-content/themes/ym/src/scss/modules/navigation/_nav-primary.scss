@@ -20,10 +20,19 @@
 		}
 
 		.menu-cta > a {
+			@include font-size(14);
 			background-color: $green-main;
 			border-radius: 50px;
+			box-shadow: 0 2px 4px $black2;
 			color: $white;
 			text-transform: uppercase;
+
+			&:hover,
+			&:focus {
+				background-color: shade($green-main, 20%);
+				box-shadow: none;
+				color: $white;
+			}
 		}
 
 		// Products
@@ -39,20 +48,20 @@
 
 				.ubermenu-item-level-2 {
 					a {
-						font-size: 18px;
+						@include font-size(14);
 					}
 				}
 
 				.ubermenu-item-level-3 {
 					a {
 						@include padding(5px 0);
-						color: $grey2;
-						font-size: 16px;
+						@include font-size(14);
+						color: $slate;
 						font-weight: normal;
 
 						&:hover,
 						&:active {
-							color: $green1;
+							color: $green-text;
 						}
 					}
 				}
@@ -68,21 +77,21 @@
 				.ubermenu-item-header {
 					a {
 						@include padding(5px null);
-						color: $black1;
-						font-size: 18px;
+						color: $slate-dark;
+						@include font-size(14);
 						font-weight: bold;
 					}
 				}
 				.ubermenu-item-auto {
 					a {
 						@include padding(5px null);
-						color: $grey2;
-						font-size: 16px;
+						color: $slate;
+						@include font-size(14);
 						font-weight: normal;
 
 						&:hover,
 						&:active {
-							color: $green1;
+							color: $green-text;
 						}
 					}
 				}

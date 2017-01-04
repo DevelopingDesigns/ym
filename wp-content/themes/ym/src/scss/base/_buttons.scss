@@ -1,3 +1,8 @@
+$btn-green: $green-main;
+$btn-teal: $teal1;
+$btn-slate: $slate-dark;
+
+
 .button,
 #{$all-buttons} {
   @include font-size(14);
@@ -5,7 +10,7 @@
   background-color: $green-main;
   border: 0;
   border-radius: $base-border-radius;
-  box-shadow: 0 2px 4px $black2;
+  box-shadow: 0 .375em .313em -.313em rgba(black, .8), inset 0 .063em $white, inset 0 -.188em rgba(black, .15);
   color: $white;
   cursor: pointer;
   display: inline-block;
@@ -15,24 +20,100 @@
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color 300ms;
+  transition: 0.2s ease-in-out;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 
-  //&:hover,
-  //&:focus {
-  //  background-color: shade($green-bright, 20%);
-  //  color: #fff;
-  //}
-  //
-  //&:disabled {
-  //  cursor: not-allowed;
-  //  opacity: 0.5;
-  //
-  //  &:hover {
-  //    background-color: $green-bright;
-  //  }
-  //}
+  &:hover,
+  &:focus {
+    background-color: shade($green-main, 20%);
+    box-shadow: none;
+    color: $white;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      background-color: darken($green-main, 20%);
+    }
+  }
 }
 
+// Button Color Variations
+.btn-green {
+  background-color: $green-main;
+}
+
+
+.btn-teal {
+  background-color: $teal1;
+}
+
+.btn-slate {
+  background-color: $slate-dark;
+}
+
+.btn-sec-green {
+  background-color: transparent;
+  border: 1px solid $btn-green;
+  color: $btn-green;
+
+  &:hover,
+  &focus {
+    background-color: $btn-green;
+    color: $white;
+  }
+}
+
+
+.btn-sec-teal {
+  background-color: transparent;
+  border: 1px solid $teal1;
+  color: $teal1;
+
+  &:hover,
+  &focus {
+    background-color: $teal1;
+    color: $white;
+  }
+}
+
+.btn-sec-slate {
+  background-color: transparent;
+  border: 1px solid $slate-dark;
+  color: $slate-dark;
+
+  &:hover,
+  &focus {
+    background-color: $slate-dark;
+    color: $white;
+  }
+}
+
+.btn-red {
+  background-color: $red1;
+}
+
+.btn-orange {
+  background-color: $orange1;
+}
+
+// Button Size Variations
+.btn-tiny {
+  @include font-size(10);
+}
+
+.btn-small {
+  @include font-size(11);
+}
+
+.btn-primary {
+  @include font-size(12);
+}
+
+.btn-large {
+  @include font-size(14);
+}
