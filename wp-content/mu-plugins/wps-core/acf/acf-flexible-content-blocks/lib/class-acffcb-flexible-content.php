@@ -32,6 +32,7 @@ class FlexibleContent {
 		}
 
 		return $str;
+//		return fcb_get_calling_function_name( $completeTrace );
 	}
 
 	/**
@@ -44,7 +45,7 @@ class FlexibleContent {
 	 * Flexible Content field for Calls to Action
 	 */
 	public function cta( $thisKey = 'flexible', $args = array() ) {
-		$FCBFlexibleContentFields = new Fields( $this->layout, __FUNCTION__ );
+//		$FCBFlexibleContentFields = new Fields( $this->layout, __FUNCTION__ );
 
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'key'          => $this->key . $thisKey . '-' . $this->getCallingFunctionName() . __FUNCTION__,
@@ -53,37 +54,50 @@ class FlexibleContent {
 			'wrapper'      => fcb_get_wrapper( null, 'acf-cta' ),
 			'button_label' => __( 'Add Call to Action', ACFFCB_PLUGIN_DOMAIN ),
 			'layouts'      => array(
-				array(
-					'key'          => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-internal_link',
-					'name'         => 'internal_link',
-					'message'      => __( 'Internal Link', ACFFCB_PLUGIN_DOMAIN ),
-					'button_label' => __( 'Internal Link', ACFFCB_PLUGIN_DOMAIN ),
-					'display'      => 'block',
-					'sub_fields'   => array(
-
-						// Internal Link
-						$FCBFlexibleContentFields->cta_type( $thisKey . 'internal' ),
-						$FCBFlexibleContentFields->cta_text( $thisKey . 'internal' ),
-						$FCBFlexibleContentFields->cta_link( $thisKey . 'internal' ),
-					),
-				),
-				array(
-					'key'          => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-external_link',
-					'name'         => 'external_link',
-					'message'      => __( 'External Link', ACFFCB_PLUGIN_DOMAIN ),
-					'button_label' => __( 'External Link', ACFFCB_PLUGIN_DOMAIN ),
-					'display'      => 'block',
-					'sub_fields'   => array(
-
-						// External Link
-						$FCBFlexibleContentFields->cta_type( $thisKey . 'external' ),
-						$FCBFlexibleContentFields->cta_text( $thisKey . 'external' ),
-						$FCBFlexibleContentFields->cta_external( $thisKey . 'external' ),
-					),
-				),
-
+//				$this->link( __FUNCTION__, 'internal' ),
+//				$this->link( __FUNCTION__, 'external' ),
+//				array(
+//					'key'          => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-internal_link',
+//					'name'         => 'internal_link',
+//					'message'      => __( 'Internal Link', ACFFCB_PLUGIN_DOMAIN ),
+//					'button_label' => __( 'Internal Link', ACFFCB_PLUGIN_DOMAIN ),
+//					'display'      => 'block',
+//					'sub_fields'   => array(
+//						$FCBFlexibleContentFields->cta_type( $thisKey . 'internal' ),
+//						$FCBFlexibleContentFields->cta_text( $thisKey . 'internal' ),
+//						$FCBFlexibleContentFields->cta_link( $thisKey . 'internal' ),
+//					),
+//				),
+//				array(
+//					'key'          => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-external_link',
+//					'name'         => 'external_link',
+//					'message'      => __( 'External Link', ACFFCB_PLUGIN_DOMAIN ),
+//					'button_label' => __( 'External Link', ACFFCB_PLUGIN_DOMAIN ),
+//					'display'      => 'block',
+//					'sub_fields'   => array(
+//						$FCBFlexibleContentFields->cta_type( $thisKey . 'external' ),
+//						$FCBFlexibleContentFields->cta_text( $thisKey . 'external' ),
+//						$FCBFlexibleContentFields->cta_external( $thisKey . 'external' ),
+//					),
+//				),
 			)
 		) ) );
+	}
+
+	protected function link( $fn, $type, $thisKey = 'flexible' ) {
+		$FCBFlexibleContentFields = new Fields( $this->layout, $fn );
+		return array(
+			'key'          => $this->key . $this->getCallingFunctionName() . $fn . '-' . $type . '_link',
+			'name'         => $type . '_link',
+			'message'      => __( ucwords( $type ), ACFFCB_PLUGIN_DOMAIN ) . __( ' Link', ACFFCB_PLUGIN_DOMAIN ),
+			'button_label'      => __( ucwords( $type ), ACFFCB_PLUGIN_DOMAIN ) . __( ' Link', ACFFCB_PLUGIN_DOMAIN ),
+			'display'      => 'block',
+			'sub_fields'   => array(
+				$FCBFlexibleContentFields->cta_type( $thisKey . $type ),
+				$FCBFlexibleContentFields->cta_text( $thisKey . $type ),
+				$FCBFlexibleContentFields->cta_link( $thisKey . $type ),
+			),
+		);
 	}
 
 	/**
@@ -142,7 +156,7 @@ class FlexibleContent {
 							'key'     => $this->key . '-' . $thisKey . '-country-select',
 							'label'   => __( 'Country', ACFFCB_PLUGIN_DOMAIN ),
 							'name'    => 'country_select',
-							'choices' => $this->get_countries(),
+							'choices' => fcb_get_countries(),
 						) ),
 					),
 				),
@@ -315,10 +329,6 @@ class FlexibleContent {
 			'max'               => '',
 			'layouts'           => array(),
 		) ), $args );
-	}
-
-	private function get_countries() {
-		return fcb_get_countries();
 	}
 
 }
