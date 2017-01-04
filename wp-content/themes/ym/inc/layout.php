@@ -129,7 +129,7 @@ add_action( 'genesis_before_footer', function () {
 }, 5 );
 
 
-add_filter( 'genesis_structural_wrap-footer-widgets', 'ym_add_inner_wrap', 10, 2 );
+add_filter( 'genesis_structural_wrap-footer-widgets', 'ym_add_inner_wrap_to_footer_widgets', 10, 2 );
 /**
  * Filter the footer-widgets context of the genesis_structural_wrap
  * to add a div before the closing wrap div.
@@ -139,7 +139,7 @@ add_filter( 'genesis_structural_wrap-footer-widgets', 'ym_add_inner_wrap', 10, 2
  *
  * @return  string    The footer markup
  */
-function ym_add_inner_wrap( $output, $original_output ) {
+function ym_add_inner_wrap_to_footer_widgets( $output, $original_output ) {
 	if ( 'open' === $original_output ) {
 		$output .= '<div class="flex-wrap">';
 	} elseif ( 'close' === $original_output ) {

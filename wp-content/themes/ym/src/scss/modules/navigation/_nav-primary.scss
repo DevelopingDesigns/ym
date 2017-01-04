@@ -9,19 +9,19 @@
 
 		a {
 			@include font(normal, 700);
-			color: $black1;
+			@include font-size(15);
+			color: $slate-dark;
 			padding-right: 0;
 
 			&:hover,
 			&:active {
-				color: $green1;
+				color: $green-text;
 			}
 		}
 
 		.menu-cta > a {
-			background-color: $green1;
+			background-color: $green-main;
 			border-radius: 50px;
-			box-shadow: 0px 0px 9px 2px #eee;
 			color: $white;
 			text-transform: uppercase;
 		}
