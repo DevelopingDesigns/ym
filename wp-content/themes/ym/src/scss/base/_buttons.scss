@@ -78,11 +78,13 @@ $btn-slate: $slate-dark;
 .btn-sec-green {
   background-color: transparent;
   border: 1px solid $green-main;
+  box-shadow: none;
   color: $green-main;
 
   &:hover,
   &focus {
     background-color: $green-main;
+    box-shadow: none;
     color: $white;
   }
 }
@@ -91,11 +93,13 @@ $btn-slate: $slate-dark;
 .btn-sec-teal {
   background-color: transparent;
   border: 1px solid $teal1;
+  box-shadow: none;
   color: $teal1;
 
   &:hover,
   &focus {
     background-color: $teal1;
+    box-shadow: none;
     color: $white;
   }
 }
@@ -103,11 +107,13 @@ $btn-slate: $slate-dark;
 .btn-sec-slate {
   background-color: transparent;
   border: 1px solid $slate-dark;
+  box-shadow: none;
   color: $slate-dark;
 
   &:hover,
   &focus {
     background-color: $slate-dark;
+    box-shadow: none;
     color: $white;
   }
 }

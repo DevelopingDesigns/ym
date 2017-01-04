@@ -482,25 +482,31 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
 .btn-sec-green {
   background-color: transparent;
   border: 1px solid #C1CE20;
+  box-shadow: none;
   color: #C1CE20; }
   .btn-sec-green:hover, .btn-sec-greenfocus {
     background-color: #C1CE20;
+    box-shadow: none;
     color: #fff; }
 
 .btn-sec-teal {
   background-color: transparent;
   border: 1px solid #1EAEB4;
+  box-shadow: none;
   color: #1EAEB4; }
   .btn-sec-teal:hover, .btn-sec-tealfocus {
     background-color: #1EAEB4;
+    box-shadow: none;
     color: #fff; }
 
 .btn-sec-slate {
   background-color: transparent;
   border: 1px solid #343F49;
+  box-shadow: none;
   color: #343F49; }
   .btn-sec-slate:hover, .btn-sec-slatefocus {
     background-color: #343F49;
+    box-shadow: none;
     color: #fff; }
 
 .btn-red {
