@@ -2,9 +2,6 @@
 
 namespace WPS\ACFFCB;
 
-// @todo Refactor
-// @todo Add icon support for dashicons, font-awesome, & custom icon font.
-
 class Fields {
 
 	private $layout;
@@ -125,29 +122,16 @@ class Fields {
 	 *
 	 * Number field for posts to show per page
 	 */
-	public function single_post_type_list( $thisKey = 'field', $post_type = 'post' ) {
+	public function single_post_type_list( $thisKey = 'field', $post_type = 'post', $args = array() ) {
 		$post_type_object = get_post_type_object( $post_type );
 
-		return array(
-			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => $post_type_object->label,
-			'name'              => 'post_type',
-			'type'              => 'post_object',
-			'post_type'         => (array) $post_type,
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => fcb_get_wrapper( 20 ),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'min'               => '',
-			'max'               => '',
-			'step'              => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		);
+		return $this->post_object( wp_parse_args( (array) $args, array(
+			'key'       => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'     => $post_type_object->label,
+			'name'      => 'post_type',
+			'post_type' => (array) $post_type,
+			'wrapper'   => fcb_get_wrapper( 20 ),
+		) ) );
 	}
 
 	/**
@@ -160,43 +144,10 @@ class Fields {
 	 *
 	 * Taxonomy field to select category
 	 */
-	public function category( $thisKey = 'field' ) {
-		return $this->taxonomy( $thisKey, 'category', array(
+	public function category( $thisKey = 'field', $args = array() ) {
+		return $this->taxonomy( $thisKey, 'category', wp_parse_args( (array) $args, array(
 			'key' => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-		) );
-	}
-
-	/**
-	 *
-	 * Field: Taxonomy
-	 *
-	 * @author Michael W. Delaney
-	 * @contributor Travis Smith
-	 * @since 1.0
-	 *
-	 * Taxonomy field to select category
-	 */
-	public function taxonomy( $thisKey = 'field', $taxonomy = 'category', $args = array() ) {
-		$tax = get_taxonomy( $taxonomy );
-
-		return wp_parse_args( (array) $args, array(
-			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => $tax->label,
-			'name'              => $taxonomy,
-			'taxonomy'          => $taxonomy,
-			'type'              => 'taxonomy',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => fcb_get_wrapper(),
-			'field_type'        => 'checkbox',
-			'allow_null'        => 0,
-			'add_term'          => 0,
-			'save_terms'        => 0,
-			'load_terms'        => 0,
-			'return_format'     => 'id',
-			'multiple'          => 0,
-		) );
+		) ) );
 	}
 
 	/**
@@ -284,29 +235,6 @@ class Fields {
 	 * Radio button field to choose background color
 	 */
 	public function background_color( $thisKey = 'field', $args = array() ) {
-//		return array(
-//			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-//			'label'             => __( 'Background Color', ACFFCB_PLUGIN_DOMAIN ),
-//			'name'              => 'background_color',
-//			'type'              => 'radio',
-//			'instructions'      => '',
-//			'required'          => 0,
-//			'conditional_logic' => 0,
-//			'wrapper'           => array(
-//				'width' => '50',
-//				'class' => '',
-//				'id'    => '',
-//			),
-//			'choices'           => array(
-//				'none'   => 'None',
-//				'theme'  => 'Theme Color',
-//				'choose' => 'Choose Color',
-//			),
-//			'other_choice'      => 0,
-//			'save_other_choice' => 0,
-//			'default_value'     => '',
-//			'layout'            => 'horizontal',
-//		);
 		return $this->radio( wp_parse_args( (array) $args, array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'             => __( 'Background Color', ACFFCB_PLUGIN_DOMAIN ),
@@ -522,20 +450,12 @@ class Fields {
 	 * Page Link field for call to action link
 	 */
 	public function cta_link( $thisKey = 'field', $args = array() ) {
-		return array(
-			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-			'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
-			'name'              => 'call_to_action_link',
-			'type'              => 'page_link',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => fcb_get_wrapper( 30, 'acf-cta' ),
-			'post_type'         => array(),
-			'taxonomy'          => array(),
-			'allow_null'        => 0,
-			'multiple'          => 0,
-		);
+		return $this->page_link( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'call_to_action_link',
+			'wrapper' => fcb_get_wrapper( 30, 'acf-cta' ),
+		) ) );
 	}
 
 	/**
@@ -607,28 +527,11 @@ class Fields {
 	 * Relationship field for featured content
 	 */
 	public function featured_content( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Featured Content', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'featured_content',
-				'type'              => 'relationship',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => fcb_get_wrapper(),
-				'post_type'         => array(),
-				'taxonomy'          => array(),
-				'filters'           => array(
-					0 => 'search',
-					1 => 'post_type',
-					2 => 'taxonomy',
-				),
-				'elements'          => '',
-				'min'               => 0,
-				'max'               => 0,
-				'return_format'     => 'object',
-			);
+		return $this->relationship( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Featured Content', ACFFCB_PLUGIN_DOMAIN ),
+			'name'  => 'featured_content',
+		) ) );
 	}
 
 	/**
@@ -661,23 +564,11 @@ class Fields {
 	 * Post Object field for link
 	 */
 	public function link( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'link',
-				'type'              => 'post_object',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => fcb_get_wrapper( 50 ),
-				'post_type'         => array(),
-				'taxonomy'          => array(),
-				'allow_null'        => 0,
-				'multiple'          => 0,
-				'return_format'     => 'object',
-				'ui'                => 1,
-			);
+		return $this->post_object( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Link', ACFFCB_PLUGIN_DOMAIN ),
+			'name'  => 'link',
+		) ) );
 	}
 
 	/**
@@ -691,22 +582,13 @@ class Fields {
 	 * Radio button field for Type of Media attachment
 	 */
 	public function type_of_media( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Type of Media', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'type_of_media',
-				'type'              => 'radio',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => fcb_get_wrapper(),
-				'choices'           => fcb_get_media(),
-				'other_choice'      => 0,
-				'save_other_choice' => 0,
-				'default_value'     => '',
-				'layout'            => 'horizontal',
-			);
+		return $this->radio( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Type of Media', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'type_of_media',
+			'wrapper' => fcb_get_wrapper( null, 'acf-radio' ),
+			'choices' => fcb_get_media(),
+		) ) );
 	}
 
 	/**
@@ -758,19 +640,12 @@ class Fields {
 	 * Code field for media selector
 	 */
 	public function media_code( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Code', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'code',
-				'type'              => 'textarea',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => fcb_get_wrapper( null, 'acf-media acf-code' ),
-				'default_value'     => '',
-				'placeholder'       => '',
-			);
+		return $this->textarea( wp_parse_args( (array) $args, array(
+			'key'     => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'   => __( 'Code', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'code',
+			'wrapper' => fcb_get_wrapper( null, 'acf-media acf-code' ),
+		) ) );
 	}
 
 	/**
@@ -802,19 +677,11 @@ class Fields {
 	 * Video field for media selector
 	 */
 	public function media_video( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'video',
-				'type'              => 'oembed',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => fcb_get_wrapper( null, 'acf-media' ),
-				'width'             => '',
-				'height'            => '',
-			);
+		return $this->oembed( wp_parse_args( (array) $args, array(
+			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label' => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
+			'name'  => 'video',
+		) ) );
 	}
 
 	/**
@@ -913,28 +780,24 @@ class Fields {
 	 * Gallery Field
 	 */
 	public function gallery( $thisKey = 'field', $args = array() ) {
-		return
-			array(
-				'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
-				'label'             => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
-				'name'              => 'gallery',
-				'type'              => 'gallery',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => fcb_get_wrapper(),
-				'min'               => '',
-				'max'               => '',
-				'preview_size'      => 'medium',
-				'library'           => 'all',
-				'min_width'         => '',
-				'min_height'        => '',
-				'min_size'          => '',
-				'max_width'         => '',
-				'max_height'        => '',
-				'max_size'          => '',
-				'mime_types'        => '',
-			);
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'key'          => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'        => __( 'Gallery', ACFFCB_PLUGIN_DOMAIN ),
+			'name'         => 'gallery',
+			'type'         => 'gallery',
+			'wrapper'      => fcb_get_wrapper(),
+			'min'          => '',
+			'max'          => '',
+			'preview_size' => 'medium',
+			'library'      => 'all',
+			'min_width'    => '',
+			'min_height'   => '',
+			'min_size'     => '',
+			'max_width'    => '',
+			'max_height'   => '',
+			'max_size'     => '',
+			'mime_types'   => '',
+		) ) );
 	}
 
 	/**
@@ -1338,7 +1201,7 @@ class Fields {
 	 * Checkbox
 	 */
 	public function emphasize( $thisKey = 'field', $args = array() ) {
-		return wp_parse_args( (array) $args, $this->true_false( array(
+		return $this->true_false( wp_parse_args( (array) $args, array(
 			'key'   => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label' => __( 'Emphasize', ACFFCB_PLUGIN_DOMAIN ),
 			'name'  => 'emphasize',
@@ -1376,7 +1239,7 @@ class Fields {
 			'label'   => __( 'Icon Font', ACFFCB_PLUGIN_DOMAIN ),
 			'name'    => 'icon_font',
 			'choices' => fcb_get_icon_font_names(),
-			'wrapper' => fcb_get_wrapper( 25),
+			'wrapper' => fcb_get_wrapper( 25 ),
 		) ) );
 	}
 
@@ -1402,7 +1265,7 @@ class Fields {
 					),
 				),
 			),
-			'wrapper'           => fcb_get_wrapper( 25),
+			'wrapper'           => fcb_get_wrapper( 25 ),
 		) ) );
 	}
 
@@ -1419,7 +1282,7 @@ class Fields {
 			'label'             => __( 'Icon Preview', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'icon_preview',
 			'conditional_logic' => 0,
-			'wrapper'           => fcb_get_wrapper( 25),
+			'wrapper'           => fcb_get_wrapper( 25 ),
 			'message'           => '',
 		) ) );
 	}
@@ -1512,6 +1375,13 @@ class Fields {
 		) ) );
 	}
 
+	public function textarea( $args = array() ) {
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'type'    => 'textarea',
+			'wrapper' => fcb_get_wrapper( null, 'acf-textarea' ),
+		) ) );
+	}
+
 	public function text( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'    => 'text',
@@ -1532,7 +1402,7 @@ class Fields {
 	public function true_false( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'    => 'true_false',
-			'wrapper' => fcb_get_wrapper( 20, 'acf-true-false'),
+			'wrapper' => fcb_get_wrapper( 20, 'acf-true-false' ),
 		) ) );
 	}
 
@@ -1551,6 +1421,17 @@ class Fields {
 			'other_choice'      => 0,
 			'save_other_choice' => 0,
 			'layout'            => 'horizontal',
+		) ) );
+	}
+
+	public function checkbox( $args = array() ) {
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'type'              => 'checkbox',
+			'wrapper'           => fcb_get_wrapper( null, 'acf-checkbox' ),
+			'choices'           => array(),
+			'other_choice'      => 0,
+			'save_other_choice' => 0,
+			'layout'            => 'vertical',
 		) ) );
 	}
 
@@ -1577,6 +1458,80 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 *
+	 * Field: Taxonomy
+	 *
+	 * @author Michael W. Delaney
+	 * @contributor Travis Smith
+	 * @since 1.0
+	 *
+	 * Taxonomy field to select category
+	 */
+	public function taxonomy( $thisKey = 'field', $taxonomy = 'category', $args = array() ) {
+		$tax = get_taxonomy( $taxonomy );
+
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
+			'label'             => $tax->label,
+			'name'              => $taxonomy,
+			'taxonomy'          => $taxonomy,
+			'type'              => 'taxonomy',
+			'field_type'        => 'checkbox',
+			'add_term'          => 0,
+			'save_terms'        => 0,
+			'load_terms'        => 0,
+			'return_format'     => 'id',
+			'allow_null'        => 0,
+			'multiple'          => 0,
+		) ));
+	}
+
+	public function post_object( $args = array() ) {
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'type'          => 'post_object',
+			'wrapper'       => fcb_get_wrapper( 50, 'acf-post-object' ),
+			'post_type'     => array(),
+			'taxonomy'      => array(),
+			'allow_null'    => 0,
+			'multiple'      => 0,
+			'return_format' => 'object',
+			'ui'            => 1,
+			'min'           => '',
+			'max'           => '',
+			'step'          => '',
+		) ) );
+	}
+
+	public function page_link( $args = array() ) {
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'type'       => 'page_link',
+			'wrapper'    => fcb_get_wrapper( 30, 'acf-page-link' ),
+			'post_type'  => array(),
+			'taxonomy'   => array(),
+			'allow_null' => 0,
+			'multiple'   => 0,
+		) ) );
+	}
+
+	public function relationship( $args = array() ) {
+		return wp_parse_args( (array) $args, $this->defaults( array(
+			'type'          => 'relationship',
+			'wrapper'       => fcb_get_wrapper(),
+			'post_type'     => array(),
+			'taxonomy'      => array(),
+			'filters'       => array(
+				0 => 'search',
+				1 => 'post_type',
+				2 => 'taxonomy',
+			),
+			'elements'      => '',
+			'min'           => 0,
+			'max'           => 0,
+			'return_format' => 'object',
+		) ) );
+	}
+
 	public function map( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'label'      => __( 'Map', ACFFCB_PLUGIN_DOMAIN ),
@@ -1590,21 +1545,12 @@ class Fields {
 		) ) );
 	}
 
-	public function image( $args = array() ) {
+	public function oembed( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
-			'label'         => __( 'Image', ACFFCB_PLUGIN_DOMAIN ),
-			'type'          => 'image',
-			'wrapper'       => fcb_get_wrapper( null, 'acf-media' ),
-			'return_format' => 'array',
-			'preview_size'  => 'large',
-			'library'       => 'all',
-			'min_width'     => '',
-			'min_height'    => '',
-			'min_size'      => '',
-			'max_width'     => '',
-			'max_height'    => '',
-			'max_size'      => '',
-			'mime_types'    => '',
+			'label'   => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
+			'name'    => 'video',
+			'type'    => 'oembed',
+			'wrapper' => fcb_get_wrapper( null, 'acf-media' ),
 		) ) );
 	}
 
@@ -1637,6 +1583,7 @@ class Fields {
 			'prepend'           => '',
 			'append'            => '',
 			'maxlength'         => '',
+
 			'readonly'          => 0,
 			'disabled'          => 0,
 		) ), $args );
