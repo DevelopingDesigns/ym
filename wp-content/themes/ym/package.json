@@ -5,9 +5,6 @@
   "main": "index.js",
   "scripts": {
     "scss": "node-sass --source-map true src/scss -o ./",
-    "autoprefixer": "postcss -u autoprefixer *.css -d ./",
-    "lostgrid": "postcss -u lost -o style.css style.css",
-    "assets": "postcss -u postcss-assets -o style.css style.css",
     "postcss": "postcss -u lost -u postcss-assets -u autoprefixer -o style.css style.css",
     "babel": "rm -rf dist/js/custom && mkdir -p dist/js/custom && babel src/js/custom -d dist/js/custom",
     "build:css": "npm run scss && npm run postcss",
@@ -19,7 +16,7 @@
     "watch": "npm run watch:all",
     "postinstall": "npm run watch",
     "eslint": "eslint src/js/custom",
-    "serve": "browser-sync start --ws --proxy http://ym-new.kbox --logLevel 'info' --no-ghost-mode --no-notify --files 'style.css, !style.css.map,!src/scss/**,!src/js/custom**'"
+    "serve": "browser-sync start --ws --proxy http://ym.kbox.site --logLevel 'info' --no-ghost-mode --no-notify --files 'style.css, !style.css.map,!src/scss/**,!src/js/custom**'"
   },
   "repository": {
     "type": "git",
