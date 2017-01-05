@@ -429,7 +429,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   background-color: #C1CE20;
   border: 0;
   border-radius: 50px;
-  box-shadow: 0 0.375em 0.313em -0.313em rgba(0, 0, 0, 0.8), inset 0 0.063em #fff, inset 0 -0.188em rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px 0 #000;
   color: #fff;
   cursor: pointer;
   display: inline-block;
