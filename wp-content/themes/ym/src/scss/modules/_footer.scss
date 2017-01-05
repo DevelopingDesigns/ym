@@ -7,6 +7,7 @@
 	text-align: center;
 
 	p {
+		color: $slate-light;
 		margin-bottom: 0;
 	}
 
@@ -21,7 +22,6 @@
 		}
 
 		.textwidget {
-			color: $grey1;
 			text-align: left;
 
 			@include media($small-screen-up) {
@@ -45,8 +45,12 @@
 			a {
 				@include padding(null 10px);
 				@include font-size(14);
-				color: $grey1;
-				text-decoration: none;
+				color: $slate-light;
+
+				&:hover,
+				&:focus {
+					color: $slate-dark;
+				}
 			}
 		}
 	}
@@ -55,6 +59,7 @@
 		lost-column: 1/2;
 	}
 }
+
 
 
 
