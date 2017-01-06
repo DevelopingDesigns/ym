@@ -45,8 +45,6 @@ class FlexibleContent {
 	 * Flexible Content field for Calls to Action
 	 */
 	public function cta( $thisKey = 'flexible', $args = array() ) {
-//		$FCBFlexibleContentFields = new Fields( $this->layout, __FUNCTION__ );
-
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'key'          => $this->key . $thisKey . '-' . $this->getCallingFunctionName() . __FUNCTION__,
 			'label'        => __( 'Calls to Action', ACFFCB_PLUGIN_DOMAIN ),
@@ -54,8 +52,9 @@ class FlexibleContent {
 			'wrapper'      => fcb_get_wrapper( null, 'acf-cta' ),
 			'button_label' => __( 'Add Call to Action', ACFFCB_PLUGIN_DOMAIN ),
 			'layouts'      => array(
-//				$this->link( __FUNCTION__, 'internal' ),
-//				$this->link( __FUNCTION__, 'external' ),
+				$this->link( __FUNCTION__, 'internal' ),
+				$this->link( __FUNCTION__, 'external' ),
+				$this->link( __FUNCTION__, 'text' ),
 //				array(
 //					'key'          => $this->key . $this->getCallingFunctionName() . __FUNCTION__ . '-internal_link',
 //					'name'         => 'internal_link',
@@ -84,19 +83,52 @@ class FlexibleContent {
 		) ) );
 	}
 
-	protected function link( $fn, $type, $thisKey = 'flexible' ) {
+	protected function link( $fn, $type, $thisKey = 'flexible', $args = array() ) {
 		$FCBFlexibleContentFields = new Fields( $this->layout, $fn );
+
+		$sub_fields = array(
+			$FCBFlexibleContentFields->cta_type( $thisKey . $type, array(
+				'wrapper' => fcb_get_wrapper( 50, 'acf-cta' ),
+			) ),
+			$FCBFlexibleContentFields->cta_text( $thisKey . $type, array(
+				'wrapper' => fcb_get_wrapper( 50, 'acf-cta' ),
+			) ),
+		);
+
+		$size = $FCBFlexibleContentFields->size( $thisKey . $type, array(
+			'name'          => 'call_to_action_size',
+			'wrapper'       => fcb_get_wrapper( 50, 'acf-cta' ),
+			'default_value' => 'btn-primary',
+		) );
+
+		switch ( $type ) {
+			case 'text':
+				$sub_fields[] = $FCBFlexibleContentFields->cta_external( $thisKey . $type, array(
+					'wrapper' => fcb_get_wrapper( 50, 'acf-cta' ),
+				) );
+				break;
+			case 'internal':
+				$sub_fields[] = $size;
+				$sub_fields[] = $FCBFlexibleContentFields->cta_link( $thisKey . $type, array(
+					'wrapper' => fcb_get_wrapper( 50, 'acf-cta' ),
+				) );
+
+				break;
+			case 'external':
+				$sub_fields[] = $size;
+				$sub_fields[] = $FCBFlexibleContentFields->cta_external( $thisKey . $type, array(
+					'wrapper' => fcb_get_wrapper( 50, 'acf-cta' ),
+				) );
+		}
+
 		return array(
 			'key'          => $this->key . $this->getCallingFunctionName() . $fn . '-' . $type . '_link',
 			'name'         => $type . '_link',
 			'message'      => __( ucwords( $type ), ACFFCB_PLUGIN_DOMAIN ) . __( ' Link', ACFFCB_PLUGIN_DOMAIN ),
-			'button_label'      => __( ucwords( $type ), ACFFCB_PLUGIN_DOMAIN ) . __( ' Link', ACFFCB_PLUGIN_DOMAIN ),
+			'label'        => __( ucwords( $type ), ACFFCB_PLUGIN_DOMAIN ) . __( ' Link', ACFFCB_PLUGIN_DOMAIN ),
+			'button_label' => __( ucwords( $type ), ACFFCB_PLUGIN_DOMAIN ) . __( ' Link', ACFFCB_PLUGIN_DOMAIN ),
 			'display'      => 'block',
-			'sub_fields'   => array(
-				$FCBFlexibleContentFields->cta_type( $thisKey . $type ),
-				$FCBFlexibleContentFields->cta_text( $thisKey . $type ),
-				$FCBFlexibleContentFields->cta_link( $thisKey . $type ),
-			),
+			'sub_fields'   => $sub_fields,
 		);
 	}
 

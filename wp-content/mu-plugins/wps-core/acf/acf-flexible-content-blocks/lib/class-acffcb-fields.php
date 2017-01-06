@@ -17,14 +17,17 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Title
+	 * Title fields shared by all layouts
 	 *
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Title fields shared by all layouts
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function title( $thisKey = 'field', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -32,17 +35,19 @@ class Fields {
 			'label' => __( 'Title', ACFFCB_PLUGIN_DOMAIN ),
 			'name'  => 'title',
 		) ) );
-
 	}
 
 	/**
-	 *
 	 * Field: Sub-Title
+	 * Title fields shared by all layouts
 	 *
 	 * @author Travis Smith
 	 * @since 1.1
 	 *
-	 * Title fields shared by all layouts
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function subtitle( $thisKey = 'field', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -53,14 +58,17 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Navigation Title
+	 * Navigation Title fields shared by all layouts
 	 *
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Navigation Title fields shared by all layouts
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function navigation_title( $thisKey = 'field', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -71,14 +79,17 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Number of Posts to Show
+	 * Number field for posts to show per page
 	 *
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Number field for posts to show per page
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function post_type( $thisKey = 'field', $args = array() ) {
 		$post_types = get_post_types( array( 'public' => true, ), 'objects' );
@@ -94,14 +105,17 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Number of Posts to Show
+	 * Number field for posts to show per page
 	 *
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Number field for posts to show per page
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function posts_per_page( $thisKey = 'field', $args = array() ) {
 		return $this->number( wp_parse_args( (array) $args, array(
@@ -113,14 +127,18 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Number of Posts to Show
+	 * Number field for posts to show per page
 	 *
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Number field for posts to show per page
+	 * @param string $thisKey Key for variations.
+	 * @param string $post_type Post type name.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function single_post_type_list( $thisKey = 'field', $post_type = 'post', $args = array() ) {
 		$post_type_object = get_post_type_object( $post_type );
@@ -135,14 +153,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Category
-	 *
+	 * Taxonomy field to select category
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Taxonomy field to select category
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function category( $thisKey = 'field', $args = array() ) {
 		return $this->taxonomy( $thisKey, 'category', wp_parse_args( (array) $args, array(
@@ -151,14 +171,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Show Author?
-	 *
+	 * True/False field for showing author in post list
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * True/False field for showing author in post list
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function show_author( $thisKey = 'field', $args = array() ) {
 		return $this->true_false( wp_parse_args( (array) $args, array(
@@ -169,14 +191,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Show Featured Image?
-	 *
+	 * True/False field for showing featured image in post list
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * True/False field for showing featured image in post list
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function show_featured_image( $thisKey = 'field', $args = array() ) {
 		return $this->true_false( wp_parse_args( (array) $args, array(
@@ -187,14 +211,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Show Date?
-	 *
+	 * True/False field for showing date in post list
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * True/False field for showing date in post list
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function show_date( $thisKey = 'field', $args = array() ) {
 		return $this->true_false( wp_parse_args( (array) $args, array(
@@ -205,34 +231,38 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Column Width
-	 *
+	 * Select field for column width, 1-12
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Select field for column width, 1-12
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function column_width( $thisKey = 'field', $args = array() ) {
-		return $this->select( array(
+		return $this->select( wp_parse_args( (array) $args, array(
 			'key'           => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'         => __( 'Column Width', ACFFCB_PLUGIN_DOMAIN ),
 			'name'          => 'column_width',
 			'choices'       => fcb_get_columns(),
 			'default_value' => '6',
-		) );
+		) ) );
 	}
 
-	/**-
-	 *
+	/**
 	 * Field: Background Color
-	 *
+	 * Radio button field to choose background color
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Radio button field to choose background color
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function background_color( $thisKey = 'field', $args = array() ) {
 		return $this->radio( wp_parse_args( (array) $args, array(
@@ -248,14 +278,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Choose Color
-	 *
+	 * Background color selector field
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Background color selector field
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function choose_color( $thisKey = 'field', $args = array() ) {
 		return $this->colorpicker( wp_parse_args( (array) $args, array(
@@ -275,17 +307,19 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Theme Color
-	 *
+	 * Select field for choosing a theme background color
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Select field for choosing a theme background color
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function theme_color( $thisKey = 'field', $args = array() ) {
-		return $this->select( array(
+		return $this->select( wp_parse_args( (array) $args, array(
 			'key'               => $this->key . '-' . $thisKey . '-' . __FUNCTION__,
 			'label'             => __( 'Theme Color', ACFFCB_PLUGIN_DOMAIN ),
 			'name'              => 'theme_color',
@@ -299,18 +333,20 @@ class Fields {
 					),
 				),
 			),
-		) );
+		) ) );
 	}
 
 	/**
-	 *
 	 * Field: Background Color Placeholder
-	 *
+	 * Placeholder for when the "background color" is not selected
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Placeholder for when the "background color" is not selected
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function background_color_placeholder( $thisKey = 'field', $args = array() ) {
 		return $this->message( wp_parse_args( (array) $args, array(
@@ -330,14 +366,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Background Image
-	 *
+	 * Background image
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Background image
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function background_image( $thisKey = 'field', $args = array() ) {
 		return $this->image( wp_parse_args( (array) $args, array(
@@ -348,14 +386,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Content Source
-	 *
+	 * Radio button to select the source of content to be shown.
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Radio button to select the source of content to be shown.
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function content_source( $thisKey = 'field', $args = array() ) {
 		return $this->radio( wp_parse_args( (array) $args, array(
@@ -367,14 +407,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Excerpt Placeholder
-	 *
+	 * Placeholder for when the "excerpt" is selected as the source of content
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Placeholder for when the "excerpt" is selected as the source of content
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function content_excerpt_placeholder( $thisKey = 'field', $args = array() ) {
 		return $this->message( wp_parse_args( (array) $args, array(
@@ -395,14 +437,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Content Conditional
-	 *
+	 * Content field shown when "manual" is entered as the content source.
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Content field shown when "manual" is entered as the content source.
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function content_conditional( $thisKey = 'field', $args = array() ) {
 		return $this->wysiwyg( wp_parse_args( (array) $args, array(
@@ -422,14 +466,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Content Field
-	 *
+	 * WYSIWYG content field
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * WYSIWYG content field
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function content( $thisKey = 'field', $args = array() ) {
 		return $this->wysiwyg( wp_parse_args( (array) $args, array(
@@ -440,14 +486,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Call to Action Link
-	 *
+	 * Page Link field for call to action link
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Page Link field for call to action link
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function cta_link( $thisKey = 'field', $args = array() ) {
 		return $this->page_link( wp_parse_args( (array) $args, array(
@@ -459,14 +507,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Call to Action Arbitrary Link
-	 *
+	 * Text field for arbitrary (non-internal) CTA links
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Text field for arbitrary (non-internal) CTA links
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function cta_external( $thisKey = 'field', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -478,14 +528,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Call to Action Text
-	 *
+	 * Text field for CTA
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Text field for CTA
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function cta_text( $thisKey = 'field', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -497,14 +549,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Call to Action Type
-	 *
+	 * Select field to choose the semantic button type for the CTA
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Select field to choose the semantic button type for the CTA
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function cta_type( $thisKey = 'field', $args = array() ) {
 		return $this->select( wp_parse_args( (array) $args, array(
@@ -517,14 +571,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Featured Content
-	 *
+	 * Relationship field for featured content
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Relationship field for featured content
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function featured_content( $thisKey = 'field', $args = array() ) {
 		return $this->relationship( wp_parse_args( (array) $args, array(
@@ -535,14 +591,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Link Text
-	 *
+	 * Text field for a link's text.
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Text field for a link's text.
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function link_text( $thisKey = 'field', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -554,14 +612,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Link
-	 *
+	 * Post Object field for link
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Post Object field for link
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function link( $thisKey = 'field', $args = array() ) {
 		return $this->post_object( wp_parse_args( (array) $args, array(
@@ -572,14 +632,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Type of Media
-	 *
+	 * Radio button field for Type of Media attachment
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Radio button field for Type of Media attachment
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function type_of_media( $thisKey = 'field', $args = array() ) {
 		return $this->radio( wp_parse_args( (array) $args, array(
@@ -592,14 +654,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Media Placeholder
-	 *
+	 * Placeholder for when no media is selected
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Placeholder for when no media is selected
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function media_placeholder( $thisKey = 'field', $args = array() ) {
 		return $this->message( wp_parse_args( (array) $args, array(
@@ -611,14 +675,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Media Image
-	 *
+	 * Image field for media selector
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Image field for media selector
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function media_image( $thisKey = 'field', $args = array() ) {
 		return $this->image( wp_parse_args( (array) $args, array(
@@ -630,14 +696,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Media Code
-	 *
+	 * Code field for media selector
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Code field for media selector
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function media_code( $thisKey = 'field', $args = array() ) {
 		return $this->textarea( wp_parse_args( (array) $args, array(
@@ -649,14 +717,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Media Content
-	 *
+	 * WYSIWYG field for media selector
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * WYSIWYG field for media selector
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function media_content( $thisKey = 'field', $args = array() ) {
 		return $this->wysiwyg( wp_parse_args( (array) $args, array(
@@ -667,14 +737,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Media Video
-	 *
+	 * Video field for media selector
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Video field for media selector
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function media_video( $thisKey = 'field', $args = array() ) {
 		return $this->oembed( wp_parse_args( (array) $args, array(
@@ -685,14 +757,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Background Tab
-	 *
+	 * Tab titled "Background"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Background"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_background( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -702,14 +776,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Calls to Action Tab
-	 *
+	 * Tab titled "Calls to Action"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Calls to Action"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_cta( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -719,14 +795,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Background Tab
-	 *
+	 * Tab titled "Background"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Background"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_dev( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -736,14 +814,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Tabs Tab
-	 *
+	 * Tab titled "Tabs"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Tabs"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_tabs( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -753,14 +833,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Post List Tab
-	 *
+	 * Tab titled "Post List"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Post List"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_post_list( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -770,14 +852,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Gallery
-	 *
+	 * Gallery Field
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Gallery Field
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function gallery( $thisKey = 'field', $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
@@ -801,14 +885,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Panel Type
-	 *
+	 * Select field to choose the semantic button type for the CTA
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Select field to choose the semantic button type for the CTA
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function panel_type( $thisKey = 'field', $args = array() ) {
 		return $this->select( wp_parse_args( (array) $args, array(
@@ -820,14 +906,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Map
-	 *
+	 * Map field
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Map field
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function media_map( $thisKey = 'field', $args = array() ) {
 		return $this->map( wp_parse_args( (array) $args, array(
@@ -838,14 +926,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Collapsibles Tab
-	 *
+	 * Tab titled "Collapsibles"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Collapsibles"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_collapsibles( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -855,14 +945,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Content Tab
-	 *
+	 * Tab titled "Content"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Content"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_content( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -872,14 +964,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Tab Endpoint
-	 *
+	 * Endpoint field for content tabs
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Endpoint field for content tabs
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_endpoint( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -890,14 +984,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Features Tab
-	 *
+	 * Tab titled "Features"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Features"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_features( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -907,14 +1003,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Cards Tab
-	 *
+	 * Tab titled "Cards"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Cards"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_cards( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -924,14 +1022,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Media Tab
-	 *
+	 * Tab titled "Media"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Media"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_media( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -941,14 +1041,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Slides Tab
-	 *
+	 * Tab titled "Slides"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Slides"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_slides( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -958,14 +1060,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Gallery Tab
-	 *
+	 * Tab titled "Gallery"
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Tab titled "Gallery"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_gallery( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -975,14 +1079,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Data Attribute
-	 *
+	 * Data attribute for developer mode
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Data attribute for developer mode
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function data_attribute( $thisKey = 'field', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -995,14 +1101,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Data Value
-	 *
+	 * Data value for developer mode
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Data value for developer mode
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function data_value( $thisKey = 'field', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -1014,14 +1122,17 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Block Classes
-	 *
+	 * Additional Classes for blocks
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Additional Classes for blocks
+	 * @param string $thisKey Key for variations.
+	 * @param string $default Default value.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function block_classes( $thisKey = 'field', $default = '', $args = array() ) {
 		return $this->classes( $default, wp_parse_args( (array) $args, array(
@@ -1031,14 +1142,17 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Content Classes
-	 *
+	 * Additional Classes for "Content" blocks
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Additional Classes for "Content" blocks
+	 * @param string $thisKey Key for variations.
+	 * @param string $default Default value.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function content_classes( $thisKey = 'field', $default = '', $args = array() ) {
 		return $this->classes( $default, wp_parse_args( (array) $args, array(
@@ -1048,14 +1162,17 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Media Classes
-	 *
+	 * Additional Classes for "Content" blocks
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Additional Classes for "Content" blocks
+	 * @param string $thisKey Key for variations.
+	 * @param string $default Default value.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function media_classes( $thisKey = 'field', $default = '', $args = array() ) {
 		return $this->classes( $default, wp_parse_args( (array) $args, array(
@@ -1065,14 +1182,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Dev Mode Block Message
-	 *
+	 * "Message" field for Dev Mode Content fields
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * "Message" field for Dev Mode Content fields
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function dev_block_message( $thisKey = 'field', $args = array() ) {
 		return $this->message( wp_parse_args( (array) $args, array(
@@ -1085,14 +1204,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Dev Mode Content Message
-	 *
+	 * "Message" field for Dev Mode Content fields
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * "Message" field for Dev Mode Content fields
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function dev_content_message( $thisKey = 'field', $args = array() ) {
 		return $this->message( wp_parse_args( (array) $args, array(
@@ -1105,14 +1226,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Dev Mode Media Message
-	 *
+	 * "Message" field for Dev Mode Media fields
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * "Message" field for Dev Mode Media fields
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function dev_media_message( $thisKey = 'field', $args = array() ) {
 		return $this->message( wp_parse_args( (array) $args, array(
@@ -1125,13 +1248,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Title Tab
+	 * Tab titled "Title"
 	 *
 	 * @author Travis Smith
-	 * @since 1.0
+	 * @since 1.1
 	 *
-	 * Tab titled "Title"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab_title( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -1141,13 +1267,17 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Layout Tab
+	 * Tab titled "Layout"
 	 *
 	 * @author Travis Smith
-	 * @since 1.0
+	 * @since 1.1
 	 *
-	 * Tab titled "Layout"
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 *
 	 */
 	public function tab_layout( $thisKey = 'field', $args = array() ) {
 		return $this->tab( wp_parse_args( (array) $args, array(
@@ -1158,12 +1288,15 @@ class Fields {
 
 	/**
 	 * Field: Word or Phrase
-	 *
+	 * Text
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Text
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function word_or_phrase( $thisKey = 'field', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -1175,12 +1308,16 @@ class Fields {
 
 	/**
 	 * Field: Alignment
-	 *
+	 * Select
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Select
+	 * @param string $thisKey Key for variations.
+	 * @param string $name Alignment.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function alignment( $thisKey = 'field', $name = 'alignment', $args = array() ) {
 		return $this->select( wp_parse_args( (array) $args, array(
@@ -1193,12 +1330,15 @@ class Fields {
 
 	/**
 	 * Field: Emphasize
-	 *
+	 * Checkbox
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Checkbox
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function emphasize( $thisKey = 'field', $args = array() ) {
 		return $this->true_false( wp_parse_args( (array) $args, array(
@@ -1210,12 +1350,15 @@ class Fields {
 
 	/**
 	 * Field: Size
-	 *
+	 * Select
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Select
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function size( $thisKey = 'field', $args = array() ) {
 		return $this->select( wp_parse_args( (array) $args, array(
@@ -1231,6 +1374,11 @@ class Fields {
 	 *
 	 * @author Travis Smith
 	 * @since 1.1
+	 *
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 *
 	 */
 	public function icon_font( $thisKey = 'field', $args = array() ) {
@@ -1248,6 +1396,12 @@ class Fields {
 	 *
 	 * @author Travis Smith
 	 * @since 1.1
+	 *
+	 * @param string $thisKey Key for variations.
+	 * @param string $icon_font Font for dashicons.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 *
 	 */
 	public function media_icon( $thisKey = 'field', $icon_font = 'dashicons', $args = array() ) {
@@ -1275,6 +1429,11 @@ class Fields {
 	 * @author Travis Smith
 	 * @since 1.1
 	 *
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 *
 	 */
 	public function icon_preview( $thisKey = 'field', $args = array() ) {
 		return $this->message( wp_parse_args( (array) $args, array(
@@ -1294,6 +1453,11 @@ class Fields {
 	 * @contributor Travis Smith
 	 * @since 1.1
 	 *
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 *
 	 */
 	public function complex_title_preview_placeholder( $thisKey = 'field', $args = array() ) {
 		return $this->message( wp_parse_args( (array) $args, array(
@@ -1304,13 +1468,16 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Classes Helper
+	 * Additional classes for blocks.
 	 *
 	 * @author Travis Smith
 	 * @since 1.1
 	 *
-	 * Additional Classes for blocks
+	 * @param string $default Default classes.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function classes( $default = '', $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
@@ -1324,9 +1491,12 @@ class Fields {
 	 * Field: Date
 	 *
 	 * @contributor Travis Smith
-	 * @since 1.0
+	 * @since 1.1
 	 *
-	 * Select
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function date( $thisKey = 'field', $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
@@ -1342,12 +1512,15 @@ class Fields {
 	}
 
 	/**
-	 * Field: Time
+	 * Field: Time Picker
 	 *
 	 * @contributor Travis Smith
-	 * @since 1.0
+	 * @since 1.1
 	 *
-	 * Select
+	 * @param string $thisKey Key for variations.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function time( $thisKey = 'field', $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
@@ -1361,6 +1534,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Email
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function email( $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
 			'type'    => 'email',
@@ -1368,6 +1551,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Number
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function number( $args = array() ) {
 		return $this->text( wp_parse_args( (array) $args, array(
 			'type'    => 'number',
@@ -1375,6 +1568,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Textarea
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function textarea( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'    => 'textarea',
@@ -1382,6 +1585,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Text
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function text( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'    => 'text',
@@ -1389,6 +1602,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: WYSIWYG
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function wysiwyg( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'         => 'wysiwyg',
@@ -1399,6 +1622,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: True/False
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function true_false( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'    => 'true_false',
@@ -1406,6 +1639,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Colorpicker
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function colorpicker( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'    => 'color_picker',
@@ -1413,6 +1656,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Radio
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function radio( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'              => 'radio',
@@ -1424,6 +1677,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Checkbox
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function checkbox( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'              => 'checkbox',
@@ -1435,6 +1698,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Select
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function select( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'          => 'select',
@@ -1448,6 +1721,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Message
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function message( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'name'      => '',
@@ -1458,14 +1741,17 @@ class Fields {
 		) ) );
 	}
 
-	/**
-	 * Field: Taxonomy
-	 *
+	/** Field: Taxonomy
+	 * Taxonomy field to select category
 	 * @author Michael W. Delaney
 	 * @contributor Travis Smith
 	 * @since 1.0
 	 *
-	 * Taxonomy field to select category
+	 * @param string $thisKey Key for variations.
+	 * @param string $taxonomy Taxonomy.
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function taxonomy( $thisKey = 'field', $taxonomy = 'category', $args = array() ) {
 		$tax = get_taxonomy( $taxonomy );
@@ -1486,6 +1772,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Post Object
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function post_object( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'          => 'post_object',
@@ -1502,6 +1798,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Page Link
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function page_link( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'       => 'page_link',
@@ -1513,6 +1819,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Relationship
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function relationship( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'type'          => 'relationship',
@@ -1531,6 +1847,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Map
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function map( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'label'      => __( 'Map', ACFFCB_PLUGIN_DOMAIN ),
@@ -1544,6 +1870,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Image
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function image( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'label'         => __( 'Image', ACFFCB_PLUGIN_DOMAIN ),
@@ -1562,6 +1898,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: oEmbed
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function oembed( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
 			'label'   => __( 'Video', ACFFCB_PLUGIN_DOMAIN ),
@@ -1572,13 +1918,14 @@ class Fields {
 	}
 
 	/**
-	 *
 	 * Field: Tab
 	 *
 	 * @author Travis Smith
 	 * @since 1.1
 	 *
-	 * Tab
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
 	 */
 	public function tab( $args = array() ) {
 		return wp_parse_args( (array) $args, $this->defaults( array(
@@ -1589,6 +1936,16 @@ class Fields {
 		) ) );
 	}
 
+	/**
+	 * Field: Defaults
+	 *
+	 * @contributor Travis Smith
+	 * @since 1.1
+	 *
+	 * @param array $args ACF Field registration array over-rides.
+	 *
+	 * @return array ACF Field registration array.
+	 */
 	public function defaults( $args ) {
 		return apply_filters( 'fcb_field_' . $args['type'] . '_defaults', wp_parse_args( (array) $args, array(
 			'instructions'      => '',

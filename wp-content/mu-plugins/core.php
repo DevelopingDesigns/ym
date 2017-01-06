@@ -35,7 +35,6 @@
  * @copyright    Copyright (c) 2014-2017, Travis Smith <t@wpsmith.net>
  * @license      GPL-2.0+
  */
-
 define( 'WPSCORE_PLUGIN_DOMAIN', 'wps-core' );
 define( 'WPSCORE_PLUGIN_NAME', __( 'WPS Core', WPSCORE_PLUGIN_DOMAIN ) );
 define( 'WPSCORE_PLUGIN_SLUG', plugin_basename( __FILE__  ) );
@@ -105,21 +104,17 @@ WPS_WordPress_Cleanup::get_instance( array(
 //		'options-general.php', // Settings
 //	),
 ) );
+
+// Login Branding
 WPS_Brand::get_instance();
+
+// WP SEO
 add_filter( 'wpseo_metabox_prio', function() {
 	return 'default';
 });
 
-
-add_theme_support( 'flexible-content-dev-mode' );
-require_once( 'wps-core/acf/acf-flexible-content-blocks/acf-flexible-content-blocks.php' );
-
-// Load ACF Builder
-require_once( 'wps-core/acf/acf-builder/lib/autoload.php' );
-require_once( 'wps-core/acf/acf-builder/autoload.php' );
-
 // Load ACF Gravity Forms Field
-require_once( 'wps-core/acf/gravity-forms-acf-field/acf-gravity_forms.php' );
+//require_once( 'wps-core/acf/gravity-forms-acf-field/acf-gravity_forms.php' );
 
 
 // @todo Events segmentation by category

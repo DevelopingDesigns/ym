@@ -51,15 +51,27 @@ function fcb_get_btn_colors() {
 	) );
 }
 
+/**
+ * Available Icon Fonts. These can be overridden or added to with a filter like the following:
+ *     add_filter( 'fcb_get_icon_fonts', 'custom_get_icon_fonts');
+ *     function custom_get_icon_fonts($array) {
+ *         // do something
+ *         return $array;
+ *     }
+ *
+ * @param null $single_font Slug of a single font.
+ *
+ * @return mixed|array Array of icon font(s) data.
+ */
 function fcb_get_icon_fonts( $single_font = null ) {
 	$suffix  = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '.' : '.min.';
 	$version = 'ver=' . get_bloginfo( 'version' );
 
 	$icon_fonts = apply_filters( 'fcb_get_icon_fonts', array(
 		'dashicons'       => array(
-			'name'   => __( 'Dashicons', ACFFCB_PLUGIN_DOMAIN ),
-			'url'    => includes_url( "css/dashicons{$suffix}css" ),
-			'icons'  => array(
+			'name'    => __( 'Dashicons', ACFFCB_PLUGIN_DOMAIN ),
+			'url'     => includes_url( "css/dashicons{$suffix}css" ),
+			'icons'   => array(
 				"blank",    // there is no "blank" but we need the option
 				"menu",
 				"admin-site",
@@ -226,7 +238,7 @@ function fcb_get_icon_fonts( $single_font = null ) {
 				"lightbulb",
 				"smiley",
 			),
-			'prefix' => 'dashicons',
+			'prefix'  => 'dashicons',
 			'version' => $version
 		),
 		'font-awesome'    => array(
@@ -744,18 +756,36 @@ function fcb_get_icon_fonts( $single_font = null ) {
 	return $icon_fonts;
 }
 
+/**
+ * Available icon font names.
+ *
+ * @return array Array of icon font names.
+ */
 function fcb_get_icon_font_names() {
-	return apply_filters( 'fcb_get_icon_fonts', wp_list_pluck( fcb_get_icon_fonts(), 'name' ) );
+	return wp_list_pluck( fcb_get_icon_fonts(), 'name' );
 }
 
+/**
+ * Available icon prefixes.
+ *
+ * @return array Array of icon font prefixes.
+ */
 function fcb_get_icon_font_prefixes() {
-	return apply_filters( 'fcb_get_icon_font_prefixes', array(
-		'dashicons'       => 'dashicons',
-		'font-awesome'    => 'fa',
-		'genericons-neue' => 'genericons-neue',
-	) );
+	return wp_list_pluck( fcb_get_icon_fonts(), 'prefix' );
+//	return apply_filters( 'fcb_get_icon_font_prefixes', array(
+//		'dashicons'       => 'dashicons',
+//		'font-awesome'    => 'fa',
+//		'genericons-neue' => 'genericons-neue',
+//	) );
 }
 
+/**
+ * Gets icons for a given font.
+ *
+ * @param string $font Font slug.
+ *
+ * @return array Array of font icons.
+ */
 function fcb_get_icons( $font = 'dashicons' ) {
 	$font_icons = apply_filters( 'fcb_get_icon_fonts', wp_list_pluck( fcb_get_icon_fonts(), 'icons' ) );
 
@@ -879,6 +909,15 @@ function fcb_get_media() {
 	) );
 }
 
+/**
+ * Gets an array of wrapper element for ACF field registration.
+ *
+ * @param string $width Width of the wrapper.
+ * @param string $class Class of the wrapper.
+ * @param string $id ID of the wrapper.
+ *
+ * @return array Array for wrapper ACF field registration.
+ */
 function fcb_get_wrapper( $width = '', $class = '', $id = '' ) {
 	return array(
 		'width' => $width,
@@ -887,6 +926,9 @@ function fcb_get_wrapper( $width = '', $class = '', $id = '' ) {
 	);
 }
 
+/**
+ * Gets an array of countries.
+ */
 function fcb_get_countries() {
 	array(
 		'us' => __( 'United States', ACFFCB_PLUGIN_DOMAIN ),
@@ -895,8 +937,8 @@ function fcb_get_countries() {
 		'dz' => __( 'Algeria', ACFFCB_PLUGIN_DOMAIN ),
 		'as' => __( 'American Samoa', ACFFCB_PLUGIN_DOMAIN ),
 		'ad' => __( 'Andorra', ACFFCB_PLUGIN_DOMAIN ),
-		'ad' => __( 'Angola', ACFFCB_PLUGIN_DOMAIN ),
 		'ai' => __( 'Anguilla', ACFFCB_PLUGIN_DOMAIN ),
+		'ao' => __( 'Angola', ACFFCB_PLUGIN_DOMAIN ),
 		'aq' => __( 'Antarctica', ACFFCB_PLUGIN_DOMAIN ),
 		'ag' => __( 'Antigua and Barbuda', ACFFCB_PLUGIN_DOMAIN ),
 		'ar' => __( 'Argentina', ACFFCB_PLUGIN_DOMAIN ),
@@ -1113,7 +1155,6 @@ function fcb_get_countries() {
 		'ua' => __( 'Ukraine', ACFFCB_PLUGIN_DOMAIN ),
 		'ae' => __( 'United Arab Emirates', ACFFCB_PLUGIN_DOMAIN ),
 		'gb' => __( 'United Kingdom', ACFFCB_PLUGIN_DOMAIN ),
-		'us' => __( 'United States', ACFFCB_PLUGIN_DOMAIN ),
 		'um' => __( 'United States Minor Outlying Islands', ACFFCB_PLUGIN_DOMAIN ),
 		'uy' => __( 'Uruguay', ACFFCB_PLUGIN_DOMAIN ),
 		'uz' => __( 'Uzbekistan', ACFFCB_PLUGIN_DOMAIN ),
