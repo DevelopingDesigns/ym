@@ -43,7 +43,11 @@
 		a {
 			color: $slate;
 			@include font-size(12);
-			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				color: $slate-dark;
+			}
 		}
 	}
 

@@ -43,13 +43,12 @@ textarea:focus,
 }
 
 a {
-  color: #c3251d;
-  text-decoration: underline;
+  color: $slate;
+  text-decoration: none;
 
   &:hover,
   &:focus {
-    color: #333;
-    text-decoration: none;
+    color: $slate-dark;
   }
 }
 
@@ -72,14 +71,14 @@ li {
 hr {
   border: 0;
   border-collapse: collapse;
-  border-top: 1px solid #eee;
+  border-top: 1px solid $grey2;
   clear: both;
   margin: 1em 0;
 }
 
 b,
 strong {
-  font-weight: 700;
+  font-weight: $fw-bold;
 }
 
 blockquote,
