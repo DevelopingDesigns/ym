@@ -222,7 +222,7 @@ class CreateBlocks {
 	public function insert_the_layouts( $class, $layouts_array ) {
 		foreach ( get_class_methods( $class ) as $layout_name ) {
 			$layouts = new $class();
-			if ( $layout_name != '__construct' || ! apply_filters( 'remove_' . $layout_name, false ) ) {
+			if ( $layout_name != '__construct' && ! apply_filters( 'remove_' . $layout_name, false ) ) {
 				$layouts_array[] = $layouts->$layout_name();
 			}
 		}
