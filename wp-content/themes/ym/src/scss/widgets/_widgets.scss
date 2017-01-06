@@ -30,7 +30,8 @@
 }
 
 .widget-title {
-	@include font-size(18);
+	@include font-size(16);
+	color: $slate-dark;
 	font-weight: 700;
 	margin-bottom: 15px;
 

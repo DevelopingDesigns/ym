@@ -7,6 +7,30 @@
 	const initialLogoSrc = logo.srcset;
 	const newLogoSrc     = '/wp-content/uploads/2016/12/small-logo@2x.png';
 
+
+	function debounce(func, wait = 5, immediate = true) {
+		let timeout;
+		return function () {
+			let context = this, args = arguments;
+			let later   = function () {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			let callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	}
+
+
+	function swapLogoAttributes(element, attributes) {
+		for (let key in attributes) {
+			element.setAttribute(key, attributes[key]);
+		}
+	}
+
+
 	function scrollHandler(e) {
 		let distanceY  = window.pageYOffset;
 		const header   = document.querySelector('.site-header');
@@ -30,12 +54,7 @@
 			});		}
 	}
 
-	function swapLogoAttributes(element, attributes) {
-		for (let key in attributes) {
-			element.setAttribute(key, attributes[key]);
-		}
-	}
 
-	window.addEventListener('scroll', scrollHandler);
+	window.addEventListener('scroll', debounce(scrollHandler));
 
 })(document, jQuery);
