@@ -10,27 +10,30 @@
  */
 
 
-wps_printr( var_dump($r), 'type has rows?' );
+// Background?
+$bg = ym_get_background();
+wps_printr( $bg, 'background' );
+printf(
+	'<section class="hero %s" style="%s">',
+	$bg['class'],
+	$bg['style']
+);
 
-$hero_image = get_sub_field( 'image' );
-wp_localize_script( 'all-js', 'BackStretchImg', [
-	'src' => $hero_image['url']
-] );
 ?>
-
-<section class = "hero" style = "background-image: url( <?php echo $hero_image['url'] ?> ); background-repeat: no-repeat;">
-
-	<div class = "hero-content">
+	<div class="hero-content">
 		<h1><?php the_sub_field( 'title' ); ?></h1>
 		<h2><?php the_sub_field( 'subtitle' ); ?></h2>
 
 		<?php
-		
-			while ( have_rows( 'type' ) ) : the_row();
-				echo 'ROW: ' . get_row_index() . ' | ' . get_row_layout();
-//				cta();
-				ym_template( 'partials/link', get_row_layout() );
-			endwhile;
+		// The Content
+		while ( have_rows( 'columns' ) ) : the_row();
+			ym_template( 'partials/content', get_row_layout() );
+		endwhile;
+
+		// The Calls to Action
+		while ( have_rows( 'type' ) ) : the_row();
+			ym_template( 'partials/link', get_row_layout() );
+		endwhile;
 		?>
 	</div>
 

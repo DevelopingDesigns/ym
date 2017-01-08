@@ -1,6 +1,6 @@
 <?php
 /**
- * Default code for a Call to Action Content Block partial
+ * Default code for a File Content Block partial
  *
  * @package    YourMembership
  * @author     Developing Designs - Joe Dooley
@@ -9,4 +9,4 @@
  * @license    GPL-2.0+
  */
 
-echo 'call to action partial';
+printf( '<h2>%s</h2>', apply_filters( 'the_content', get_sub_field( 'content' ) ) );
