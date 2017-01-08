@@ -14,3 +14,5 @@ require_once( 'pantheon/pantheon-page-cache.php' );
 require_once( 'pantheon/pantheon-updates.php' );
 
 endif; # Ensuring that this is on Pantheon
+
+

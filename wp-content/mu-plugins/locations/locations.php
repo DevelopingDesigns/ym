@@ -118,7 +118,7 @@ function locations_create_taxonomy() {
 
 }
 
-add_action( 'acf/init', 'location_create_acf' );
+//add_action( 'acf/init', 'location_create_acf' );
 /**
  * Creates ACF Fields for post type
  */

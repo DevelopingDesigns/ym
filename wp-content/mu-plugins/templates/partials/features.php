@@ -1,3 +1,0 @@
-<?php
-
-echo 'features template';
