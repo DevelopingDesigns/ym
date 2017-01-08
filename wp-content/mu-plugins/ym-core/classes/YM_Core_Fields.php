@@ -140,7 +140,10 @@ class YM_Core_Fields extends WPS_Singleton {
 	public function set_location() {
 		$this->builder
 			->setLocation( 'post_type', '==', 'page' )
-			->or( 'post_type', '==', 'page' );
+			->or( 'post_type', '==', 'post' )
+			->or( 'post_type', '==', 'article' )
+			->or( 'post_type', '==', 'product' )
+			;
 	}
 
 	public function get_attributes() {
