@@ -143,6 +143,7 @@ class YM_Core_Fields extends WPS_Singleton {
 			->or( 'post_type', '==', 'post' )
 			->or( 'post_type', '==', 'article' )
 			->or( 'post_type', '==', 'product' )
+			->or( 'post_type', '==', 'landing-page' )
 			;
 	}
 
