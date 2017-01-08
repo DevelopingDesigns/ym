@@ -123,18 +123,11 @@ class YM_Core_Fields extends WPS_Singleton {
 
 		$this->set_location();
 
-//		add_action( 'wp_loaded', array( $this, 'init' ) );
 		$builder = $this->builder;
 		add_action( 'acf/init', function () use ( $builder ) {
 			wps_write_log( $builder->build() );
 			acf_add_local_field_group( $builder->build() );
 		} );
-	}
-
-	public function init() {
-		if ( function_exists( 'acf_add_local_field_group' )) {
-			acf_add_local_field_group( $this->builder->build() );
-		}
 	}
 
 	public function set_location() {
@@ -156,6 +149,8 @@ class YM_Core_Fields extends WPS_Singleton {
 		);
 		$attributes
 			->addTab( __( 'Attributes', YMCORE_PLUGIN_DOMAIN ) )
+			->addSelect( 'alignment' )
+			->addChoices( ym_core_get_alignment() )
 			->addText( 'classes' )
 			->addRepeater('data')
 			->addText( 'key' )
@@ -224,6 +219,13 @@ class YM_Core_Fields extends WPS_Singleton {
 		$content
 			->addTab( __( 'Content', YMCORE_PLUGIN_DOMAIN ) )
 			->addFlexibleContent( 'columns', array( 'min' => 1, 'max' => 6 ) )
+
+			// Title
+			->addLayout( 'title_content' )
+			->addTab( __( 'Content', YMCORE_PLUGIN_DOMAIN ) )
+			->addText('title')
+			->addText('subtitle')
+			->addFields( $this->get_attributes() )
 
 			// Content
 			->addLayout( 'content' )
@@ -296,6 +298,7 @@ class YM_Core_Fields extends WPS_Singleton {
 			->addSelect( 'color', $args )
 			->addChoices( ym_core_get_theme_colors() )
 			->addUrl( 'link', $args )
+
 			->addLayout( 'internal' )
 			->addText( 'text', $args )
 			->addSelect( 'size', $args )
@@ -309,6 +312,7 @@ class YM_Core_Fields extends WPS_Singleton {
 					'product',
 				),
 			) ) )
+
 			->addLayout( 'text' )
 			->addText( 'text', array(
 				'wrapper' => array(
