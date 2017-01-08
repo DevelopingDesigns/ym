@@ -16,7 +16,13 @@ class YM_Core_Fields extends WPS_Singleton {
 		);
 
 		$this->add_shortcodes();
-		$this->create();
+
+		if ( did_action( 'init' ) || doing_action( 'init' ) ) {
+			$this->create();
+		} else {
+			add_action( 'init', array( $this, 'create' ) );
+		}
+
 
 
 		add_filter( 'ym_content_before', function ( $content_before ) {
@@ -123,11 +129,21 @@ class YM_Core_Fields extends WPS_Singleton {
 
 		$this->set_location();
 
-		$builder = $this->builder;
-		add_action( 'acf/init', function () use ( $builder ) {
-			wps_write_log( $builder->build() );
-			acf_add_local_field_group( $builder->build() );
-		} );
+
+		if ( did_action( 'acf/init' ) || doing_action( 'acf/init' ) ) {
+			$this->init_fields();
+		} else {
+			add_action( 'acf/init', array( $this, 'init_fields' ) );
+//			$builder = $this->builder;
+//			add_action( 'acf/init', function () use ( $builder ) {
+//				wps_write_log( $builder->build() );
+//				acf_add_local_field_group( $builder->build() );
+//			} );
+		}
+	}
+
+	public function init_fields() {
+		acf_add_local_field_group( $this->builder->build() );
 	}
 
 	public function set_location() {
@@ -153,8 +169,8 @@ class YM_Core_Fields extends WPS_Singleton {
 			->addChoices( ym_core_get_alignment() )
 			->addText( 'classes' )
 			->addRepeater('data')
-			->addText( 'key' )
-			->addText( 'value' )
+				->addText( 'key' )
+				->addText( 'value' )
 			->endRepeater()
 			;
 
@@ -194,7 +210,7 @@ class YM_Core_Fields extends WPS_Singleton {
 		$background
 			->addTab( __( 'Background', YMCORE_PLUGIN_DOMAIN ) )
 			->addImage( 'image' )
-			->addSelect('bg', array(
+			->addSelect('bg_color', array(
 				'label' => __( 'Background Color', YMCORE_PLUGIN_DOMAIN ),
 			))
 			->addChoices( ym_core_get_bg_colors() )
@@ -250,6 +266,23 @@ class YM_Core_Fields extends WPS_Singleton {
 			->addLayout( 'gallery_content' )
 			->addTab( __( 'Content', YMCORE_PLUGIN_DOMAIN ) )
 			->addGallery( 'gallery' )
+			->addSelect( 'orderby', array(
+				'default_value' => 'ID',
+			) )
+			->addChoices( ym_core_get_gallery_orderby() )
+			->addSelect( 'order', array(
+				'default_value' => 'ID',
+			) )
+			->addChoices( ym_core_get_gallery_order() )
+			->addNumber( 'columns', array(
+				'min' => 1,
+				'max' => 6,
+				'default_value' => 4,
+			) )
+			->addSelect( 'size', array(
+				'default_value' => 'thumbnail',
+			) )
+			->addChoices( ym_core_get_image_sizes() )
 			->addFields( $this->get_attributes() )
 
 			// File
