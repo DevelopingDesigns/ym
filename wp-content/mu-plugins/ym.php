@@ -155,11 +155,11 @@ function ym_template( $slug, $name = null, $load = true ) {
 		) );
 	}
 
-//	if ( defined( 'YMCORE_DEBUG' ) && YMCORE_DEBUG ) {
-//		wps_printr(
-//			array( 'template-path' => $ym_template->get_template_part( $slug, $name, false ) )
-//		);
-//	}
+	if ( defined( 'YMCORE_DEBUG' ) && YMCORE_DEBUG ) {
+		wps_printr(
+			array( 'template-path' => $ym_template->get_template_part( $slug, $name, false ) )
+		);
+	}
 
 //	wps_printr(array(
 //		'$templates' =>  $templates,
