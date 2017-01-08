@@ -69,6 +69,9 @@ require_once( 'cpt-onomies-extended/cpt-onomies-extended.php' );
 // ACF
 require_once( 'advanced-custom-fields-pro/acf.php' );
 
+// Templates
+require_once( 'ym-core/template-functions.php' );
+
 // Load ACF Builder
 require_once( 'wps-core/acf/acf-builder/lib/autoload.php' );
 require_once( 'wps-core/acf/acf-builder/autoload.php' );
@@ -96,14 +99,14 @@ function ym_core_get_wrapper( $width = '', $class = '', $id = '' ) {
  */
 function ym_core_get_theme_colors() {
 	return array(
-		'btn-green'     => __( 'Green', YMCORE_PLUGIN_DOMAIN ),
-		'btn-teal'      => __( 'Teal', YMCORE_PLUGIN_DOMAIN ),
-		'btn-slate'     => __( 'Slate', YMCORE_PLUGIN_DOMAIN ),
-		'btn-sec-green' => __( 'Secondary Green', YMCORE_PLUGIN_DOMAIN ),
-		'btn-sec-teal'  => __( 'Secondary Teal', YMCORE_PLUGIN_DOMAIN ),
-		'btn-sec-slate' => __( 'Secondary Slate', YMCORE_PLUGIN_DOMAIN ),
-		'btn-orange'    => __( 'Orange', YMCORE_PLUGIN_DOMAIN ),
-		'btn-red'       => __( 'Red', YMCORE_PLUGIN_DOMAIN ),
+		array( 'btn-green' => __( 'Green', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-teal' => __( 'Teal', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-slate' => __( 'Slate', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-sec-green' => __( 'Secondary Green', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-sec-teal' => __( 'Secondary Teal', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-sec-slate' => __( 'Secondary Slate', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-orange' => __( 'Orange', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-red' => __( 'Red', YMCORE_PLUGIN_DOMAIN ), ),
 	);
 }
 
@@ -116,8 +119,9 @@ function ym_core_get_theme_colors() {
  */
 function ym_core_get_bg_colors() {
 	return array(
-		'theme'  => __( 'Theme', YMCORE_PLUGIN_DOMAIN ),
-		'custom' => __( 'Colorpicker', YMCORE_PLUGIN_DOMAIN ),
+		array( 'none' => __( 'None', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'theme' => __( 'Theme', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'custom' => __( 'Colorpicker', YMCORE_PLUGIN_DOMAIN ), ),
 	);
 }
 
@@ -130,10 +134,26 @@ function ym_core_get_bg_colors() {
  */
 function ym_core_get_sizes() {
 	return array(
-		'btn-tiny'    => __( 'Tiny', YMCORE_PLUGIN_DOMAIN ),
-		'btn-small'   => __( 'Small', YMCORE_PLUGIN_DOMAIN ),
-		'btn-primary' => __( 'Default', YMCORE_PLUGIN_DOMAIN ),
-		'btn-large'   => __( 'Large', YMCORE_PLUGIN_DOMAIN ),
+		array( 'btn-tiny' => __( 'Tiny', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-small' => __( 'Small', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-primary' => __( 'Default', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'btn-large' => __( 'Large', YMCORE_PLUGIN_DOMAIN ), ),
+	);
+}
+
+
+/**
+ * Change the default sizes.
+ *
+ * @param array $sizes Default of sizes.
+ *
+ * @return array Array of sizes.
+ */
+function ym_core_get_alignment() {
+	return array(
+		array( 'alignleft' => __( 'Left', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'aligncenter' => __( 'Center', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'alignright' => __( 'Right', YMCORE_PLUGIN_DOMAIN ), ),
 	);
 }
 
@@ -170,3 +190,4 @@ function ym_template( $slug, $name = null, $load = true ) {
 	return $ym_template->get_template_part( $slug, $name, $load );
 
 }
+
