@@ -22,7 +22,7 @@ if ( ! defined( 'CB_BASE_PATH') ) {
  * @return string
  */
 add_filter( 'acf/settings/save_json', function () {
-	return CB_BASE_PATH . '/fields';
+	return CB_BASE_PATH . 'fields';
 } );
 
 
@@ -32,7 +32,7 @@ add_filter( 'acf/settings/save_json', function () {
 add_filter( 'acf/settings/load_json', function ( $paths ) {
 	var_dump( $paths );
 
-	$paths[] = CB_BASE_PATH . '/fields';
+	$paths[] = CB_BASE_PATH . 'fields';
 
 	return $paths;
 } );
