@@ -25,9 +25,15 @@
  */
 
 /* Prevent direct access to the plugin */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	wp_die( __( "Sorry, you are not allowed to access this page directly.", WPSCORE_PLUGIN_DOMAIN ) );
 }
+
+define( 'YMCORE_PLUGIN_DOMAIN', 'ym-core' );
+define( 'YMCORE_PLUGIN_NAME', __( 'YM Core', WPSCORE_PLUGIN_DOMAIN ) );
+define( 'YMCORE_PLUGIN_SLUG', plugin_basename( __FILE__ ) );
+define( 'YMCORE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'YMCORE_DEBUG', true );
 
 spl_autoload_register( 'ym_acf_core_autoload' );
 /**
@@ -63,86 +69,24 @@ require_once( 'cpt-onomies-extended/cpt-onomies-extended.php' );
 // ACF
 require_once( 'advanced-custom-fields-pro/acf.php' );
 
-// ACF Content Blocks
-add_theme_support( 'flexible-content-dev-mode' );
-require_once( 'wps-core/acf/acf-flexible-content-blocks/acf-flexible-content-blocks.php' );
+// Load ACF Builder
+require_once( 'wps-core/acf/acf-builder/lib/autoload.php' );
+require_once( 'wps-core/acf/acf-builder/autoload.php' );
 
-
-add_action( 'plugins_loaded', 'ym_page_post_acf_content_blocks_support', 5 );
-/**
- * Add ACF Content Blocks Support to Theme
- */
-function ym_page_post_acf_content_blocks_support() {
-	global $_wp_theme_features;
-
-	// Add to page, post, article, partner, resource, landing-page, product, event
-	$supports = array(
-		array(
-			array(
-				'param'    => 'post_type',
-				'operator' => '==',
-				'value'    => 'page',
-			),
-		),
-		array(
-			array(
-				'param'    => 'post_type',
-				'operator' => '==',
-				'value'    => 'post',
-			),
-		),
-		array(
-			array(
-				'param'    => 'post_type',
-				'operator' => '==',
-				'value'    => 'article',
-			),
-		),
-		array(
-			array(
-				'param'    => 'post_type',
-				'operator' => '==',
-				'value'    => 'partner',
-			),
-		),
-		array(
-			array(
-				'param'    => 'post_type',
-				'operator' => '==',
-				'value'    => 'resource',
-			),
-		),
-		array(
-			array(
-				'param'    => 'post_type',
-				'operator' => '==',
-				'value'    => 'landing-page',
-			),
-		),
-		array(
-			array(
-				'param'    => 'post_type',
-				'operator' => '==',
-				'value'    => 'product',
-			),
-		),
-		array(
-			array(
-				'param'    => 'post_type',
-				'operator' => '==',
-				'value'    => 'event',
-			),
-		),
-	);
-
-	$_wp_theme_features['flexible-content-location'] = array( $supports );
-
+// YM Fields
+add_action( 'init', 'ym_core_plugins_loaded', 4 );
+function ym_core_plugins_loaded() {
+	$fields = YM_Core_Fields::get_instance();
 }
 
-// ACF Choices Filtered
-add_filter( 'fcb_get_theme_choices', 'ym_core_get_theme_colors' );
-add_filter( 'fcb_get_theme_colors', 'ym_core_get_theme_colors' );
-add_filter( 'fcb_get_btn_colors', 'ym_core_get_theme_colors' );
+function ym_core_get_wrapper( $width = '', $class = '', $id = '' ) {
+	return array(
+		'width' => $width,
+		'class' => $class,
+		'id'    => $id,
+	);
+}
+
 /**
  * Change the default colors.
  *
@@ -150,20 +94,33 @@ add_filter( 'fcb_get_btn_colors', 'ym_core_get_theme_colors' );
  *
  * @return array Array of colors.
  */
-function ym_core_get_theme_colors( $colors ) {
+function ym_core_get_theme_colors() {
 	return array(
-		'btn-green' => 'Green',
-		'btn-teal' => 'Teal',
-		'btn-slate' => 'Slate',
-		'btn-sec-green' => 'Secondary Green',
-		'btn-sec-teal' => 'Secondary Teal',
-		'btn-sec-slate' => 'Secondary Slate',
-		'btn-orange' => 'Orange',
-		'btn-red' => 'Red',
+		'btn-green'     => __( 'Green', YMCORE_PLUGIN_DOMAIN ),
+		'btn-teal'      => __( 'Teal', YMCORE_PLUGIN_DOMAIN ),
+		'btn-slate'     => __( 'Slate', YMCORE_PLUGIN_DOMAIN ),
+		'btn-sec-green' => __( 'Secondary Green', YMCORE_PLUGIN_DOMAIN ),
+		'btn-sec-teal'  => __( 'Secondary Teal', YMCORE_PLUGIN_DOMAIN ),
+		'btn-sec-slate' => __( 'Secondary Slate', YMCORE_PLUGIN_DOMAIN ),
+		'btn-orange'    => __( 'Orange', YMCORE_PLUGIN_DOMAIN ),
+		'btn-red'       => __( 'Red', YMCORE_PLUGIN_DOMAIN ),
 	);
 }
 
-add_filter( 'fcb_get_sizes', 'ym_core_fcb_get_sizes' );
+/**
+ * Change the default colors.
+ *
+ * @param array $colors Default of colors.
+ *
+ * @return array Array of colors.
+ */
+function ym_core_get_bg_colors() {
+	return array(
+		'theme'  => __( 'Theme', YMCORE_PLUGIN_DOMAIN ),
+		'custom' => __( 'Colorpicker', YMCORE_PLUGIN_DOMAIN ),
+	);
+}
+
 /**
  * Change the default sizes.
  *
@@ -171,23 +128,45 @@ add_filter( 'fcb_get_sizes', 'ym_core_fcb_get_sizes' );
  *
  * @return array Array of sizes.
  */
-function ym_core_fcb_get_sizes( $sizes ) {
+function ym_core_get_sizes() {
 	return array(
-		'btn-tiny' => 'Tiny',
-		'btn-small' => 'Small',
-		'btn-primary' => 'Default',
-		'btn-large' => 'Large',
+		'btn-tiny'    => __( 'Tiny', YMCORE_PLUGIN_DOMAIN ),
+		'btn-small'   => __( 'Small', YMCORE_PLUGIN_DOMAIN ),
+		'btn-primary' => __( 'Default', YMCORE_PLUGIN_DOMAIN ),
+		'btn-large'   => __( 'Large', YMCORE_PLUGIN_DOMAIN ),
 	);
 }
 
+/**
+ * Template wrapper
+ *
+ * @param string $slug The slug name for the generic template.
+ * @param string $load The name of the specialised template.
+ */
+function ym_template( $slug, $name = null, $load = true ) {
+	static $ym_template;
 
-// Remove some ACF Content Blocks
-//add_filter( 'remove_content_with_media', '__return_true' );
-//add_filter( 'remove_collapsibles', '__return_true' );
-//add_filter( 'remove_tabs', '__return_true' );
-//add_filter( 'remove_strap', '__return_true' );
+	if ( ! $ym_template ) {
+		$ym_template = new WPS_Template_Loader( array(
+			'filter_prefix'            => 'ym',
+			'theme_template_directory' => 'templates',
+			'templates_directory'      => 'templates',
+			'plugin_directory'         => YMCORE_PLUGIN_DIR,
+		) );
+	}
 
+	if ( defined( 'YMCORE_DEBUG' ) && YMCORE_DEBUG ) {
+		wps_printr(
+			array( 'template-path' => $ym_template->get_template_part( $slug, $name, false ) )
+		);
+	}
 
-// Load ACF Builder
-require_once( 'wps-core/acf/acf-builder/lib/autoload.php' );
-require_once( 'wps-core/acf/acf-builder/autoload.php' );
+//	wps_printr(array(
+//		'$templates' =>  $templates,
+//		'$slug' =>  $slug,
+//		'$load' =>  $load,
+//	));
+
+	return $ym_template->get_template_part( $slug, $name, $load );
+
+}
