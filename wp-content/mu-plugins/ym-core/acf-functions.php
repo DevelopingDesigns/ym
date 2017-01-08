@@ -60,7 +60,6 @@ function ym_core_get_sizes() {
 	);
 }
 
-
 /**
  * Change the default sizes.
  *
@@ -74,4 +73,57 @@ function ym_core_get_alignment() {
 		array( 'aligncenter' => __( 'Center', YMCORE_PLUGIN_DOMAIN ), ),
 		array( 'alignright' => __( 'Right', YMCORE_PLUGIN_DOMAIN ), ),
 	);
+}
+
+/**
+ * Change the default sizes.
+ *
+ * @param array $sizes Default of sizes.
+ *
+ * @return array Array of sizes.
+ */
+function ym_core_get_gallery_orderby() {
+	return array(
+		array( 'menu_order' => __( 'Menu', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'title' => __( 'Title', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'post_date' => __( 'Date', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'rand' => __( 'Random', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'ID' => __( 'ID', YMCORE_PLUGIN_DOMAIN ), ),
+	);
+}
+
+/**
+ * Change the default sizes.
+ *
+ * @param array $sizes Default of sizes.
+ *
+ * @return array Array of sizes.
+ */
+function ym_core_get_gallery_order() {
+	return array(
+		array( 'ASC' => __( 'Ascending', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'DESC' => __( 'Descending', YMCORE_PLUGIN_DOMAIN ), ),
+	);
+}
+
+function ym_core_get_image_sizes() {
+	global $_wp_additional_image_sizes, $current_filter;
+	$intermediate_sizes = get_intermediate_image_sizes();
+
+	$sizes = array();
+	foreach ( $intermediate_sizes as $size_name ) {
+		$data = $_wp_additional_image_sizes[ $size_name ];
+
+		if ( !empty( $data ) ) {
+			$sizes[] = array(
+				$size_name => ucwords( str_replace( '_', ' ', str_replace( '-', ' ', $size_name ) ) ) . sprintf( '(%sx%s)', $data['width'], $data['height'] )
+			);
+		} else {
+			$sizes[] = array(
+				$size_name => ucwords( str_replace( '_', ' ', str_replace( '-', ' ', $size_name ) ) )
+			);
+		}
+	}
+
+	return $sizes;
 }
