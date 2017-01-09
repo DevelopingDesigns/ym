@@ -33,6 +33,7 @@ define( 'YMCORE_PLUGIN_DOMAIN', 'ym-core' );
 define( 'YMCORE_PLUGIN_NAME', __( 'YM Core', WPSCORE_PLUGIN_DOMAIN ) );
 define( 'YMCORE_PLUGIN_SLUG', plugin_basename( __FILE__ ) );
 define( 'YMCORE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'YMCORE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'YMCORE_DEBUG', true );
 
 spl_autoload_register( 'ym_acf_core_autoload' );
