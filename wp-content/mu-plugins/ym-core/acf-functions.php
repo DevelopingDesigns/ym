@@ -36,13 +36,15 @@ function ym_core_get_theme_colors() {
  *
  * @return array Array of colors.
  */
-function ym_core_get_bg_colors() {
+function ym_core_get_bg_types() {
 	return array(
 		array( 'none' => __( 'None', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'image' => __( 'Image', YMCORE_PLUGIN_DOMAIN ), ),
 		array( 'theme' => __( 'Theme', YMCORE_PLUGIN_DOMAIN ), ),
 		array( 'custom' => __( 'Colorpicker', YMCORE_PLUGIN_DOMAIN ), ),
 	);
 }
+
 
 /**
  * Change the default sizes.
@@ -69,6 +71,8 @@ function ym_core_get_sizes() {
  */
 function ym_core_get_alignment() {
 	return array(
+		array( '' => __( 'Select', YMCORE_PLUGIN_DOMAIN ), ),
+		array( 'alignnone' => __( 'None', YMCORE_PLUGIN_DOMAIN ), ),
 		array( 'alignleft' => __( 'Left', YMCORE_PLUGIN_DOMAIN ), ),
 		array( 'aligncenter' => __( 'Center', YMCORE_PLUGIN_DOMAIN ), ),
 		array( 'alignright' => __( 'Right', YMCORE_PLUGIN_DOMAIN ), ),
@@ -107,14 +111,14 @@ function ym_core_get_gallery_order() {
 }
 
 function ym_core_get_image_sizes() {
-	global $_wp_additional_image_sizes, $current_filter;
+	global $_wp_additional_image_sizes;
 	$intermediate_sizes = get_intermediate_image_sizes();
 
 	$sizes = array();
 	foreach ( $intermediate_sizes as $size_name ) {
-		$data = $_wp_additional_image_sizes[ $size_name ];
+		$data = isset( $_wp_additional_image_sizes[ $size_name ] ) ? $_wp_additional_image_sizes[ $size_name ] : array();
 
-		if ( !empty( $data ) ) {
+		if ( ! empty( $data ) ) {
 			$sizes[] = array(
 				$size_name => ucwords( str_replace( '_', ' ', str_replace( '-', ' ', $size_name ) ) ) . sprintf( '(%sx%s)', $data['width'], $data['height'] )
 			);
