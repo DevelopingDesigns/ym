@@ -11,6 +11,8 @@
 
 
 $hero_image = get_sub_field( 'hero_image' );
+$heading = get_sub_field( 'heading' );
+$sub_heading = get_sub_field( 'sub_heading' );
 
 wp_localize_script( 'all-js', 'BackStretchImg', [
 	'src' => $hero_image['url']
@@ -22,7 +24,9 @@ wp_localize_script( 'all-js', 'BackStretchImg', [
 <section class = "hero" style = "background-image: url( <?php echo $hero_image['url'] ?> ); background-repeat: no-repeat;">
 
 	<div class = "hero-content">
-		<?php the_sub_field( 'hero_text' ); ?>
+		<h1><?php echo $heading ?></h1>
+		<h2><?php echo $sub_heading ?></h2>
+
 		<a href = "<?php the_sub_field( 'hero_cta_button_url_1' ) ?>"
 		   class = "button  double-button"><?php echo the_sub_field( 'hero_cta_button_text_1' ); ?></a>
 		<?php if ( get_sub_field( 'display_cta_button' ) ) { ?>
