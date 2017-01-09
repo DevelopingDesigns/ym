@@ -23,7 +23,7 @@ add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_c
 
 add_action( 'body_class', 'ym_front_page_body_class' );
 function ym_front_page_body_class( $classes ) {
-	$classes[] = 'ym-front-page';
+	$classes[] = 'ym-home-page';
 	return $classes;
 }
 
