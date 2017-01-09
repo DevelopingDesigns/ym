@@ -84,4 +84,6 @@ function ym_core_plugins_loaded() {
 	$fields = YM_Core_Fields::get_instance();
 }
 
-
+add_filter( 'cbqe_get_post_types_args', function( $args ) {
+	return array( 'public' => true );
+});
