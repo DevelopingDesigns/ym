@@ -12,6 +12,7 @@
 
 ym_do_attributes_bg_open();
 
-ym_the_content();
+echo 'SLIDE video partial';
+ym_the_video();
 
 ym_do_attributes_bg_close();

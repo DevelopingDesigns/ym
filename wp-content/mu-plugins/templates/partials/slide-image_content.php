@@ -13,5 +13,6 @@
 ym_do_attributes_bg_open();
 
 echo 'SLIDE image partial';
-
+$image = get_sub_field( 'image' );
+wps_printr( $image );
 ym_do_attributes_bg_close();
