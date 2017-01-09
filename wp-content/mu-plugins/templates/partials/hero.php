@@ -10,21 +10,9 @@
  */
 
 
-// Background?
-$bg = ym_get_background();
-wps_printr( $bg, 'background' );
-printf(
-	'<section class="hero %s" style="%s">',
-	$bg['class'],
-	$bg['style']
-);
+ym_do_section_open( 'hero' );
 
-?>
-	<div class="hero-content">
-		<h1><?php the_sub_field( 'title' ); ?></h1>
-		<h2><?php the_sub_field( 'subtitle' ); ?></h2>
-
-		<?php
+	echo '<div class="hero-content">';
 		// The Content
 		while ( have_rows( 'columns' ) ) : the_row();
 			ym_template( 'partials/content', get_row_layout() );
@@ -34,7 +22,6 @@ printf(
 		while ( have_rows( 'type' ) ) : the_row();
 			ym_template( 'partials/link', get_row_layout() );
 		endwhile;
-		?>
-	</div>
+	echo '</div>';
 
-</section>
+ym_do_section_close();
