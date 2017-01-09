@@ -9,4 +9,4 @@
  * @license    GPL-2.0+
  */
 
-printf( '<h2>%s</h2>', apply_filters( 'the_content', get_sub_field( 'content' ) ) );
+echo 'file-content-template';

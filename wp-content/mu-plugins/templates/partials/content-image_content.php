@@ -9,4 +9,9 @@
  * @license    GPL-2.0+
  */
 
+
+ym_do_attributes_bg_open();
+
 echo 'image partial';
+
+ym_do_attributes_bg_close();

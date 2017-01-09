@@ -9,22 +9,9 @@
  * @license    GPL-2.0+
  */
 
-$classes = '';
-$data = array();
-while ( have_rows( 'attributes' ) ) : the_row();
-	echo 'ROW: ' . get_row_index() . ' | ' . get_row_layout();
-//				cta();
-//	$classes = get_sub_field( 'classes' );
-endwhile;
-
-printf(
-	'<div class="%s %s" %s>',
-	get_sub_field( 'classes' ),
-	get_sub_field( 'alignment' ),
-	ym_get_data_attributes( get_sub_field( 'data' ) )
-);
+ym_do_attributes_bg_open();
 
 echo ym_get_title( 'title' );
 echo ym_get_title( 'subtitle', 'h2' );
 
-echo '</div>';
+ym_do_attributes_bg_close();

@@ -10,7 +10,7 @@
  */
 
 
-// Background?
+ym_do_section_open( 'content' );
 ?>
 <div class="content-block">
 	<?php
@@ -20,7 +20,7 @@
 	// The Content
 	while ( have_rows( 'columns' ) ) : the_row();
 		printf(
-			'<div class="col-%s %s %s %s"> %s',
+			'<div class="col-%s %s %s %s" %s>',
 			$i,
 			ym_get_column_class( $num_columns ),
 			get_sub_field( 'classes' ),
@@ -34,4 +34,5 @@
 	?>
 </div>
 
-</section>
+<?php
+ym_do_attributes_bg_close();
