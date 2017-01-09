@@ -65,9 +65,6 @@ define( 'YMCORE_DEBUG', true );
 require_once( 'cpt-onomies/cpt-onomies.php' );
 require_once( 'cpt-onomies-extended/cpt-onomies-extended.php' );
 
-require_once 'content-blocks/content-blocks.php';
-
-
 // Load Content Blocks
 //require_once 'content-blocks/content-blocks.php';
 //require_once( 'post-featured-icon/post-featured-icon.php' );
