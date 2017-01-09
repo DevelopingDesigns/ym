@@ -17,6 +17,8 @@ namespace DevDesigns\YM;
 define( 'CHILD_THEME_NAME', 'YM' );
 define( 'CHILD_THEME_URL', 'http://www.yourmembership.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
+define( 'JS_DIR', get_stylesheet_directory_uri() . '/dist/js/custom' );
+define( 'VENDOR_JS_DIR', get_stylesheet_directory_uri() . '/dist/js/vendors' );
 
 
 require_once __DIR__ . '/inc/customizer/helper-functions.php';

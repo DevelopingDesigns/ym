@@ -1,0 +1,19 @@
+/// Image and Content Block
+
+.image-content-row {
+
+	.image-container,
+	.content-container {
+		@include span-columns(6 of 12);
+
+		@include media($medium-screen-up) {
+			@include span-columns(12 of 12);
+		}
+	}
+
+	.mini-hr {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+}

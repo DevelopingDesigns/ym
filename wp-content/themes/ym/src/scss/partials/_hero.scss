@@ -1,0 +1,40 @@
+/// Hero Unit
+
+.hero {
+	align-items: center;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	min-height: 34em;
+	padding: 2em;
+
+	.hero-content {
+		color: $white;
+		max-width: 50em;
+		text-align: center;
+
+		.hero-heading { font-size: 3rem;}
+
+		.hero-subheading {
+			@include margin(0 auto 3rem);
+			max-width: 25em;
+		}
+
+		.double-button {
+			min-width: 220px;
+
+			&:first-of-type {
+				margin-right: 3em;
+
+				@include media($small-screen-up) {
+					margin-bottom: 1em;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+}
+
+

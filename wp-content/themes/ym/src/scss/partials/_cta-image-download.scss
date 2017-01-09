@@ -1,0 +1,42 @@
+/// CTA Image Download Block
+
+.cta-image-download {
+	@include margin(0 null 0 null);
+
+	@include media($medium-screen-up) {
+		text-align: center;
+	}
+
+	.content-container {
+		@include margin(8.25rem 0);
+		@include span-columns(6 of 12);
+
+		@include media($medium-screen-up) {
+			@include span-columns(12 of 12);
+		}
+
+		.heading {
+			margin-bottom: 0;
+		}
+	}
+
+	.image-container {
+		@include margin(3rem 0);
+		@include span-columns(4 of 12);
+
+		@include media($medium-screen-up) {
+			@include span-columns(12 of 12);
+		}
+	}
+
+	.cta-container {
+		@include margin(9rem 0);
+		@include span-columns(2 of 12);
+
+		@include media($medium-screen-up) {
+			@include span-columns(12 of 12);
+			margin-top: 0;
+		}
+
+	}
+}

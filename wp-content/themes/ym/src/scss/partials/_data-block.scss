@@ -1,0 +1,26 @@
+/// Data Block with JavaScript Numbers
+
+.data-block {
+
+	.heading-container {
+		margin-bottom: 7em;
+	}
+
+	.data-container {
+		@include span-columns(4 of 12);
+
+		@include media($medium-screen-up) {
+			@include span-columns(12 of 12);
+		}
+
+		.data-amount {
+			@include margin(0);
+			font-size: rem(106);
+		}
+
+		.data-subheading {
+			@include transform(translateY(rem(-35)));
+		}
+	}
+}
+

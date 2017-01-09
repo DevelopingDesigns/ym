@@ -155,8 +155,8 @@ function ym_template( $slug, $name = null, $load = true ) {
 	if ( ! $ym_template ) {
 		$ym_template = new WPS_Template_Loader( array(
 			'filter_prefix'            => 'ym',
-			'theme_template_directory' => 'templates',
-			'templates_directory'      => 'templates',
+			'theme_template_directory' => 'content-blocks',
+			'templates_directory'      => 'content-blocks',
 			'plugin_directory'         => YMCORE_PLUGIN_DIR,
 		) );
 	}
