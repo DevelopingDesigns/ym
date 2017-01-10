@@ -418,6 +418,15 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
 .button,
 button, input[type="button"], input[type="reset"], input[type="submit"] {
   padding: 10px 15px;

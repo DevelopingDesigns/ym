@@ -12,15 +12,17 @@ $button = get_sub_field( 'buttons' );
 
 if ( $button ) : ?>
 
-	<a href="<?php echo $button['url']; ?>"
-	   class="<?php echo $button['color'] . ' ' .$button['size']; ?> button double-button"><?php echo $button['text']; ?></a>
+	<div class="button-group">
+		<a href="<?php echo $button['url']; ?>"
+		   class="<?php echo $button['color'] . ' ' .$button['size']; ?> button double-button"><?php echo $button['text']; ?></a>
 
 <?php endif; ?>
 
 <?php if ( $button['add_another_button'] ) : ?>
 
 	<a href="<?php echo $button['second_button']['url']; ?>"
-	   class="<?php echo $button['second_button']['color'] . ' ' . $button['second_button']['size']; ?> button double-button"><?php echo
-		$button['second_button']['text']; ?></a>
+	   class="<?php echo $button['second_button']['color'] . ' ' . $button['second_button']['size']; ?> button double-button"><?php echo $button['second_button']['text']; ?></a>
+
+	</div>
 
 <?php endif; ?>
