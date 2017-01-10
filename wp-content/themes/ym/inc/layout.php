@@ -184,9 +184,9 @@ function ym_flexible_content() {
 
 			get_template_part( 'partials/cards', 'content-block' );
 
-		} elseif ( get_row_layout() == 'small_content_block' ) {
+		} elseif ( get_row_layout() == 'content' ) {
 
-			get_template_part( 'partials/small', 'content-block' );
+			get_template_part( 'partials/content', 'content-block' );
 
 		} elseif ( get_row_layout() == 'three_icons' ) {
 
