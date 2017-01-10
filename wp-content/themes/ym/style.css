@@ -446,6 +446,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   -webkit-transition: 0.2s ease-in-out;
@@ -529,6 +530,12 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   .btn-orange:hover, .btn-orangefocus {
     background-color: #c96f1e;
     box-shadow: none; }
+
+.text-link {
+  background-color: transparent !important;
+  box-shadow: none !important; }
+  .text-link:hover, .text-linkfocus {
+    color: #a8ad00; }
 
 .btn-tiny {
   font-size: 10px;
@@ -831,7 +838,7 @@ h4,
 h5,
 h6 {
   font-style: normal;
-  font-weight: 800;
+  font-weight: 400;
   font-family: "GeoGotham A", "Gotham B";
   line-height: 1.2;
   margin: 0 0 10px; }
@@ -846,8 +853,7 @@ h2 {
 
 h3 {
   font-size: 30px;
-  font-size: 3rem;
-  font-weight: 500; }
+  font-size: 3rem; }
 
 h4 {
   font-size: 24px;
@@ -2083,17 +2089,13 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  min-height: 34em;
-  padding: 2em; }
+  min-height: 31em; }
   .hero .hero-content {
     color: #fff;
-    max-width: 50em;
     text-align: center; }
-    .hero .hero-content .hero-heading {
-      font-size: 3rem; }
+    .hero .hero-content h1 {
+      font-size: 70px;
+      font-size: 7rem; }
     .hero .hero-content .hero-subheading {
       margin: 0 auto 3rem;
       max-width: 25em; }

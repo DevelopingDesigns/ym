@@ -19,6 +19,7 @@ $btn-slate: $slate-dark;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.2s ease-in-out;
@@ -135,6 +136,16 @@ $btn-slate: $slate-dark;
   &focus {
     background-color: shade($orange1, 15%);
     box-shadow: none;
+  }
+}
+
+.text-link {
+  background-color: transparent !important;
+  box-shadow: none !important;
+
+  &:hover,
+  &focus {
+    color: $green1;
   }
 }
 

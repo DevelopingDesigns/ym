@@ -5,16 +5,15 @@
 	background-position: center;
 	background-size: cover;
 	display: flex;
-	justify-content: center;
-	min-height: 34em;
-	padding: 2em;
+	min-height: 31em;
 
 	.hero-content {
 		color: $white;
-		max-width: 50em;
 		text-align: center;
 
-		.hero-heading { font-size: 3rem;}
+		h1 {
+			@include font-size(70);
+		}
 
 		.hero-subheading {
 			@include margin(0 auto 3rem);
