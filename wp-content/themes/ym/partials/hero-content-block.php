@@ -10,29 +10,23 @@
  */
 
 
-$hero_image = get_sub_field( 'hero_image' );
-$heading = get_sub_field( 'heading' );
-$sub_heading = get_sub_field( 'sub_heading' );
+$hero   = get_row( 'hero' );
 
 wp_localize_script( 'all-js', 'BackStretchImg', [
-	'src' => $hero_image['url']
+	'src' => $hero_image['hero_image']['url']
 ] );
-
 
 ?>
 
-<section class = "hero" style = "background-image: url( <?php echo $hero_image['url'] ?> ); background-repeat: no-repeat;">
+<section class="hero" style="background-image: url( <?php echo $hero['hero_image']['url'] ?> ); background-repeat: no-repeat;">
 
-	<div class = "hero-content">
-		<h1><?php echo $heading ?></h1>
-		<h2><?php echo $sub_heading ?></h2>
+	<div class="hero-content">
+		<h1><?php echo $hero['heading']; ?></h1>
+		<h2><?php echo $hero['sub_heading']; ?></h2>
 
-		<a href = "<?php the_sub_field( 'hero_cta_button_url_1' ) ?>"
-		   class = "button  double-button"><?php echo the_sub_field( 'hero_cta_button_text_1' ); ?></a>
-		<?php if ( get_sub_field( 'display_cta_button' ) ) { ?>
-			<a href = "<?php the_sub_field( 'hero_cta_button_url_2' ) ?>"
-			   class = "button  double-button"><?php echo the_sub_field( 'hero_cta_button_text_2' ); ?></a>
-		<?php } ?>
+		<?php if ( $hero['buttons'] ) :
+			get_template_part( 'partials/parts/button', 'group' );
+		endif; ?>
 	</div>
 
 </section>
