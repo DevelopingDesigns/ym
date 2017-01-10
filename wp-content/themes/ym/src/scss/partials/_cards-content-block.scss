@@ -1,0 +1,28 @@
+// Cards Content Block
+
+.cards {
+	@include padding(25px 0);
+
+	.flex-wrap {
+		lost-center: 1280px;
+	}
+
+	.card-container {
+		@include padding(10px 20px);
+		background-color: $white;
+		border-bottom: 5px solid $green3;
+		lost-column: 1/4;
+		text-align: center;
+
+		.heading {
+			@include font-size(22);
+			@include margin(0);
+			@include padding(0 50px);
+			font-weight: $fw-bolder;
+		}
+
+		a {
+			color: $green3;
+		}
+	}
+}

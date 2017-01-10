@@ -180,6 +180,10 @@ function ym_flexible_content() {
 
 			get_template_part( 'partials/hero', 'content-block' );
 
+		} elseif ( get_row_layout() == 'cards' ) {
+
+			get_template_part( 'partials/cards', 'content-block' );
+
 		} elseif ( get_row_layout() == 'small_content_block' ) {
 
 			get_template_part( 'partials/small', 'content-block' );
