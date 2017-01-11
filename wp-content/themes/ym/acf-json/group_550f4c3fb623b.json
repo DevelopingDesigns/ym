@@ -549,15 +549,15 @@
                             }
                         },
                         {
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
                             "default_value": "",
-                            "new_lines": "wpautop",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "rows": 4,
+                            "delay": 1,
                             "key": "field_57318d3318ac6",
                             "label": "Content Area",
                             "name": "content_area",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2274,5 +2274,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1484101790
+    "modified": 1484159878
 }
