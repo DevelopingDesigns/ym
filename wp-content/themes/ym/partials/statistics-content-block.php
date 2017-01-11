@@ -25,8 +25,7 @@ $statistics = get_row( 'statistics' );
 				<div class="icon">
 					<img src="<?php echo $statistics['icon_1']['url'] ?>"
 					     alt="<?php echo $statistics['icon_1']['alt'] ?>"
-						 width="<?php echo $statistics['icon_1']['width'] ?>"
-						 height="<?php echo $statistics['icon_1']['height'] ?>">
+						 style="width: calc(<?php echo $statistics['icon_1']['width'] . 'px' ?> / 2); height: calc(<?php echo $statistics['icon_1']['height'] . 'px' ?> / 2);">
 				</div>
 				<div class="data">
 					<p class = "amount" data-count><?php echo $statistics['amount_1']; ?></p>
@@ -38,8 +37,8 @@ $statistics = get_row( 'statistics' );
 				<div class="icon">
 					<img src="<?php echo $statistics['icon_2']['url'] ?>"
 					     alt="<?php echo $statistics['icon_2']['alt'] ?>"
-					     width="<?php echo $statistics['icon_2']['width'] ?>"
-					     height="<?php echo $statistics['icon_2']['height'] ?>">
+					     style="width: calc(<?php echo $statistics['icon_2']['width'] . 'px' ?> / 2); height: calc(<?php echo $statistics['icon_2']['height'] . 'px' ?> / 2);">
+
 				</div>
 				<div class="data">
 					<p class = "amount" data-count><?php echo $statistics['amount_2']; ?></p>
@@ -51,8 +50,8 @@ $statistics = get_row( 'statistics' );
 				<div class="icon">
 					<img src="<?php echo $statistics['icon_3']['url'] ?>"
 					     alt="<?php echo $statistics['icon_3']['alt'] ?>"
-					     width="<?php echo $statistics['icon_3']['width'] ?>"
-					     height="<?php echo $statistics['icon_3']['height'] ?>">
+					     style="width: calc(<?php echo $statistics['icon_3']['width'] . 'px' ?> / 2); height: calc(<?php echo $statistics['icon_3']['height'] . 'px' ?> / 2);">
+
 				</div>
 				<div class="data">
 					<p class = "amount" data-count><?php echo $statistics['amount_3']; ?></p>
