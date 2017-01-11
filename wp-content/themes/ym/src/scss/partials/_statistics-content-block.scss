@@ -1,0 +1,16 @@
+.fc-statistics {
+	@include padding(null null 50px);
+	text-align: center;
+
+	.flex-wrap {
+		lost-center: 1280px;
+	}
+
+	.stat-container {
+		lost-column: 1/3;
+
+		img {
+			width: 50%;
+		}
+	}
+}

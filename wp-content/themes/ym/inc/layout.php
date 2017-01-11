@@ -196,9 +196,9 @@ function ym_flexible_content() {
 
 			get_template_part( 'partials/cta', 'content-block' );
 
-		} elseif ( get_row_layout() == 'data_block_with_content' ) {
+		} elseif ( get_row_layout() == 'statistics' ) {
 
-			get_template_part( 'partials/data', 'content-block' );
+			get_template_part( 'partials/statistics', 'content-block' );
 
 		} elseif ( get_row_layout() == 'content_and_image_block' ) {
 
