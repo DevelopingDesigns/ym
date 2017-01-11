@@ -176,58 +176,18 @@ function ym_flexible_content() {
 
 	while ( have_rows( 'flexible_content' ) ) : the_row();
 
-		if ( get_row_layout() == 'hero' ) {
-
+		if ( get_row_layout() === 'hero' ) {
 			get_template_part( 'partials/hero', 'content-block' );
-
-		} elseif ( get_row_layout() == 'cards' ) {
-
+		} elseif ( get_row_layout() === 'cards' ) {
 			get_template_part( 'partials/cards', 'content-block' );
-
-		} elseif ( get_row_layout() == 'content' ) {
-
+		} elseif ( get_row_layout() === 'content' ) {
 			get_template_part( 'partials/content', 'content-block' );
-
-		} elseif ( get_row_layout() == 'title' ) {
-
+		} elseif ( get_row_layout() === 'title' ) {
 			get_template_part( 'partials/title', 'content-block' );
-
-		} elseif ( get_row_layout() == 'call_to_action_block' ) {
-
-			get_template_part( 'partials/cta', 'content-block' );
-
-		} elseif ( get_row_layout() == 'statistics' ) {
-
+		} elseif ( get_row_layout() === 'statistics' ) {
 			get_template_part( 'partials/statistics', 'content-block' );
-
-		} elseif ( get_row_layout() == 'content_and_image_block' ) {
-
-			get_template_part( 'partials/content', 'image-block' );
-
-		} elseif ( get_row_layout() == 'call_to_action_expander' ) {
-
-			get_template_part( 'partials/cta', 'expander-block' );
-
-		} elseif ( get_row_layout() == 'cta_image_download_block' ) {
-
-			get_template_part( 'partials/cta', 'download-block' );
-
-		} elseif ( get_row_layout() == 'cta_contact_info_block' ) {
-
-			get_template_part( 'partials/cta', 'contact-block' );
-
-		} elseif ( get_row_layout() == 'image_and_content_block' ) {
-
-			get_template_part( 'partials/image', 'content-block' );
-
-		} elseif ( get_row_layout() == 'pricing_boxes_block' ) {
-
-			get_template_part( 'partials/pricing', 'boxes-block' );
-
-		} elseif ( get_row_layout() == 'logo_slider_block' ) {
-
-			get_template_part( 'partials/logo', 'slider-block' );
-
+		} elseif ( get_row_layout() === 'video' ) {
+			get_template_part( 'partials/video', 'content-block' );
 		}
 
 	endwhile;
