@@ -24,6 +24,9 @@ $content = get_row( 'content' );
 		<div class = "content-container">
 			<h1><?php echo $content['heading']; ?></h1>
 			<p><?php echo $content['content_area']; ?></p>
+			<div class="embed-container">
+				<?php echo $content['video']; ?>
+			</div>
 
 			<?php if ( $content['buttons'] ) :
 				get_template_part( 'partials/parts/button', 'group' );
