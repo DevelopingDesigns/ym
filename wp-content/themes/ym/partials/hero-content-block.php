@@ -1,6 +1,6 @@
 <?php
 /**
- * Default code for a Hero Content Block partial
+ * Default code for a Hero Content Block
  *
  * @package    YourMembership
  * @author     Developing Designs - Joe Dooley

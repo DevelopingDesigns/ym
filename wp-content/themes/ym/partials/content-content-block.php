@@ -1,6 +1,6 @@
 <?php
 /**
- * Default code for a Small Content Block partial
+ * Default code for a Content - Content Block
  *
  * @package    YourMembership
  * @author     Developing Designs - Joe Dooley
@@ -17,8 +17,10 @@ $content = get_row( 'content' );
 
 ?>
 
-<section class = "row fc-content <?php echo $content['css_class']; ?>">
+<section class = "row fc-content <?php echo $content['css_class']; ?>"
+         style="<?php echo $content['background_color']; ?>">
 	<div class = "wrap">
+
 		<div class = "content-container">
 			<h1><?php echo $content['heading']; ?></h1>
 			<p><?php echo $content['content_area']; ?></p>

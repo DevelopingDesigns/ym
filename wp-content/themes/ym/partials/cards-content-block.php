@@ -1,6 +1,6 @@
 <?php
 /**
- * Default code for a 4-Icon Content Block partial
+ * Default code for Cards Content Block
  *
  * @package    YourMembership
  * @author     Developing Designs - Joe Dooley

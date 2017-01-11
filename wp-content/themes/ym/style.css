@@ -2159,6 +2159,9 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   padding: 75px 0;
   text-align: center; }
 
+.fc-title {
+  text-align: center; }
+
 .cta-block .content-container {
   margin: 2.5rem 0;
   float: left;

@@ -188,9 +188,9 @@ function ym_flexible_content() {
 
 			get_template_part( 'partials/content', 'content-block' );
 
-		} elseif ( get_row_layout() == 'three_icons' ) {
+		} elseif ( get_row_layout() == 'title' ) {
 
-			get_template_part( 'partials/3icon', 'content-block' );
+			get_template_part( 'partials/title', 'content-block' );
 
 		} elseif ( get_row_layout() == 'call_to_action_block' ) {
 
@@ -207,10 +207,6 @@ function ym_flexible_content() {
 		} elseif ( get_row_layout() == 'call_to_action_expander' ) {
 
 			get_template_part( 'partials/cta', 'expander-block' );
-
-		} elseif ( get_row_layout() == 'four_icons' ) {
-
-			get_template_part( 'partials/4icon', 'content-block' );
 
 		} elseif ( get_row_layout() == 'cta_image_download_block' ) {
 
