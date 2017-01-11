@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "scss": "node-sass --source-map true src/scss -o ./",
-    "postcss": "postcss -u lost -u postcss-assets -u autoprefixer -o style.css style.css",
+    "postcss": "postcss -u lost -u postcss-assets -u autoprefixer -u postcss-svgo -o style.css style.css",
     "babel": "rm -rf dist/js/custom && mkdir -p dist/js/custom && babel src/js/custom -d dist/js/custom",
     "build:css": "npm run scss && npm run postcss",
     "build:js": "npm run babel",
@@ -45,6 +45,8 @@
     "parallelshell": "^2.0.0",
     "postcss-assets": "^4.1.0",
     "postcss-cli": "^2.6.0",
+    "postcss-svgo": "^2.1.6",
+    "svgo": "^0.7.1",
     "uglify-js": "^2.7.4"
   }
 }
