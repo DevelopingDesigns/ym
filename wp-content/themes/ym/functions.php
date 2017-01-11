@@ -27,13 +27,3 @@ include_once __DIR__ . '/inc/customizer/output.php';
 require_once __DIR__ . '/inc/assets.php';
 require_once __DIR__ . '/inc/widgets.php';
 require_once __DIR__ . '/inc/genesis.php';
-
-
-/**
- * Add Wistia as an oEmbed provider
- */
-wp_oembed_add_provider(
-	'/https?:\/\/(.+)?(wistia.com|wi.st)\/(medias|embed)\/.*/',
-	'http://fast.wistia.com/oembed',
-	true
-);
