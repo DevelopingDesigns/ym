@@ -1,7 +1,10 @@
-/// Partials for ACF Flexible Content
+// SCSS for 'ym/partials'
+
+@import "parts/parts";
 
 @import "hero-content-block";
 @import "cards-content-block";
+@import "content-content-block";
 @import "cta-block";
 @import "data-block";
 @import "content-image-block";
