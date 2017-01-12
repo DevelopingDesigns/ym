@@ -158,6 +158,13 @@ if ( defined( 'PANTHEON_ENVIRONMENT' ) ) {
 	}
 }
 
+
+/**
+ * Needed for WordPress 4.7.1 to allow svg uploads
+ */
+define( 'ALLOW_UNFILTERED_UPLOADS', true );
+
+
 /* That's all, stop editing! Happy Pressing. */
 
 
