@@ -10,20 +10,10 @@
 
 $video = get_row( 'video_popup' );
 
-echo '<pre>';
-wps_printr( $video );
-echo '</pre>';
+//echo '<pre>';
+//print_r( $video );
+//echo '</pre>';
 
-// print_r output seen here: http://d.pr/i/CvuN
-
-// First you'll want to store your fields value into a variable.
-/**
- * $aktuell = get_field( 'aktuell_title' );
- *
- * echo '<pre>';
- * wps_printr( $aktuell );
- * echo '</pre>';
- */
 ?>
 
 
