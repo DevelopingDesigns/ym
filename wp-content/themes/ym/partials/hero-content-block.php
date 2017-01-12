@@ -22,7 +22,7 @@ wp_localize_script( 'all-js', 'BackStretchImg', [
 ?>
 
 <section class="hero <?php echo $hero['css_class']; ?>"
-         style="background-image: url( <?php echo $hero['hero_image']['url'] ?> ); justify-content: <?php echo $hero['alignment']; ?>;">
+         style="background-image: url( <?php echo $hero['hero_image']['url'] ?> ); justify-content: <?php echo $hero['alignment']; ?>; min-height: <?php echo $hero['hero_image']['height'] . 'px' ?>;">
 	<div class="wrap">
 
 		<div class="hero-content" style="text-align: <?php echo $hero['text_alignment']; ?>;">

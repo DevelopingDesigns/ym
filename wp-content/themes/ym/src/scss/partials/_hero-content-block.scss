@@ -5,14 +5,13 @@
 	background-position: center;
 	background-size: cover;
 	display: flex;
-	min-height: 31em;
 
 	.hero-content {
 		color: $white;
-		text-align: center;
 
 		h1 {
 			@include font-size(70);
+			max-width: 600px;
 		}
 
 		.hero-subheading {
@@ -20,18 +19,6 @@
 			max-width: 25em;
 		}
 
-		.double-button {
-			min-width: 220px;
-
-			&:first-of-type {
-				margin-right: 3em;
-
-				@include media($small-screen-up) {
-					margin-bottom: 1em;
-					margin-right: 0;
-				}
-			}
-		}
 	}
 
 }

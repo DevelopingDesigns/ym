@@ -2,20 +2,46 @@
 	align-items: center;
 	background-position: center;
 	background-size: cover;
+	color: $white;
 	display: flex;
 
-	.double-button {
-		min-width: 220px;
+	.wrap {
+		@include margin(0);
+	}
 
-		&:first-of-type {
-			margin-right: 3em;
+	.name {
+		@include font-size(18);
+		margin-bottom: 0;
+	}
 
-			@include media($small-screen-up) {
-				margin-bottom: 1em;
-				margin-right: 0;
+	.details {
+		@include font-size(15);
+
+		span {
+			&:first-child {
+				border-right: 1px solid;
+				padding-right: 10px;
+			}
+
+			&:last-child {
+				padding-left: 10px;
 			}
 		}
 	}
 
+	.play-container {
+		a {
+			color: $white;
+
+			p {
+				@include margin(0);
+			}
+
+			&:hover {
+				color: $white;
+			}
+		}
+
+	}
 }
 

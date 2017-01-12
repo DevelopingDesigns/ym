@@ -119,6 +119,7 @@
 
 // Text Link
 .text-link {
+	margin: 0 !important;
 	background-color: transparent !important;
 	background-image: inline('dist/images/card-arrow@2x.png');
 	background-position: 94% 55%;
@@ -126,6 +127,7 @@
 	background-size: size('dist/images/card-arrow@2x.png', 2);
 	box-shadow: none !important;
 	color: $green3;
+	min-width: 0 !important;
 	padding-right: 20px;
 	text-transform: capitalize;
 
@@ -162,4 +164,19 @@
 .btn-large {
 	@include font-size(14);
 	@include padding(17.5px 40px);
+}
+
+
+// .double-buttons
+.double-button {
+	min-width: 220px;
+
+	&:first-of-type {
+		margin-right: 3em;
+
+		@include media($small-screen-up) {
+			margin-bottom: 1em;
+			margin-right: 0;
+		}
+	}
 }

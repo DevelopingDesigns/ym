@@ -18,7 +18,7 @@ $video = get_row( 'video_popup' );
 
 
 <section class="row fc-video <?php echo $video['css_class']; ?>"
-         style="background-image: url( <?php echo $video['background_image']['url'] ?> ); background-color: <?php echo $video['background_color'] ?>; justify-content:<?php echo $video['alignment'] ?>;">
+         style="background-image: url( <?php echo $video['background_image']['url'] ?> ); background-color: <?php echo $video['background_color'] ?>; justify-content:<?php echo $video['alignment'] ?>; min-height: <?php echo $video['background_image']['height'] . 'px'?>;">
 	<div class="wrap">
 
 		<div class="video-content" style="text-align: <?php echo $video['text_alignment']; ?>;">
@@ -34,17 +34,16 @@ $video = get_row( 'video_popup' );
 				<p class="details"><span class="company"><?php echo $video['company']; ?></span><span class="company"><?php echo $video['title']; ?></span></p>
 			</div>
 
-			<div class="play-container">
-				<a href="#" title="Play <?php echo $video['name']; ?>">
-					<img src="/wp-content/themes/ym/dist/images/play-button.svg" alt="play button for video">
-					<p class="play-label">Play video</p>
-				</a>
-			</div>
-
-			<?php if ( $video['add_cta'] ) :
+			<?php if ( $video['add_cta'] ) {
 				get_template_part( 'partials/parts/button', 'group' );
-			endif; ?>
-
+			} else { ?>
+				<div class="play-container">
+					<a href="#" title="Play <?php echo $video['name']; ?>">
+						<img src="/wp-content/themes/ym/dist/images/play-button.svg" alt="play button for video">
+						<p class="play-label">Play video</p>
+					</a>
+				</div>
+			<?php } ?>
 		</div>
 
 	</div>

@@ -663,23 +663,17 @@ b,
 strong {
   font-weight: 600; }
 
-blockquote,
 cite,
 em,
 i {
   font-style: italic; }
 
 blockquote {
-  margin: 40px; }
-  blockquote::before {
-    content: "\201C";
-    display: block;
-    font-size: 30px;
-    font-size: 3rem;
-    height: 0;
-    left: -20px;
-    position: relative;
-    top: -10px; }
+  font-size: 30px;
+  font-size: 3rem;
+  margin: 10px 20px 20px;
+  font-weight: 300;
+  max-width: 700px; }
 
 /* ## Screen Reader Text
 --------------------------------------------- */
@@ -2072,6 +2066,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     box-shadow: none; }
 
 .text-link {
+  margin: 0 !important;
   background-color: transparent !important;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAABGdBTUEAALGPC/xhBQAAAYhJREFUOBGtlD1Lw1AUht+btiKCQhc7iKJTB1fdHIyTgxZapRZEUATByY/FquDXoCAI4uQgOLjUa1ttHRzExdXVHyPY5PqeEKFIq5jkwA0nN+F5cs5JohAwdA1p18GzAm7mcthth7HaXfhr322gBwb9xmCnVMVJu/sDCwozeFMKax7YoHhbwUErSWCBwNiaC2VhS3ID7OsqipI3B1sYPgjecw0OfdIGqzv/pkYiEBhbdMwqtiVn61ZZ3aWXyyGq4LDP2KtNCjh7LBdyuFblGkYcB+NRSShYJ7yPPNeKYSHuNPDgb0Tm8EGWcXAa51twxHqmI6SPsoqUx1PQkQ1ZgLqCWXajxBXjHK7yWaxEJiA84wJlehJc8vtYpMSNizls8DuYZJvvyEkQqlUWSwIXbmgB4RP8yO7J6oBCrTeJeVvBEbhEKAHhY4TXyekk/MlKI28Po+GR/UPgGehHDJhPvLM13YS/pJKYsm18NMMlD1yBcTEocD7ha1cCmVbwn7J/n+s6hij59Y/8Ba0McDChBqDgAAAAAElFTkSuQmCC');
   background-position: 94% 55%;
@@ -2079,6 +2074,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   background-size: 12px 9px;
   box-shadow: none !important;
   color: #C1CE20;
+  min-width: 0 !important;
   padding-right: 20px;
   text-transform: capitalize; }
   .text-link:hover, .text-link:focus {
@@ -2109,6 +2105,15 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   font-size: 1.4rem;
   padding: 17.5px 40px; }
 
+.double-button {
+  min-width: 220px; }
+  .double-button:first-of-type {
+    margin-right: 3em; }
+    @media screen and (max-width: 500px) {
+      .double-button:first-of-type {
+        margin-bottom: 1em;
+        margin-right: 0; } }
+
 .hero {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -2117,25 +2122,16 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
-  min-height: 31em; }
+  display: flex; }
   .hero .hero-content {
-    color: #fff;
-    text-align: center; }
+    color: #fff; }
     .hero .hero-content h1 {
       font-size: 70px;
-      font-size: 7rem; }
+      font-size: 7rem;
+      max-width: 600px; }
     .hero .hero-content .hero-subheading {
       margin: 0 auto 3rem;
       max-width: 25em; }
-    .hero .hero-content .double-button {
-      min-width: 220px; }
-      .hero .hero-content .double-button:first-of-type {
-        margin-right: 3em; }
-        @media screen and (max-width: 500px) {
-          .hero .hero-content .double-button:first-of-type {
-            margin-bottom: 1em;
-            margin-right: 0; } }
 
 .cards {
   padding: 25px 0; }
@@ -2273,17 +2269,30 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
           align-items: center;
   background-position: center;
   background-size: cover;
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
-  .fc-video .double-button {
-    min-width: 220px; }
-    .fc-video .double-button:first-of-type {
-      margin-right: 3em; }
-      @media screen and (max-width: 500px) {
-        .fc-video .double-button:first-of-type {
-          margin-bottom: 1em;
-          margin-right: 0; } }
+  .fc-video .wrap {
+    margin: 0; }
+  .fc-video .name {
+    font-size: 18px;
+    font-size: 1.8rem;
+    margin-bottom: 0; }
+  .fc-video .details {
+    font-size: 15px;
+    font-size: 1.5rem; }
+    .fc-video .details span:first-child {
+      border-right: 1px solid;
+      padding-right: 10px; }
+    .fc-video .details span:last-child {
+      padding-left: 10px; }
+  .fc-video .play-container a {
+    color: #fff; }
+    .fc-video .play-container a p {
+      margin: 0; }
+    .fc-video .play-container a:hover {
+      color: #fff; }
 
 /* # Print Styles
 ---------------------------------------------------------------------------------------------------- */
