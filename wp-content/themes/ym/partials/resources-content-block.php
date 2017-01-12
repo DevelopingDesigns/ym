@@ -30,7 +30,10 @@ $post_objects = $resources['posts'];
 			<?php if ( $post_objects ) : ?>
 
 				<?php foreach ( $post_objects as $post ) : ?>
-					<?php setup_postdata( $post ); ?>
+					<?php setup_postdata( $post );
+
+					global $resources_partial;
+					$resources_partial = true; ?>
 
 					<article class="resource">
 
@@ -39,9 +42,18 @@ $post_objects = $resources['posts'];
 								<?php the_post_thumbnail( 'full' ); ?>
 							</a>
 						<?php endif; ?>
-						<p class="category"><?php the_category(); ?></p>
-						<a class="link" href="<?php the_permalink(); ?>"><h4 class="title"><?php the_title(); ?></h4></a>
-						<p class="excerpt"><?php the_excerpt(); ?></p>
+
+						<div class="resource-wrap">
+							<?php if ( get_the_category() ) :
+								the_category();
+							endif; ?>
+
+							<a class="link" href="<?php the_permalink(); ?>"><h4 class="title"><?php the_title(); ?></h4></a>
+
+							<?php if ( get_the_excerpt() ) :
+								the_excerpt();
+							endif; ?>
+						</div>
 
 					</article>
 

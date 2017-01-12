@@ -21,9 +21,13 @@ define( 'JS_DIR', get_stylesheet_directory_uri() . '/dist/js/custom' );
 define( 'VENDOR_JS_DIR', get_stylesheet_directory_uri() . '/dist/js/vendors' );
 
 
+/**
+ * Load em' up. See 'inc/genesis.php' for additional includes
+ */
 require_once __DIR__ . '/inc/customizer/helper-functions.php';
 require_once __DIR__ . '/inc/customizer/customize.php';
 include_once __DIR__ . '/inc/customizer/output.php';
 require_once __DIR__ . '/inc/assets.php';
 require_once __DIR__ . '/inc/widgets.php';
 require_once __DIR__ . '/inc/genesis.php';
+
