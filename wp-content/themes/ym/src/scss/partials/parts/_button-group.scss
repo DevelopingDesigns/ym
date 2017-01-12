@@ -29,6 +29,17 @@
 	}
 }
 
+.btn-white {
+	background-color: $white;
+	color: $slate-dark;
+
+	&:hover,
+	&focus {
+		background-color: shade($white, 15%);
+		box-shadow: none;
+	}
+}
+
 .btn-sec-green {
 	background-color: transparent;
 	border: 1px solid $green-main;
@@ -68,6 +79,20 @@
 		background-color: $slate-dark;
 		box-shadow: none;
 		color: $white;
+	}
+}
+
+.btn-sec-white {
+	background-color: transparent;
+	border: 1px solid $white;
+	box-shadow: none;
+	color: $white;
+
+	&:hover,
+	&focus {
+		background-color: $white;
+		box-shadow: none;
+		color: $slate-dark;
 	}
 }
 

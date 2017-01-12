@@ -19,7 +19,7 @@ echo '</pre>';
 
 
 <section class="row fc-video <?php echo $video['alignment']['css_class']; ?>"
-         style="background: url(<?php echo $video['background_image']['url'] ?>) <?php echo $video['background_color'] ?>; justify-content: <?php echo $video['alignment']['alignment']; ?>;">
+         style="background: url( <?php echo $video['background_image']['url'] ?> ) <?php echo $video['background_color'] ?>; justify-content: <?php echo $video['alignment']['alignment'] ?>;">
 	<div class="wrap">
 
 		<div class="video-content" style="text-align: <?php echo $video['alignment']['text_alignment']; ?>;">
@@ -36,7 +36,7 @@ echo '</pre>';
 			</div>
 
 			<div class="play-container">
-				<a href="#"><img src="../dist/images/play-button.svg" alt="play video"></a>
+				<a href="#"><img src="/wp-content/themes/ym/dist/images/play-button.svg" alt="play video"></a>
 				<p class="play-label">Play video</p>
 			</div>
 
