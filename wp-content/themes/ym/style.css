@@ -1988,6 +1988,9 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   margin-right: 0;
   margin-left: auto; }
 
+.fc-title-group h1 {
+  margin-bottom: 30px; }
+
 .btn-green {
   background-color: #C1CE20; }
   .btn-green:hover, .btn-greenfocus {
@@ -2170,10 +2173,6 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
 
 .fc-content {
   padding: 75px 0;
-  text-align: center; }
-
-.fc-title {
-  padding: 50px 0;
   text-align: center; }
 
 .fc-statistics {

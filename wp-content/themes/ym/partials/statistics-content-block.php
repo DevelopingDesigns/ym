@@ -19,8 +19,12 @@ $statistics = get_row( 'statistics' );
 
 <section class = "row fc-statistics <?php echo $statistics['css_class']; ?>">
 	<div class = "wrap">
-		<div class="flex-wrap">
 
+		<?php if ( $statistics['add_heading'] ) :
+			get_template_part( 'partials/parts/title', 'group' );
+		endif; ?>
+
+		<div class="flex-wrap">
 			<article class = "stat-container">
 				<div class="icon">
 					<img src="<?php echo $statistics['icon_1']['url'] ?>"
@@ -38,7 +42,6 @@ $statistics = get_row( 'statistics' );
 					<img src="<?php echo $statistics['icon_2']['url'] ?>"
 					     alt="<?php echo $statistics['icon_2']['alt'] ?>"
 					     style="width: calc(<?php echo $statistics['icon_2']['width'] . 'px' ?> / 2); height: calc(<?php echo $statistics['icon_2']['height'] . 'px' ?> / 2);">
-
 				</div>
 				<div class="data">
 					<p class = "amount" data-count><?php echo $statistics['amount_2']; ?></p>
@@ -51,14 +54,13 @@ $statistics = get_row( 'statistics' );
 					<img src="<?php echo $statistics['icon_3']['url'] ?>"
 					     alt="<?php echo $statistics['icon_3']['alt'] ?>"
 					     style="width: calc(<?php echo $statistics['icon_3']['width'] . 'px' ?> / 2); height: calc(<?php echo $statistics['icon_3']['height'] . 'px' ?> / 2);">
-
 				</div>
 				<div class="data">
 					<p class = "amount" data-count><?php echo $statistics['amount_3']; ?></p>
 					<p class = "sub-heading"><?php echo $statistics['subheading_3']; ?></p>
 				</div>
 			</article>
-
 		</div>
+
 	</div>
 </section>
