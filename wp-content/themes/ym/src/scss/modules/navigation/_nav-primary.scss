@@ -23,7 +23,7 @@
 			@include font-size(14);
 			background-color: $green-main;
 			border-radius: 50px;
-			box-shadow: 0 2px 4px $black2;
+			box-shadow: $button-shadow;
 			color: $white;
 			text-transform: uppercase;
 

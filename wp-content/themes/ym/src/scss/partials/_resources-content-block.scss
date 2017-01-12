@@ -12,9 +12,13 @@
 	.resource {
 		@include padding(0);
 		background-color: $white;
-		box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.06);
 		lost-column: 2/6 3 60px;
 		text-align: left;
+
+		&:hover {
+			box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.06);
+			transition: all 0.3s ease-out;
+		}
 	}
 
 	.resource-wrap {
@@ -50,6 +54,13 @@
 	.link-more {
 		@include margin(0);
 		text-align: right;
+
+		img {
+			&:hover {
+				transform: translateX(2px);
+				transition: transform 0.3s ease-out;
+			}
+		}
 	}
 }
 

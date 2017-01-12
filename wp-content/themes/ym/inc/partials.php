@@ -53,9 +53,9 @@ function ym_excerpt_more( $link ) {
 		return $link;
 	}
 
-	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>', esc_url( get_permalink( get_the_ID() ) ),
-		sprintf( __( '<img src="/wp-content/themes/ym/dist/images/green-arrow.svg"><span class="screen-reader-text"> "%s"</span>', 'ym' ), get_the_title(
-			get_the_ID() ) ) );
+	$arrow_src = '/wp-content/themes/ym/dist/images/green-arrow.svg';
+
+	$link = sprintf( '<p class="link-more"><a href="%s" class="more-link"><img src="%s"></a></p>', esc_url( get_permalink( get_the_ID() ) ), $arrow_src );
 
 	return $link;
 }

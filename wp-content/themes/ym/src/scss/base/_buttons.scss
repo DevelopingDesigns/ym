@@ -11,7 +11,7 @@ $btn-slate: $slate-dark;
   background-color: $green-main;
   border: 0;
   border-radius: $base-border-radius;
-  box-shadow: 0 2px 4px 0 #000;
+  box-shadow: $button-shadow;
   color: $white;
   cursor: pointer;
   display: inline-block;
