@@ -1,6 +1,10 @@
 .fc-statistics {
-	@include padding(null null 50px);
+	@include padding(50px null 150px null);
 	text-align: center;
+
+	.fc-title-group {
+		padding-bottom: 70px;
+	}
 
 	.flex-wrap {
 		lost-center: 1280px;

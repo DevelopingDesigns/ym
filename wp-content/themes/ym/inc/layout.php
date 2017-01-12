@@ -186,6 +186,8 @@ function ym_flexible_content() {
 			get_template_part( 'partials/statistics', 'content-block' );
 		} elseif ( get_row_layout() === 'video' ) {
 			get_template_part( 'partials/video', 'content-block' );
+		} elseif ( get_row_layout() === 'resources' ) {
+			get_template_part( 'partials/resources', 'content-block' );
 		}
 
 	endwhile;

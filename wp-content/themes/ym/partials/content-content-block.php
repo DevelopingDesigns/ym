@@ -18,8 +18,12 @@ $content = get_row( 'content' );
 ?>
 
 <section class = "row fc-content <?php echo $content['css_class']; ?>"
-         style="<?php echo $content['background_color']; ?>">
+         style="background-color: <?php echo $content['background_color']; ?>">
 	<div class = "wrap">
+
+		<?php if ( $content['add_heading'] ) :
+			get_template_part( 'partials/parts/title', 'group' );
+		endif; ?>
 
 		<div class = "content-container">
 			<h1><?php echo $content['heading']; ?></h1>

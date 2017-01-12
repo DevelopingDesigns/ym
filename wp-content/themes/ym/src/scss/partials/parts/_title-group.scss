@@ -1,4 +1,6 @@
 .fc-title-group {
+	@include padding(null);
+
 	h1 {
 		margin-bottom: 30px;
 	}

@@ -1,0 +1,25 @@
+.fc-resources {
+	.flex-wrap {
+		lost-center: 1280px;
+	}
+
+	.resource {
+		@include padding(10px 20px);
+		background-color: $white;
+		lost-column: 1/3;
+		text-align: left;
+	}
+
+	.title {
+		@include font-size(22);
+		color: $slate-dark;
+		font-weight: $fw-light;
+	}
+
+	.excerpt {
+		@include font-size(14);
+		color: $slate;
+		font-weight: $fw-light;
+	}
+}
+
