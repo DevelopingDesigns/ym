@@ -188,6 +188,8 @@ function ym_flexible_content() {
 			get_template_part( 'partials/video', 'content-block' );
 		} elseif ( get_row_layout() === 'resources' ) {
 			get_template_part( 'partials/resources', 'content-block' );
+		} elseif ( get_row_layout() === 'logo_slider' ) {
+			get_template_part( 'partials/logo', 'content-block' );
 		}
 
 	endwhile;

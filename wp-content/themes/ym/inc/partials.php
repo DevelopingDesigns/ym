@@ -53,9 +53,7 @@ function ym_excerpt_more( $link ) {
 		return $link;
 	}
 
-	$arrow_src = '/wp-content/themes/ym/dist/images/green-arrow.svg';
-
-	$link = sprintf( '<p class="link-more"><a href="%s" class="more-link"><img src="%s"></a></p>', esc_url( get_permalink( get_the_ID() ) ), $arrow_src );
+	$link = sprintf( '<p class="link-more"><a href="%s" class="more-link"><img src="/wp-content/themes/ym/dist/images/green-arrow.svg" width="20" height="14"></a></p>', esc_url( get_permalink( get_the_ID() ) ) );
 
 	return $link;
 }

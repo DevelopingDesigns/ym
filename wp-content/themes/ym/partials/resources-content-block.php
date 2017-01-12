@@ -68,11 +68,3 @@ $post_objects = $resources['posts'];
 	</div>
 </section>
 
-
-<?php
-
-//echo '<pre>';
-//print_r( $post_objects );
-//echo '</pre>';
-
-?>
