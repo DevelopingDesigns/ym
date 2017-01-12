@@ -11,6 +11,10 @@
 
 $hero   = get_row( 'hero' );
 
+echo '<pre>';
+print_r( $hero );
+echo '</pre>';
+
 wp_localize_script( 'all-js', 'BackStretchImg', [
 	'src' => $hero['hero_image']['url']
 ] );
@@ -25,7 +29,7 @@ wp_localize_script( 'all-js', 'BackStretchImg', [
 			<h1><?php echo $hero['heading']; ?></h1>
 			<h3><?php echo $hero['sub_heading']; ?></h3>
 
-			<?php if ( $hero['buttons'] ) :
+			<?php if ( $hero['add_cta'] ) :
 				get_template_part( 'partials/parts/button', 'group' );
 			endif; ?>
 		</div>

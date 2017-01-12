@@ -8,7 +8,8 @@
  */
 
 
-$video = get_sub_field( 'video_popup' );
+$video_popup = get_row( 'video_popup' );
+$video = $video_popup['video_popup'];
 
 
 echo '<pre>';
@@ -39,6 +40,10 @@ echo '</pre>';
 				<a href="#"><img src="/wp-content/themes/ym/dist/images/play-button.svg" alt="play video"></a>
 				<p class="play-label">Play video</p>
 			</div>
+
+			<?php if ( $video['add_cta'] ) :
+				get_template_part( 'partials/parts/button', 'group' );
+			endif; ?>
 
 		</div>
 

@@ -14,11 +14,11 @@ if ( $button ) : ?>
 
 	<div class="button-group">
 		<a href="<?php echo $button['url']; ?>"
-		   class="<?php echo $button['style'] . ' ' .$button['size']; ?> button double-button"><?php echo $button['text']; ?></a>
+		   class="<?php echo $button['style'] . ' ' . $button['size']; ?> button double-button"><?php echo $button['text']; ?></a>
 
 <?php endif; ?>
 
-<?php if ( $button['add_another_button'] ) : ?>
+<?php if ( $button['add_another_cta'] ) : ?>
 
 	<a href="<?php echo $button['second_button']['url']; ?>"
 	   class="<?php echo $button['second_button']['style'] . ' ' . $button['second_button']['size']; ?> button double-button"><?php echo
