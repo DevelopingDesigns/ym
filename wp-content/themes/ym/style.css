@@ -2016,8 +2016,8 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   background-color: #fff;
   color: #343F49; }
   .btn-white:hover, .btn-whitefocus {
-    background-color: #d9d9d9;
-    box-shadow: none; }
+    box-shadow: none;
+    color: #343F49; }
 
 .btn-sec-green {
   background-color: transparent;

@@ -11,9 +11,9 @@
 
 $hero   = get_row( 'hero' );
 
-echo '<pre>';
-print_r( $hero );
-echo '</pre>';
+//echo '<pre>';
+//print_r( $hero );
+//echo '</pre>';
 
 wp_localize_script( 'all-js', 'BackStretchImg', [
 	'src' => $hero['hero_image']['url']

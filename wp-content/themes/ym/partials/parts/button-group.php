@@ -9,8 +9,9 @@
  */
 
 $button = get_sub_field( 'buttons' );
+$add_cta = get_sub_field( 'add_cta' );
 
-if ( $button ) : ?>
+if ( $add_cta ) : ?>
 
 	<div class="button-group">
 		<a href="<?php echo $button['url']; ?>"

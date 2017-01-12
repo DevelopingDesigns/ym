@@ -8,22 +8,30 @@
  */
 
 
-$video_popup = get_row( 'video_popup' );
-$video = $video_popup['video_popup'];
-
+$video = get_row( 'video_popup' );
 
 echo '<pre>';
-print_r( $video );
+wps_printr( $video );
 echo '</pre>';
 
+// print_r output seen here: http://d.pr/i/CvuN
+
+// First you'll want to store your fields value into a variable.
+/**
+ * $aktuell = get_field( 'aktuell_title' );
+ *
+ * echo '<pre>';
+ * wps_printr( $aktuell );
+ * echo '</pre>';
+ */
 ?>
 
 
-<section class="row fc-video <?php echo $video['alignment']['css_class']; ?>"
-         style="background: url( <?php echo $video['background_image']['url'] ?> ) <?php echo $video['background_color'] ?>; justify-content: <?php echo $video['alignment']['alignment'] ?>;">
+<section class="row fc-video <?php echo $video['css_class']; ?>"
+         style="background-image: url( <?php echo $video['background_image']['url'] ?> ); background-color: <?php echo $video['background_color'] ?>; justify-content:<?php echo $video['alignment'] ?>;">
 	<div class="wrap">
 
-		<div class="video-content" style="text-align: <?php echo $video['alignment']['text_alignment']; ?>;">
+		<div class="video-content" style="text-align: <?php echo $video['text_alignment']; ?>;">
 
 			<img class="logo"
 			     src="<?php echo $video['logo']['url']; ?>"
@@ -37,8 +45,10 @@ echo '</pre>';
 			</div>
 
 			<div class="play-container">
-				<a href="#"><img src="/wp-content/themes/ym/dist/images/play-button.svg" alt="play video"></a>
-				<p class="play-label">Play video</p>
+				<a href="#" title="Play <?php echo $video['name']; ?>">
+					<img src="/wp-content/themes/ym/dist/images/play-button.svg" alt="play button for video">
+					<p class="play-label">Play video</p>
+				</a>
 			</div>
 
 			<?php if ( $video['add_cta'] ) :

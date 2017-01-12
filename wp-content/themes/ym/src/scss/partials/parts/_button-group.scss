@@ -35,8 +35,8 @@
 
 	&:hover,
 	&focus {
-		background-color: shade($white, 15%);
 		box-shadow: none;
+		color: $slate-dark;
 	}
 }
 
