@@ -19,6 +19,9 @@
 @import "vendor/neat/neat";
 @import "base/base";
 
+// NPM Plugins
+@import "npm-plugins/npm-plugins";
+
 // Theme scss
 @import "components/components";
 @import "structure/structure";

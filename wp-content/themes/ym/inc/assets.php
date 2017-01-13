@@ -12,7 +12,6 @@
 
 namespace DevDesigns\YM;
 
-
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 /**
  * Enqueue scripts and styles in scripts-and-styles.php
@@ -34,10 +33,15 @@ function enqueue_assets() {
 		true
 	);
 
-	wp_deregister_script( 'superfish' );
-	wp_deregister_script( 'superfish-args' );
-
+	wp_register_script(
+		'swiper',
+		CHILD_THEME_DIR . '/node_modules/swiper/dist/js/swiper.min.js',
+		[],
+		'3.4.1',
+		true
+	);
 }
+
 
 
 

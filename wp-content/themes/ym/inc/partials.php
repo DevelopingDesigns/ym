@@ -58,3 +58,10 @@ function ym_excerpt_more( $link ) {
 	return $link;
 }
 
+
+add_filter( 'acf/load_field/name=my_field_name', 'load_field_my_field_name' );
+function load_field_my_field_name( $field ) {
+	wp_enqueue_script( 'my-script' );
+
+	return $field;
+}
