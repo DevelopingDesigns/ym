@@ -51,5 +51,12 @@
     "stylelint": "^7.7.1",
     "svgo": "^0.7.1",
     "uglify-js": "^2.7.4"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "/src/js/vendor",
+      "/dist/js"
+    ]
   }
 }
