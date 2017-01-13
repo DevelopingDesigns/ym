@@ -58,5 +58,18 @@
 		}
 	}
 
+	function fixHeader() {
+		var header = document.querySelector('#main');
+		var topOfHeader = header.offsetTop;
+
+		if (window.scrollY >= topOfNav) {
+			document.body.style.paddingTop = header.offsetHeight + 'px';
+			document.body.classList.add('fixed-header');
+		} else {
+			document.body.classList.remove('fixed-header');
+			document.body.style.paddingTop = 0;
+		}
+	}
+
 	window.addEventListener('scroll', debounce(scrollHandler));
 })(document, jQuery);

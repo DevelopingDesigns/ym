@@ -15,6 +15,16 @@ $statistics = get_row( 'statistics' );
 //print_r( $statistics );
 //echo '</pre>';
 
+if ( $statistics ) {
+	wp_enqueue_script(
+		'data-counters',
+		JS_DIR . '/data-counters.js',
+		[ 'jquery' ],
+		CHILD_THEME_VERSION,
+		true
+	);
+}
+
 ?>
 
 <section class = "row fc-statistics <?php echo $statistics['css_class']; ?>">

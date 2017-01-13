@@ -1418,23 +1418,6 @@ p.entry-meta {
     padding: 30px;
     margin-bottom: 5%; } }
 
-.before-header {
-  background-color: #fff;
-  text-align: right; }
-  @media screen and (max-width: 1200px) {
-    .before-header {
-      display: none; } }
-  .before-header .genesis-nav-menu a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    font-size: 1.2rem;
-    color: #5C6872; }
-    .before-header .genesis-nav-menu a:hover, .before-header .genesis-nav-menu a:active {
-      color: #333; }
-
 /* # Site Header
 ---------------------------------------------------------------------------------------------------- */
 /* ## Title Area
@@ -1487,20 +1470,9 @@ p.entry-meta {
 
 /* # Site Header - Smaller
 ---------------------------------------------------------------------------------------------------- */
-.site-header.smaller {
-  min-height: 100px;
-  padding-top: 7px;
-  position: fixed;
-  top: 0;
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-  width: 100%; }
-  .site-header.smaller .nav-primary {
-    padding-top: 15px; }
-    .site-header.smaller .nav-primary #ubermenu-main-2-primary a {
-      font-size: 18px; }
-  .site-header.smaller .title-area img {
-    width: 75px; }
+body.fixed-nav .site-container {
+  -webkit-transform: scale(1);
+          transform: scale(1); }
 
 /* # Site Navigation
 ---------------------------------------------------------------------------------------------------- */
@@ -1565,6 +1537,23 @@ p.entry-meta {
     padding-right: 0; }
   .genesis-nav-menu > .right {
     float: right; }
+
+.before-header {
+  background-color: #fff;
+  text-align: right; }
+  @media screen and (max-width: 1200px) {
+    .before-header {
+      display: none; } }
+  .before-header .genesis-nav-menu a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    font-size: 1.2rem;
+    color: #5C6872; }
+    .before-header .genesis-nav-menu a:hover, .before-header .genesis-nav-menu a:active {
+      color: #333; }
 
 .nav-primary #ubermenu-main-2-primary {
   float: right; }
