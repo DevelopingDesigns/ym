@@ -27,7 +27,6 @@ $content = get_row( 'content' );
 
 		<div class = "content-container">
 			<p><?php echo $content['content_area']; ?></p>
-			<p><?php echo $content['medium_editor']; ?></p>
 			<?php if ( $content['add_cta'] ) :
 				get_template_part( 'partials/parts/button', 'group' );
 			endif; ?>
