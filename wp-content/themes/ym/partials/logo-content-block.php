@@ -52,6 +52,7 @@ if ( have_rows( 'logos' ) ) :
 	wp_enqueue_style(
 		'swiper-css',
 		CHILD_THEME_DIR . '/node_modules/swiper/dist/css/swiper.min.css',
+        [],
 		'3.4.1'
 	);
 

@@ -22,6 +22,7 @@
 				if (!immediate) func.apply(context, args);
 			};
 			var callNow = immediate && !timeout;
+
 			clearTimeout(timeout);
 			timeout = setTimeout(later, wait);
 			if (callNow) func.apply(context, args);
@@ -34,13 +35,23 @@
 		}
 	}
 
-	function scrollHandler(e) {
-		var distanceY = window.pageYOffset;
+	function fixHeader() {
+		var adminBar = document.querySelector('#wpadminbar');
+		var siteContainer = document.querySelector('.site-container');
+		var beforeHeader = document.querySelector('.before-header');
 		var header = document.querySelector('.site-header');
-		var shrinkOn = document.querySelector('.before-header').clientHeight;
 
-		if (distanceY > shrinkOn) {
-			header.classList.add('smaller');
+		var topOfBeforeHeader = beforeHeader.clientHeight;
+		var headerHeight = header.clientHeight;
+
+		if (window.scrollY >= topOfBeforeHeader) {
+			if (typeof adminBar != 'undefined' && adminBar != null) {
+				header.style.top = adminBar.clientHeight + 'px';
+			}
+
+			document.body.classList.add('fixed-header');
+			document.body.style.paddingTop = headerHeight + 'px';
+
 			swapLogoAttributes(logo, {
 				'src': newLogoSrc,
 				'srcset': newLogoSrc,
@@ -48,7 +59,9 @@
 				'height': 80
 			});
 		} else {
-			header.classList.remove('smaller');
+			document.body.classList.remove('fixed-header');
+			document.body.style.paddingTop = 0;
+
 			swapLogoAttributes(logo, {
 				'src': initialLogoSrc,
 				'srcset': initialLogoSrc,
@@ -58,18 +71,5 @@
 		}
 	}
 
-	function fixHeader() {
-		var header = document.querySelector('#main');
-		var topOfHeader = header.offsetTop;
-
-		if (window.scrollY >= topOfNav) {
-			document.body.style.paddingTop = header.offsetHeight + 'px';
-			document.body.classList.add('fixed-header');
-		} else {
-			document.body.classList.remove('fixed-header');
-			document.body.style.paddingTop = 0;
-		}
-	}
-
-	window.addEventListener('scroll', debounce(scrollHandler));
+	window.addEventListener('scroll', fixHeader);
 })(document, jQuery);

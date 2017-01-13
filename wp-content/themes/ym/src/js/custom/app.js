@@ -17,6 +17,7 @@
 				if (!immediate) func.apply(context, args);
 			};
 			let callNow = immediate && !timeout;
+			
 			clearTimeout(timeout);
 			timeout = setTimeout(later, wait);
 			if (callNow) func.apply(context, args);
@@ -31,43 +32,44 @@
 	}
 
 
-	function scrollHandler(e) {
-		let distanceY  = window.pageYOffset;
-		const header   = document.querySelector('.site-header');
-		const shrinkOn = document.querySelector('.before-header').clientHeight;
+	function fixHeader() {
+		const adminBar = document.querySelector('#wpadminbar');
+		const siteContainer = document.querySelector('.site-container');
+		const beforeHeader = document.querySelector('.before-header');
+		const header = document.querySelector('.site-header');
 
-		if (distanceY > shrinkOn) {
-			header.classList.add('smaller');
+		let topOfBeforeHeader = beforeHeader.clientHeight;
+		let headerHeight = header.clientHeight;
+
+		if (window.scrollY >= topOfBeforeHeader) {
+			if (typeof(adminBar) != 'undefined' && adminBar != null) {
+				header.style.top = `${adminBar.clientHeight}px`;
+			}
+
+			document.body.classList.add('fixed-header');
+			document.body.style.paddingTop = `${headerHeight}px`;
+
 			swapLogoAttributes(logo, {
 				'src': newLogoSrc,
 				'srcset': newLogoSrc,
 				'width': 75,
 				'height': 80,
 			});
-		} else {
-			header.classList.remove('smaller');
-			swapLogoAttributes(logo, {
-				'src'   : initialLogoSrc,
-				'srcset': initialLogoSrc,
-				'width' : 360,
-				'height': 166,
-			});		}
-	}
 
-
-	function fixHeader() {
-		const header = document.querySelector('#main');
-		let topOfHeader = header.offsetTop;
-
-		if (window.scrollY >= topOfNav) {
-			document.body.style.paddingTop = header.offsetHeight + 'px';
-			document.body.classList.add('fixed-header');
 		} else {
 			document.body.classList.remove('fixed-header');
 			document.body.style.paddingTop = 0;
+
+			swapLogoAttributes(logo, {
+				'src': initialLogoSrc,
+				'srcset': initialLogoSrc,
+				'width': 360,
+				'height': 166,
+			});
+
 		}
 	}
 
-	window.addEventListener('scroll', debounce(scrollHandler));
+	window.addEventListener('scroll', fixHeader);
 
 })(document, jQuery);

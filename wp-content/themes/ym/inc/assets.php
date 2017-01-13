@@ -18,9 +18,11 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
  */
 function enqueue_assets() {
 
+    $font_cdn_src = 'https://cloud.typography.com/6816494/6497372/css/fonts.css';
+
 	wp_enqueue_style(
-		'fonts',
-		'https//cloud.typography.com/6816494/7507552/css/fonts.css',
+		'font-cdn',
+        $font_cdn_src,
 		[],
 		CHILD_THEME_VERSION
 	);

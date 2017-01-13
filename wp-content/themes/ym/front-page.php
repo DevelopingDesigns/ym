@@ -26,7 +26,7 @@ add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_c
  *
  * @uses ym_flexible_content();
  */
-add_action( 'genesis_before_content', 'ym_flexible_content' );
+add_action( 'genesis_after_header', 'ym_flexible_content' );
 
 
 genesis();

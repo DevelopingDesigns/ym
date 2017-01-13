@@ -1,0 +1,18 @@
+{
+    "use": [
+      "lost",
+      "postcss-assets",
+      "autoprefixer",
+      "postcss-svgo",
+      "postcss-scss",
+      "stylelint",
+      "postcss-reporter",
+      "cssnano"
+    ],
+    "input": "style.css",
+    "output": "style.css",
+    "local-plugins": true,
+    "autoprefixer": {
+      "browsers": "last 2 versions"
+    }
+}
