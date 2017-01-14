@@ -59,6 +59,8 @@
 				'height': 80
 			});
 		} else {
+			header.style.maxHeight = headerHeight + 'px';
+
 			document.body.classList.remove('fixed-header');
 			document.body.style.paddingTop = 0;
 
