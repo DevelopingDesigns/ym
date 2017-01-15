@@ -11,9 +11,9 @@
 
 $hero   = get_row( 'hero' );
 
-echo '<pre>';
-print_r( $hero );
-echo '</pre>';
+// echo '<pre>';
+// print_r( $hero );
+// echo '</pre>';
 
 if ( $hero ) {
 
@@ -62,19 +62,13 @@ if ( $hero ) {
 
 
 
-}
-
-// <!--$hero_path = $hero['hero_image']['url'];-->
-// <!--$hero_width = $hero['hero_image']['width'];-->
-// <!--$hero_height = $hero['hero_image']['height'];-->
-
-?>
+} ?>
 
 <section class="hero <?php echo $hero['css_class']; ?>"
          style="background-image: url( <?php echo $hero['hero_image']['url'] ?> ); justify-content: <?php echo $hero['alignment']; ?>; background-repeat: no-repeat; padding: <?php echo $hero['hero_height']; ?>">
 	<div class="wrap">
 
-		<div class="hero-content" style="text-align: <?php echo $hero['text_alignment']; ?>;">
+		<div class="hero-content">
 			<?php if ( $hero['add_heading'] ) :
 				get_template_part( 'partials/parts/title', 'group' );
 			endif;
