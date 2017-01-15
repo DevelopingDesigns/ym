@@ -9,8 +9,8 @@
 	Template Version: 2.3.0
 */
 
-@import "variables/variables";
-@import "mixins/mixens";
+// Importing Utilities - Variables, Mixins
+@import "utilities/utilities";
 
 // Importing Bourbon, Neat, Refills and _grid_settings.scss
 @import "vendor/normalize";
@@ -35,3 +35,4 @@
 
 // Print
 @import "print";
+
