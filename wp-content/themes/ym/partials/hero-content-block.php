@@ -11,9 +11,9 @@
 
 $hero   = get_row( 'hero' );
 
-//echo '<pre>';
-//print_r( $hero );
-//echo '</pre>';
+echo '<pre>';
+print_r( $hero );
+echo '</pre>';
 
 if ( $hero ) {
 
@@ -47,6 +47,13 @@ if ( $hero ) {
                         width: BackStretchImg.src.sizes["medium-width"],
                         url: BackStretchImg.src.sizes["medium"],
                         pixelRatio: "auto"
+                    },
+                    
+                    // Will be chosen for a 500 device
+                    {
+                        width: BackStretchImg.src.sizes["small-screens-hero-width"],
+                        url: BackStretchImg.src.sizes["small-screens-hero"],
+                        pixelRatio: "auto"
                     }
                 ]
             ]);
@@ -64,14 +71,15 @@ if ( $hero ) {
 ?>
 
 <section class="hero <?php echo $hero['css_class']; ?>"
-         style="background-image: url( <?php echo $hero['hero_image']['url'] ?> ); justify-content: <?php echo $hero['alignment']; ?>; background-repeat: no-repeat;">
+         style="background-image: url( <?php echo $hero['hero_image']['url'] ?> ); justify-content: <?php echo $hero['alignment']; ?>; background-repeat: no-repeat; padding: <?php echo $hero['hero_height']; ?>">
 	<div class="wrap">
 
 		<div class="hero-content" style="text-align: <?php echo $hero['text_alignment']; ?>;">
-			<h1><?php echo $hero['heading']; ?></h1>
-			<h3><?php echo $hero['sub_heading']; ?></h3>
+			<?php if ( $hero['add_heading'] ) :
+				get_template_part( 'partials/parts/title', 'group' );
+			endif;
 
-			<?php if ( $hero['add_cta'] ) :
+			if ( $hero['add_cta'] ) :
 				get_template_part( 'partials/parts/button', 'group' );
 			endif; ?>
 		</div>

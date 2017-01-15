@@ -11,22 +11,22 @@
 $headings  = get_sub_field( 'headings' );
 $add_heading = get_sub_field( 'add_heading' );
 
-//echo '<pre>';
-//var_dump( $headings );
-//echo '</pre>';
+// echo '<pre>';
+// var_dump( $headings );
+// echo '</pre>';
 
 if ( $add_heading ) : ?>
 
 	<div class="fc-title-group" style="text-align: <?php echo $headings['heading_alignment']; ?>;">
 
 		<?php if ( $headings['choose_heading'] ) : ?>
-			<h1><?php echo $headings['heading']; ?></h1>
+			<h1 style="font-size: <?php echo $headings['font_size_heading'] ?>;"><?php echo $headings['heading']; ?></h1>
 		<?php endif; ?>
 
-		<?php if ( $headings['subheading'] ) : ?>
-			<h3><?php echo $headings['subheading']; ?></h3>
+		<?php if ( $headings['choose_subheading'] ) : ?>
+			<h3 style="font-size: <?php echo $headings['font_size_subheading'] ?>;"><?php echo $headings['subheading']; ?></h3>
 		<?php endif; ?>
 
-	</div>
+		</div>
 
 <?php endif; ?>
