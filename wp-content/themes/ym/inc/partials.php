@@ -59,9 +59,11 @@ function ym_excerpt_more( $link ) {
 }
 
 
-add_filter( 'acf/load_field/name=my_field_name', 'load_field_my_field_name' );
-function load_field_my_field_name( $field ) {
-	wp_enqueue_script( 'my-script' );
+add_action( 'init', 'ym_register_image_sizes' );
+/**
+ * Register child theme image sizes
+ */
+function ym_register_image_sizes() {
 
-	return $field;
+	add_image_size( 'small-screens-hero', 500, 500, true );
 }

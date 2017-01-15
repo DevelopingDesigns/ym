@@ -1,6 +1,7 @@
 // Hero Content Block
 
 .hero {
+	//@include padding(100px 0);
 	align-items: center;
 	background-position: center;
 	background-size: cover;
@@ -12,7 +13,7 @@
 		h1 {
 			@include font-size(70);
 			margin-bottom: 20px;
-			max-width: 600px;
+			//max-width: 600px;
 		}
 
 		h3 {

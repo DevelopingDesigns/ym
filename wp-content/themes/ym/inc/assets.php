@@ -42,6 +42,14 @@ function enqueue_assets() {
 		'3.4.1',
 		true
 	);
+
+	wp_register_script(
+		'backstretch',
+		CHILD_THEME_DIR . '/node_modules/jquery.backstretch/jquery.backstretch.min.js',
+		[ 'jquery' ],
+		'2.1.15',
+		true
+	);
 }
 
 
