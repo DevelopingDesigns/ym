@@ -1,0 +1,35 @@
+{
+	"name": "cpt-product",
+	"description": "Creates a product custom post type.",
+	"keywords": ["wordpress", "plugin", "generator-plugin-wp"],
+	"homepage": "https://www.developingdesigns.com/",
+	"license": "GPLv2",
+	"authors": [
+	{
+		"name": "Developing Designs",
+		"homepage": "https://www.developingdesigns.com/"
+	}
+	],
+	"minimum-stability": "dev",
+	"type": "wordpress-plugin",
+	"autoload": {
+		"classmap": ["cpt-product.php", "includes/"]
+	},
+	"require": {
+		"php": ">=5.2",
+		"xrstf/composer-php52": "1.*",
+		"webdevstudios/cpt-core": "^1.0",
+		"webdevstudios/cmb2": "v2.2.3.1"
+	},
+	"scripts": {
+        "post-install-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-update-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-autoload-dump": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ]
+    }
+}

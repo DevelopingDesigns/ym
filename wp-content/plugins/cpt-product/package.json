@@ -1,0 +1,17 @@
+{
+	"name": "cpt-product",
+	"title": "CPT Product",
+	"version": "1.0.0",
+	"description": "Creates a product custom post type.",
+	"author": {
+		"name": "Developing Designs",
+		"url": "https://www.developingdesigns.com/"
+	},
+	"license": "GPLv2",
+	"devDependencies": {
+	    "grunt": "latest",
+	    "grunt-contrib-watch": "latest",
+	    "grunt-wp-i18n": "latest",
+	    "load-grunt-tasks": "latest"
+	}
+}
