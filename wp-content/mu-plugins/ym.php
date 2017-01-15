@@ -62,8 +62,8 @@ define( 'YMCORE_DEBUG', true );
 //YM_Core_ACF::get_instance();
 
 // CPT-onomies
-require_once( 'cpt-onomies/cpt-onomies.php' );
-require_once( 'cpt-onomies-extended/cpt-onomies-extended.php' );
+//require_once( 'cpt-onomies/cpt-onomies.php' );
+//require_once( 'cpt-onomies-extended/cpt-onomies-extended.php' );
 
 // Load Content Blocks
 //require_once 'content-blocks/content-blocks.php';

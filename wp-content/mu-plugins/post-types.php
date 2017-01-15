@@ -28,22 +28,22 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 define( 'DD_MU_TEXT_DOMAIN', 'dd-mu-post-types' );
 
 // Custom Post Types
-require_once('articles/articles.php');
-require_once('ebooks/ebooks.php');
-require_once('employees/employees.php');
-require_once('features/features.php');
-require_once('infographics/infographics.php');
-require_once('landing-pages/landing-pages.php');
-require_once('locations/locations.php');
-require_once( 'events/events.php' );
-require_once('logins/logins.php');
-require_once('partner-programs/partner-programs.php');
+//require_once('articles/articles.php');
+//require_once('ebooks/ebooks.php');
+//require_once('employees/employees.php');
+//require_once('features/features.php');
+//require_once('infographics/infographics.php');
+//require_once('landing-pages/landing-pages.php');
+//require_once('locations/locations.php');
+//require_once( 'events/events.php' );
+//require_once('logins/logins.php');
+//require_once('partner-programs/partner-programs.php');
 //require_once('products/products.php');
 //require_once('resources/resources.php');
-require_once('services/services.php');
-require_once('testimonials/testimonials.php');
-require_once('videos/videos.php');
-require_once('webinars/webinars.php');
+//require_once('services/services.php');
+//require_once('testimonials/testimonials.php');
+//require_once('videos/videos.php');
+//require_once('webinars/webinars.php');
 
 // Menu settings
 require_once('menus/menus.php');
