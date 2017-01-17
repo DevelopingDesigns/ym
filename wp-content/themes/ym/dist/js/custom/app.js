@@ -46,34 +46,30 @@
 /**
  * Fixed Header/Logo swap
  */
-(function (document, $, undefined) {
+(function (document, $) {
   var beforeHeader = document.querySelector('.before-header');
 
   var logo = document.querySelector('.custom-logo');
-  var logoTop = logo.offsetTop;
 
   var initialLogoSrc = logo.src;
   var newLogoSrc = '/wp-content/themes/ym/dist/images/small-logo.svg';
 
-  function debounce(func) {
-    var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
-    var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-    var timeout = void 0;
-    return function () {
-      var context = this,
-          args = arguments;
-      var later = function later() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-      var callNow = immediate && !timeout;
-
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
+  // function debounce (func, wait = 5, immediate = true) {
+  //  let timeout
+  //  return function () {
+  //    let context = this
+  //    let args = arguments
+  //    let later = function () {
+  //      timeout = null
+  //      if (!immediate) func.apply(context, args)
+  //    }
+  //    let callNow = immediate && !timeout
+  //
+  //    clearTimeout(timeout)
+  //    timeout = setTimeout(later, wait)
+  //    if (callNow) func.apply(context, args)
+  //  }
+  // }
 
   function fixHeader() {
     var adminBar = document.querySelector('#wpadminbar');
@@ -82,8 +78,8 @@
     var topOfBeforeHeader = beforeHeader.clientHeight;
     var headerHeight = header.clientHeight;
 
-    if (window.scrollY > topOfBeforeHeader && window.innerWidth > 1200 && beforeHeader !== 'block') {
-      if (typeof adminBar !== 'undefined' && adminBar != null) {
+    if (window.scrollY > topOfBeforeHeader && 1200 < window.innerWidth && 'block' !== beforeHeader) {
+      if ('undefined' !== typeof adminBar && null != adminBar) {
         header.style.top = adminBar.clientHeight + 'px';
       }
 
@@ -92,13 +88,13 @@
       document.querySelector('.custom-logo').setAttribute('src', newLogoSrc);
     }
 
-    if (window.scrollY <= topOfBeforeHeader && window.innerWidth > 1200 && beforeHeader !== 'block') {
+    if (window.scrollY <= topOfBeforeHeader && 1200 < window.innerWidth && 'block' !== beforeHeader) {
       document.body.classList.remove('fixed-header');
       document.body.style.paddingTop = 0;
       document.querySelector('.custom-logo').setAttribute('src', initialLogoSrc);
     }
 
-    if (beforeHeader.style.display === 'none' && window.scrollY >= 10) {
+    if ('none' === beforeHeader.style.display && 10 <= window.scrollY) {
       smallScreenHeader();
       window.onresize = function () {
         smallScreenHeader();
@@ -107,7 +103,7 @@
   }
 
   function smallScreenHeader() {
-    if (window.scrollY >= 10) {
+    if (10 <= window.scrollY) {
       document.querySelector('.custom-logo').setAttribute('src', newLogoSrc);
       document.body.classList.add('fixed-header');
     } else {
