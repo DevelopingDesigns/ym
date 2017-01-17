@@ -64,6 +64,7 @@ function ym_custom_logo( $title, $inside, $wrap ) {
 }
 
 
+
 add_filter( 'genesis_attr_site-description', 'ym_add_site_description_class' );
 /**
  * Add class for screen readers to site description.

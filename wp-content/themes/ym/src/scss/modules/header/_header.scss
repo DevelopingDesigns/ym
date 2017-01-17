@@ -3,10 +3,13 @@
 @import "title-area";
 
 .site-header {
-	background-color: #fff;
+	background-color: $white;
+	z-index: 1;
 
-	> .wrap {
+	& > .wrap {
 		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		position: relative;
 
 		@include media($large-screen-up) {
@@ -16,52 +19,42 @@
 	}
 
 	.title-area {
-		width: 15%;
-
 		@include media($xlarge-screen-up) {
-			width: 180px;
+			width: 100%;
 		}
-
-	  img {
-		width: 180px;
-	  }
-
 	}
 
 	.nav-primary {
 		padding-top: 20px;
 		text-align: right;
-		width: 85%;
+		width: 100%;
 	}
 }
 
 /* # Site Header - .fixed-header
 ---------------------------------------------------------------------------------------------------- */
-.site-header {
-  z-index: 1;
-}
-
-
 body.fixed-header {
-  .site-header {
-	position: fixed;
-	top: 0;
-	transition: all 0.2s;
-	width: 100%;
-  }
-
-  .nav-primary {
-	padding-top: 27px;
-  }
-
-  .title-area {
-	max-width: 75px;
-
-	img {
-	  padding-top: 10px;
+	.site-header {
+		position: fixed;
+		top: 0;
+		width: 100%;
 	}
-  }
+
+	.nav-primary {
+		padding-top: 27px;
+	}
+
+	.title-area {
+		img {
+			padding-top: 10px;
+		}
+	}
 }
+
+
+
+
+
 
 
 

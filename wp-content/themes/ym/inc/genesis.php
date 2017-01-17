@@ -18,7 +18,6 @@ add_action( 'genesis_setup', __NAMESPACE__ . '\theme_setup', 15 );
  */
 function theme_setup() {
 
-	add_theme_support( 'custom-background' );
 	add_theme_support( 'genesis-responsive-viewport' );
 	add_theme_support( 'genesis-after-entry-widget-area' );
 
@@ -61,9 +60,10 @@ function theme_setup() {
 	 * Add theme support for Custom Logo
 	 */
 	add_theme_support( 'custom-logo', array(
-		'width'      => 360,
-		'height'     => 166,
-		'flex-width' => true,
+		'width'      => 180,
+		'height'     => 83,
+		'flex-height' => true,
+		'flex-width'  => true
 	) );
 
 
@@ -156,6 +156,7 @@ function theme_setup() {
 	/**
 	 * Load additional child theme files here
 	 */
+	include_once __DIR__ . '/theme-setup.php';
 	include_once __DIR__ . '/layout.php';
 	include_once __DIR__ . '/partials.php';
 }

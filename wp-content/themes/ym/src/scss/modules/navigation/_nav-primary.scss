@@ -42,7 +42,8 @@
 		// Products
 		.ubermenu-submenu-type-mega {
 			@include padding(20px 40px);
-		  	box-shadow: $menu-shadow;
+			background-color: $white;
+			box-shadow: $menu-shadow;
 			margin-top: 22px;
 
 			&:before {
