@@ -1,9 +1,9 @@
 'use strict';
 
-///**
+// /**
 // * Fixed Header/Logo swap
 // */
-//(function (document, $, undefined) {
+// (function (document, $, undefined) {
 //
 //  const logo = document.querySelector('.custom-logo');
 //  const initialLogoSrc = logo.srcset;
@@ -41,7 +41,7 @@
 //
 //  window.addEventListener('scroll', scrollHandler);
 //
-//})(document, jQuery);
+// })(document, jQuery);
 
 /**
  * Fixed Header/Logo swap

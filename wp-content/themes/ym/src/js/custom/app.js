@@ -1,7 +1,7 @@
-///**
+// /**
 // * Fixed Header/Logo swap
 // */
-//(function (document, $, undefined) {
+// (function (document, $, undefined) {
 //
 //  const logo = document.querySelector('.custom-logo');
 //  const initialLogoSrc = logo.srcset;
@@ -39,7 +39,7 @@
 //
 //  window.addEventListener('scroll', scrollHandler);
 //
-//})(document, jQuery);
+// })(document, jQuery);
 
 /**
  * Fixed Header/Logo swap
@@ -73,11 +73,11 @@
     const adminBar = document.querySelector('#wpadminbar')
     const header = document.querySelector('.site-header')
 
-    let topOfBeforeHeader = beforeHeader.clientHeight;
+    let topOfBeforeHeader = beforeHeader.clientHeight
     let headerHeight = header.clientHeight
 
     if (window.scrollY > topOfBeforeHeader && window.innerWidth > 1200 && beforeHeader !== 'block') {
-      if (typeof(adminBar) !== 'undefined' && adminBar != null) {
+      if (typeof (adminBar) !== 'undefined' && adminBar != null) {
         header.style.top = `${adminBar.clientHeight}px`
       }
 
@@ -112,5 +112,4 @@
 
   smallScreenHeader()
   window.addEventListener('scroll', fixHeader)
-
-})(document, jQuery);
+})(document, jQuery)

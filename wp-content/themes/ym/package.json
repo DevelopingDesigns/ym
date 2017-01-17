@@ -28,6 +28,7 @@
   "dependencies": {
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
+    "bulma": "^0.3.1",
     "countup.js": "^1.8.1",
     "lost": "^7.1.1",
     "normalize.css": "^5.0.0",
@@ -42,6 +43,9 @@
     "browser-sync": "^2.17.5",
     "cssnano": "^3.10.0",
     "eslint": "^3.8.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
     "jquery.backstretch": "^2.1.15",
     "node-sass": "^3.10.1",
     "nodemon": "^1.11.0",
@@ -60,6 +64,9 @@
   },
   "standard": {
     "parser": "babel-eslint",
+    "globals": [
+      "jQuery"
+    ],
     "ignore": [
       "/src/js/vendor",
       "/dist/js"
