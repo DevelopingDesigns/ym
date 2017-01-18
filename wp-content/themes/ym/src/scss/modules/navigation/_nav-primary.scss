@@ -44,7 +44,7 @@
 			@include padding(20px 40px);
 			background-color: $white;
 			box-shadow: $menu-shadow;
-			margin-top: 22px;
+			margin-top: 10px;
 
 			&:before {
 				content: "";
@@ -87,8 +87,9 @@
 		#menu-item-75 {
 			.ubermenu-submenu {
 				@include padding(25px null 20px null);
+				background-color: $white;
 				box-shadow: $menu-shadow;
-				margin-top: 22px;
+				margin-top: 10px;
 
 				&:before {
 					content: "";

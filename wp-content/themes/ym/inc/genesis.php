@@ -11,7 +11,6 @@
 
 namespace DevDesigns\YM;
 
-
 add_action( 'genesis_setup', __NAMESPACE__ . '\theme_setup', 15 );
 /**
  * Setup child theme

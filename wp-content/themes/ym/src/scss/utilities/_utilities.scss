@@ -1,2 +1,26 @@
 @import "variables/variables";
 @import "mixins/mixins";
+
+// Bourbon Neat - Overlay 12 Column Grid
+// http://thoughtbot.github.io/neat-docs/latest/#visual-grid
+$visual-grid: true !default;
+$visual-grid-color: $slate-light !default;
+$visual-grid-index: front !default;
+$visual-grid-opacity: 0.2 !default;
+
+
+// Default Lost Grid Settings
+// http://lostgrid.org/docs.html#variables
+//@lost gutter 60px;
+//@lost flexbox flex;
+//@lost cycle none;
+//@lost clearing left;
+//@lost rounder 100;
+//@lost --beta-direction rtl;
+
+
+// Add CSS Grid Overlay To Help With Layout
+// http://lostgrid.org/docs.html#lost-utility
+body {
+	lost-utility: edit;
+}

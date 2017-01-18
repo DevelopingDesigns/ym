@@ -4,7 +4,7 @@
 
 .site-header {
 	background-color: $white;
-	z-index: 1;
+	z-index: 10;
 
 	& > .wrap {
 		display: flex;
@@ -25,7 +25,6 @@
 	}
 
 	.nav-primary {
-		padding-top: 20px;
 		text-align: right;
 		width: 100%;
 	}
@@ -38,10 +37,6 @@ body.fixed-header {
 		position: fixed;
 		top: 0;
 		width: 100%;
-	}
-
-	.nav-primary {
-		padding-top: 27px;
 	}
 
 	.title-area {

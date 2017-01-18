@@ -14,10 +14,14 @@
 		lost-column: 1/4;
 		text-align: center;
 
+		@include media($large-screen-up) {
+			lost-column: 1/2;
+		}
+
 		.heading {
 			@include font-size(22);
 			@include margin(0);
-			@include padding(0 50px);
+			//@include padding(0 50px);
 			font-weight: $fw-bolder;
 		}
 	}

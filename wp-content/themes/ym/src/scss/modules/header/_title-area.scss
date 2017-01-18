@@ -1,21 +1,10 @@
 /* ## Title Area
 --------------------------------------------- */
 
-.title-area {
-	min-height: 88px;
-
-	img {
-		@include media($xlarge-screen-up) {
-			padding-top: 13px;
-		}
-	}
-}
-
 .header-image .site-title {
 	display: block;
 	text-indent: -9999px;
 }
-
 
 .site-title {
 	@include font-size(30);
