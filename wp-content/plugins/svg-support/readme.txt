@@ -1,14 +1,14 @@
 === SVG Support ===
 Contributors: Benbodhi
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F7W2NUFAVQGW2
-Tags: svg, vector, css, style, mime, mime type, embed, img, inline
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z9R7JERS82EQQ
+Tags: svg, vector, css, style, mime, mime type, embed, img, inline, animation
 Requires at least: 4.0
-Tested up to: 4.8-alpha-39677
-Stable tag: 2.2.3.2
+Tested up to: 4.8-alpha-39901
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Allow SVG file uploads using the WordPress Media Library uploader plus direct styling of SVG elements using CSS.
+Allow SVG file uploads using the WordPress Media Library uploader plus direct styling/animation of SVG elements using CSS/JS.
 
 == Description ==
 
@@ -38,7 +38,9 @@ Once activated, you can simply upload SVG images to your media library like any 
 
 As an administrator, you can go to the admin settings page 'Settings' > 'SVG Support' and restrict SVG file uploads to administrators only and even define a custom CSS class to target if you wish.
 
-Now, embed your SVG images just like you would a standard image with the addition of adding (in text view) the class `"style-svg"` (or the custom class you defined) to your IMG tags that you want this plugin to swap out with your actual SVG code. You can also remove any other attributes from the tag and use CSS to manage the size.<br />
+If you only need simple functionality to upload SVG files, then you don't need to enable "Advanced Mode" which will make sure that the frontend script is not enqueued for performance and will hide the unnecessary settings.
+
+For advanced users, enable the "Advanced Mode" under Settings > SVG Support. Then you can embed your SVG images just like you would a standard image with the addition of adding (in text view) the class `"style-svg"` (or the custom class you defined) to your IMG tags that you want this plugin to swap out with your actual SVG code. You can also remove any other attributes from the tag and use CSS to manage the size. There is also a setting to automatically add your class to the IMG tag for you when you're inserting it in to a post or page.<br />
 For example:
 
 `<img class="style-svg" alt="alt-text" src="image-source.svg" />`
@@ -47,6 +49,8 @@ or
 
 The whole IMG tag element will now be dynamically replaced by the actual code of your SVG, making the inner content targetable.<br />
 This allows you to target elements within your SVG using CSS.
+
+*Featured Images:* If a post/page is saved with your SVG as a featured image, a checkbox will display in the featured image meta box to allow you to render it inline (only if advanced mode is active).
 
 Please Note: You will need to set your own height and width in your CSS for SVG files to display correctly.
 
@@ -58,17 +62,15 @@ As with allowing uploads of any files, there is potential risks involved. Only a
 
 = Translations =
 
-* English - default, always included
+* US English - default, always included
+* AU English - WordPress Language Packs
+* NZ English - WordPress Language Packs
 * Serbian - translated and submitted by Ogi Djuraskovic from [first site guide](http://firstsiteguide.com/)
 * Spanish - translated and submitted by [Apasionados del Marketing](http://apasionados.es)
-* *Your translation? - [Just send it in](http://gowebben.com/contact/)*
-
-*Note:* This plugin is localized/translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful.<br />
-For translating I recommend ["Loco Translate" plugin](https://wordpress.org/plugins/loco-translate/) and for validating the ["Poedit Editor"](http://www.poedit.net/).
 
 = Feedback =
 
-* I am open to your suggestions and feedback - Thanks for checking out this plugin!
+* I am open to your suggestions and feedback - Thanks for using SVG Support!
 * Drop me a line [@benbodhi](http://twitter.com/benbodhi) or [@GoWebben](http://twitter.com/gowebben) on Twitter
 * Follow me on [my Facebook page](http://www.facebook.com/gowebben)
 * Or circle [+GoWebben](https://plus.google.com/+Gowebben/) on Google Plus ;-)
@@ -99,16 +101,80 @@ or
 
 == Frequently Asked Questions ==
 
-= Got a question? =
+= SVG not rendering inline since 2.3 update =
 
-I will put the answers to any questions asked here.
+SVG Support 2.3 includes a new settings "Advanced Mode". Users that were inlining SVG files need to make sure this setting is checked. Go to your dashboard > Settings > SVG Support and check "Advanced Mode". All of your original settings should still be there.
+
+= How do I disable the Javascript on the front end if I am not using inline SVG? =
+
+If you go to `Settings > SVG Support` in your admin dashboard, you can choose to enable "Advanced Mode" or not. If you leave it disabled, the advanced functionality and extraneous script is removed.
+
+= I'm trying to use SVG in the customizer but it's not working. =
+
+To allow SVG to work in the customizer, you will need to modify/add some code in your child theme's function file. [Here is a great tutorial](https://thebrandid.com/using-svg-logos-wordpress-customizer/) on how to do that. The important part is
+`
+'flex-width'	=> true
+'flex-height'	=> true
+`
+
+= How do I add animation to my SVG? =
+
+You will need to edit your SVG file in a code editor so you can add CSS classes to each element you need to target within the SVG. Make sure that your IMG tag is being swapped out for your inline SVG and then you can use CSS or JS to apply animations to elements within your SVG file.
+
+= Why is SVG Support not working in multisite? =
+
+If you installed multisite prior to WordPress 3.5, then you will need to remove your ms-files. Here is a couple of resources to help you: [Dumping ms-files](http://halfelf.org/2012/dumping-ms-files/) [Removing ms-files after 3.5](https://www.yunomie.com/2298/removing-ms-files-php-after-upgrading-an-existing-multisite-installation-to-3-5/).
+
+= Why is my SVG not working in Visual Composer? =
+
+If you are using SVG Support with Visual Composer or any other page builders, you will need to make sure that you can add your own class to the image. The easiest way to do this is by using a simple text or code block in the builder to put your image code in to.
 
 == Screenshots ==
 
-1. Activated plugin
-2. Admin settings page (with new settings since V2.2)
+1. Basic Settings
+2. Advanced Settings
+3. Featured Image checkbox to render SVG inline
+4. Inline SVG in the front end markup
 
 == Changelog ==
+
+= 2.3.4 =
+
+* Fix: Fatal error for some because a function wasn't prefixed.
+
+= 2.3.3 =
+
+* Fix: Missing arguments PHP warnings from new attribute control file.
+* Update settings page text.
+
+= 2.3.2 =
+
+* Modified the attribute control code that auto inserts our class to only apply to SVG files.
+
+= 2.3.1 =
+
+* Fix: Fatal error in some cases due to admin notice.
+
+= 2.3 =
+
+* New Feature - Advanced Mode: allows you to turn off the advanced features and simply upload SVG files like normal images. This addition also enables users to turn off the script added on front end by leaving Advanced Mode unchecked.
+* New Feature - Featured Image Support: If your featured image is SVG, once the post is saved you will see a checkbox to render the SVG inline (advanced mode only).
+* Performance - Stop inlining JS from running if image source is not SVG.
+* Added new stylesheet for settings page.
+* Moved SCSS files to their own folder.
+* Changed donate link so I can track it and properly thank you for your generous donations.
+* Added a rating link to the settings and media pages.
+* Cleaned up code formatting, added more comments.
+* Added a plugin version check.
+* Added notice so people are aware they may need to turn on the advanced mode.
+
+= 2.2.5 =
+
+* FIX: Display SVG thumbnails in attachment modals.
+
+= 2.2.4 =
+
+* FIX: Added function to temporarily fix an issue with uploading in WP 4.7.1
 
 = 2.2.3.2 =
 
@@ -197,6 +263,34 @@ I will put the answers to any questions asked here.
 * Initial Release.
 
 == Upgrade Notice ==
+
+= 2.3.4 =
+
+* Fixes fatal error for some because a function wasn't prefixed.
+
+= 2.3.3 =
+
+* This update fixes some PHP warnings introduced in 2.3.2 and also has updated settings page text.
+
+= 2.3.2 =
+
+* Changes to the way the auto class insert works.
+
+= 2.3.1 =
+
+* Fixes fatal error in some cases due to admin notice in V2.3.
+
+= 2.3 =
+
+IMPORTANT, MAJOR CHANGES, BACKUP BEFORE UPDATING: Users that are inlining SVG will need to make sure "Advanced Mode" is active under "Settings > SVG Support". Your settings should all still be there. Make sure you run a backup before updating just in case!!!
+
+= 2.2.5 =
+
+* Fix to display SVG thumbnails in attachment modals. (NOTE: You can not edit SVG files like other images in WordPress)
+
+= 2.2.4 =
+
+* IMPORTANT: Fixes upload ability in WP 4.7.1
 
 = 2.2.3.2 =
 

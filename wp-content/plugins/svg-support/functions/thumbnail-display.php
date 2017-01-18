@@ -3,11 +3,10 @@
  * ADD ABILITY TO VIEW THUMBNAILS IN WP 4.0+
  */
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
+	exit; // Exit if accessed directly
 }
 
-add_action('admin_init', 'bodhi_svgs_display_thumbs');
-
+add_action( 'admin_init', 'bodhi_svgs_display_thumbs' );
 function bodhi_svgs_display_thumbs() {
 
 	ob_start();
@@ -35,7 +34,7 @@ function bodhi_svgs_display_thumbs() {
 			'<# } else if ( \'image\' === data.type && data.sizes && data.sizes.full ) { #>',
 			'<# } else if ( \'svg+xml\' === data.subtype ) { #>
 				<img class="details-image" src="{{ data.url }}" draggable="false" />
-				<# } else if ( \'image\' === data.type && data.sizes && data.sizes.full ) { #>',
+			<# } else if ( \'image\' === data.type && data.sizes && data.sizes.full ) { #>',
 
 			$content
 		);
@@ -54,4 +53,5 @@ function bodhi_svgs_display_thumbs() {
 		return $content;
 
 	}
+
 }
