@@ -326,7 +326,7 @@
 
 		    		$('#wp_all_export_available_rules').html('<div class="wp_all_export_preloader" style="display:block;"></div>');
 
-		    		var date_fields = ['post_date', 'comment_date', 'user_registered', 'cf__completed_date'];
+		    		var date_fields = ['post_date', 'comment_date', 'user_registered', 'cf__completed_date', 'product_date'];
 
 	    			if ( date_fields.indexOf(params.selected) > -1 )
 		    		{
@@ -1425,7 +1425,7 @@
 					// Handle an eval error
 					if(jqXHR.responseText.indexOf('[[ERROR]]') !== -1) {
 						vm.preiviewText = $('.wpallexport-preview-title').text();
-						console.log(vm.preiviewText);
+
 						var json = jqXHR.responseText.split('[[ERROR]]')[1];
 						json = $.parseJSON(json);
 						ths.pointer({'content' : '<div id="post-preview" class="wpallexport-preview">' +
@@ -2099,7 +2099,8 @@
 
 	// Logic to show CSV advanced options
 	$('#export_to_sheet').change(function(){
-//		if (!vm.isCSVExport()) return;
+
+		if ( $('input[name=export_to]').val() === 'xml' ) return;
 
 		var isWooCommerceOrder = vm.isWoocommerceOrderExport();
 		var isVariationsExport = vm.isProductVariationsExport();
@@ -2112,11 +2113,13 @@
 				$('.export_to_csv').slideUp();
 			}
 		} else {
-			if(isWooCommerceOrder || isVariationsExport) {
-				$('.csv_delimiter').show();
-			} else {
-				$('.export_to_csv').slideDown();
-			}
+			$('.csv_delimiter').show();
+			$('.export_to_csv').slideDown();
 		}
 	}).change();
+
+	if ( $('.wpallexport-step-3').length && $(window).height()){
+		$('.wp-all-export-field-options').css({'max-height': $(window).height() - 220 + 'px'});
+	}
+
 });})(jQuery);

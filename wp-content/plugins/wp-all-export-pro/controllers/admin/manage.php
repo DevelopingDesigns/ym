@@ -105,7 +105,7 @@ class PMXE_Admin_Manage extends PMXE_Controller_Admin {
 
 		if ( ! empty($item['options']['bundlepath']) )
 		{			
-			$this->data['bundle_url'] = site_url() . '/wp-cron.php?export_hash=' . substr(md5($this->data['cron_job_key'] . $item['id']), 0, 16) . '&export_id=' . $item['id'] . '&action=get_bundle'; 				
+			$this->data['bundle_url'] = site_url() . '/wp-cron.php?export_hash=' . substr(md5($this->data['cron_job_key'] . $item['id']), 0, 16) . '&export_id=' . $item['id'] . '&action=get_bundle&t=zip';
 		}		
 
 		$this->render();

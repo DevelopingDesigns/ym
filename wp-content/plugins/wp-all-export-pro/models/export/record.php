@@ -35,6 +35,7 @@ class PMXE_Export_Record extends PMXE_Model_Record {
         XmlExportEngine::$is_taxonomy_export = empty($this->options['is_taxonomy_export']) ? false : $this->options['is_taxonomy_export'];
 		XmlExportEngine::$exportID 		 	 = $this->id;
 		XmlExportEngine::$exportRecord 		 = $this;
+        XmlExportEngine::$post_types         = $this->options['cpt'];
 
         if (empty(XmlExportEngine::$exportOptions['export_variations'])){
             XmlExportEngine::$exportOptions['export_variations'] = XmlExportEngine::VARIABLE_PRODUCTS_EXPORT_PARENT_AND_VARIATION;
@@ -51,12 +52,13 @@ class PMXE_Export_Record extends PMXE_Model_Record {
             'taxonomy_to_export' => empty($this->options['taxonomy_to_export']) ? '' : $this->options['taxonomy_to_export']
 		);
 
-		$filters = new XmlExportFiltering($filter_args);
+        $filters = \Wpae\Pro\Filtering\FilteringFactory::getFilterEngine();
+        $filters->init($filter_args);
 
 		if ('advanced' == $this->options['export_type']) 
 		{
 			// [ Update where clause]
-			$filters->parseQuery();
+			$filters->parse();
 
 			XmlExportEngine::$exportOptions['whereclause'] = $filters->get('queryWhere');
 			XmlExportEngine::$exportOptions['joinclause']  = $filters->get('queryJoin');
@@ -91,10 +93,8 @@ class PMXE_Export_Record extends PMXE_Model_Record {
 		}
 		else
 		{
-			XmlExportEngine::$post_types = $this->options['cpt'];
-
 			// [ Update where clause]
-			$filters->parseQuery();
+			$filters->parse();
 
 			XmlExportEngine::$exportOptions['whereclause'] = $filters->get('queryWhere');
 			XmlExportEngine::$exportOptions['joinclause']  = $filters->get('queryJoin');

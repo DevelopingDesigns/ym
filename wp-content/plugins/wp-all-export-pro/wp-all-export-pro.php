@@ -3,7 +3,7 @@
 Plugin Name: WP All Export Pro
 Plugin URI: http://www.wpallimport.com/export/
 Description: Export any post type to a CSV or XML file. Edit the exported data, and then re-import it later using WP All Import.
-Version: 1.4.2
+Version: 1.4.3
 Author: Soflyy
 */
 
@@ -51,7 +51,7 @@ else {
 	 */
 	define('PMXE_PREFIX', 'pmxe_');
 
-	define('PMXE_VERSION', '1.4.2');
+	define('PMXE_VERSION', '1.4.3');
 
 	define('PMXE_EDITION', 'paid');
 
@@ -235,11 +235,8 @@ else {
 			
 			//$this->load_plugin_textdomain();
 
-			// regirster autoloading method
-			if (function_exists('__autoload') and ! in_array('__autoload', spl_autoload_functions())) { // make sure old way of autoloading classes is not broken
-				spl_autoload_register('__autoload');
-			}
-			spl_autoload_register(array($this, '__autoload'));
+			// register autoloading method
+			spl_autoload_register(array($this, 'autoload'));
 
 			// register helpers
 			if (is_dir(self::ROOT_DIR . '/helpers')) foreach (PMXE_Helper::safe_glob(self::ROOT_DIR . '/helpers/*.php', PMXE_Helper::GLOB_RECURSE | PMXE_Helper::GLOB_PATH) as $filePath) {
@@ -256,7 +253,7 @@ else {
 			
 			update_option($option_name, $this->options);
 			$this->options = get_option(get_class($this) . '_Options');
-			register_activation_hook(self::FILE, array($this, '__activation'));
+			register_activation_hook(self::FILE, array($this, 'activation'));
 
 			// register action handlers
 			if (is_dir(self::ROOT_DIR . '/actions')) if (is_dir(self::ROOT_DIR . '/actions')) foreach (PMXE_Helper::safe_glob(self::ROOT_DIR . '/actions/*.php', PMXE_Helper::GLOB_RECURSE | PMXE_Helper::GLOB_PATH) as $filePath) {
@@ -291,8 +288,8 @@ else {
 			}			
 			
 			// register admin page pre-dispatcher
-			add_action('admin_init', array($this, '__adminInit'));	
-			add_action('admin_init', array($this, '__fix_db_schema'));		
+			add_action('admin_init', array($this, 'adminInit'));
+			add_action('admin_init', array($this, 'fix_db_schema'));
 			add_action('init', array($this, 'init'));						
 		}	
 
@@ -304,7 +301,7 @@ else {
 		/**
 		 * pre-dispatching logic for admin page controllers
 		 */
-		public function __adminInit() {
+		public function adminInit() {
 
 			// create history folder
 			$uploads = wp_upload_dir();
@@ -344,12 +341,7 @@ else {
 				$action = strtolower($input->getpost('action', 'index'));
 
 				// capitalize prefix and first letters of class name parts	
-				if (function_exists('preg_replace_callback')){
-					$controllerName = preg_replace_callback('%(^' . preg_quote(self::PREFIX, '%') . '|_).%', array($this, "replace_callback"),str_replace('-', '_', $page));
-				}
-				else{
-					$controllerName =  preg_replace('%(^' . preg_quote(self::PREFIX, '%') . '|_).%e', 'strtoupper("$0")', str_replace('-', '_', $page)); 
-				}
+				$controllerName = preg_replace_callback('%(^' . preg_quote(self::PREFIX, '%') . '|_).%', array($this, "replace_callback"),str_replace('-', '_', $page));
 				$actionName = str_replace('-', '_', $action);
 				if (method_exists($controllerName, $actionName)) {
 
@@ -404,7 +396,7 @@ else {
 		 */
 		public function shortcodeDispatcher($args, $content, $tag) {
 
-			$controllerName = self::PREFIX . preg_replace('%(^|_).%e', 'strtoupper("$0")', $tag); // capitalize first letters of class name parts and add prefix
+			$controllerName = self::PREFIX . preg_replace_callback('%(^|_).%', array($this, "replace_callback"), $tag);// capitalize first letters of class name parts and add prefix
 			$controller = new $controllerName();
 			if ( ! $controller instanceof PMXE_Controller) {
 				throw new Exception("Shortcode `$tag` matches to a wrong controller type.");
@@ -463,7 +455,8 @@ else {
 		 * @param string $className
 		 * @return bool
 		 */
-		public function __autoload($className) {
+		public function autoload($className) {
+
 			$is_prefix = false;
 			$filePath = str_replace('_', '/', preg_replace('%^' . preg_quote(self::PREFIX, '%') . '%', '', strtolower($className), 1, $is_prefix)) . '.php';
 			if ( ! $is_prefix) { // also check file with original letter case
@@ -557,7 +550,7 @@ else {
 		/**
 		 * Plugin activation logic
 		 */
-		public function __activation() {
+		public function activation() {
 			// uncaught exception doesn't prevent plugin from being activated, therefore replace it with fatal error so it does
 			set_exception_handler(create_function('$e', 'trigger_error($e->getMessage(), E_USER_ERROR);'));
 
@@ -607,7 +600,7 @@ else {
 			load_plugin_textdomain( 'wp_all_export_plugin', false, dirname( plugin_basename( __FILE__ ) ) . "/i18n/languages" );
 		}	
 
-		public function __fix_db_schema(){
+		public function fix_db_schema(){
 
 			global $wpdb;
 			
@@ -752,13 +745,14 @@ else {
 				'custom_xml_template_loop' => '',
 				'custom_xml_template_footer' => '',				
 				'custom_xml_template_options' => array(),
-                'custom_xml_cdata_logic' => 'auto',
+        'custom_xml_cdata_logic' => 'auto',
 				'show_cdata_in_preview' => 0,
 				'taxonomy_to_export' => '',
 				'created_at_version' => '',
-                'export_variations' => XmlExportEngine::VARIABLE_PRODUCTS_EXPORT_VARIATION,
+        'export_variations' => XmlExportEngine::VARIABLE_PRODUCTS_EXPORT_VARIATION,
 				'export_variations_title' => XmlExportEngine::VARIATION_USE_PARENT_TITLE,
-				'show_cdata_in_preview' => 0
+				'show_cdata_in_preview' => 0,
+        'include_header_row' => 1
 			);
 		}		
 

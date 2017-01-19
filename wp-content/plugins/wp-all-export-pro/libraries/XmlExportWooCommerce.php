@@ -433,7 +433,7 @@ if ( ! class_exists('XmlExportWooCommerce') )
 			if ( ! self::$is_active ) return;								
 
 			$cs = PMXE_Plugin::getInstance()->getAdminCurrentScreen();
-			
+
 			if ( empty(self::$products_data) or ! empty($cs) and 'PMXE_Admin_Manage' == $cs->base )
 			{				
 

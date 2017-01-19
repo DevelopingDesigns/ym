@@ -8,7 +8,6 @@ if ( ! class_exists('XmlExportEngine') ){
 	require_once dirname(__FILE__) . '/XmlExportUser.php';
 	require_once dirname(__FILE__) . '/XmlExportComment.php';
 	require_once dirname(__FILE__) . '/XmlExportTaxonomy.php';
-	require_once dirname(__FILE__) . '/XmlExportFiltering.php';
 
 	final class XmlExportEngine
 	{		
@@ -135,6 +134,11 @@ if ( ! class_exists('XmlExportEngine') ){
 				'label' => 'parent', 
 				'name'  => 'Parent',
 				'type'  => 'parent'
+			),
+			array(
+				'label' => 'parent_slug',
+				'name'  => 'Parent Slug',
+				'type'  => 'parent_slug'
 			),
 			array(
 				'label' => 'order', 
@@ -379,8 +383,9 @@ if ( ! class_exists('XmlExportEngine') ){
 					'taxonomy_to_export' => empty($this->post['taxonomy_to_export']) ? '' : $this->post['taxonomy_to_export']
 				);
 
-				$this->filters = new XmlExportFiltering($filter_args);
-				
+				$this->filters = \Wpae\Pro\Filtering\FilteringFactory::getFilterEngine();
+				$this->filters->init($filter_args);
+
 				$this->init();						
 			}
 
@@ -427,7 +432,7 @@ if ( ! class_exists('XmlExportEngine') ){
 				}
 				else 
 				{
-					$this->filters->parseQuery();
+					$this->filters->parse();
 									
 					PMXE_Plugin::$session->set('whereclause', $this->filters->get('queryWhere'));
 					PMXE_Plugin::$session->set('joinclause', $this->filters->get('queryJoin'));
@@ -437,7 +442,7 @@ if ( ! class_exists('XmlExportEngine') ){
 			}
 			else 
 			{						
-				$this->filters->parseQuery();
+				$this->filters->parse();
 				
 				PMXE_Plugin::$session->set('cpt', self::$post_types);
 				PMXE_Plugin::$session->set('whereclause', $this->filters->get('queryWhere'));

@@ -1,5 +1,5 @@
-<?php		
-	$l10n = array(
+<?php
+$l10n = array(
 		'confirm_and_run'    => __('Confirm & Run Export', 'wp_all_export_plugin'),
 		'save_configuration' => __('Save Export Configuration', 'wp_all_export_plugin')	
 	);
@@ -82,7 +82,7 @@
 					<input type="hidden" name="taxonomy_to_export" value="<?php echo $post['taxonomy_to_export'];?>">
 					<input type="hidden" id="export_variations" name="export_variations" value="<?php echo XmlExportEngine::getProductVariationMode();?>" />
 
-					<?php XmlExportFiltering::render_filtering_block( $engine, $isWizard, $post ); ?>							
+					<?php \Wpae\Pro\Filtering\FilteringFactory::render_filtering_block( $engine, $isWizard, $post ); ?>
 
 					<?php include_once PMXE_ROOT_DIR . '/views/admin/export/options/settings.php'; ?>						
 

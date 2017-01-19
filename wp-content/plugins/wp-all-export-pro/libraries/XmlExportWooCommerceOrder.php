@@ -280,6 +280,8 @@ if ( ! class_exists('XmlExportWooCommerceOrder') )
 		
 			if ( empty($this->order_id) or $this->order_id != $record->ID)
 			{
+				$this->__coupons_used = array();
+
 				$this->order_id   = $record->ID;
 
 				$all_order_items  = $wpdb->get_results("SELECT * FROM {$table_prefix}woocommerce_order_items WHERE order_id = {$record->ID}");
@@ -498,7 +500,7 @@ if ( ! class_exists('XmlExportWooCommerceOrder') )
 							'type'    => 'order_note'
 						);
 
-						remove_filter( 'comments_clauses', array( 'WC_Comments', 'exclude_order_comments' ), 10, 1 );
+						remove_filter( 'comments_clauses', array( 'WC_Comments', 'exclude_order_comments' ), 10 );
 
 						$comments = get_comments( $args );
 
@@ -543,7 +545,9 @@ if ( ! class_exists('XmlExportWooCommerceOrder') )
 										$ItemsfieldSnipped = ( ! empty($options['cc_php'][$subID]) and ! empty($options['cc_code'][$subID]) ) ? $options['cc_code'][$subID] : false;																				
 
 										switch ($options['cc_value'][$subID]) {
-											
+											case '__line_item_id':
+												$item_data[$element_name] = pmxe_filter( $order_item->order_item_id, $ItemsfieldSnipped);
+												break;
 											case '_product_id':
 											case '__product_sku':
 											case '__product_title':
@@ -837,7 +841,7 @@ if ( ! class_exists('XmlExportWooCommerceOrder') )
 						// List of all coupons used
 						if ( $options['cc_value'][$elId] == '__coupons_used' and ! is_null($this->__coupons_used)){
 							$data[$options['cc_name'][$elId]] = pmxe_filter(implode($implode_delimiter, $this->__coupons_used) , $fieldSnipped);
-							$this->__coupons_used = array();
+							//$this->__coupons_used = array();
 						}
 
 						// Calculate Total Discount Amount
@@ -1607,7 +1611,7 @@ if ( ! class_exists('XmlExportWooCommerceOrder') )
 		public function render_filters(){
 			
 			if ( ! self::$is_active ) return;
-			
+			$exclude = array('__product_variation', 'post_type', '__line_item_id');
 			foreach (self::$order_sections as $slug => $section) :
 				?>										
 				<optgroup label="<?php echo $section['title']; ?>">					
@@ -1633,10 +1637,21 @@ if ( ! class_exists('XmlExportWooCommerceOrder') )
 								<?php
 								endif;
 								break;
-							case 'notes':
 							case 'items':
+								if (!in_array($field_label, $exclude)):
+								?>
+								<option value="<?php echo 'item_' . $field_label; ?>"><?php echo $field_name; ?></option>
+								<?php
+								endif;
+							case 'notes':
 							case 'taxes':
 							case 'fees':
+								$allowed = array('__coupons_used');
+								if (in_array($field_label, $allowed)):
+								?>
+								<option value="<?php echo 'item_' . $field_label; ?>"><?php echo $field_name; ?></option>
+								<?php
+								endif;
 							case 'refunds':
 								break;							
 							default:
@@ -1661,7 +1676,27 @@ if ( ! class_exists('XmlExportWooCommerceOrder') )
 								}								
 								break;
 						}																							
-					}		
+					}
+
+					if ( ! empty($section['additional']) ){
+						foreach ($section['additional'] as $sub_slug => $sub_section){
+							?>
+							<optgroup label="<?php echo "Items -> ".$sub_section['title']; ?>">
+								<?php foreach ($sub_section['meta'] as $cur_meta_key => $field): ?>
+									<?php
+									$field_type = is_array($field) ? $field['type'] . '_' : 'cf_';
+									$field_label = is_array($field) ? $field['label'] : $field;
+									if (in_array($field_label, $exclude)) continue;
+									$field_name = is_array($field) ? $field['name'] : $field;
+									if ($field_label . '_' == $field_type) $field_type = '';
+									$field_type = str_replace(array('woo', 'cats', 'attr'), array('cf', 'tx', 'tx'), $field_type);
+									?>
+									<option value="<?php echo 'product_' . $field_type . $field_label; ?>"><?php echo $field_name; ?></option>
+								<?php endforeach;?>
+							</optgroup>
+							<?php
+						}
+					}
 					?>
 				</optgroup>
 				<?php																					
@@ -1765,7 +1800,8 @@ if ( ! class_exists('XmlExportWooCommerceOrder') )
 				'_line_total' 			=> __('Item Total', 'wp_all_export_plugin'),
                 '_line_subtotal_tax'    => __('Item Tax', 'wp_all_export_plugin'),
                 '_line_tax' 			=> __('Item Tax Total', 'wp_all_export_plugin'),
-                '_line_tax_data'        => __('Item Tax Data', 'wp_all_export_plugin')
+                '_line_tax_data'        => __('Item Tax Data', 'wp_all_export_plugin'),
+				'__line_item_id'		=> __('Order Line ID', 'wp_all_export_plugin'),
 			);			
 
 			return apply_filters('wp_all_export_available_order_default_product_data_filter', $data);

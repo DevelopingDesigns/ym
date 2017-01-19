@@ -14,6 +14,7 @@ class VariationOptions extends \Wpae\VariationOptions\VariationOptions implement
         if (!$this->shouldTitleBeProcessed($productVariationMode)) {
             return $entry;
         }
+
         if($entry->post_type != 'product_variation') {
             return $entry;
         }
@@ -41,14 +42,14 @@ class VariationOptions extends \Wpae\VariationOptions\VariationOptions implement
         if (\XmlExportEngine::getProductVariationMode() == \XmlExportEngine::VARIABLE_PRODUCTS_EXPORT_PARENT) {
             return " AND ($wpdb->posts.post_type = 'product') ";
         } else if (\XmlExportEngine::getProductVariationMode() == \XmlExportEngine::VARIABLE_PRODUCTS_EXPORT_VARIATION) {
-            return " AND ($wpdb->posts.post_type = 'product_variation' AND $wpdb->posts.post_parent IN (
+            return " AND $wpdb->posts.ID NOT IN (
+                SELECT DISTINCT $wpdb->posts.post_parent
+                            FROM $wpdb->posts
+                            WHERE $wpdb->posts.post_type = 'product_variation'
+                        ) OR ($wpdb->posts.post_type = 'product_variation' AND $wpdb->posts.post_parent IN (
                 SELECT DISTINCT $wpdb->posts.ID
                             FROM $wpdb->posts $join
                             WHERE $where
-                        ) OR $wpdb->posts.post_type = 'product' AND $wpdb->posts.ID NOT IN (
-                SELECT DISTINCT $wpdb->posts.post_parent
-                            FROM $wpdb->posts $join
-                            WHERE ". str_replace("post_type = 'product'", "post_type = 'product_variation'", $where) ."
                         ))";
         } else {
             return $this->defaultQuery($wpdb, $where, $join, $closeBracket);

@@ -12,7 +12,7 @@ function wp_all_export_posts_where($where)
 	{
 		// cron job execution
 		if ( ! empty(XmlExportEngine::$exportOptions['whereclause']) ) $where .= XmlExportEngine::$exportOptions['whereclause'];		
-	}		
+	}
 
 	return $where;
 }

@@ -20,6 +20,8 @@ class WpaeXmlProcessor
 
     public function __construct(WpaeString $wpaeString)
     {
+        add_filter('wp_all_export_post_process_xml', array($this, 'wp_all_export_post_process_xml'), 10, 1);
+
         $this->wpaeString = $wpaeString;
     }
 
@@ -44,15 +46,11 @@ class WpaeXmlProcessor
             $this->initVariables($xml);
 
             $root = $this->dom->getElementsByTagName("root");
-            $this->dom->recover = true;
 
             $this->parseElement($root->item(0));
-
-            $this->dom->preserveWhiteSpace = false;
-            $this->dom->formatOutput = true;
             $response = $this->dom->saveXML($this->dom);
 
-            $xml = $this->cleanResponse($xml, $response);
+            $xml = $this->cleanResponse($response);
 
             if ($this->step > 8) {
                 throw new WpaeTooMuchRecursionException('Too much recursion');
@@ -62,7 +60,34 @@ class WpaeXmlProcessor
         $xml = $this->decodeSpecialCharacters($xml);
         $xml = $this->encodeSpecialCharsInAttributes($xml);
 
-        return $xml;
+        return $this->pretify($xml);
+    }
+
+    /**
+     * @param $xml
+     * @return mixed
+     */
+    public function pretify($xml)
+    {
+        $xml = '<root>' . $xml . '</root>';
+        $this->initVariables($xml);
+//        $root = $this->dom->getElementsByTagName("root");
+//        $this->preprocess_attributes($root->item(0));
+
+        return "\n  ".$this->cleanResponse($this->dom->saveXML($this->dom));
+    }
+
+    private function preprocess_attributes(DOMNode $element){
+        if($element->hasAttributes()){
+            for ($i = 0; $i < $element->attributes->length; $i++) {
+                $element->attributes->item($i)->nodeValue = $this->sanitizeAttribute($element->attributes->item($i)->nodeValue);
+            }
+        }
+        if ($element->hasChildNodes()) {
+            for ($i = 0; $i < $element->childNodes->length; $i++) {
+                $this->preprocess_attributes($element->childNodes->item($i));
+            }
+        }
     }
 
     private function parseElement(DOMNode $element)
@@ -403,6 +428,7 @@ class WpaeXmlProcessor
         $dom->preserveWhiteSpace = false;
         $dom->substituteEntities = false;
         $dom->resolveExternals = false;
+        $dom->formatOutput = true;
 
         $dom->loadXML($xml);
         $this->dom = $dom;
@@ -418,7 +444,6 @@ class WpaeXmlProcessor
      */
     private function processSnippet($snippet, $isInFunction = false)
     {
-
         $sanitizedSnippet = $this->sanitizeSnippet($snippet);
 
         $sanitizedSnippet = str_replace(WpaeXmlProcessor::SNIPPET_DELIMITER, '"', $sanitizedSnippet);
@@ -426,8 +451,16 @@ class WpaeXmlProcessor
         $this->checkCorrectNumberOfQuotes($sanitizedSnippet, $functionName);
         $this->checkIfFunctionExists($functionName);
 
-        $snippetValue = eval('return ' . $sanitizedSnippet . ';');
+        $argsStr = preg_replace("%^".$functionName."\((.*)\)$%", "$1", $sanitizedSnippet);
+        preg_match_all("%(\"[^\"]*\")%", $argsStr, $matches);
+        if (!empty($matches[0])){
+            $args = $matches[0];
+            foreach ($args as $k => $arg){
+                $sanitizedSnippet = str_replace($arg, 'apply_filters("wp_all_export_post_process_xml", '. $arg .')' ,$sanitizedSnippet);
+            }
+        }
 
+        $snippetValue = eval('return ' . $sanitizedSnippet . ';');
         $snippetValue = $this->encodeSpecialCharacters($snippetValue);
 
         if(strpos($snippet, 'explode') !== false && $isInFunction) {
@@ -435,6 +468,10 @@ class WpaeXmlProcessor
         }
 
         return $snippetValue;
+    }
+
+    public function wp_all_export_post_process_xml($value){
+        return $this->postProcessXml($this->decodeSpecialCharacters(str_replace('"','', $value)));
     }
 
     public function getNodeAttributes(DOMNode $dom)
@@ -459,7 +496,6 @@ class WpaeXmlProcessor
         $snippetValue = $this->sanitizeAttribute($snippetValue);
         if ($newValueNode->hasAttributes()) {
             for ($i = 0; $i < $newValueNode->attributes->length; $i++) {
-
                 $newValueNode->attributes->item($i)->nodeValue =
                     str_replace(
                         $snippet,
@@ -531,7 +567,7 @@ class WpaeXmlProcessor
 
         $xml = str_replace(self::SNIPPET_DELIMITER, '', $xml);
 
-        $xml = "\n  ".trim($xml);
+        $xml = trim($xml);
         return $xml;
     }
 
@@ -556,14 +592,14 @@ class WpaeXmlProcessor
      * @param $response
      * @return mixed
      */
-    private function cleanResponse($xml, $response)
+    private function cleanResponse($response)
     {
         $response = str_replace('<root>', '', $response);
         $response = str_replace('</root>', '', $response);
         $xml = str_replace("<?xml version=\"1.0\"?>", '', $response);
         $xml = str_replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>", "", $xml);
 
-        return $xml;
+        return trim($xml);
     }
 
     /**

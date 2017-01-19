@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<?php XmlExportFiltering::render_filtering_block( $engine, $this->isWizard, $post, true ); ?>
+<?php \Wpae\Pro\Filtering\FilteringFactory::render_filtering_block( $engine, $this->isWizard, $post, true ); ?>
 
 <table class="wpallexport-layout wpallexport-export-template">	
 	<tr>
@@ -259,7 +259,7 @@
 						</div>
 
 						<!-- ExportToCsvBegin -->
-						<div class="wpallexport-collapsed closed wpallexport-section wpallexport-csv-advanced-options export_to_csv"  <?php if ($post['export_to'] != 'csv' || ($post['export_to'] == 'csv' && $post['export_to_sheet'] ==='xls')) { ?> style="display: none;" <?php }?> >
+						<div class="wpallexport-collapsed closed wpallexport-section wpallexport-csv-advanced-options export_to_csv"  <?php if ($post['export_to'] == 'xml') : ?> style="display: none;" <?php endif; ?> >
 
 							<div class="wpallexport-content-section rad0" style="margin:0; border-top:1px solid #ddd; border-bottom: none; border-right: none; border-left: none; background: #f1f2f2; padding-bottom: 15px; margin-top: 5px;">
 								<div class="wpallexport-collapsed-header">
@@ -272,6 +272,14 @@
 											<div class="input" style="display: inline-block; max-width: 360px; width: 40%; margin-right: 10px;">
 												<label style="width: 80px; margin-left: 20px;"><?php _e('Separator:','wp_all_export_plugin');?></label>
 												<input type="text" name="delimiter" value="<?php echo esc_attr($post['delimiter']) ?>" style="width: 40px; height: 30px; top: 0px; text-align: center;"/>
+											</div>
+											<div class="wp-all-export-additional-csv-options">
+												<h4><?php _e('CSV Header Row', 'wp_all_export_plugin'); ?></h4>
+												<div class="input">
+													<input type="hidden" name="include_header_row" value="0"/>
+													<input type="checkbox" id="include_header_row" name="include_header_row" value="1" <?php if ($post['include_header_row']):?>checked="checked"<?php endif; ?> class="switcher"/>
+													<label for="include_header_row"><?php _e("Include header row and column titles in export", "wp_all_export_plugin"); ?></label>
+												</div>
 											</div>
 										</div>
 										<div style="margin-left:20px;">

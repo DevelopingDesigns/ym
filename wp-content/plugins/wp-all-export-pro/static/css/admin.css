@@ -407,7 +407,8 @@
 	margin: 10px auto;	
 	text-align: center;
 }
-	.wpallexport-plugin .wpallexport-all-options .wpallexport-file-format-options .wpallexport-csv-options{
+	.wpallexport-plugin .wpallexport-all-options .wpallexport-file-format-options .wpallexport-csv-options,
+	.wpallexport-plugin .wpallexport-all-options .wpallexport-file-format-options .wpallexport-xml-options{
 		margin: 0 auto;
 		min-height: 30px;
 		width: 82%;
@@ -1023,6 +1024,11 @@
 }
 .wpallexport-plugin .wp-all-export-field-options{
 	padding: 10px;
+	overflow-y: auto;
+	min-height: 240px;
+}
+.wpallexport-plugin .wp-all-export-field-options .chosen-container .chosen-results{
+	max-height: 140px;
 }
 .wpallexport-plugin .wp-all-export-advanced-field-options{
 	display: block;
@@ -2643,6 +2649,10 @@
 	margin-left: 20px;
 }
 
+.wpallexport-plugin .wp-all-export-additional-csv-options{
+	margin-left: 20px;
+}
+
 .sub-options {
 	display: none;
 }
@@ -3168,6 +3178,7 @@
 	padding-left: 14px;
 	max-width: 500px;
 	overflow: hidden;
+	word-wrap: break-word;
 }
 .wpallexport-plugin .xml-content.collapsed {
 	display: none;

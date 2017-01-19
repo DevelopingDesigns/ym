@@ -9,7 +9,8 @@ function pmxe_pmxe_after_export($export_id, $export)
 	}
 
 	if ( ! $export->isEmpty())
-	{						
+	{
+
 		$splitSize = $export->options['split_large_exports_count'];			
 
 		$exportOptions = $export->options;
@@ -34,8 +35,12 @@ function pmxe_pmxe_after_export($export_id, $export)
 
 		$is_export_csv_headers = apply_filters('wp_all_export_is_csv_headers_enabled', true, $export->id);
 
+        if ( isset($export->options['include_header_row'])) {
+            $is_export_csv_headers = $export->options['include_header_row'];
+        }
+
         // Remove headers row from CSV file
-        if ( ! $is_export_csv_headers && @file_exists($filepath) && $export->options['export_to'] == 'csv' ){
+        if ( empty($is_export_csv_headers) && @file_exists($filepath) && $export->options['export_to'] == 'csv' && $export->options['export_to_sheet'] == 'csv' ){
 
             $tmp_file = str_replace(basename($filepath), 'iteration_' . basename($filepath), $filepath);
             copy($filepath, $tmp_file);

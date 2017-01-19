@@ -45,9 +45,9 @@ function pmxe_wp_ajax_wpae_filtering_count(){
 	XmlExportEngine::$post_types = array($post['cpt']);
 	XmlExportEngine::$exportOptions['export_variations'] = empty($post['export_variations']) ? XmlExportEngine::VARIABLE_PRODUCTS_EXPORT_VARIATION : $post['export_variations'];
 
-	$filters = new XmlExportFiltering($filter_args);
-
-	$filters->parseQuery();
+	$filters = \Wpae\Pro\Filtering\FilteringFactory::getFilterEngine();
+	$filters->init($filter_args);
+	$filters->parse();
 				
 	PMXE_Plugin::$session->set('whereclause', $filters->get('queryWhere'));
 	PMXE_Plugin::$session->set('joinclause',  $filters->get('queryJoin'));

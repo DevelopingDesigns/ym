@@ -93,7 +93,7 @@ final class XmlExportCpt
 			} 
 
 			$fieldSnipped = ( ! empty($fieldPhp ) and ! empty($fieldCode)) ? $fieldCode : false;			
-			
+
 			switch ($fieldType)
 			{
 				case 'id':
@@ -167,6 +167,27 @@ final class XmlExportCpt
 				case 'parent':
 					wp_all_export_write_article( $article, $element_name, apply_filters('pmxe_post_parent', pmxe_filter($entry->post_parent, $fieldSnipped), $entry->ID) );
 					break;
+                case 'parent_slug':
+                    $val = '';
+                    if ( $entry->post_parent != 0 ) {
+                        $pages = get_post_ancestors( $entry->ID );
+                        $slugs = array();
+                        if ( !empty( $pages ) ) {
+                            foreach( $pages as $page ) {
+                                $the_post = get_post( $page );
+                                $slugs[] = $the_post->post_name;
+                            }
+                            $val = implode( "/", array_reverse( $slugs ) );
+                        } else {
+                            $the_post = get_post( $entry->ID );
+                            $val = $the_post->post_name;
+                        }
+                    }
+                    else{
+                        $val = $entry->post_parent;
+                    }
+                    wp_all_export_write_article( $article, $element_name, apply_filters('pmxe_post_parent_slug', pmxe_filter($val, $fieldSnipped), $entry->ID) );
+                    break;
 				case 'comment_status':
 					wp_all_export_write_article( $article, $element_name, apply_filters('pmxe_comment_status', pmxe_filter($entry->comment_status, $fieldSnipped), $entry->ID) );
 					break;
@@ -204,13 +225,13 @@ final class XmlExportCpt
 						if ( ! empty($cur_meta_values) and is_array($cur_meta_values)) {
 							foreach ($cur_meta_values as $key => $cur_meta_value) {
 								if (empty($val)) {
-									$val = apply_filters('pmxe_custom_field', pmxe_filter(maybe_serialize($cur_meta_value), $fieldSnipped), $fieldValue, $entry->ID);																	
+									$val = maybe_serialize($cur_meta_value);
 								}
 								else {
-									$val = apply_filters('pmxe_custom_field', pmxe_filter($val . $implode_delimiter . maybe_serialize($cur_meta_value), $fieldSnipped), $fieldValue, $entry->ID);
+									$val = $val . $implode_delimiter . maybe_serialize($cur_meta_value);
 								}
 							}
-							wp_all_export_write_article( $article, $element_name, $val );
+							wp_all_export_write_article( $article, $element_name, apply_filters('pmxe_custom_field', pmxe_filter($val, $fieldSnipped), $val, $entry->ID) );
 						}		
 
 						if ( empty($cur_meta_values)) {
@@ -253,7 +274,7 @@ final class XmlExportCpt
 						else {
 							$field_value = get_field($fieldLabel, $entry->ID);	
 						}
-						
+
 						XmlExportACF::export_acf_field(
 							$field_value,
 							XmlExportEngine::$exportOptions,
@@ -295,7 +316,7 @@ final class XmlExportCpt
 					break;
 
 				case 'attr':
-					
+
 					if ( ! empty($fieldValue)) {
 						if ( $entry->post_parent == 0 ) {
 							$txes_list = get_the_terms($entry->ID, $fieldValue);
@@ -308,8 +329,8 @@ final class XmlExportCpt
 							}																		
 						}
 						else {
-							$attribute_pa = apply_filters('pmxe_woo_attribute', get_post_meta($entry->ID, 'attribute_' . $fieldValue, true), $entry->ID, $fieldValue);
-							
+                            $attribute_pa_value = get_post_meta($entry->ID, 'attribute_' . $fieldValue, true);
+							$attribute_pa = apply_filters('pmxe_woo_attribute', pmxe_filter($attribute_pa_value, $fieldSnipped), $entry->ID, $fieldValue);
 							wp_all_export_write_article( $article, $element_name, $attribute_pa );
 						}								
 
@@ -489,11 +510,13 @@ final class XmlExportCpt
 			case 'slug':
 				$templateOptions[$element_type] = '{'. $element_name .'[1]}';										
 				$templateOptions['is_update_' . $options['cc_type'][$ID]] = 1;
-				break;	
+				break;
+            case 'parent_slug':
+                $templateOptions['is_multiple_page_parent'] = 'no';
+                $templateOptions['single_page_parent'] = '{' . $element_name . '[1]}';
+                $templateOptions['is_update_parent'] = 1;
+                break;
 			case 'parent':
-				$templateOptions['is_multiple_page_parent'] = 'no';
-				$templateOptions['single_page_parent'] = '{' . $element_name . '[1]}';
-				$templateOptions['is_update_' . $options['cc_type'][$ID]] = 1;
                 $templateOptions['single_product_parent_id'] = '{' . $element_name . '[1]}';
                 $templateOptions['single_product_id_first_is_parent_id'] = '{' . $element_name . '[1]}';
 				break;
