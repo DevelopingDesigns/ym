@@ -1091,7 +1091,7 @@ img.alignright,
 .site-inner,
 .wrap {
   margin: 0 auto;
-  max-width: 1280px; }
+  max-width: 1200px; }
   @media screen and (max-width: 1340px) {
     .site-inner,
     .wrap {
@@ -1327,6 +1327,7 @@ img.alignright,
     @media screen and (max-width: 860px) {
       .sidebar .widget {
         margin-bottom: 5%; } }
+
 .landing-page .site-inner {
   max-width: 800px; }
 
@@ -1491,28 +1492,15 @@ p.entry-meta {
 
 .site-header {
   background-color: #fff;
-  z-index: 10; }
-  .site-header > .wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    position: relative; }
-    @media screen and (max-width: 1023px) {
-      .site-header > .wrap {
-        padding-left: 5%;
-        padding-right: 5%; } }
-  @media screen and (max-width: 1200px) {
-    .site-header .title-area {
-      width: 100%; } }
-  .site-header .nav-primary {
-    text-align: right;
-    width: 100%; }
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
 
 /* # Site Header - .fixed-header
 ---------------------------------------------------------------------------------------------------- */
@@ -2149,7 +2137,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
 .text-link {
   margin: 0 !important;
   background-color: transparent !important;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='20' height='15' viewBox='0 0 20 15' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAssets/Links/ArrowLink-Green%3C/title%3E%3Cpath d='M19.702 6.506L13.651.261a.844.844 0 0 0-1.222 0 .911.911 0 0 0 0 1.26l4.62 4.767H.87c-.48 0-.87.402-.87.898 0 .495.39.898.87.898h16.178L12.43 12.85a.911.911 0 0 0 0 1.26.845.845 0 0 0 1.222 0l6.053-6.247c.018-.016.04-.02.056-.037.027-.028.027-.067.05-.097a.884.884 0 0 0 .18-.434.89.89 0 0 0-.23-.75c-.018-.017-.04-.023-.058-.039z' fill='%23C1CE20' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-image: url('data:image/svg+xml;charset=utf-8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20width%3D%2220px%22%20height%3D%2215px%22%20viewBox%3D%220%200%2020%2015%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3C!--%20Generator%3A%20Sketch%2041.2%20(35397)%20-%20http%3A%2F%2Fwww.bohemiancoding.com%2Fsketch%20--%3E%0A%20%20%20%20%3Ctitle%3EAssets%2FLinks%2FArrowLink-Green%3C%2Ftitle%3E%0A%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%0A%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Cg%20id%3D%22Symbols%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cg%20id%3D%22ContentTypes%2FCards%2FResourceCard-Photo%22%20transform%3D%22translate(-335.000000%2C%20-471.000000)%22%20fill%3D%22%23C1CE20%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Card-Explore%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Assets%2FLinks%2FArrowLink-Green%22%20transform%3D%22translate(335.000000%2C%20471.000000)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M19.702451%2C6.50616112%20L13.6508824%2C0.261248712%20C13.3133333%2C-0.087082904%2012.7661111%2C-0.087082904%2012.4294118%2C0.261248712%20C12.0918954%2C0.609580328%2012.0918954%2C1.1742829%2012.4294118%2C1.52170398%20L17.0481699%2C6.28796909%20L0.87%2C6.28796909%20C0.389738562%2C6.28796909%200%2C6.6901911%200%2C7.18579391%20C0%2C7.68132927%200.389738562%2C8.08355129%200.87%2C8.08355129%20L17.0481699%2C8.08355129%20L12.4294444%2C12.8498164%20C12.0918954%2C13.198148%2012.0918954%2C13.7628506%2012.4294444%2C14.1102717%20C12.7669935%2C14.4577265%2013.314183%2C14.4586033%2013.6508824%2C14.1102717%20L19.7042157%2C7.86269508%20C19.7216013%2C7.84741827%2019.7433333%2C7.84205621%2019.7598693%2C7.82586885%20C19.7868301%2C7.79804684%2019.7868301%2C7.75943326%2019.8094771%2C7.72891335%20C19.8834314%2C7.63462201%2019.9356209%2C7.53142763%2019.9669281%2C7.42007213%20C19.9782353%2C7.37700703%2019.9860784%2C7.33927026%2019.9904248%2C7.29529461%20C20.0261111%2C7.02864169%2019.9591176%2C6.75032037%2019.7598693%2C6.54565152%20C19.7424837%2C6.52771054%2019.7198366%2C6.52231475%2019.702451%2C6.50616112%20Z%22%20id%3D%22Card-Arrow%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E');
   background-position: 94% 55%;
   background-repeat: no-repeat;
   background-size: 12px 9px;
@@ -2221,7 +2209,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     display: flex;
     -ms-flex-flow: row wrap;
         flex-flow: row wrap;
-    max-width: 1280px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto; }
   .cards .card-container {
@@ -2277,7 +2265,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     display: flex;
     -ms-flex-flow: row wrap;
         flex-flow: row wrap;
-    max-width: 1280px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto; }
   .fc-statistics .stat-container {
@@ -2395,7 +2383,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     display: flex;
     -ms-flex-flow: row wrap;
         flex-flow: row wrap;
-    max-width: 1280px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto; }
   .fc-resources .fc-title-group {

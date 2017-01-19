@@ -40,12 +40,12 @@ function theme_setup() {
 	);
 
 	add_theme_support( 'genesis-structural-wraps', [
-			'header',
-			//'menu-primary',
-			'menu-secondary',
-			'site-inner',
-			'footer-widgets',
-			'footer',
+			// 'header',
+			// //'menu-primary',
+			// 'menu-secondary',
+			// 'site-inner',
+			// 'footer-widgets',
+			// 'footer',
 		]
 	);
 

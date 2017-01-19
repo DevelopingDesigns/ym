@@ -1,10 +1,28 @@
 /* ## Site Containers
 --------------------------------------------- */
 
+//.site-inner,
+//.wrap {
+//	margin: 0 auto;
+//	max-width: 1280px;
+//
+//	@include media($xxlarge-screen-up) {
+//		max-width: 1140px;
+//	}
+//
+//	@include media($xlarge-screen-up) {
+//		max-width: 960px;
+//	}
+//
+//	@include media($large-screen-up) {
+//		max-width: 800px;
+//	}
+//}
+
 .site-inner,
 .wrap {
 	margin: 0 auto;
-	max-width: 1280px;
+	max-width: 1200px;
 
 	@include media($xxlarge-screen-up) {
 		max-width: 1140px;
