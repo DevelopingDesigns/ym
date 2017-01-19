@@ -4,13 +4,13 @@
 // Bourbon Neat - Overlay 12 Column Grid
 // http://thoughtbot.github.io/neat-docs/latest/#visual-grid
 $visual-grid: true !default;
-$visual-grid-color: #eee !default;
+$visual-grid-color: #2fc2ee !default;
 $visual-grid-index: front !default;
 $visual-grid-opacity: 0.2 !default;
 
 // Add CSS Grid Overlay To Help With Layout
 // http://lostgrid.org/docs.html#lost-utility
-section {
-	lost-utility: edit;
-}
+//section {
+//	lost-utility: edit;
+//}
 
