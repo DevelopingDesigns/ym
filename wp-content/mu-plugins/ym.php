@@ -33,6 +33,7 @@ define( 'YMCORE_PLUGIN_DOMAIN', 'ym-core' );
 define( 'YMCORE_PLUGIN_NAME', __( 'YM Core', WPSCORE_PLUGIN_DOMAIN ) );
 define( 'YMCORE_PLUGIN_SLUG', plugin_basename( __FILE__ ) );
 define( 'YMCORE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'YMCORE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'YMCORE_DEBUG', true );
 
 //spl_autoload_register( 'ym_acf_core_autoload' );
@@ -72,11 +73,23 @@ define( 'YMCORE_DEBUG', true );
 // ACF
 //require_once( 'advanced-custom-fields-pro/acf.php' );
 
+// Templates
+//require_once( 'ym-core/template-functions.php' );
+//require_once( 'ym-core/acf-functions.php' );
+
 // Load ACF Builder
 //require_once( 'wps-core/acf/acf-builder/lib/autoload.php' );
 //require_once( 'wps-core/acf/acf-builder/autoload.php' );
 
 // YM Fields
+//add_action( 'init', 'ym_core_plugins_loaded', 4 );
+//function ym_core_plugins_loaded() {
+//	$fields = YM_Core_Fields::get_instance();
+//}
+
+//add_filter( 'cbqe_get_post_types_args', function( $args ) {
+//	return array( 'public' => true );
+//});
 //add_action( 'init', 'ym_core_plugins_loaded', 4 );
 //function ym_core_plugins_loaded() {
 //	$fields = YM_Core_Fields::get_instance();
@@ -146,30 +159,30 @@ define( 'YMCORE_DEBUG', true );
  * @param string $slug The slug name for the generic template.
  * @param string $load The name of the specialised template.
  */
-function ym_template( $slug, $name = null, $load = true ) {
-	static $ym_template;
-
-	if ( ! $ym_template ) {
-		$ym_template = new WPS_Template_Loader( array(
-			'filter_prefix'            => 'ym',
-			'theme_template_directory' => 'content-blocks',
-			'templates_directory'      => 'content-blocks',
-			'plugin_directory'         => YMCORE_PLUGIN_DIR,
-		) );
-	}
-
-	if ( defined( 'YMCORE_DEBUG' ) && YMCORE_DEBUG ) {
-		wps_printr(
-			array( 'template-path' => $ym_template->get_template_part( $slug, $name, false ) )
-		);
-	}
-
-//	wps_printr(array(
-//		'$templates' =>  $templates,
-//		'$slug' =>  $slug,
-//		'$load' =>  $load,
-//	));
-
-	return $ym_template->get_template_part( $slug, $name, $load );
-
-}
+//function ym_template( $slug, $name = null, $load = true ) {
+//	static $ym_template;
+//
+//	if ( ! $ym_template ) {
+//		$ym_template = new WPS_Template_Loader( array(
+//			'filter_prefix'            => 'ym',
+//			'theme_template_directory' => 'content-blocks',
+//			'templates_directory'      => 'content-blocks',
+//			'plugin_directory'         => YMCORE_PLUGIN_DIR,
+//		) );
+//	}
+//
+//	if ( defined( 'YMCORE_DEBUG' ) && YMCORE_DEBUG ) {
+//		wps_printr(
+//			array( 'template-path' => $ym_template->get_template_part( $slug, $name, false ) )
+//		);
+//	}
+//
+////	wps_printr(array(
+////		'$templates' =>  $templates,
+////		'$slug' =>  $slug,
+////		'$load' =>  $load,
+////	));
+//
+//	return $ym_template->get_template_part( $slug, $name, $load );
+//
+//}

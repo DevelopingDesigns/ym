@@ -47,11 +47,8 @@ function services_create_post_type() {
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
-			'editor',
 			'excerpt',
-			'revisions',
 			'thumbnail',
-			'custom-fields',
 		),
 		'hierarchical'        => false,
 		'public'              => true,
