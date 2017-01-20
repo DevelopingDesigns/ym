@@ -191,6 +191,8 @@ function ym_flexible_content() {
 			get_template_part( 'partials/resources', 'content-block' );
 		} elseif ( get_row_layout() === 'logo_slider' ) {
 			get_template_part( 'partials/logo', 'content-block' );
+		} elseif ( get_row_layout() === 'content_and_image' ) {
+			get_template_part( 'partials/content-image', 'content-block' );
 		}
 
 	endwhile;

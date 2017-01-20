@@ -159,3 +159,12 @@ function theme_setup() {
 	include_once __DIR__ . '/layout.php';
 	include_once __DIR__ . '/partials.php';
 }
+
+add_action( 'init', __NAMESPACE__ . '\ym_register_image_sizes' );
+/**
+ * Register child theme image sizes
+ */
+function ym_register_image_sizes() {
+	add_image_size( 'small-screens-hero', 500, 500, true );
+	add_image_size( 'acf-uploads-preview', 800, 250 );
+}
