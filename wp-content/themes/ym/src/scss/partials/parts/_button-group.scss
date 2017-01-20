@@ -1,0 +1,182 @@
+// Button Color Variations
+.btn-green {
+	background-color: $green-main;
+
+	&:hover,
+	&focus {
+		background-color: shade($green-main, 15%);
+		box-shadow: none;
+	}
+}
+
+.btn-teal {
+	background-color: $teal1;
+
+	&:hover,
+	&focus {
+		background-color: shade($teal1, 15%);
+		box-shadow: none;
+	}
+}
+
+.btn-slate {
+	background-color: $slate-dark;
+
+	&:hover,
+	&focus {
+		background-color: shade($slate-dark, 15%);
+		box-shadow: none;
+	}
+}
+
+.btn-white {
+	background-color: $white;
+	color: $slate-dark;
+
+	&:hover,
+	&focus {
+		box-shadow: none;
+		color: $slate-dark;
+	}
+}
+
+.btn-sec-green {
+	background-color: transparent;
+	border: 1px solid $green-main;
+	box-shadow: none;
+	color: $green-main;
+
+	&:hover,
+	&focus {
+		background-color: $green-main;
+		box-shadow: none;
+		color: $white;
+	}
+}
+
+.btn-sec-teal {
+	background-color: transparent;
+	border: 1px solid $teal1;
+	box-shadow: none;
+	color: $teal1;
+
+	&:hover,
+	&focus {
+		background-color: $teal1;
+		box-shadow: none;
+		color: $white;
+	}
+}
+
+.btn-sec-slate {
+	background-color: transparent;
+	border: 1px solid $slate-dark;
+	box-shadow: none;
+	color: $slate-dark;
+
+	&:hover,
+	&focus {
+		background-color: $slate-dark;
+		box-shadow: none;
+		color: $white;
+	}
+}
+
+.btn-sec-white {
+	background-color: transparent;
+	border: 1px solid $white;
+	box-shadow: none;
+	color: $white;
+
+	&:hover,
+	&focus {
+		background-color: $white;
+		box-shadow: none;
+		color: $slate-dark;
+	}
+}
+
+.btn-red {
+	background-color: $red1;
+
+	&:hover,
+	&focus {
+		background-color: shade($red1, 15%);
+		box-shadow: none;
+	}
+}
+
+.btn-orange {
+	background-color: $orange1;
+
+	&:hover,
+	&focus {
+		background-color: shade($orange1, 15%);
+		box-shadow: none;
+	}
+}
+
+
+// Text Link
+.text-link {
+	margin: 0 !important;
+	background-color: transparent !important;
+	background-image: inline('dist/images/green-arrow.svg');
+	background-position: 94% 55%;
+	background-repeat: no-repeat;
+	background-size: size('dist/images/green-arrow@2x.png', 2);
+	box-shadow: none !important;
+	color: $green3;
+	min-width: 0 !important;
+	padding-right: 20px;
+	text-transform: capitalize;
+
+	&:hover,
+	&:focus {
+		color: $green3;
+		font-weight: $fw-bolder;
+	}
+
+	&:hover {
+		background-position: 95.5% 55%;
+		transition: background-position 0.25s cubic-bezier(0.22, 0.61, 0.36, 1) 0.05s, font-weight 0.25s;
+	}
+}
+
+
+
+// Button Size Variations
+.btn-tiny {
+	@include font-size(10);
+	@include padding(11px 25px);
+}
+
+.btn-small {
+	@include font-size(11);
+	@include padding(15px 27.5px);
+}
+
+.btn-primary {
+	@include font-size(12);
+	@include padding(18px 32.5px);
+}
+
+.btn-large {
+	@include font-size(14);
+	@include padding(17.5px 40px);
+}
+
+
+// .double-buttons
+.double-button {
+	min-width: 220px;
+
+	&:first-of-type {
+		margin-right: 3em;
+
+		@include media($small-screen-up) {
+			margin-bottom: 1em;
+			margin-right: 0;
+		}
+	}
+}

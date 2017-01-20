@@ -9,8 +9,8 @@
 	Template Version: 2.3.0
 */
 
-@import "variables/variables";
-@import "mixins/mixens";
+// Importing Utilities - Variables, Mixins
+@import "utilities/utilities";
 
 // Importing Bourbon, Neat, Refills and _grid_settings.scss
 @import "vendor/normalize";
@@ -19,6 +19,9 @@
 @import "vendor/neat/neat";
 @import "base/base";
 
+// NPM Plugins
+@import "npm-plugins/npm-plugins";
+
 // Theme scss
 @import "components/components";
 @import "structure/structure";
@@ -26,4 +29,24 @@
 @import "widgets/widgets";
 @import "modules/modules";
 
+// Partials
+@import "partials/partials";
+
+// Print
 @import "print";
+
+
+
+// Lost Grid - Postcss Plugin
+// http://lostgrid.org/docs.html#edit-mode
+// http://lostgrid.org/docs.html#global-grid-settings
+
+@lost flexbox flex;
+@lost gutter 30px;
+
+
+// Add CSS Grid Overlay To Help With Layout
+// http://lostgrid.org/docs.html#lost-utility
+//div {
+//	lost-utility: edit;
+//}

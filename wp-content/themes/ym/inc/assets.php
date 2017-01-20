@@ -12,16 +12,17 @@
 
 namespace DevDesigns\YM;
 
-
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 /**
  * Enqueue scripts and styles in scripts-and-styles.php
  */
 function enqueue_assets() {
 
+    $font_cdn_src = 'https://cloud.typography.com/6816494/6497372/css/fonts.css';
+
 	wp_enqueue_style(
-		'fonts',
-		'https//cloud.typography.com/6816494/7507552/css/fonts.css',
+		'font-cdn',
+        $font_cdn_src,
 		[],
 		CHILD_THEME_VERSION
 	);
@@ -30,14 +31,27 @@ function enqueue_assets() {
 		'app',
 		get_stylesheet_directory_uri() . '/dist/js/custom/app.js',
 		[ 'jquery' ],
-		filemtime( get_stylesheet_directory() . '/dist/js/custom/app.js' ),
+        CHILD_THEME_VERSION,
 		true
 	);
 
-	wp_deregister_script( 'superfish' );
-	wp_deregister_script( 'superfish-args' );
+	wp_register_script(
+		'swiper',
+		CHILD_THEME_DIR . '/node_modules/swiper/dist/js/swiper.min.js',
+		[],
+		'3.4.1',
+		true
+	);
 
+	wp_register_script(
+		'backstretch',
+		CHILD_THEME_DIR . '/node_modules/jquery.backstretch/jquery.backstretch.min.js',
+		[ 'jquery' ],
+		'2.1.15',
+		true
+	);
 }
+
 
 
 

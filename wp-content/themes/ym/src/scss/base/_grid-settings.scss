@@ -1,11 +1,17 @@
 @import "../vendor/neat/neat-helpers";
 
+// Bourbon Neat - Overlay 12 Column Grid
+// http://thoughtbot.github.io/neat-docs/latest/#visual-grid
+$visual-grid: true !default;
+$visual-grid-color: #2fc2ee !default;
+$visual-grid-index: front !default;
+$visual-grid-opacity: 0.2 !default;
 
 // Neat Overrides
-// $column: 90px;
-// $gutter: 30px;
-// $grid-columns: 12;
-// $max-width: 1200px;
+//$column: 72px;
+//$gutter: 30px;
+//$grid-columns: 12;
+//$max-width: 1200px;
 
 // Neat Breakpoints
 $small-screen: 500px;

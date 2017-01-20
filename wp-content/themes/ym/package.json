@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "scss": "node-sass --source-map true src/scss -o ./",
-    "postcss": "postcss -u lost -u postcss-assets -u autoprefixer -o style.css style.css",
+    "postcss": "postcss -u postcss-assets  -u lost -u autoprefixer -r style.css",
     "babel": "rm -rf dist/js/custom && mkdir -p dist/js/custom && babel src/js/custom -d dist/js/custom",
     "build:css": "npm run scss && npm run postcss",
     "build:js": "npm run babel",
@@ -16,6 +16,7 @@
     "watch": "npm run watch:all",
     "postinstall": "npm run watch",
     "eslint": "eslint src/js/custom",
+    "jslint": "standard | standard-summary",
     "serve": "browser-sync start --ws --proxy http://ym.kbox.site --logLevel 'info' --no-ghost-mode --no-notify --files 'style.css, !style.css.map,!src/scss/**,!src/js/custom**'"
   },
   "repository": {
@@ -27,8 +28,11 @@
   "dependencies": {
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
+    "countup.js": "^1.8.1",
     "lost": "^7.1.1",
-    "normalize.css": "^5.0.0"
+    "mappy-breakpoints": "^0.2.3",
+    "normalize.css": "^5.0.0",
+    "swiper": "^3.4.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
@@ -37,7 +41,12 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "browser-sync": "^2.17.5",
+    "cssnano": "^3.10.0",
     "eslint": "^3.8.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "jquery.backstretch": "^2.1.15",
     "node-sass": "^3.10.1",
     "nodemon": "^1.11.0",
     "npm-run-all": "^3.1.1",
@@ -45,6 +54,23 @@
     "parallelshell": "^2.0.0",
     "postcss-assets": "^4.1.0",
     "postcss-cli": "^2.6.0",
+    "postcss-scss": "^0.4.0",
+    "postcss-svgo": "^2.1.6",
+    "postcss-triangle": "^1.0.1",
+    "stylelint": "^7.7.1",
+    "stylelint-config-wordpress": "^9.1.1",
+    "stylelint-scss": "^1.4.1",
+    "svgo": "^0.7.1",
     "uglify-js": "^2.7.4"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "jQuery"
+    ],
+    "ignore": [
+      "/src/js/vendor",
+      "/dist/js"
+    ]
   }
 }

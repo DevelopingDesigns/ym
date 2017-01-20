@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Assets/UI Elements/PlayBtn</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Assets/UI-Elements/PlayVideo" transform="translate(-319.000000, 0.000000)" fill="#C1CE20">
+            <g id="Assets/UI-Elements/PlayBtn" transform="translate(319.000000, 0.000000)">
+                <g id="Group-6">
+                    <path d="M25,50 C38.8071187,50 50,38.8071187 50,25 C50,11.1928813 38.8071187,0 25,0 C11.1928813,0 0,11.1928813 0,25 C0,38.8071187 11.1928813,50 25,50 Z M25,48.0769231 C12.2549673,48.0769231 1.92307692,37.7450327 1.92307692,25 C1.92307692,12.2549673 12.2549673,1.92307692 25,1.92307692 C37.7450327,1.92307692 48.0769231,12.2549673 48.0769231,25 C48.0769231,37.7450327 37.7450327,48.0769231 25,48.0769231 Z" id="Oval"></path>
+                    <path d="M20.9935897,31.220182 C20.9935897,31.767693 21.3798782,31.984804 21.8579832,31.7041771 L32.1484271,25.6641339 C32.6258184,25.383926 32.6265321,24.919961 32.1676515,24.6386473 L21.8387587,18.3065869 C21.3719848,18.0204341 20.9935897,18.2359314 20.9935897,18.779818 L20.9935897,31.220182 Z" id="play-"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

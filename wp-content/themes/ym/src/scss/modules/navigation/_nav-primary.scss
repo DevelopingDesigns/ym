@@ -1,4 +1,8 @@
 .nav-primary {
+	// Removed so we can add box-shadow to the top of sub menu
+	.ubermenu .ubermenu-item-level-0>.ubermenu-submenu-drop {
+		clip: unset;
+	}
 
 	#ubermenu-main-2-primary {
 		float: right;
@@ -23,7 +27,7 @@
 			@include font-size(14);
 			background-color: $green-main;
 			border-radius: 50px;
-			box-shadow: 0 2px 4px $black2;
+			box-shadow: $button-shadow;
 			color: $white;
 			text-transform: uppercase;
 
@@ -38,10 +42,21 @@
 		// Products
 		.ubermenu-submenu-type-mega {
 			@include padding(20px 40px);
-			margin-top: 20px;
+			background-color: $white;
+			box-shadow: $menu-shadow;
+			margin-top: 10px;
+
+			&:before {
+				content: "";
+				position: absolute;
+				width: 300px;
+				height: 100px;
+				top: -7px;
+				left: 0;
+				z-index: -1;
+			}
 
 			.ubermenu-submenu {
-
 				a {
 					@include padding(0);
 				}
@@ -72,7 +87,19 @@
 		#menu-item-75 {
 			.ubermenu-submenu {
 				@include padding(25px null 20px null);
-				margin-top: 7px;
+				background-color: $white;
+				box-shadow: $menu-shadow;
+				margin-top: 10px;
+
+				&:before {
+					content: "";
+					position: absolute;
+					width: 300px;
+					height: 100px;
+					top: -7px;
+					left: 0;
+					z-index: -1;
+				}
 
 				.ubermenu-item-header {
 					a {
@@ -100,6 +127,7 @@
 
 	}
 }
+
 
 nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after {
 	display: none;

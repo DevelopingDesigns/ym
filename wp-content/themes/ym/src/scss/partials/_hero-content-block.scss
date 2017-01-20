@@ -1,0 +1,41 @@
+// Hero Content Block
+
+.hero {
+	align-items: center;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+
+	.hero-content {
+		color: $white;
+	}
+
+	h1 {
+		@include font-size(44);
+
+		@include mappy-bp(large) {
+			@include font-size(50);
+		}
+
+		@include mappy-bp(mega) {
+			@include font-size(70);
+			margin-bottom: 20px;
+		}
+	}
+
+	h3 {
+		@include font-size(28);
+
+		@include mappy-bp(large) {
+			@include font-size(24);
+		}
+
+		@include mappy-bp(mega) {
+			@include font-size(30);
+			margin-bottom: 50px;
+		}
+	}
+}
+
+
+

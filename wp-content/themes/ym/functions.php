@@ -17,8 +17,14 @@ namespace DevDesigns\YM;
 define( 'CHILD_THEME_NAME', 'YM' );
 define( 'CHILD_THEME_URL', 'http://www.yourmembership.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
+define( 'CHILD_THEME_DIR', get_stylesheet_directory_uri() );
+define( 'JS_DIR', get_stylesheet_directory_uri() . '/dist/js/custom' );
+define( 'VENDOR_JS_DIR', get_stylesheet_directory_uri() . '/dist/js/vendors' );
 
 
+/**
+ * Load em' up. See 'inc/genesis.php' for additional includes
+ */
 require_once __DIR__ . '/inc/customizer/helper-functions.php';
 require_once __DIR__ . '/inc/customizer/customize.php';
 include_once __DIR__ . '/inc/customizer/output.php';

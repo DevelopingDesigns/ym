@@ -27,4 +27,3 @@ workflows:
         - type: webphp
           description: Someone is clearing the cache again
           script: private/scripts/slack_notification.php
-

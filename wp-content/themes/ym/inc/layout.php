@@ -64,6 +64,7 @@ function ym_custom_logo( $title, $inside, $wrap ) {
 }
 
 
+
 add_filter( 'genesis_attr_site-description', 'ym_add_site_description_class' );
 /**
  * Add class for screen readers to site description.
@@ -168,4 +169,31 @@ add_action( 'genesis_footer', function () {
 
 } );
 
+
+/**
+ * Function displaying Flexible Content Fields
+ */
+function ym_flexible_content() {
+
+	while ( have_rows( 'flexible_content' ) ) : the_row();
+
+		if ( get_row_layout() === 'hero' ) {
+			get_template_part( 'partials/hero', 'content-block' );
+		} elseif ( get_row_layout() === 'cards' ) {
+			get_template_part( 'partials/cards', 'content-block' );
+		} elseif ( get_row_layout() === 'content' ) {
+			get_template_part( 'partials/content', 'content-block' );
+		} elseif ( get_row_layout() === 'statistics' ) {
+			get_template_part( 'partials/statistics', 'content-block' );
+		} elseif ( get_row_layout() === 'video' ) {
+			get_template_part( 'partials/video', 'content-block' );
+		} elseif ( get_row_layout() === 'resources' ) {
+			get_template_part( 'partials/resources', 'content-block' );
+		} elseif ( get_row_layout() === 'logo_slider' ) {
+			get_template_part( 'partials/logo', 'content-block' );
+		}
+
+	endwhile;
+
+}
 

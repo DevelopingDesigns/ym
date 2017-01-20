@@ -21,12 +21,21 @@ remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
  */
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
+<<<<<<< HEAD
 add_action( 'body_class', 'ym_front_page_body_class' );
 function ym_front_page_body_class( $classes ) {
 	$classes[] = 'ym-front-page';
 	return $classes;
 }
+=======
+/**
+ * Add ACF Flexible Content. See inc/layout.php
+ *
+ * @uses ym_flexible_content();
+ */
+add_action( 'genesis_after_header', 'ym_flexible_content' );
+>>>>>>> origin/joe
+
 
 genesis();
-
 

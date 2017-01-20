@@ -1,0 +1,33 @@
+// Cards Content Block
+
+.cards {
+	@include padding(25px 0);
+
+	.flex-wrap {
+		lost-center: 1200px;
+	}
+
+	.card-container {
+		@include padding(10px 20px);
+		background-color: $white;
+		border-bottom: 5px solid $green3;
+		margin-bottom: 30px;
+		text-align: center;
+		lost-column: 1/1;
+
+		@include mappy-bp(large) {
+			lost-column: 1/2;
+		}
+
+		@include mappy-bp(mega) {
+			lost-column: 1/4;
+		}
+
+		.heading {
+			@include font-size(22);
+			@include margin(0);
+			//@include padding(0 50px);
+			font-weight: $fw-bolder;
+		}
+	}
+}

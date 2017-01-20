@@ -54,6 +54,7 @@ function news_create_post_type() {
 			'thumbnail',
 			'custom-fields',
 		),
+		'taxonomies'          => [ 'category' ],
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
