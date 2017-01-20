@@ -35,13 +35,15 @@
 // Print
 @import "print";
 
+
+
 // Lost Grid - Postcss Plugin
 // http://lostgrid.org/docs.html#edit-mode
-
-// Global Settings
 // http://lostgrid.org/docs.html#global-grid-settings
 
 @lost flexbox flex;
+@lost gutter 30px;
+
 
 // Add CSS Grid Overlay To Help With Layout
 // http://lostgrid.org/docs.html#lost-utility

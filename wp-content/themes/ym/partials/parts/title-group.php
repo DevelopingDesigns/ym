@@ -27,6 +27,6 @@ if ( $add_heading ) : ?>
 			<h3 style="font-size: <?php echo $headings['font_size_subheading'] ?>;"><?php echo $headings['subheading']; ?></h3>
 		<?php endif; ?>
 
-		</div>
+	</div>
 
 <?php endif; ?>

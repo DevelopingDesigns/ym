@@ -11,11 +11,16 @@
 		@include padding(10px 20px);
 		background-color: $white;
 		border-bottom: 5px solid $green3;
-		lost-column: 1/4;
+		margin-bottom: 30px;
 		text-align: center;
+		lost-column: 1/1;
 
-		@include media($large-screen-up) {
+		@include mappy-bp(large) {
 			lost-column: 1/2;
+		}
+
+		@include mappy-bp(mega) {
+			lost-column: 1/4;
 		}
 
 		.heading {

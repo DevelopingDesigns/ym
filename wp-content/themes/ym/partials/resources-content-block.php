@@ -38,15 +38,20 @@ $post_objects = $resources['posts'];
 					<article class="resource">
 
 						<?php if ( has_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-								<?php the_post_thumbnail( 'full' ); ?>
-							</a>
+							<figure>
+								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+									<?php the_post_thumbnail( 'full' ); ?>
+								</a>
+							</figure>
 						<?php endif; ?>
 
 						<div class="resource-wrap">
-							<?php if ( get_the_category() ) :
-								the_category();
-							endif; ?>
+							<?php
+
+							$categories = get_the_category();
+							if ( ! empty( $categories ) ) {
+								echo '<a class="cat" href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+							} ?>
 
 							<a class="link" href="<?php the_permalink(); ?>"><h4 class="title"><?php the_title(); ?></h4></a>
 

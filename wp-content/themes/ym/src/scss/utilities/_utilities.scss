@@ -1,12 +1,4 @@
 @import "variables/variables";
+@import "media-queries/media-queries";
 @import "mixins/mixins";
-
-// Bourbon Neat - Overlay 12 Column Grid
-// http://thoughtbot.github.io/neat-docs/latest/#visual-grid
-$visual-grid: true !default;
-$visual-grid-color: #2fc2ee !default;
-$visual-grid-index: front !default;
-$visual-grid-opacity: 0.2 !default;
-
-
 

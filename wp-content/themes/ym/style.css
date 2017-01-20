@@ -418,48 +418,6 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-body:before {
-  background-image: -webkit-linear-gradient(left, transparent 0, #2fc2ee 0, #2fc2ee 6.17215%, transparent 6.17215%, transparent 8.5298%, #2fc2ee 8.5298%, #2fc2ee 14.70196%, transparent 14.70196%, transparent 17.05961%, #2fc2ee 17.05961%, #2fc2ee 23.23176%, transparent 23.23176%, transparent 25.58941%, #2fc2ee 25.58941%, #2fc2ee 31.76157%, transparent 31.76157%, transparent 34.11922%, #2fc2ee 34.11922%, #2fc2ee 40.29137%, transparent 40.29137%, transparent 42.64902%, #2fc2ee 42.64902%, #2fc2ee 48.82117%, transparent 48.82117%, transparent 51.17883%, #2fc2ee 51.17883%, #2fc2ee 57.35098%, transparent 57.35098%, transparent 59.70863%, #2fc2ee 59.70863%, #2fc2ee 65.88078%, transparent 65.88078%, transparent 68.23843%, #2fc2ee 68.23843%, #2fc2ee 74.41059%, transparent 74.41059%, transparent 76.76824%, #2fc2ee 76.76824%, #2fc2ee 82.94039%, transparent 82.94039%, transparent 85.29804%, #2fc2ee 85.29804%, #2fc2ee 91.4702%, transparent 91.4702%, transparent 93.82785%, #2fc2ee 93.82785%, #2fc2ee 100%, transparent 100%);
-  background-image: -webkit-linear-gradient(right, transparent 0, #2fc2ee 0, #2fc2ee 6.17215%, transparent 6.17215%, transparent 8.5298%, #2fc2ee 8.5298%, #2fc2ee 14.70196%, transparent 14.70196%, transparent 17.05961%, #2fc2ee 17.05961%, #2fc2ee 23.23176%, transparent 23.23176%, transparent 25.58941%, #2fc2ee 25.58941%, #2fc2ee 31.76157%, transparent 31.76157%, transparent 34.11922%, #2fc2ee 34.11922%, #2fc2ee 40.29137%, transparent 40.29137%, transparent 42.64902%, #2fc2ee 42.64902%, #2fc2ee 48.82117%, transparent 48.82117%, transparent 51.17883%, #2fc2ee 51.17883%, #2fc2ee 57.35098%, transparent 57.35098%, transparent 59.70863%, #2fc2ee 59.70863%, #2fc2ee 65.88078%, transparent 65.88078%, transparent 68.23843%, #2fc2ee 68.23843%, #2fc2ee 74.41059%, transparent 74.41059%, transparent 76.76824%, #2fc2ee 76.76824%, #2fc2ee 82.94039%, transparent 82.94039%, transparent 85.29804%, #2fc2ee 85.29804%, #2fc2ee 91.4702%, transparent 91.4702%, transparent 93.82785%, #2fc2ee 93.82785%, #2fc2ee 100%, transparent 100%);
-  background-image: linear-gradient(to left, transparent 0, #2fc2ee 0, #2fc2ee 6.17215%, transparent 6.17215%, transparent 8.5298%, #2fc2ee 8.5298%, #2fc2ee 14.70196%, transparent 14.70196%, transparent 17.05961%, #2fc2ee 17.05961%, #2fc2ee 23.23176%, transparent 23.23176%, transparent 25.58941%, #2fc2ee 25.58941%, #2fc2ee 31.76157%, transparent 31.76157%, transparent 34.11922%, #2fc2ee 34.11922%, #2fc2ee 40.29137%, transparent 40.29137%, transparent 42.64902%, #2fc2ee 42.64902%, #2fc2ee 48.82117%, transparent 48.82117%, transparent 51.17883%, #2fc2ee 51.17883%, #2fc2ee 57.35098%, transparent 57.35098%, transparent 59.70863%, #2fc2ee 59.70863%, #2fc2ee 65.88078%, transparent 65.88078%, transparent 68.23843%, #2fc2ee 68.23843%, #2fc2ee 74.41059%, transparent 74.41059%, transparent 76.76824%, #2fc2ee 76.76824%, #2fc2ee 82.94039%, transparent 82.94039%, transparent 85.29804%, #2fc2ee 85.29804%, #2fc2ee 91.4702%, transparent 91.4702%, transparent 93.82785%, #2fc2ee 93.82785%, #2fc2ee 100%, transparent 100%);
-  content: "";
-  display: inline-block;
-  height: 100%;
-  left: 0;
-  margin: 0 auto;
-  max-width: 68em;
-  opacity: 0.2;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  width: 100%;
-  z-index: 9999; }
-  @media screen and (max-width: 500px) {
-    body:before {
-      background-image: -webkit-linear-gradient(left, transparent 0, #2fc2ee 0, #2fc2ee 19.43277%, transparent 19.43277%, transparent 26.85574%, #2fc2ee 26.85574%, #2fc2ee 46.28851%, transparent 46.28851%, transparent 53.71149%, #2fc2ee 53.71149%, #2fc2ee 73.14426%, transparent 73.14426%, transparent 80.56723%, #2fc2ee 80.56723%, #2fc2ee 100%, transparent 100%);
-      background-image: -webkit-linear-gradient(right, transparent 0, #2fc2ee 0, #2fc2ee 19.43277%, transparent 19.43277%, transparent 26.85574%, #2fc2ee 26.85574%, #2fc2ee 46.28851%, transparent 46.28851%, transparent 53.71149%, #2fc2ee 53.71149%, #2fc2ee 73.14426%, transparent 73.14426%, transparent 80.56723%, #2fc2ee 80.56723%, #2fc2ee 100%, transparent 100%);
-      background-image: linear-gradient(to left, transparent 0, #2fc2ee 0, #2fc2ee 19.43277%, transparent 19.43277%, transparent 26.85574%, #2fc2ee 26.85574%, #2fc2ee 46.28851%, transparent 46.28851%, transparent 53.71149%, #2fc2ee 53.71149%, #2fc2ee 73.14426%, transparent 73.14426%, transparent 80.56723%, #2fc2ee 80.56723%, #2fc2ee 100%, transparent 100%); } }
-  @media screen and (max-width: 860px) {
-    body:before {
-      background-image: -webkit-linear-gradient(left, transparent 0, #2fc2ee 0, #2fc2ee 19.43277%, transparent 19.43277%, transparent 26.85574%, #2fc2ee 26.85574%, #2fc2ee 46.28851%, transparent 46.28851%, transparent 53.71149%, #2fc2ee 53.71149%, #2fc2ee 73.14426%, transparent 73.14426%, transparent 80.56723%, #2fc2ee 80.56723%, #2fc2ee 100%, transparent 100%);
-      background-image: -webkit-linear-gradient(right, transparent 0, #2fc2ee 0, #2fc2ee 19.43277%, transparent 19.43277%, transparent 26.85574%, #2fc2ee 26.85574%, #2fc2ee 46.28851%, transparent 46.28851%, transparent 53.71149%, #2fc2ee 53.71149%, #2fc2ee 73.14426%, transparent 73.14426%, transparent 80.56723%, #2fc2ee 80.56723%, #2fc2ee 100%, transparent 100%);
-      background-image: linear-gradient(to left, transparent 0, #2fc2ee 0, #2fc2ee 19.43277%, transparent 19.43277%, transparent 26.85574%, #2fc2ee 26.85574%, #2fc2ee 46.28851%, transparent 46.28851%, transparent 53.71149%, #2fc2ee 53.71149%, #2fc2ee 73.14426%, transparent 73.14426%, transparent 80.56723%, #2fc2ee 80.56723%, #2fc2ee 100%, transparent 100%); } }
-  @media screen and (max-width: 1023px) {
-    body:before {
-      background-image: -webkit-linear-gradient(left, transparent 0, #2fc2ee 0, #2fc2ee 9.36867%, transparent 9.36867%, transparent 12.94733%, #2fc2ee 12.94733%, #2fc2ee 22.316%, transparent 22.316%, transparent 25.89467%, #2fc2ee 25.89467%, #2fc2ee 35.26334%, transparent 35.26334%, transparent 38.842%, #2fc2ee 38.842%, #2fc2ee 48.21067%, transparent 48.21067%, transparent 51.78933%, #2fc2ee 51.78933%, #2fc2ee 61.158%, transparent 61.158%, transparent 64.73666%, #2fc2ee 64.73666%, #2fc2ee 74.10533%, transparent 74.10533%, transparent 77.684%, #2fc2ee 77.684%, #2fc2ee 87.05267%, transparent 87.05267%, transparent 90.63133%, #2fc2ee 90.63133%, #2fc2ee 100%, transparent 100%);
-      background-image: -webkit-linear-gradient(right, transparent 0, #2fc2ee 0, #2fc2ee 9.36867%, transparent 9.36867%, transparent 12.94733%, #2fc2ee 12.94733%, #2fc2ee 22.316%, transparent 22.316%, transparent 25.89467%, #2fc2ee 25.89467%, #2fc2ee 35.26334%, transparent 35.26334%, transparent 38.842%, #2fc2ee 38.842%, #2fc2ee 48.21067%, transparent 48.21067%, transparent 51.78933%, #2fc2ee 51.78933%, #2fc2ee 61.158%, transparent 61.158%, transparent 64.73666%, #2fc2ee 64.73666%, #2fc2ee 74.10533%, transparent 74.10533%, transparent 77.684%, #2fc2ee 77.684%, #2fc2ee 87.05267%, transparent 87.05267%, transparent 90.63133%, #2fc2ee 90.63133%, #2fc2ee 100%, transparent 100%);
-      background-image: linear-gradient(to left, transparent 0, #2fc2ee 0, #2fc2ee 9.36867%, transparent 9.36867%, transparent 12.94733%, #2fc2ee 12.94733%, #2fc2ee 22.316%, transparent 22.316%, transparent 25.89467%, #2fc2ee 25.89467%, #2fc2ee 35.26334%, transparent 35.26334%, transparent 38.842%, #2fc2ee 38.842%, #2fc2ee 48.21067%, transparent 48.21067%, transparent 51.78933%, #2fc2ee 51.78933%, #2fc2ee 61.158%, transparent 61.158%, transparent 64.73666%, #2fc2ee 64.73666%, #2fc2ee 74.10533%, transparent 74.10533%, transparent 77.684%, #2fc2ee 77.684%, #2fc2ee 87.05267%, transparent 87.05267%, transparent 90.63133%, #2fc2ee 90.63133%, #2fc2ee 100%, transparent 100%); } }
-  @media screen and (max-width: 1200px) {
-    body:before {
-      background-image: -webkit-linear-gradient(left, transparent 0, #2fc2ee 0, #2fc2ee 6.17215%, transparent 6.17215%, transparent 8.5298%, #2fc2ee 8.5298%, #2fc2ee 14.70196%, transparent 14.70196%, transparent 17.05961%, #2fc2ee 17.05961%, #2fc2ee 23.23176%, transparent 23.23176%, transparent 25.58941%, #2fc2ee 25.58941%, #2fc2ee 31.76157%, transparent 31.76157%, transparent 34.11922%, #2fc2ee 34.11922%, #2fc2ee 40.29137%, transparent 40.29137%, transparent 42.64902%, #2fc2ee 42.64902%, #2fc2ee 48.82117%, transparent 48.82117%, transparent 51.17883%, #2fc2ee 51.17883%, #2fc2ee 57.35098%, transparent 57.35098%, transparent 59.70863%, #2fc2ee 59.70863%, #2fc2ee 65.88078%, transparent 65.88078%, transparent 68.23843%, #2fc2ee 68.23843%, #2fc2ee 74.41059%, transparent 74.41059%, transparent 76.76824%, #2fc2ee 76.76824%, #2fc2ee 82.94039%, transparent 82.94039%, transparent 85.29804%, #2fc2ee 85.29804%, #2fc2ee 91.4702%, transparent 91.4702%, transparent 93.82785%, #2fc2ee 93.82785%, #2fc2ee 100%, transparent 100%);
-      background-image: -webkit-linear-gradient(right, transparent 0, #2fc2ee 0, #2fc2ee 6.17215%, transparent 6.17215%, transparent 8.5298%, #2fc2ee 8.5298%, #2fc2ee 14.70196%, transparent 14.70196%, transparent 17.05961%, #2fc2ee 17.05961%, #2fc2ee 23.23176%, transparent 23.23176%, transparent 25.58941%, #2fc2ee 25.58941%, #2fc2ee 31.76157%, transparent 31.76157%, transparent 34.11922%, #2fc2ee 34.11922%, #2fc2ee 40.29137%, transparent 40.29137%, transparent 42.64902%, #2fc2ee 42.64902%, #2fc2ee 48.82117%, transparent 48.82117%, transparent 51.17883%, #2fc2ee 51.17883%, #2fc2ee 57.35098%, transparent 57.35098%, transparent 59.70863%, #2fc2ee 59.70863%, #2fc2ee 65.88078%, transparent 65.88078%, transparent 68.23843%, #2fc2ee 68.23843%, #2fc2ee 74.41059%, transparent 74.41059%, transparent 76.76824%, #2fc2ee 76.76824%, #2fc2ee 82.94039%, transparent 82.94039%, transparent 85.29804%, #2fc2ee 85.29804%, #2fc2ee 91.4702%, transparent 91.4702%, transparent 93.82785%, #2fc2ee 93.82785%, #2fc2ee 100%, transparent 100%);
-      background-image: linear-gradient(to left, transparent 0, #2fc2ee 0, #2fc2ee 6.17215%, transparent 6.17215%, transparent 8.5298%, #2fc2ee 8.5298%, #2fc2ee 14.70196%, transparent 14.70196%, transparent 17.05961%, #2fc2ee 17.05961%, #2fc2ee 23.23176%, transparent 23.23176%, transparent 25.58941%, #2fc2ee 25.58941%, #2fc2ee 31.76157%, transparent 31.76157%, transparent 34.11922%, #2fc2ee 34.11922%, #2fc2ee 40.29137%, transparent 40.29137%, transparent 42.64902%, #2fc2ee 42.64902%, #2fc2ee 48.82117%, transparent 48.82117%, transparent 51.17883%, #2fc2ee 51.17883%, #2fc2ee 57.35098%, transparent 57.35098%, transparent 59.70863%, #2fc2ee 59.70863%, #2fc2ee 65.88078%, transparent 65.88078%, transparent 68.23843%, #2fc2ee 68.23843%, #2fc2ee 74.41059%, transparent 74.41059%, transparent 76.76824%, #2fc2ee 76.76824%, #2fc2ee 82.94039%, transparent 82.94039%, transparent 85.29804%, #2fc2ee 85.29804%, #2fc2ee 91.4702%, transparent 91.4702%, transparent 93.82785%, #2fc2ee 93.82785%, #2fc2ee 100%, transparent 100%); } }
-  @media screen and (max-width: 1340px) {
-    body:before {
-      background-image: -webkit-linear-gradient(left, transparent 0, #2fc2ee 0, #2fc2ee 6.17215%, transparent 6.17215%, transparent 8.5298%, #2fc2ee 8.5298%, #2fc2ee 14.70196%, transparent 14.70196%, transparent 17.05961%, #2fc2ee 17.05961%, #2fc2ee 23.23176%, transparent 23.23176%, transparent 25.58941%, #2fc2ee 25.58941%, #2fc2ee 31.76157%, transparent 31.76157%, transparent 34.11922%, #2fc2ee 34.11922%, #2fc2ee 40.29137%, transparent 40.29137%, transparent 42.64902%, #2fc2ee 42.64902%, #2fc2ee 48.82117%, transparent 48.82117%, transparent 51.17883%, #2fc2ee 51.17883%, #2fc2ee 57.35098%, transparent 57.35098%, transparent 59.70863%, #2fc2ee 59.70863%, #2fc2ee 65.88078%, transparent 65.88078%, transparent 68.23843%, #2fc2ee 68.23843%, #2fc2ee 74.41059%, transparent 74.41059%, transparent 76.76824%, #2fc2ee 76.76824%, #2fc2ee 82.94039%, transparent 82.94039%, transparent 85.29804%, #2fc2ee 85.29804%, #2fc2ee 91.4702%, transparent 91.4702%, transparent 93.82785%, #2fc2ee 93.82785%, #2fc2ee 100%, transparent 100%);
-      background-image: -webkit-linear-gradient(right, transparent 0, #2fc2ee 0, #2fc2ee 6.17215%, transparent 6.17215%, transparent 8.5298%, #2fc2ee 8.5298%, #2fc2ee 14.70196%, transparent 14.70196%, transparent 17.05961%, #2fc2ee 17.05961%, #2fc2ee 23.23176%, transparent 23.23176%, transparent 25.58941%, #2fc2ee 25.58941%, #2fc2ee 31.76157%, transparent 31.76157%, transparent 34.11922%, #2fc2ee 34.11922%, #2fc2ee 40.29137%, transparent 40.29137%, transparent 42.64902%, #2fc2ee 42.64902%, #2fc2ee 48.82117%, transparent 48.82117%, transparent 51.17883%, #2fc2ee 51.17883%, #2fc2ee 57.35098%, transparent 57.35098%, transparent 59.70863%, #2fc2ee 59.70863%, #2fc2ee 65.88078%, transparent 65.88078%, transparent 68.23843%, #2fc2ee 68.23843%, #2fc2ee 74.41059%, transparent 74.41059%, transparent 76.76824%, #2fc2ee 76.76824%, #2fc2ee 82.94039%, transparent 82.94039%, transparent 85.29804%, #2fc2ee 85.29804%, #2fc2ee 91.4702%, transparent 91.4702%, transparent 93.82785%, #2fc2ee 93.82785%, #2fc2ee 100%, transparent 100%);
-      background-image: linear-gradient(to left, transparent 0, #2fc2ee 0, #2fc2ee 6.17215%, transparent 6.17215%, transparent 8.5298%, #2fc2ee 8.5298%, #2fc2ee 14.70196%, transparent 14.70196%, transparent 17.05961%, #2fc2ee 17.05961%, #2fc2ee 23.23176%, transparent 23.23176%, transparent 25.58941%, #2fc2ee 25.58941%, #2fc2ee 31.76157%, transparent 31.76157%, transparent 34.11922%, #2fc2ee 34.11922%, #2fc2ee 40.29137%, transparent 40.29137%, transparent 42.64902%, #2fc2ee 42.64902%, #2fc2ee 48.82117%, transparent 48.82117%, transparent 51.17883%, #2fc2ee 51.17883%, #2fc2ee 57.35098%, transparent 57.35098%, transparent 59.70863%, #2fc2ee 59.70863%, #2fc2ee 65.88078%, transparent 65.88078%, transparent 68.23843%, #2fc2ee 68.23843%, #2fc2ee 74.41059%, transparent 74.41059%, transparent 76.76824%, #2fc2ee 76.76824%, #2fc2ee 82.94039%, transparent 82.94039%, transparent 85.29804%, #2fc2ee 85.29804%, #2fc2ee 91.4702%, transparent 91.4702%, transparent 93.82785%, #2fc2ee 93.82785%, #2fc2ee 100%, transparent 100%); } }
-
 .text-left {
   text-align: left; }
 
@@ -1492,15 +1450,28 @@ p.entry-meta {
 
 .site-header {
   background-color: #fff;
-  z-index: 10;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto; }
+  z-index: 10; }
+  .site-header > .wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: relative; }
+    @media screen and (max-width: 1023px) {
+      .site-header > .wrap {
+        padding-left: 5%;
+        padding-right: 5%; } }
+  @media screen and (max-width: 1200px) {
+    .site-header .title-area {
+      width: 100%; } }
+  .site-header .nav-primary {
+    text-align: right;
+    width: 100%; }
 
 /* # Site Header - .fixed-header
 ---------------------------------------------------------------------------------------------------- */
@@ -1904,7 +1875,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   display: flex;
   -ms-flex-flow: row wrap;
       flex-flow: row wrap;
-  max-width: 1280px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   -webkit-box-align: center;
@@ -1915,11 +1886,10 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   margin-bottom: 0; }
 
 .footer-top .widget {
-  margin-bottom: 0;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  width: calc(99.9% * 1/3 - (30px - 30px * 1/3)); }
+  width: calc(99.9% * 1/1 - (30px - 30px * 1/1)); }
 
 .footer-top .widget:nth-child(1n) {
   margin-right: 30px;
@@ -1928,21 +1898,22 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
 .footer-top .widget:last-child {
   margin-right: 0; }
 
-.footer-top .widget:nth-child(3n) {
+.footer-top .widget:nth-child(1n) {
   margin-right: 0;
   margin-left: auto; }
-  @media screen and (max-width: 1023px) {
+  @media all and (min-width: 50em) {
     .footer-top .widget {
       -webkit-box-flex: 0;
           -ms-flex: 0 0 auto;
               flex: 0 0 auto;
-      width: calc(99.9% * 1 - (30px - 30px * 1)); }
+      width: calc(99.9% * 1/3 - (30px - 30px * 1/3));
+      margin-bottom: 0; }
     .footer-top .widget:nth-child(1n) {
     margin-right: 30px;
     margin-left: 0; }
     .footer-top .widget:last-child {
     margin-right: 0; }
-    .footer-top .widget:nth-child(undefinedn) {
+    .footer-top .widget:nth-child(3n) {
     margin-right: 0;
     margin-left: auto; } }
 
@@ -2194,12 +2165,30 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   display: flex; }
   .hero .hero-content {
     color: #fff; }
-    .hero .hero-content h1 {
-      font-size: 70px;
-      font-size: 7rem;
-      margin-bottom: 20px; }
-    .hero .hero-content h3 {
-      margin-bottom: 50px; }
+  .hero h1 {
+    font-size: 44px;
+    font-size: 4.4rem; }
+    @media all and (min-width: 50em) {
+      .hero h1 {
+        font-size: 50px;
+        font-size: 5rem; } }
+    @media all and (min-width: 90em) {
+      .hero h1 {
+        font-size: 70px;
+        font-size: 7rem;
+        margin-bottom: 20px; } }
+  .hero h3 {
+    font-size: 28px;
+    font-size: 2.8rem; }
+    @media all and (min-width: 50em) {
+      .hero h3 {
+        font-size: 24px;
+        font-size: 2.4rem; } }
+    @media all and (min-width: 90em) {
+      .hero h3 {
+        font-size: 30px;
+        font-size: 3rem;
+        margin-bottom: 50px; } }
 
 .cards {
   padding: 25px 0; }
@@ -2216,20 +2205,21 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     padding: 10px 20px;
     background-color: #fff;
     border-bottom: 5px solid #C1CE20;
+    margin-bottom: 30px;
+    text-align: center;
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
-    width: calc(99.9% * 1/4 - (30px - 30px * 1/4));
-    text-align: center; }
+    width: calc(99.9% * 1/1 - (30px - 30px * 1/1)); }
   .cards .card-container:nth-child(1n) {
   margin-right: 30px;
   margin-left: 0; }
   .cards .card-container:last-child {
   margin-right: 0; }
-  .cards .card-container:nth-child(4n) {
+  .cards .card-container:nth-child(1n) {
   margin-right: 0;
   margin-left: auto; }
-    @media screen and (max-width: 1023px) {
+    @media all and (min-width: 50em) {
       .cards .card-container {
         -webkit-box-flex: 0;
             -ms-flex: 0 0 auto;
@@ -2241,6 +2231,20 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
       .cards .card-container:last-child {
     margin-right: 0; }
       .cards .card-container:nth-child(2n) {
+    margin-right: 0;
+    margin-left: auto; } }
+    @media all and (min-width: 90em) {
+      .cards .card-container {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+        width: calc(99.9% * 1/4 - (30px - 30px * 1/4)); }
+      .cards .card-container:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+      .cards .card-container:last-child {
+    margin-right: 0; }
+      .cards .card-container:nth-child(4n) {
     margin-right: 0;
     margin-left: auto; } }
     .cards .card-container .heading {
@@ -2375,8 +2379,11 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
       color: #fff; }
 
 .fc-resources {
-  padding-top: 100px;
-  padding-bottom: 145px; }
+  padding: 30px 0; }
+  @media all and (min-width: 50em) {
+    .fc-resources {
+      padding-top: 100px;
+      padding-bottom: 145px; } }
   .fc-resources .flex-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2386,39 +2393,103 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto; }
-  .fc-resources .fc-title-group {
-    margin-bottom: 100px; }
+  @media all and (min-width: 50em) {
+    .fc-resources .fc-title-group {
+      margin-bottom: 100px; } }
+  .fc-resources .fc-title-group h1 {
+    font-size: 40px;
+    font-size: 4rem; }
+    @media all and (min-width: 50em) {
+      .fc-resources .fc-title-group h1 {
+        font-size: 44px;
+        font-size: 4.4rem; } }
+    @media all and (min-width: 90em) {
+      .fc-resources .fc-title-group h1 {
+        font-size: 48px;
+        font-size: 4.8rem; } }
   .fc-resources .resource {
     padding: 0;
     background-color: #fff;
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
-    width: calc(99.9% * 2/6 - (60px - 60px * 2/6));
+    width: calc(99.9% * 1/1 - (30px - 30px * 1/1));
+    margin-bottom: 30px;
     text-align: left; }
   .fc-resources .resource:nth-child(1n) {
-  margin-right: 60px;
+  margin-right: 30px;
   margin-left: 0; }
   .fc-resources .resource:last-child {
   margin-right: 0; }
-  .fc-resources .resource:nth-child(3n) {
+  .fc-resources .resource:nth-child(1n) {
   margin-right: 0;
   margin-left: auto; }
     .fc-resources .resource:hover {
       box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.06);
       -webkit-transition: all 0.3s ease-out;
       transition: all 0.3s ease-out; }
+    @media all and (min-width: 40em) and (max-width: 74.9375em) {
+      .fc-resources .resource {
+        padding: 0;
+        background-color: #fff;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+        width: calc(99.9% * 1/1 - (30px - 30px * 1/1));
+        max-height: 430px;
+        text-align: left; }
+      .fc-resources .resource:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+      .fc-resources .resource:last-child {
+    margin-right: 0; }
+      .fc-resources .resource:nth-child(1n) {
+    margin-right: 0;
+    margin-left: auto; }
+        .fc-resources .resource > * {
+          -webkit-box-flex: 0;
+              -ms-flex: 0 0 auto;
+                  flex: 0 0 auto;
+          width: calc(99.9% * 1/2 - (30px - 30px * 1/2));
+          height: calc(99.9% * 1/2 - (30px - 30px * 1/2)); }
+        .fc-resources .resource > *:nth-child(1n) {
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-left: 0; }
+        .fc-resources .resource > *:last-child {
+    margin-right: 0;
+    margin-bottom: 0; }
+        .fc-resources .resource > *:nth-child(2n) {
+    margin-right: 0;
+    margin-left: auto; }
+        .fc-resources .resource > *:nth-last-child(-n + 2) {
+    margin-bottom: 0; } }
+    @media all and (min-width: 75.0625em) {
+      .fc-resources .resource {
+        padding: 0;
+        background-color: #fff;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+        width: calc(99.9% * 2/6 - (30px - 30px * 2/6));
+        text-align: left; }
+      .fc-resources .resource:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+      .fc-resources .resource:last-child {
+    margin-right: 0; }
+      .fc-resources .resource:nth-child(3n) {
+    margin-right: 0;
+    margin-left: auto; } }
   .fc-resources .resource-wrap {
     padding: 15px 35px; }
-  .fc-resources li {
-    margin-bottom: 5px; }
-    .fc-resources li a {
-      font-size: 12px;
-      font-size: 1.2rem;
-      color: #a8ad00;
-      font-weight: 400;
-      margin-bottom: 0;
-      text-transform: uppercase; }
+  .fc-resources .cat {
+    font-size: 12px;
+    font-size: 1.2rem;
+    color: #a8ad00;
+    font-weight: 400;
+    margin-bottom: 0;
+    text-transform: uppercase; }
   .fc-resources .title {
     font-size: 22px;
     font-size: 2.2rem;

@@ -5,38 +5,29 @@
 .site-header {
 	background-color: $white;
 	z-index: 10;
-	lost-center: 1200px;
 
-	//.title-area {
-	//	lost-column: 2/12;
-	//}
-	//
-	//.nav-primary {
-	//	lost-column: 10/12;
-	//}
+	& > .wrap {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
 
-	//& > .wrap {
-		//display: flex;
-		//align-items: center;
-		//justify-content: space-between;
-		//position: relative;
+		@include media($large-screen-up) {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+	}
 
-	//	@include media($large-screen-up) {
-	//		padding-left: 5%;
-	//		padding-right: 5%;
-	//	}
-	//}
-	//
-	//.title-area {
-	//	@include media($xlarge-screen-up) {
-	//		width: 100%;
-	//	}
-	//}
-	//
-	//.nav-primary {
-	//	text-align: right;
-	//	width: 100%;
-	//}
+	.title-area {
+		@include media($xlarge-screen-up) {
+			width: 100%;
+		}
+	}
+
+	.nav-primary {
+		text-align: right;
+		width: 100%;
+	}
 }
 
 /* # Site Header - .fixed-header
