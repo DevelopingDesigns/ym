@@ -178,8 +178,11 @@
 
 // Two Buttons
 .button-group {
-
+	& > a {
+		margin-bottom: $gutter;
+	}
 }
+
 
 
 

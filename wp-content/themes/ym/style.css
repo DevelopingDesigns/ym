@@ -1697,8 +1697,8 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
 
 @media screen and (max-width: 1200px) {
   .slide-nav-link {
-    -webkit-transform: translate(-70px, 30px);
-    transform: translate(-70px, 30px);
+    -webkit-transform: translate(-20px, 15px);
+    transform: translate(-20px, 15px);
     background-color: transparent !important;
     color: #a8ad00 !important;
     float: right; } }
@@ -2196,22 +2196,26 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   padding: 17.5px 40px;
   min-width: 185px; }
 
+.button-group > a {
+  margin-bottom: 30px; }
+
 .hero {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
+  max-width: 100%; }
   .hero .hero-content {
     color: #fff;
     text-align: center !important; }
+  .hero .fc-title-group {
+    margin-bottom: calc(30px * 2); }
+    @media all and (min-width: 50em) {
+      .hero .fc-title-group {
+        margin-bottom: calc(30px * 1.75); } }
   .hero h1 {
     font-size: 44px;
-    font-size: 4.4rem; }
+    font-size: 4.4rem;
+    margin-bottom: 30px; }
     @media all and (min-width: 50em) {
       .hero h1 {
         font-size: 50px;
@@ -2219,8 +2223,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     @media all and (min-width: 90em) {
       .hero h1 {
         font-size: 70px;
-        font-size: 7rem;
-        margin-bottom: 20px; } }
+        font-size: 7rem; } }
   .hero h3 {
     font-size: 28px;
     font-size: 2.8rem; }
@@ -2233,6 +2236,15 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
         font-size: 30px;
         font-size: 3rem;
         margin-bottom: 50px; } }
+  @media all and (min-width: 50em) {
+    .hero .button-group a:first-of-type {
+      margin-right: 15px; }
+    .hero .button-group a:last-child {
+      margin-left: 15px; } }
+
+@media all and (min-width: 50em) and (min-width: 50em) {
+  .hero .button-group > a {
+    margin-bottom: 0; } }
 
 .cards {
   padding: 25px 0; }
@@ -2320,7 +2332,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
-    width: calc(99.9% * 1/3 - (30px - 30px * 1/3));
+    width: calc(99.9% * 1/1 - (30px - 30px * 1/1));
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2340,7 +2352,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   margin-left: 0; }
   .fc-statistics .stat-container:last-child {
   margin-right: 0; }
-  .fc-statistics .stat-container:nth-child(3n) {
+  .fc-statistics .stat-container:nth-child(1n) {
   margin-right: 0;
   margin-left: auto; }
     .fc-statistics .stat-container:first-child {

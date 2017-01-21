@@ -1,6 +1,6 @@
 @include media($xlarge-screen-up) {
 	.slide-nav-link {
-		@include transform(translate(-70px, 30px));
+		@include transform(translate(-20px, 15px));
 		background-color: transparent !important;
 		color: $green1 !important;
 		float: right;

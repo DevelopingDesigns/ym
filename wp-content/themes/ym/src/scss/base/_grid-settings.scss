@@ -8,10 +8,10 @@ $visual-grid-index: front !global;
 $visual-grid-opacity: 0.2 !global;
 
 // Neat Overrides
-$column: 72px;
-$gutter: 30px;
-$grid-columns: 12;
-$max-width: 1200px;
+$column: 72px !global;;
+$gutter: 30px !global;;
+$grid-columns: 12 !global;;
+$max-width: 1200px !global;;
 
 // Neat Breakpoints
 $small-screen: 500px;
