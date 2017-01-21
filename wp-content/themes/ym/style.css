@@ -2206,7 +2206,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   max-width: 100%; }
   .hero .hero-content {
     color: #fff;
-    text-align: center !important; }
+    text-align: center; }
   .hero .fc-title-group {
     margin-bottom: calc(30px * 2); }
     @media all and (min-width: 50em) {
