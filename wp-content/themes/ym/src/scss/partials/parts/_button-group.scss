@@ -11,6 +11,7 @@
 
 .btn-teal {
 	background-color: $teal1;
+	border-color: $teal1;
 
 	&:hover,
 	&focus {
@@ -21,6 +22,7 @@
 
 .btn-slate {
 	background-color: $slate-dark;
+	border-color: $slate-dark;
 
 	&:hover,
 	&focus {
@@ -31,6 +33,7 @@
 
 .btn-white {
 	background-color: $white;
+	border-color: $white;
 	color: $slate-dark;
 
 	&:hover,
@@ -98,6 +101,7 @@
 
 .btn-red {
 	background-color: $red1;
+	border: 1px solid $red1;
 
 	&:hover,
 	&focus {
@@ -108,6 +112,7 @@
 
 .btn-orange {
 	background-color: $orange1;
+	border: 1px solid $orange1;
 
 	&:hover,
 	&focus {
@@ -149,21 +154,25 @@
 .btn-tiny {
 	@include font-size(10);
 	@include padding(11px 25px);
+	min-width: 130px;
 }
 
 .btn-small {
 	@include font-size(11);
 	@include padding(15px 27.5px);
+	min-width: 145px;
 }
 
 .btn-primary {
 	@include font-size(12);
 	@include padding(18px 32.5px);
+	min-width: 170px;
 }
 
 .btn-large {
 	@include font-size(14);
 	@include padding(17.5px 40px);
+	min-width: 185px;
 }
 
 

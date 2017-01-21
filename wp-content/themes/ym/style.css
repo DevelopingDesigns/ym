@@ -2077,19 +2077,22 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     box-shadow: none; }
 
 .btn-teal {
-  background-color: #1EAEB4; }
+  background-color: #1EAEB4;
+  border-color: #1EAEB4; }
   .btn-teal:hover, .btn-tealfocus {
     background-color: #1a9499;
     box-shadow: none; }
 
 .btn-slate {
-  background-color: #343F49; }
+  background-color: #343F49;
+  border-color: #343F49; }
   .btn-slate:hover, .btn-slatefocus {
     background-color: #2c363e;
     box-shadow: none; }
 
 .btn-white {
   background-color: #fff;
+  border-color: #fff;
   color: #343F49; }
   .btn-white:hover, .btn-whitefocus {
     box-shadow: none;
@@ -2136,13 +2139,15 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     color: #343F49; }
 
 .btn-red {
-  background-color: #EE552A; }
+  background-color: #EE552A;
+  border: 1px solid #EE552A; }
   .btn-red:hover, .btn-redfocus {
     background-color: #ca4824;
     box-shadow: none; }
 
 .btn-orange {
-  background-color: #EC8323; }
+  background-color: #EC8323;
+  border: 1px solid #EC8323; }
   .btn-orange:hover, .btn-orangefocus {
     background-color: #c96f1e;
     box-shadow: none; }
@@ -2170,22 +2175,26 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
 .btn-tiny {
   font-size: 10px;
   font-size: 1rem;
-  padding: 11px 25px; }
+  padding: 11px 25px;
+  min-width: 130px; }
 
 .btn-small {
   font-size: 11px;
   font-size: 1.1rem;
-  padding: 15px 27.5px; }
+  padding: 15px 27.5px;
+  min-width: 145px; }
 
 .btn-primary {
   font-size: 12px;
   font-size: 1.2rem;
-  padding: 18px 32.5px; }
+  padding: 18px 32.5px;
+  min-width: 170px; }
 
 .btn-large {
   font-size: 14px;
   font-size: 1.4rem;
-  padding: 17.5px 40px; }
+  padding: 17.5px 40px;
+  min-width: 185px; }
 
 .hero {
   -webkit-box-align: center;
