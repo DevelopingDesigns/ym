@@ -57,13 +57,3 @@ function ym_excerpt_more( $link ) {
 
 	return $link;
 }
-
-
-add_action( 'init', 'ym_register_image_sizes' );
-/**
- * Register child theme image sizes
- */
-function ym_register_image_sizes() {
-
-	add_image_size( 'small-screens-hero', 500, 500, true );
-}

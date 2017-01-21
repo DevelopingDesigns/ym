@@ -17,54 +17,58 @@ $hero = get_row( 'hero' );
 
 if ( $hero ) {
 
-	wp_enqueue_script(
-		'backstretch',
-		CHILD_THEME_DIR . '/node_modules/jquery.backstretch/jquery.backstretch.min.js',
-		[ 'jquery' ],
-		'2.1.15',
-		true
-	);
+	wp_enqueue_script( 'backstretch' );
 
 	wp_localize_script(
-		'backstretch',
-		'BackStretchImg', [
-			'src' => $hero['hero_image'],
-		]
+		'app',
+		'BackStretchImg', [ 'src' => $hero['hero_image'] ]
 	);
 
-	wp_add_inline_script(
-		'backstretch',
+	//wp_add_inline_script(
+	//	'app',
+	//	'jQuery(document).ready(function($){
+	//		$(".hero").backstretch([
+	//			[
+	//				// Will be chosen for a 1440 device or a 720*2 device
+	//				{
+	//					width: BackStretchImg.src.sizes["large-width"],
+	//					url: BackStretchImg.src.sizes["large"],
+	//					pixelRatio: 2,
+	//					alignX: 0.50,
+	//					alignY: 0.50
+	//				},
+	//
+	//				// Will be chosen for a 800 device or a 400*2 device
+	//				{
+	//					width: BackStretchImg.src.sizes["medium-width"],
+	//					url: BackStretchImg.src.sizes["medium"],
+	//					pixelRatio: 2,
+	//					alignX: 0.25
+	//				},
+	//
+	//				// Will be chosen for a 500 device
+	//				{
+	//					width: BackStretchImg.src.sizes["small-screens-hero-width"],
+	//					url: BackStretchImg.src.sizes["small-screens-hero"],
+	//					pixelRatio: 2,
+	//					alignX: 1
+	//				}
+	//			]
+	//		]);
+	//	});'
+	//);
+
+	wp_add_inline_script( 'app',
 		'jQuery(document).ready(function($){
-			$(".hero").backstretch([
-				[
-					// Will be chosen for a 1440 device or a 720*2 device 
-					{
-						width: BackStretchImg.src.sizes["large-width"],
-						url: BackStretchImg.src.sizes["large"],
-						pixelRatio: "auto"
-					}, 
-	  
-					// Will be chosen for a 800 device or a 400*2 device 
-					{
-						width: BackStretchImg.src.sizes["medium-width"],
-						url: BackStretchImg.src.sizes["medium"],
-						pixelRatio: "auto"
-					},
-					
-					// Will be chosen for a 500 device
-					{
-						width: BackStretchImg.src.sizes["small-screens-hero-width"],
-						url: BackStretchImg.src.sizes["small-screens-hero"],
-						pixelRatio: "auto"
-					}
-				]
-			]);
+			$(".hero").backstretch();
 		});'
 	); ?>
 
 
 	<section class="hero <?php echo $hero['css_class']; ?>"
-	         style="background-image: url( <?php echo $hero['hero_image']['url'] ?> ); justify-content: <?php echo $hero['alignment']; ?>; background-repeat: no-repeat; padding: <?php echo $hero['hero_height']; ?>">
+	         style="justify-content: <?php echo $hero['alignment']; ?>;
+			         background: url(<?php echo $hero['hero_image']['url'] ?>);
+			         padding: <?php echo $hero['hero_height']; ?>;">
 		<div class="wrap">
 
 			<div class="hero-content"

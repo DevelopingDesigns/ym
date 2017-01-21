@@ -16,6 +16,12 @@ $logos = get_row( 'logo_slider' );
 
 if ( have_rows( 'logos' ) ) :
 
+	wp_enqueue_style(
+		'swiper',
+		CHILD_THEME_DIR . '/node_modules/swiper/dist/css/swiper.min.css',
+		'3.4.1'
+	);
+
 	wp_enqueue_script(
 		'swiper',
 		CHILD_THEME_DIR . '/node_modules/swiper/dist/js/swiper.jquery.min.js',
@@ -47,16 +53,9 @@ if ( have_rows( 'logos' ) ) :
                 }
             }) 
         });'
-	);
+	); ?>
 
-	wp_enqueue_style(
-		'swiper-css',
-		CHILD_THEME_DIR . '/node_modules/swiper/dist/css/swiper.min.css',
-        [],
-		'3.4.1'
-	);
 
-?>
 
 <section class="row fc-logo-slider <?php echo $logos['css_class']; ?>"
          style="background-color: <?php echo $logos['css']['background-color'] ?>;">

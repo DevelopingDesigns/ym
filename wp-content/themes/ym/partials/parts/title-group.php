@@ -10,6 +10,7 @@
 
 $headings  = get_sub_field( 'headings' );
 $add_heading = get_sub_field( 'add_heading' );
+$align = get_sub_field( 'heading_alignment' );
 
 // echo '<pre>';
 // var_dump( $headings );

@@ -27,12 +27,10 @@ function enqueue_assets() {
 		CHILD_THEME_VERSION
 	);
 
-	wp_enqueue_script(
-		'app',
-		get_stylesheet_directory_uri() . '/dist/js/custom/app.js',
-		[ 'jquery' ],
-        CHILD_THEME_VERSION,
-		true
+	wp_register_style(
+		'swiper',
+		CHILD_THEME_DIR . '/node_modules/swiper/dist/css/swiper.min.css',
+		'3.4.1'
 	);
 
 	wp_register_script(
@@ -50,6 +48,15 @@ function enqueue_assets() {
 		'2.1.15',
 		true
 	);
+
+	wp_enqueue_script(
+		'app',
+		CHILD_THEME_DIR  . '/dist/js/custom/app.js',
+		[ 'jquery' ],
+		CHILD_THEME_VERSION,
+		true
+	);
+
 }
 
 

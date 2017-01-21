@@ -1,17 +1,29 @@
 // Hero Content Block
 
 .hero {
-	align-items: center;
+	//align-items: center;
 	background-position: center;
+	background-repeat: no-repeat;
 	background-size: cover;
-	display: flex;
+	max-width: 100%;
+	//display: flex;
 
 	.hero-content {
 		color: $white;
+		text-align: center;
+	}
+
+	.fc-title-group {
+		margin-bottom: calc(#{$gutter} * 2);
+
+		@include mappy-bp(large) {
+			margin-bottom: calc(#{$gutter} * 1.75);
+		}
 	}
 
 	h1 {
 		@include font-size(44);
+		margin-bottom: $gutter;
 
 		@include mappy-bp(large) {
 			@include font-size(50);
@@ -19,7 +31,6 @@
 
 		@include mappy-bp(mega) {
 			@include font-size(70);
-			margin-bottom: 20px;
 		}
 	}
 
@@ -35,6 +46,26 @@
 			margin-bottom: 50px;
 		}
 	}
+
+	.button-group {
+		@include mappy-bp(large) {
+			a:first-of-type {
+				margin-right: $gutter/2;
+			}
+
+			a:last-child {
+				margin-left: $gutter/2;
+			}
+
+			& > a {
+				@include mappy-bp(large) {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+	}
+
 }
 
 
