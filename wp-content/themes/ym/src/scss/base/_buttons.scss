@@ -9,7 +9,7 @@ $btn-slate: $slate-dark;
   @include font-size(14);
   appearance: none;
   background-color: $green-main;
-  border: 0;
+  border: 1px solid $green-main;
   border-radius: $base-border-radius;
   box-shadow: $button-shadow;
   color: $white;

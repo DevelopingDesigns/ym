@@ -167,16 +167,11 @@
 }
 
 
-// .double-buttons
-.double-button {
-	min-width: 220px;
+// Two Buttons
+.button-group {
 
-	&:first-of-type {
-		margin-right: 3em;
-
-		@include media($small-screen-up) {
-			margin-bottom: 1em;
-			margin-right: 0;
-		}
-	}
 }
+
+
+
+// @todo Dont forget to fix the mobile css for double button class asap!!!!, JOE!!!!

@@ -8,42 +8,52 @@
  */
 $content_img = get_row( 'content_and_image' );
 
-echo '<pre>';
-print_r( $content_img );
-echo '</pre>';
+//echo '<pre>';
+//print_r( $content_img );
+//echo '</pre>';
+
 ?>
 
 
-<section class="row fc-video <?php echo $content_img['css_class']; ?>"
-         style="background-image: url( <?php echo $content_img['background_image']['url'] ?> ); background-color: <?php echo $content_img['background_color'] ?>; justify-content:<?php echo $content_img['alignment'] ?>; min-height: <?php echo $content_img['background_image']['height'].'px' ?>;">
+<style type="text/css">
+	<?php echo '.' . $content_img["css_class"]; ?> {
+		background-image: url(<?php echo $content_img[ 'background' ][ 'url' ]; ?>);
+		background-color:  <?php echo $content_img[ 'background' ]; ?>;
+		justify-content: <?php echo $content_img['content_alignment']; ?>;
+	}
+</style>
+
+<section class="row fc-content-image <?php echo $content_img['css_class']; ?>"
+         style="background-image: url(<?php echo $content_img['background']['url']; ?>);
+		         justify-content: <?php echo $content_img['content_alignment']; ?>;">
 	<div class="wrap">
 
-		<div class="video-content" style="text-align: <?php echo $content_img['text_alignment']; ?>;">
+		<main>
+			<article>
+				<?php if ( $content_img['add_heading'] ) :
+					get_template_part( 'partials/parts/title', 'group' );
+				endif; ?>
 
-			<img class="logo"
-			     src="<?php echo $content_img['logo']['url']; ?>"
-			     alt="<?php echo $content_img['logo']['alt']; ?>"
-			     style="width: calc(<?php echo $content_img['logo']['width'].'px' ?> / 2); height: calc(<?php echo $content_img['logo']['height'].'px' ?> / 2);">
-			<blockquote><?php echo $content_img['testimonial']; ?></blockquote>
+				<div class="content">
+					<div><?php echo $content_img['content_area']; ?></div>
 
-			<div class="details">
-				<p class="name"><?php echo $content_img['name']; ?></p>
-				<p class="details"><span class="company"><?php echo $content_img['company']; ?></span><span
-							class="company"><?php echo $content_img['title']; ?></span></p>
-			</div>
-
-			<?php if ( $content_img['add_cta'] ) {
-				get_template_part( 'partials/parts/button', 'group' );
-			}
-			else { ?>
-				<div class="play-container">
-					<a href="#" title="Play <?php echo $content_img['name']; ?>">
-						<img src="/wp-content/themes/ym/dist/images/play-button.svg" alt="play button for video">
-						<p class="play-label">Play video</p>
-					</a>
+					<?php if ( $content_img['add_cta'] ) :
+						get_template_part( 'partials/parts/button', 'group' );
+					endif; ?>
 				</div>
-			<?php } ?>
-		</div>
+			</article>
+
+			<aside>
+				<div class="image-wrap" style="transform: translate( <?php echo $content_img['image_alignment'] ?> );">
+					<img src="<?php echo $content_img['image']['url'] ?>"
+					     alt="<?php echo $content_img['image']['alt'] ?>"
+					     width="<?php echo $content_img['image']['alt'] ?>"
+					     height="<?php echo $content_img['image']['alt'] ?>">
+
+				</div>
+			</aside>
+
+		</main>
 
 	</div>
 </section>

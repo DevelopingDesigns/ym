@@ -64,7 +64,9 @@ if ( $hero ) {
 
 
 	<section class="hero <?php echo $hero['css_class']; ?>"
-	         style="background-image: url( <?php echo $hero['hero_image']['url'] ?> ); justify-content: <?php echo $hero['alignment']; ?>; background-repeat: no-repeat; padding: <?php echo $hero['hero_height']; ?>">
+	         style="justify-content: <?php echo $hero['alignment']; ?>;
+			         background: url(<?php echo $hero['hero_image']['url'] ?>);
+			         padding: <?php echo $hero['hero_height']; ?>;">
 		<div class="wrap">
 
 			<div class="hero-content"
