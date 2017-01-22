@@ -37,6 +37,8 @@
 	}
 }
 
+/* ## Site Layouts
+-------------------------------------- */
 
 .site-inner {
 	clear: both;
@@ -46,34 +48,33 @@
 	@include media($medium-screen-up) {
 		@include padding(5% 5% 0);
 	}
-}
 
-.wrap {
-	@include media($medium-screen-up) {
-		@include padding(0 5%);
+	.wrap {
+		@include media($medium-screen-up) {
+			@include padding(0 5%);
+		}
 	}
-}
 
-/* ## Site Layouts
--------------------------------------- */
+	.content-sidebar-wrap {
+		.content {
+			@include padding(30px);
+			lost-column: 3/4;
 
-.content {
-	@include padding(30px);
-	lost-column: 3/4;
+			@include media($large-screen-up) {
+				@include padding(0);
+				lost-column: 1;
+			}
+		}
 
-	@include media($large-screen-up) {
-		@include padding(0);
-		lost-column: 1;
-	}
-}
+		.sidebar {
+			@include padding(30px);
+			lost-column: 1/4;
 
-.sidebar {
-	@include padding(30px);
-	lost-column: 1/4;
-
-	@include media($large-screen-up) {
-		@include padding(0);
-		lost-column: 1;
+			@include media($large-screen-up) {
+				@include padding(0);
+				lost-column: 1;
+			}
+		}
 	}
 }
 

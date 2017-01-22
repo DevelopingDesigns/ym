@@ -16,6 +16,7 @@
 	&:hover,
 	&focus {
 		background-color: shade($teal1, 15%);
+		border-color: shade($teal1, 15%);
 		box-shadow: none;
 	}
 }
@@ -27,6 +28,7 @@
 	&:hover,
 	&focus {
 		background-color: shade($slate-dark, 15%);
+		border-color: shade($slate-dark, 15%);
 		box-shadow: none;
 	}
 }
@@ -52,6 +54,7 @@
 	&:hover,
 	&focus {
 		background-color: $green-main;
+		border: 1px solid $green-main;
 		box-shadow: none;
 		color: $white;
 	}
@@ -66,6 +69,7 @@
 	&:hover,
 	&focus {
 		background-color: $teal1;
+		border: 1px solid $teal1;
 		box-shadow: none;
 		color: $white;
 	}
@@ -80,6 +84,7 @@
 	&:hover,
 	&focus {
 		background-color: $slate-dark;
+		border: 1px solid $slate-dark;
 		box-shadow: none;
 		color: $white;
 	}
@@ -94,6 +99,7 @@
 	&:hover,
 	&focus {
 		background-color: $white;
+		border: 1px solid $white;
 		box-shadow: none;
 		color: $slate-dark;
 	}
@@ -106,6 +112,7 @@
 	&:hover,
 	&focus {
 		background-color: shade($red1, 15%);
+		border-color: shade($red1, 15%);
 		box-shadow: none;
 	}
 }
@@ -117,6 +124,7 @@
 	&:hover,
 	&focus {
 		background-color: shade($orange1, 15%);
+		border-color: shade($orange1, 15%);
 		box-shadow: none;
 	}
 }
@@ -130,6 +138,7 @@
 	background-position: 94% 55%;
 	background-repeat: no-repeat;
 	background-size: size('dist/images/green-arrow@2x.png', 2);
+	border: 0 !important;
 	box-shadow: none !important;
 	color: $green3;
 	min-width: 0 !important;
@@ -179,7 +188,11 @@
 // Two Buttons
 .button-group {
 	& > a {
-		margin-bottom: $gutter;
+		@include margin(0 em($gutter) em(20px));
+
+		@include mappy-bp(small) {
+			@include margin(em($gutter) em($gutter/2));
+		}
 	}
 }
 

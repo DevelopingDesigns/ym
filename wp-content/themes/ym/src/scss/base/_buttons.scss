@@ -29,7 +29,8 @@ $btn-slate: $slate-dark;
 
   &:hover,
   &:focus {
-    background-color: shade($green-main, 20%);
+    background-color: shade($green-main, 15%);
+    border-color: shade($green-main, 15%);
     box-shadow: none;
     color: $white;
   }
@@ -39,7 +40,8 @@ $btn-slate: $slate-dark;
     opacity: 0.5;
 
     &:hover {
-      background-color: darken($green-main, 20%);
+      background-color: darken($green-main, 15%);
+      border-color: darken($green-main, 15%);
     }
   }
 }

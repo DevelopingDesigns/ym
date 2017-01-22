@@ -39,21 +39,13 @@ function ym_resources_excerpt_length( $length ) {
 
 
 add_filter( 'excerpt_more', 'ym_excerpt_more' );
+add_filter( 'the_content_more_link', 'ym_excerpt_more' );
+add_filter( 'get_the_content_more_link', 'ym_excerpt_more' );
 /**
  * Replaces "[...]" with an ->
  *
- * @param string $link excerpt default for read more
  * @return string a read more icon of an arrow
  */
-function ym_excerpt_more( $link ) {
-	global $resources_partial;
-	$resources_partial = true;
-
-	if ( ! $resources_partial || is_admin() ) {
-		return $link;
-	}
-
-	$link = sprintf( '<p class="link-more"><a href="%s" class="more-link"><img src="/wp-content/themes/ym/dist/images/green-arrow.svg" width="20" height="14"></a></p>', esc_url( get_permalink( get_the_ID() ) ) );
-
-	return $link;
+function ym_excerpt_more() {
+	return sprintf( '<p class="link-more"><a href="%s" class="more-link"><img src="/wp-content/themes/ym/dist/images/green-arrow.svg" width="20" height="14"></a></p>', esc_url( get_permalink( get_the_ID() ) ) );
 }

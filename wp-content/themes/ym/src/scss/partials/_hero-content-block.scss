@@ -22,6 +22,7 @@
 	}
 
 	h1 {
+		color: $white;
 		@include font-size(44);
 		margin-bottom: $gutter;
 
@@ -35,6 +36,8 @@
 	}
 
 	h3 {
+		color: $white;
+		font-weight: $fw-normal;
 		@include font-size(28);
 
 		@include mappy-bp(large) {

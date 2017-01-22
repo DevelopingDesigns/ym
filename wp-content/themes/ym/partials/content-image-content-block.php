@@ -12,27 +12,23 @@ $content_img = get_row( 'content_and_image' );
 //print_r( $content_img );
 //echo '</pre>';
 
-?>
 
+if (  false !== $content_img['add_bg'] ) : ?>
+	<section class="row fc-content-image <?php echo $content_img['css_class']; ?>"
+         style="background-image: url(<?php echo $content_img['background_image']['url']; ?>);
+		         background-color:  <?php echo $content_img['background_color']; ?>;">
+		<?php endif; ?>
 
-<style type="text/css">
-	<?php echo '.' . $content_img["css_class"]; ?> {
-		background-image: url(<?php echo $content_img[ 'background' ][ 'url' ]; ?>);
-		background-color:  <?php echo $content_img[ 'background' ]; ?>;
-		justify-content: <?php echo $content_img['content_alignment']; ?>;
-	}
-</style>
+		<section class="row fc-content-image <?php echo $content_img['css_class']; ?>">
 
-<section class="row fc-content-image <?php echo $content_img['css_class']; ?>"
-         style="background-image: url(<?php echo $content_img['background']['url']; ?>);
-		         justify-content: <?php echo $content_img['content_alignment']; ?>;">
 	<div class="wrap">
+
+		<?php if ( $content_img['add_heading'] ) :
+			get_template_part( 'partials/parts/title', 'group' );
+		endif; ?>
 
 		<main>
 			<article>
-				<?php if ( $content_img['add_heading'] ) :
-					get_template_part( 'partials/parts/title', 'group' );
-				endif; ?>
 
 				<div class="content">
 					<div><?php echo $content_img['content_area']; ?></div>

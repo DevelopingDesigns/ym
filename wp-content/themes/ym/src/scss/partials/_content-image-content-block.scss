@@ -1,3 +1,10 @@
 .fc-content-image {
 	background-repeat: no-repeat;
+
+	.fc-title-group {
+		margin-top: $gutter *2;
+		h3 {
+		}
+	}
+
 }

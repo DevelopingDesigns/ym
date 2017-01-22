@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "scss": "node-sass --source-map true src/scss -o ./",
-    "postcss": "postcss -u postcss-assets  -u lost -u autoprefixer -r style.css",
+    "postcss": "postcss -u postcss-assets  -u lost -u autoprefixer -u rucksack-css -r style.css",
     "babel": "rm -rf dist/js/custom && mkdir -p dist/js/custom && babel src/js/custom -d dist/js/custom",
     "build:css": "npm run scss && npm run postcss",
     "build:js": "npm run babel",

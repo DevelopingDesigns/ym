@@ -12,20 +12,22 @@ $headings  = get_sub_field( 'headings' );
 $add_heading = get_sub_field( 'add_heading' );
 $align = get_sub_field( 'heading_alignment' );
 
-// echo '<pre>';
-// var_dump( $headings );
-// echo '</pre>';
+//echo '<pre>';
+//var_dump( $headings );
+//echo '</pre>';
 
 if ( $add_heading ) : ?>
 
 	<div class="fc-title-group" style="text-align: <?php echo $headings['heading_alignment']; ?>;">
 
 		<?php if ( $headings['choose_heading'] ) : ?>
+			<?php echo $align; ?>
 			<h1 style="font-size: <?php echo $headings['font_size_heading'] ?>;"><?php echo $headings['heading']; ?></h1>
 		<?php endif; ?>
 
 		<?php if ( $headings['choose_subheading'] ) : ?>
-			<h3 style="font-size: <?php echo $headings['font_size_subheading'] ?>;"><?php echo $headings['subheading']; ?></h3>
+			<h3 class="subheading"
+			    style="font-size: <?php echo $headings['font_size_subheading'] ?>;"><?php echo $headings['subheading']; ?></h3>
 		<?php endif; ?>
 
 	</div>
