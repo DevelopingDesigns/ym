@@ -53,6 +53,7 @@ h6 {
 .segment-header {
 	@include font-size(20);
 	font-weight: $fw-bolder;
+	margin: 0 0 em(20px);
 }
 
 .sec-segment-header {

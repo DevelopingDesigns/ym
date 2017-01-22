@@ -1,35 +1,5 @@
 /* ## Typographical Elements
 --------------------------------------------- */
-//
-//html {
-//  font-size: 62.5%; /* 10px browser default */
-//}
-
-
-//body {
-//  @include font-smoothing;
-//  @include font-legibility;
-//  background-color: $white;
-//  color: $slate-dark;
-//  font-family: $base-font-family;
-//  @include font-size(15);
-//  @include font(normal, 400);
-//  line-height: 1.625;
-//  margin: 0;
-//
-//  @include media($medium-screen-up) {
-//    @include font-size(18);
-//  }
-//
-//  /* Chrome fix */
-//  & > div {
-//    font-size: 2rem;
-//
-//    @include media($medium-screen-up) {
-//      font-size: 1.8rem;
-//    }
-//  }
-//}
 
 body {
   @include font-smoothing;
@@ -69,6 +39,7 @@ a {
 
 
 p {
+  font-size: responsive;
   margin: 0 0 28px;
   padding: 0;
 }

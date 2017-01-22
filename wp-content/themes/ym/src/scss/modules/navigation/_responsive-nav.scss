@@ -2,6 +2,7 @@
 	.slide-nav-link {
 		@include transform(translate(-20px, 0));
 		background-color: transparent !important;
+		box-shadow: none !important;
 		color: $green3 !important;
 		float: right;
 		padding: 18px 0 0;

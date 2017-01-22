@@ -1,10 +1,57 @@
 .fc-content-image {
 	background-repeat: no-repeat;
+	@include padding(em(50px) null em(100px));
 
 	.fc-title-group {
-		margin-top: $gutter *2;
+		margin: em($gutter *2) 0;
 		h3 {
 		}
+	}
+
+	main {
+		lost-flex-container: column;
+
+		@include bp(wide) {
+			lost-flex-container: row;
+		}
+	}
+
+	article,
+	aside {
+		lost-column: 1/1;
+
+		@include bp(wide) {
+			lost-column: 1/2;
+		}
+	}
+
+	article {
+		order: 0;
+
+
+
+		p {
+			margin: 0 0 em(50px);
+		}
+	}
+
+	aside {
+		margin-bottom: em($gutter);
+		order: -1;
+
+		@include mappy-bp(large) {
+			margin-bottom: em($gutter * 2);
+		}
+
+		@include bp(wide) {
+			lost-align: center;
+			order: 0;
+		}
+
+	}
+
+	.button-group a {
+		@include margin(0);
 	}
 
 }

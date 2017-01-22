@@ -37,6 +37,11 @@
 	}
 }
 
+
+section > .wrap {
+	@include padding(null em(20));
+}
+
 /* ## Site Layouts
 -------------------------------------- */
 
