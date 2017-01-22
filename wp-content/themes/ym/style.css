@@ -1906,8 +1906,8 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   margin-right: 0;
   margin-left: auto; }
 
-.fc-title-group h1 {
-  margin-bottom: 30px; }
+.fc-title-group h3 {
+  margin: 0; }
 
 .btn-green {
   background-color: #C1CE20; }
@@ -2089,58 +2089,105 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
   .hero .button-group > a {
     margin-bottom: 0; } }
 
-.cards {
-  padding: 25px 0; }
-  .cards .flex-wrap {
-    display: flex;
-    flex-flow: row wrap;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto; }
-  .cards .card-container {
-    padding: 10px 20px;
-    background-color: #fff;
-    border-bottom: 5px solid #C1CE20;
-    margin-bottom: 30px;
-    text-align: center;
+.cards .flex-wrap {
+  display: flex;
+  flex-flow: column nowrap; }
+  @media all and (min-width: 50em) {
+    .cards .flex-wrap {
+      display: flex;
+      flex-flow: row wrap;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto; } }
+
+.cards .card-container {
+  margin: 0 auto 1.875em;
+  padding: 60px;
+  background-color: #fff;
+  border-bottom: 5px solid #C1CE20;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.06);
+  max-width: 340px;
+  text-align: center; }
+  .cards .card-container:hover {
+    box-shadow: none;
+    transition: box-shadow 0.2s ease-in-out; }
+  @media all and (min-width: 50em) {
+    .cards .card-container {
+      flex: 0 0 auto;
+      width: calc(99.9% * 1/3 - (30px - 30px * 1/3));
+      max-width: 300px; }
+    .cards .card-container:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+    .cards .card-container:last-child {
+    margin-right: 0; }
+    .cards .card-container:nth-child(3n) {
+    margin-right: 0;
+    margin-left: auto; } }
+  @media all and (min-width: 75em) {
+    .cards .card-container {
+      flex: 0 0 auto;
+      width: calc(99.9% * 1/4 - (30px - 30px * 1/4)); }
+    .cards .card-container:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+    .cards .card-container:last-child {
+    margin-right: 0; }
+    .cards .card-container:nth-child(4n) {
+    margin-right: 0;
+    margin-left: auto; } }
+  .cards .card-container figure {
+    margin-bottom: 30px; }
+  .cards .card-container .heading {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 1.25em;
+    font-weight: 800; }
+  .cards .card-container .description {
+    margin: 0;
+    font-size: 0.9375em; }
+
+.cards .fc-title-group {
+  margin: 3.125em 0; }
+  .cards .fc-title-group h1 {
+    color: #ABB3BE; }
+  .cards .fc-title-group h3 {
+    color: #343F49; }
+
+.cards .button-group {
+  margin: 3.75em;
+  text-align: center; }
+
+@media all and (min-width: 50em) {
+  .cards.four-cards .card-container {
     flex: 0 0 auto;
-    width: calc(99.9% * 1/1 - (30px - 30px * 1/1)); }
-  .cards .card-container:nth-child(1n) {
-  margin-right: 30px;
-  margin-left: 0; }
-  .cards .card-container:last-child {
-  margin-right: 0; }
-  .cards .card-container:nth-child(1n) {
-  margin-right: 0;
-  margin-left: auto; }
-    @media all and (min-width: 50em) {
-      .cards .card-container {
-        flex: 0 0 auto;
-        width: calc(99.9% * 1/2 - (30px - 30px * 1/2)); }
-      .cards .card-container:nth-child(1n) {
+    width: calc(99.9% * 1/2 - (30px - 30px * 1/2));
+    max-width: 300px; }
+  .cards.four-cards .card-container:nth-child(1n) {
     margin-right: 30px;
     margin-left: 0; }
-      .cards .card-container:last-child {
+  .cards.four-cards .card-container:last-child {
     margin-right: 0; }
-      .cards .card-container:nth-child(2n) {
+  .cards.four-cards .card-container:nth-child(2n) {
     margin-right: 0;
     margin-left: auto; } }
-    @media all and (min-width: 90em) {
-      .cards .card-container {
-        flex: 0 0 auto;
-        width: calc(99.9% * 1/4 - (30px - 30px * 1/4)); }
-      .cards .card-container:nth-child(1n) {
+
+@media all and (min-width: 75em) {
+  .cards.four-cards .card-container {
+    flex: 0 0 auto;
+    width: calc(99.9% * 1/4 - (30px - 30px * 1/4)); }
+  .cards.four-cards .card-container:nth-child(1n) {
     margin-right: 30px;
     margin-left: 0; }
-      .cards .card-container:last-child {
+  .cards.four-cards .card-container:last-child {
     margin-right: 0; }
-      .cards .card-container:nth-child(4n) {
+  .cards.four-cards .card-container:nth-child(4n) {
     margin-right: 0;
     margin-left: auto; } }
-    .cards .card-container .heading {
-      font-size: 22px;
-      margin: 0;
-      font-weight: 800; }
+
+.cards.four-cards .card-container .button-group {
+  margin: 1.875em 0 0;
+  text-align: center; }
 
 .fc-content {
   padding: 75px 0;

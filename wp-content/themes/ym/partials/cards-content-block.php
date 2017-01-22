@@ -30,24 +30,30 @@ $cards = get_row( 'cards' );
 
 		<div class="flex-wrap">
 
-		<?php while (have_rows('card')) : the_row();
+		<?php while ( have_rows( 'card' ) ) : the_row();
 
-			$icon = get_sub_field('icon');
-			$heading = get_sub_field('heading');
-			$description = get_sub_field('description');
-			$add_cta = get_sub_field('add_cta');
+			$icon = get_sub_field( 'icon' );
+			$heading = get_sub_field( 'heading' );
+			$description = get_sub_field( 'description' );
+			$add_cta = get_sub_field( 'add_cta' );
 
 			?>
 
 				<article class="card-container">
 					<main>
 						<figure>
-							<img class="card" src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+							<img class="card"
+							     src="<?php echo $icon['url']; ?>"
+							     alt="<?php echo $icon['alt']; ?>"
+							     width="calc(<?php echo $icon['width'] . 'px' ?> / 2)"
+							     height="calc(<?php echo $icon['height'] . 'px' ?> / 2)"
+							     style="width: calc(<?php echo $icon['width'] . 'px' ?> / 2); height: calc(<?php echo $icon['height'] . 'px' ?> / 2);">
+
 						</figure>
 						<div class="content-wrap">
-							<p class="heading"><?php echo $heading; ?></p>
+							<h2 class="heading"><?php echo $heading; ?></h2>
 							<p class="description"><?php echo $description; ?></p>
-							<?php if ($add_cta) {
+							<?php if ( $add_cta ) {
 								get_template_part( 'partials/parts/button', 'group' );
 							} ?>
 						</div>
@@ -57,6 +63,10 @@ $cards = get_row( 'cards' );
 			<?php endwhile; ?>
 
 		</div>
+
+			<?php if ( $cards['add_cta'] ) {
+				get_template_part( 'partials/parts/button', 'group' );
+			} ?>
 
 		<?php endif; ?>
 
