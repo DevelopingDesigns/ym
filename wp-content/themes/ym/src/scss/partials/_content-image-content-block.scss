@@ -50,8 +50,29 @@
 
 	}
 
-	.button-group a {
-		@include margin(0);
+	.button-group {
+		a {
+			@include margin(null $gutter 0 0);
+
+			@include mappy-bp(large) {
+				@include margin(null null 0);
+			}
+		}
 	}
 
 }
+
+
+
+.fc-content-image.ams-overview-tour {
+	@include bp(large) {
+		main {
+			lost-flex-container: row;
+		}
+
+		aside {
+			lost-align: vertical;
+		}
+	}
+}
+

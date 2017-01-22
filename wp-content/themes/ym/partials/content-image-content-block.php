@@ -42,9 +42,11 @@ $css = $bg_img . $bg_color;
 
 			<aside>
 				<img src="<?php echo $content_img['image']['url'] ?>"
-					     alt="<?php echo $content_img['image']['alt'] ?>"
-					     width="<?php echo $content_img['image']['alt'] ?>"
-					     height="<?php echo $content_img['image']['alt'] ?>">
+				     alt="<?php echo $content_img['image']['alt'] ?>"
+					 width="calc(<?php echo $content_img['image']['width'] . 'px' ?> / 2)"
+					 height="calc(<?php echo $content_img['image']['height'] . 'px' ?> / 2)"
+					 style="width: calc(<?php echo $content_img['image']['width'] . 'px' ?> / 2); height: calc(<?php echo $content_img['image']['height'] . 'px' ?> / 2);">
+
 			</aside>
 
 		</main>
