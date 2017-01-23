@@ -47,7 +47,7 @@ section > .wrap {
 		}
 
 		.sidebar {
-			@include padding(30px);
+			@include padding(30px 0);
 			lost-column: 1/4;
 
 			@include media($large-screen-up) {
@@ -76,7 +76,6 @@ section > .wrap {
 	}
 
 	.sidebar {
-		margin-top: 3em;
 		order: 1;
 	}
 }
@@ -100,4 +99,9 @@ section > .wrap {
 			order: 1;
 		}
 	}
+}
+
+
+.sidebar {
+	margin-top: 4.25em;
 }

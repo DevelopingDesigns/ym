@@ -23,5 +23,13 @@ time,
 
 .entry {
 	font-size: em(15px);
+
+	@include bp(large) {
+		@include padding(null em(100px) null null);
+	}
+
+	@include bp(wide) {
+		@include padding(null em(150px) null null);
+	}
 }
 
