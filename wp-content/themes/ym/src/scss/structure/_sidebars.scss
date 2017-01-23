@@ -11,12 +11,8 @@
 	}
 
 	.widget {
-		@include padding(30px null);
 		background-color: #fff;
-
-		@include media($medium-screen-up) {
-			margin-bottom: 5%;
-		}
+		margin-bottom: em(40px);
 	}
 
 	.widgettitle {

@@ -174,11 +174,9 @@ add_action( 'genesis_footer', function () {
  * Force content-sidebar layout setting to all singular pages
  */
 add_action( 'get_header', function () {
-	if ( ! is_singular() ) {
-		return;
+	if ( is_single() || is_archive() ) {
+		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_content_sidebar' );
 	}
-
-	add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_content_sidebar' );
 } );
 
 
