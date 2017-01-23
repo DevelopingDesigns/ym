@@ -6,8 +6,8 @@
 	border-top: 1px solid $slate-light;
 	margin-bottom: 40px;
 
-	@include media($medium-screen-up) {
-		margin-bottom: 5%;
+	@include bp(large) {
+		border-top: 0;
 	}
 
 	.widget {

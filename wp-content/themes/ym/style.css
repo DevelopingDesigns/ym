@@ -980,6 +980,7 @@ img.alignright,
   font-size: 20px; }
 
 .breadcrumb {
+  margin-bottom: 3.75em;
   color: #A3A9AE;
   font-size: 0.75em; }
 
@@ -1225,9 +1226,9 @@ section > .wrap {
   font-size: 16px;
   border-top: 1px solid #ABB3BE;
   margin-bottom: 40px; }
-  @media screen and (max-width: 860px) {
+  @media all and (min-width: 50em) {
     .sidebar {
-      margin-bottom: 5%; } }
+      border-top: 0; } }
   .sidebar .widget {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -1263,10 +1264,6 @@ section > .wrap {
 .archive .entry-header .entry-meta {
   margin-bottom: 0.625em; }
 
-.archive time,
-.archive .post-edit-link {
-  color: #ABB3BE; }
-
 .archive .entry-title {
   color: #343F49;
   font-size: 1.375em;
@@ -1287,6 +1284,30 @@ section > .wrap {
 ---------------------------- */
 .archive-description h1 {
   font-size: 48px; }
+
+.single-news .cpt-header {
+  margin-bottom: 5.625em; }
+  .single-news .cpt-header h2 {
+    margin-bottom: 0; }
+  .single-news .cpt-header img {
+    vertical-align: middle; }
+
+.single-news article {
+  padding-top: 0; }
+
+.single-news .post-intro-box p {
+  font-size: 1.25rem; }
+
+.single-news .after-entry .widget {
+  padding: 1.875em;
+  background-color: #EEEEEE; }
+
+.single-news .after-entry .widgettitle {
+  font-size: 1.5em;
+  font-weight: 400; }
+
+.single-news .after-entry .textwidget p {
+  font-size: 0.9375em; }
 
 /* # Content Area
 ---------------------------------------------------------------------------------------------------- */
@@ -1355,6 +1376,26 @@ p.entry-meta {
   content: "\2014";
   margin: 0 6px 0 2px; }
 
+time,
+.post-edit-link {
+  color: #ABB3BE; }
+
+.entry-title {
+  margin-top: 1.25rem;
+  margin-bottom: 2.5rem; }
+
+.cpt-pagination {
+  margin-top: 3.75em;
+  margin-bottom: 7.5em;
+  text-align: right; }
+  .cpt-pagination a {
+    font-size: 0.6875em;
+    color: #343F49;
+    text-transform: uppercase; }
+
+.entry {
+  font-size: 0.9375em; }
+
 /* # Widgets
 ---------------------------------------------------------------------------------------------------- */
 .widget {
@@ -1395,11 +1436,6 @@ p.entry-meta {
 .widget_calendar td,
 .widget_calendar th {
   text-align: center; }
-
-@media screen and (max-width: 860px) {
-  .after-entry {
-    padding: 30px;
-    margin-bottom: 5%; } }
 
 /* # Site Header
 ---------------------------------------------------------------------------------------------------- */

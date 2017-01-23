@@ -171,6 +171,22 @@ add_action( 'genesis_footer', function () {
 
 
 /**
+ * Force content-sidebar layout setting to all singular pages
+ */
+add_action( 'get_header', function () {
+	if ( ! is_singular() ) {
+		return;
+	}
+
+	add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_content_sidebar' );
+} );
+
+
+
+
+
+
+/**
  * Function displaying Flexible Content Fields
  */
 function ym_flexible_content() {

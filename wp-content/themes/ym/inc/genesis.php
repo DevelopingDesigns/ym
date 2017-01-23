@@ -224,3 +224,18 @@ add_filter( 'genesis_next_link_text', function () {
 add_filter( 'genesis_prev_link_text', function () {
 	return 'Prev';
 } );
+
+
+
+add_filter( 'genesis_post_info', __NAMESPACE__ . '\ym_post_info_filter' );
+/**
+ * Modify Post Info
+ *
+ * @param string
+ * @return string
+ */
+function ym_post_info_filter( $post_info ) {
+	$post_info = '[post_date] [post_edit]';
+
+	return $post_info;
+}

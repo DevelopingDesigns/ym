@@ -1,0 +1,41 @@
+.single-news {
+	.cpt-header {
+		margin-bottom: em($gutter * 3);
+
+		h2  {
+			margin-bottom: 0;
+		}
+
+		img {
+			vertical-align: middle;
+		}
+	}
+
+	article {
+		padding-top: 0;
+	}
+
+	.post-intro-box {
+		p {
+			font-size: rem(20px);
+		}
+	}
+
+	.after-entry {
+		.widget {
+			@include padding(em(30px));
+			background-color: $grey2;
+		}
+
+		.widgettitle {
+			font-size: em(24px);
+			font-weight: $fw-normal;
+		}
+
+		.textwidget {
+			p {
+				font-size: em(15px);
+			}
+		}
+	}
+}

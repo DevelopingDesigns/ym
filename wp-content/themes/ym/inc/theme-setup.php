@@ -25,32 +25,34 @@ function svg_mime_type( $mimes ) {
 	return $mimes;
 }
 
-add_filter( 'genesis_post_info', __NAMESPACE__ . '\ym_post_info_filter' );
+
+
+add_action( 'genesis_after_loop', __NAMESPACE__ . '\add_pagination_to_posts', 5 );
 /**
- * Modify Post Info
- *
- * @param string
- * @return string
+ * Add previous and next buttons to custom post types.
  */
-function ym_post_info_filter( $post_info ) {
-	if ( ! is_archive() ) {
-		return $post_info;
+function add_pagination_to_posts() {
+	if ( ! is_singular( 'news' ) ) {
+		return;
 	}
-	$post_info = '[post_date] [post_edit]';
 
-	return $post_info;
-}
+	$older_post = get_previous_post();
+	$newer_post = get_next_post();
 
+	if ( null !== $older_post || null !== $newer_post ) { ?>
 
+	<div class="cpt-pagination">
 
-/**
- * Custom excerpt length
- *
- * @param $limit
- * @return string
- *
- * @link http://stackoverflow.com/a/17177847
- */
-function excerpt( $limit ) {
-	return wp_trim_words( get_the_excerpt(), $limit );
+		<?php if ( ! empty( $older_post ) ) : ?>
+			<a class="pagination-older" href="<?php echo get_permalink( $older_post->ID ); ?>">< Prev</a>
+		<?php endif;
+
+		if ( ! empty( $newer_post ) ) : ?>
+			<a class="pagination-newer" href="<?php echo get_permalink( $newer_post->ID ); ?>">Next ></a>
+		<?php endif; ?>
+
+	</div>
+	<?php
+
+	}
 }

@@ -10,11 +10,12 @@
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_content_sidebar' );
 
 
+
 /**
  * Reposition Date before Entry Title
  */
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-add_action( 'genesis_entry_header', 'genesis_post_info', 9 );
+add_action( 'genesis_entry_header', 'genesis_post_info', 6 );
 
 
 /**
@@ -54,6 +55,7 @@ add_filter( 'genesis_pre_get_option_content_archive', function () {
 add_filter( 'genesis_pre_get_option_content_archive_limit', function () {
 	return 80;
 } );
+
 
 
 genesis();
