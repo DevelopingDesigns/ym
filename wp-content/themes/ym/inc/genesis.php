@@ -103,8 +103,7 @@ function theme_setup() {
 	/**
 	 * Disable Genesis SEO Menu item and in-post SEO
 	 */
-	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
-	remove_theme_support( 'genesis-seo-settings-menu' );
+	ym_remove_genesis_seo();
 
 	/**
 	 * Remove output of primary navigation right extras
@@ -158,6 +157,16 @@ function theme_setup() {
 	include_once __DIR__ . '/theme-setup.php';
 	include_once __DIR__ . '/layout.php';
 	include_once __DIR__ . '/partials.php';
+}
+
+/**
+ * Disable Genesis SEO Menu item and in-post SEO
+ */
+function ym_remove_genesis_seo() {
+	genesis_disable_seo();
+	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
+	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
+	remove_theme_support( 'genesis-seo-settings-menu' );
 }
 
 add_action( 'init', __NAMESPACE__ . '\ym_register_image_sizes' );
