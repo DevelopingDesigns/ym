@@ -1,23 +1,58 @@
-.archive-title {
-	@include font-size(20);
-}
+.archive {
+	.archive-description {
+		background-color: $white;
+		color: $slate-dark;
+		@include font-size(18);
+		@include margin(em(60) 0);
 
-.archive-description {
-	background-color: #fff;
-	@include font-size(18);
-	margin-bottom: 40px;
-	padding: 60px;
+		p:last-child {
+			margin-bottom: 0;
+		}
 
-	@include media($medium-screen-up) {
-		padding: 30px;
-		margin-bottom: 5%;
+		h1 {
+			@include font-size(46);
+		}
 	}
 
-	p:last-child {
-		margin-bottom: 0;
+	.entry {
+		padding-top: 0;
+	}
+
+	.entry-header .entry-meta {
+		margin-bottom: em(10px);
+	}
+
+	time,
+	.post-edit-link {
+		color: $slate-light;
 	}
 
 	.entry-title {
-		@include font-size(20);
+		color: $slate-dark;
+		font-size: em(22px);
+		font-weight: $fw-bold;
+
+		a {
+			&:hover {
+				color: $green1;
+			}
+		}
+	}
+
+	.entry-content {
+		p {
+			&:first-child {
+				font-size: em(15px);
+			}
+		}
+
+		.more-link {
+			color: $green1;
+			font-size: em(14px);
+
+			img {
+				vertical-align: middle;
+			}
+		}
 	}
 }

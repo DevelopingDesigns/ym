@@ -40,3 +40,17 @@ function ym_post_info_filter( $post_info ) {
 
 	return $post_info;
 }
+
+
+
+/**
+ * Custom excerpt length
+ *
+ * @param $limit
+ * @return string
+ *
+ * @link http://stackoverflow.com/a/17177847
+ */
+function excerpt( $limit ) {
+	return wp_trim_words( get_the_excerpt(), $limit );
+}

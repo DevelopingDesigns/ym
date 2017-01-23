@@ -1,24 +1,6 @@
 /* ## Site Containers
 --------------------------------------------- */
 
-//.site-inner,
-//.wrap {
-//	margin: 0 auto;
-//	max-width: 1280px;
-//
-//	@include media($xxlarge-screen-up) {
-//		max-width: 1140px;
-//	}
-//
-//	@include media($xlarge-screen-up) {
-//		max-width: 960px;
-//	}
-//
-//	@include media($large-screen-up) {
-//		max-width: 800px;
-//	}
-//}
-
 .site-inner,
 .wrap {
 	margin: 0 auto;
@@ -37,6 +19,10 @@
 	}
 }
 
+.site-inner {
+	@include padding(null em(20px));
+}
+
 
 section > .wrap {
 	@include padding(null em(20));
@@ -50,19 +36,8 @@ section > .wrap {
 	padding-top: 40px;
 	word-wrap: break-word;
 
-	@include media($medium-screen-up) {
-		@include padding(5% 5% 0);
-	}
-
-	.wrap {
-		@include media($medium-screen-up) {
-			@include padding(0 5%);
-		}
-	}
-
 	.content-sidebar-wrap {
 		.content {
-			@include padding(30px);
 			lost-column: 3/4;
 
 			@include media($large-screen-up) {
@@ -97,10 +72,11 @@ section > .wrap {
 	lost-center: 1200px;
 
 	.content {
-		order: 2;
+		order: 0;
 	}
 
 	.sidebar {
+		margin-top: 3em;
 		order: 1;
 	}
 }
