@@ -439,7 +439,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: "GeoGotham A", "Gotham B";
+  font-family: "GeoGotham A", "Gotham B, sans-serif";
   -webkit-font-smoothing: antialiased;
   font-weight: 800;
   line-height: 1;
@@ -485,7 +485,7 @@ label {
 input,
 select {
   display: block;
-  font-family: "GeoGotham A", "Gotham B";
+  font-family: "GeoGotham A", "Gotham B, sans-serif";
   font-size: 1em; }
 
 input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea,
@@ -494,7 +494,7 @@ select[multiple] {
   border: 1px solid #F4F4F4;
   border-radius: 50px;
   box-sizing: border-box;
-  font-family: "GeoGotham A", "Gotham B";
+  font-family: "GeoGotham A", "Gotham B, sans-serif";
   font-size: 1em;
   margin-bottom: 10px;
   padding: 5px;
@@ -597,7 +597,7 @@ body {
   text-rendering: optimizeLegibility;
   background-color: #fff;
   color: #343F49;
-  font-family: "GeoGotham A", "Gotham B";
+  font-family: "GeoGotham A", "Gotham B, sans-serif";
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -738,7 +738,7 @@ h6 {
   font-style: normal;
   font-weight: 400;
   color: #343F49;
-  font-family: "GeoGotham A", "Gotham B";
+  font-family: "GeoGotham A", "Gotham B, sans-serif";
   line-height: 1.2;
   margin: 0 0 10px; }
 
