@@ -201,3 +201,4 @@ function sp_breadcrumb_args( $args ) {
 	$args['labels']['404'] = 'Not found: '; // Genesis 1.5 and later
 	return $args;
 }
+

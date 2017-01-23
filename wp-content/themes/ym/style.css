@@ -1141,7 +1141,7 @@ section > .wrap {
   margin-left: auto;
   margin-right: auto; }
   .content-sidebar .content-sidebar-wrap .content {
-    order: 0; }
+    order: 2; }
   .content-sidebar .content-sidebar-wrap .sidebar {
     order: 1; }
 
@@ -1261,7 +1261,7 @@ section > .wrap {
 /* ## Archive - News
 ---------------------------- */
 .archive-description h1 {
-  font-size: 3empx; }
+  font-size: 48px; }
 
 /* # Content Area
 ---------------------------------------------------------------------------------------------------- */

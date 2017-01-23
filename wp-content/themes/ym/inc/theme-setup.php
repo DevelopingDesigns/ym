@@ -24,3 +24,19 @@ function svg_mime_type( $mimes ) {
 
 	return $mimes;
 }
+
+add_filter( 'genesis_post_info', __NAMESPACE__ . '\ym_post_info_filter' );
+/**
+ * Modify Post Info
+ *
+ * @param string
+ * @return string
+ */
+function ym_post_info_filter( $post_info ) {
+	if ( ! is_archive() ) {
+		return $post_info;
+	}
+	$post_info = '[post_date] [post_edit]';
+
+	return $post_info;
+}

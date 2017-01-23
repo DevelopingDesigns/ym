@@ -3,7 +3,6 @@
  * News Archive
  */
 
-namespace DevDesigns\YM;
 
 /**
  * Force Content Sidebar layout
@@ -11,18 +10,13 @@ namespace DevDesigns\YM;
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_content_sidebar' );
 
 
-add_filter( 'body_class', __NAMESPACE__ . '\add_class' );
 /**
- * Add CSS body class
- *
- * @param $classes
- * @return array
+ * Reposition Date before Entry Title
  */
-function add_class( $classes ) {
-	$classes[] = 'archive-news';
+remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+add_action( 'genesis_entry_header', 'genesis_post_info', 9 );
 
-	return $classes;
-}
+
 
 /**
  * Return a 10 word excerpt
@@ -32,9 +26,9 @@ add_filter( 'excerpt_length', function ( $length ) {
 } );
 
 
-add_filter( 'excerpt_more', function ( $more ) {
-	return;
-});
+//add_filter( 'excerpt_more', function ( $more ) {
+//	return;
+//});
 
 
 
