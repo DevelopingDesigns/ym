@@ -11,7 +11,7 @@ $btn-slate: $slate-dark;
   background-color: $green-main;
   border: 1px solid $green-main;
   border-radius: $base-border-radius;
-  box-shadow: $button-shadow;
+  box-shadow: $box-shadow;
   color: $white;
   cursor: pointer;
   display: inline-block;
@@ -29,7 +29,8 @@ $btn-slate: $slate-dark;
 
   &:hover,
   &:focus {
-    background-color: shade($green-main, 20%);
+    background-color: shade($green-main, 15%);
+    border-color: shade($green-main, 15%);
     box-shadow: none;
     color: $white;
   }
@@ -39,7 +40,8 @@ $btn-slate: $slate-dark;
     opacity: 0.5;
 
     &:hover {
-      background-color: darken($green-main, 20%);
+      background-color: darken($green-main, 15%);
+      border-color: darken($green-main, 15%);
     }
   }
 }

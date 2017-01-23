@@ -1,13 +1,11 @@
-@include media($xlarge-screen-up) {
+@include mappy-bp(max-width wide) {
 	.slide-nav-link {
-		@include transform(translate(-20px, 15px));
+		@include transform(translate(-20px, 0));
 		background-color: transparent !important;
-		color: $green1 !important;
+		box-shadow: none !important;
+		color: $green3 !important;
 		float: right;
-
-		@include media($medium-screen-up) {
-			@include transform(translate(-30px, 30px));
-		}
+		padding: 18px 0 0;
 
 		&::before {
 			font-size: 40px !important;

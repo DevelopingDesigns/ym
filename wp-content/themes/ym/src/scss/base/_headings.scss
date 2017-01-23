@@ -8,6 +8,7 @@ h4,
 h5,
 h6 {
 	@include font(normal, 400);
+	color: $slate-dark;
 	font-family: $gotham;
 	line-height: 1.2;
 	margin: 0 0 10px;
@@ -37,3 +38,25 @@ h6 {
 	@include font-size(16);
 }
 
+
+.subheading {
+	color: $slate-light;
+	font-weight: $fw-normal;
+}
+
+.section-heading {
+	@include font-size(24);
+	color: $slate-light;
+}
+
+
+.segment-header {
+	@include font-size(20);
+	font-weight: $fw-bolder;
+	margin: 0 0 em(20px);
+}
+
+.sec-segment-header {
+	@include font-size(20);
+	font-weight: $fw-normal;
+}

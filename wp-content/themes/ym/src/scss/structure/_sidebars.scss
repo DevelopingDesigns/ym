@@ -3,10 +3,11 @@
 
 .sidebar {
 	@include font-size(16);
+	border-top: 1px solid $slate-light;
 	margin-bottom: 40px;
 
-	@include media($medium-screen-up) {
-		margin-bottom: 5%;
+	@include bp(large) {
+		border-top: 0;
 	}
 
 	.widget {
@@ -15,6 +16,22 @@
 
 		@include media($medium-screen-up) {
 			margin-bottom: 5%;
+		}
+	}
+
+	.widgettitle {
+		font-size: em(20px);
+		font-weight: $fw-normal;
+	}
+
+	.textwidget {
+		p {
+			font-size: em(15px);
+		}
+
+		a {
+			color: $green1;
+			font-size: em(15px);
 		}
 	}
 }

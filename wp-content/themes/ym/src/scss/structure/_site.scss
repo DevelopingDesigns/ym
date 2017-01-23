@@ -1,24 +1,6 @@
 /* ## Site Containers
 --------------------------------------------- */
 
-//.site-inner,
-//.wrap {
-//	margin: 0 auto;
-//	max-width: 1280px;
-//
-//	@include media($xxlarge-screen-up) {
-//		max-width: 1140px;
-//	}
-//
-//	@include media($xlarge-screen-up) {
-//		max-width: 960px;
-//	}
-//
-//	@include media($large-screen-up) {
-//		max-width: 800px;
-//	}
-//}
-
 .site-inner,
 .wrap {
 	margin: 0 auto;
@@ -37,43 +19,42 @@
 	}
 }
 
+.site-inner {
+	@include padding(null em(20px));
+}
+
+
+section > .wrap {
+	@include padding(null em(20));
+}
+
+/* ## Site Layouts
+-------------------------------------- */
 
 .site-inner {
 	clear: both;
 	padding-top: 40px;
 	word-wrap: break-word;
 
-	@include media($medium-screen-up) {
-		@include padding(5% 5% 0);
-	}
-}
+	.content-sidebar-wrap {
+		.content {
+			lost-column: 3/4;
 
-.wrap {
-	@include media($medium-screen-up) {
-		@include padding(0 5%);
-	}
-}
+			@include media($large-screen-up) {
+				@include padding(0);
+				lost-column: 1;
+			}
+		}
 
-/* ## Site Layouts
--------------------------------------- */
+		.sidebar {
+			@include padding(30px);
+			lost-column: 1/4;
 
-.content {
-	@include padding(30px);
-	lost-column: 3/4;
-
-	@include media($large-screen-up) {
-		@include padding(0);
-		lost-column: 1;
-	}
-}
-
-.sidebar {
-	@include padding(30px);
-	lost-column: 1/4;
-
-	@include media($large-screen-up) {
-		@include padding(0);
-		lost-column: 1;
+			@include media($large-screen-up) {
+				@include padding(0);
+				lost-column: 1;
+			}
+		}
 	}
 }
 
@@ -95,6 +76,7 @@
 	}
 
 	.sidebar {
+		margin-top: 3em;
 		order: 1;
 	}
 }

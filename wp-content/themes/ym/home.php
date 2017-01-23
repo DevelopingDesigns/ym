@@ -11,21 +11,12 @@
  * @version 1.0
  */
 
-/**
- * Remove entry header
- */
-remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 
 /**
  * Force full width layout
  */
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
-add_action( 'body_class', 'ym_front_page_body_class' );
-function ym_front_page_body_class( $classes ) {
-	$classes[] = 'ym-home-page';
-	return $classes;
-}
 
 genesis();
 

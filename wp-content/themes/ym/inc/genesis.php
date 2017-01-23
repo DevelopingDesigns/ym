@@ -103,8 +103,7 @@ function theme_setup() {
 	/**
 	 * Disable Genesis SEO Menu item and in-post SEO
 	 */
-	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
-	remove_theme_support( 'genesis-seo-settings-menu' );
+	ym_remove_genesis_seo();
 
 	/**
 	 * Remove output of primary navigation right extras
@@ -160,6 +159,16 @@ function theme_setup() {
 	include_once __DIR__ . '/partials.php';
 }
 
+/**
+ * Disable Genesis SEO Menu item and in-post SEO
+ */
+function ym_remove_genesis_seo() {
+	genesis_disable_seo();
+	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
+	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
+	remove_theme_support( 'genesis-seo-settings-menu' );
+}
+
 add_action( 'init', __NAMESPACE__ . '\ym_register_image_sizes' );
 /**
  * Register child theme image sizes
@@ -167,4 +176,66 @@ add_action( 'init', __NAMESPACE__ . '\ym_register_image_sizes' );
 function ym_register_image_sizes() {
 	add_image_size( 'small-screens-hero', 500, 500, true );
 	add_image_size( 'acf-uploads-preview', 800, 250 );
+	add_image_size( 'resources-featured-image', 380, 230 );
+}
+
+
+
+add_filter( 'genesis_breadcrumb_args', __NAMESPACE__ . '\breadcrumb_args' );
+/**
+ * Modify breadcrumb arguments
+ *
+ * @param $args
+ * @return mixed
+ */
+function breadcrumb_args( $args ) {
+	$args['home'] = 'Home';
+	$args['sep'] = ' / ';
+	$args['list_sep'] = ', '; // Genesis 1.5 and later
+	$args['prefix'] = '<div class="breadcrumb">';
+	$args['suffix'] = '</div>';
+	$args['heirarchial_attachments'] = true; // Genesis 1.5 and later
+	$args['heirarchial_categories'] = true; // Genesis 1.5 and later
+	$args['display'] = true;
+	$args['labels']['prefix'] = '';
+	$args['labels']['author'] = 'Archives for ';
+	$args['labels']['category'] = ''; // Genesis 1.6 and later
+	$args['labels']['tag'] = 'Archives for ';
+	$args['labels']['date'] = 'Archives for ';
+	$args['labels']['search'] = 'Search for ';
+	$args['labels']['tax'] = 'Archives for ';
+	$args['labels']['post_type'] = '';
+	$args['labels']['404'] = 'Not found: '; // Genesis 1.5 and later
+	return $args;
+}
+
+
+/**
+ * Customize the next page link
+ */
+add_filter( 'genesis_next_link_text', function () {
+	return 'Next';
+} );
+
+
+/**
+ * Customize the previous page link
+ */
+add_filter( 'genesis_prev_link_text', function () {
+	return 'Prev';
+} );
+
+
+
+add_filter( 'genesis_post_info', __NAMESPACE__ . '\ym_post_info_filter' );
+/**
+ * Modify Post Info
+ *
+ * @param string
+ * @return string
+ */
+function ym_post_info_filter( $post_info ) {
+	$post_info = '[post_date] [post_edit]';
+
+	return $post_info;
 }

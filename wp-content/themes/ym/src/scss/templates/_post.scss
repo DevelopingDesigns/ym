@@ -1,0 +1,27 @@
+time,
+.post-edit-link {
+	color: $slate-light;
+}
+
+
+.entry-title {
+	@include margin(rem(20px) null rem(40px));
+}
+
+
+.cpt-pagination {
+	@include margin(em($gutter *2) null em($gutter * 4));
+	text-align: right;
+
+	a {
+		font-size: em(11px);
+		color: $slate-dark;
+		text-transform: uppercase;
+	}
+}
+
+
+.entry {
+	font-size: em(15px);
+}
+

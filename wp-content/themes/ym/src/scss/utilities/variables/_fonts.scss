@@ -6,7 +6,7 @@
 ///
 /// @type List
 
-$gotham: "GeoGotham A", "Gotham B";
+$gotham: "Gotham A", "Gotham B", sans-serif;
 
 $base-font-family: $gotham;
 $heading-font-family: $base-font-family;
@@ -20,7 +20,10 @@ $heading-line-height: 1.2;
 
 // Font Weights
 $fw-fine: 100;
-$fw-light: 300;
+$fw-light: 200;
+$fw-light-heavy: 300;
 $fw-normal: 400;
-$fw-bold: 600;
+$fw-medium: 500;
+$fw-bold: 700;
 $fw-bolder: 800;
+$fw-boldest: 900;

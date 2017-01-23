@@ -15,7 +15,7 @@
 // Importing Bourbon, Neat, Refills and _grid_settings.scss
 @import "vendor/normalize";
 @import "vendor/bourbon/bourbon";
-@import "base/grid-settings";
+@import "utilities/grid/neat";
 @import "vendor/neat/neat";
 @import "base/base";
 
@@ -34,4 +34,6 @@
 
 // Print
 @import "print";
+
+
 

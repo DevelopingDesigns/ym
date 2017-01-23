@@ -4,6 +4,7 @@
 .pagination {
 	clear: both;
 	margin: 40px 0;
+	text-align: center;
 
 	@include media($medium-screen-up) {
 		@include margin(5% auto);
@@ -19,12 +20,12 @@
 }
 
 .archive-pagination a {
-	background-color: #fff;
-	color: #333;
+	background-color: $white;
+	border-radius: 50px;
+	color: $slate-dark;
 	cursor: pointer;
 	display: inline-block;
-	@include font-size(16);
-	font-weight: 600;
+	font-size: em(11px);
 	padding: 8px 12px;
 	text-decoration: none;
 }
@@ -32,8 +33,8 @@
 .archive-pagination a:hover,
 .archive-pagination a:focus,
 .archive-pagination .active a {
-	background-color: #c3251d;
-	color: #fff;
+	background-color: $green3;
+	color: $white;
 }
 
 @include media($medium-screen-up) {

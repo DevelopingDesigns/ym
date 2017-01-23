@@ -2,11 +2,14 @@
 // Rem Output With Pixel Unit Fallback
 // ----------------------------------------------------------------------
 
+//@mixin font-size($sizeValue: 1) {
+//	font-size: $sizeValue + px;
+//	font-size: ($sizeValue / 10) + rem;
+//}
+
 @mixin font-size($sizeValue: 1) {
 	font-size: $sizeValue + px;
-	font-size: ($sizeValue / 10) + rem;
 }
-
 
 
 // ----------------------------------------------------------------------
@@ -133,3 +136,4 @@
 	transform: translateY(-50%);
   }
 }
+
