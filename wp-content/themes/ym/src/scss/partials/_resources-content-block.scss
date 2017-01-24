@@ -85,8 +85,10 @@
 		margin-bottom: 0;
 	}
 
+	// Read More Link
 	.link-more {
 		@include margin(0);
+		font-size: em(14px);
 		text-align: right;
 
 		img {

@@ -5,20 +5,9 @@ time,
 
 
 .entry-title {
-	@include margin(rem(20px) null rem(40px));
+	@include margin(rem(20px) null);
 }
 
-
-.cpt-pagination {
-	@include margin(em($gutter *2) null em($gutter * 4));
-	text-align: right;
-
-	a {
-		font-size: em(11px);
-		color: $slate-dark;
-		text-transform: uppercase;
-	}
-}
 
 
 .entry {
@@ -33,3 +22,19 @@ time,
 	}
 }
 
+.cpt-pagination {
+	@include margin(em($gutter *2) null em($gutter * 4));
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+
+	a {
+		font-size: em(11px);
+		color: $slate-dark;
+		text-transform: uppercase;
+
+		&:last-child {
+			margin-left: em(40);
+		}
+	}
+}

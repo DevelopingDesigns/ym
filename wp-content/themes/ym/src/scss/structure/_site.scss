@@ -38,25 +38,36 @@ section > .wrap {
 
 	.content-sidebar-wrap {
 		.content {
-			lost-column: 3/4;
-
-			@include media($large-screen-up) {
+			@include mappy-bp(wide) {
 				@include padding(0);
-				lost-column: 1;
+				lost-column: 3/4;
 			}
 		}
 
 		.sidebar {
-			@include padding(30px 0);
-			lost-column: 1/4;
+			@include padding(em($gutter * 3) 0);
+			border-top: 1px solid $grey1;
 
-			@include media($large-screen-up) {
-				@include padding(0);
-				lost-column: 1;
+			@include mappy-bp(wide) {
+				@include padding(em($gutter) 0);
+				border-top: 0;
+				lost-column: 1/4;
+			}
+
+			.widget {
+				@include mappy-bp(560px) {
+					float: left;
+					width: 50%;
+				}
+
+				@include mappy-bp(wide) {
+					width: 100%;
+				}
 			}
 		}
 	}
 }
+
 
 // Full Width Layout
 .full-width-content .content-sidebar-wrap {
@@ -79,6 +90,7 @@ section > .wrap {
 		order: 1;
 	}
 }
+
 
 // Sidebar Content Layout
 .sidebar-content .content-sidebar-wrap {

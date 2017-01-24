@@ -3,12 +3,7 @@
 
 .sidebar {
 	@include font-size(16);
-	border-top: 1px solid $slate-light;
 	margin-bottom: 40px;
-
-	@include bp(large) {
-		border-top: 0;
-	}
 
 	.widget {
 		background-color: #fff;

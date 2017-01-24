@@ -57,10 +57,9 @@ if ( have_rows( 'logos' ) ) :
 
 
 
-<section class="row fc-logo-slider <?php echo $logos['css_class']; ?>"
-         style="background-color: <?php echo $logos['css']['background-color'] ?>;
-         padding: <?php echo $logos['slider_padding']; ?>;">
+<section class="row fc-logo-slider <?php echo $logos['css_class']; ?>" style="padding: <?php echo $logos['slider_padding']; ?>;">
 	<div class="wrap">
+
 
 		<?php if ( $logos['add_heading'] ) :
 			get_template_part( 'partials/parts/title', 'group' );

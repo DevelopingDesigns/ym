@@ -40,7 +40,24 @@
 	}
 
 	.sidebar {
-		margin-top: 140px;
+		border-top: 1px solid $grey1;
+
+		@include bp(wide) {
+			border-top: 0;
+			margin-top: 140px;
+		}
+
+		.widget {
+			&:first-child {
+				margin-top: em($gutter * 2);
+
+				@include bp(wide) {
+					margin-top: 0;
+				}
+			}
+
+
+		}
 	}
 }
 

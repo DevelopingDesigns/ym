@@ -16,24 +16,6 @@
 }
 
 
-/* ## Entry Header
---------------------------------------------- */
-
-.entry-title {
-	@include font-size(36);
-
-	a {
-		color: #333;
-		text-decoration: none;
-
-		&:hover,
-		&:focus {
-			color: #c3251d;
-		}
-	}
-}
-
-
 /* ## Entry Content
 --------------------------------------------- */
 
