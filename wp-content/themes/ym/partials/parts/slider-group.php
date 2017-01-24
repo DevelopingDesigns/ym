@@ -17,7 +17,7 @@ $slide_row = get_field( 'slides', 'option' );
 echo '<pre>';
 echo print_r( $slides );
 echo '</pre>';
-w
+
 
 if ( $slides ) : ?>
 
