@@ -2,7 +2,7 @@
 	.cpt-header {
 		margin-bottom: em($gutter * 3);
 
-		h2  {
+		h2 {
 			margin-bottom: 0;
 		}
 
@@ -23,41 +23,303 @@
 
 	.after-entry {
 		.widget {
-			@include padding(em(30px));
+			@include padding(em(30));
 			background-color: $grey2;
-		}
 
-		.widgettitle {
-			font-size: em(24px);
-			font-weight: $fw-normal;
-		}
-
-		.textwidget {
-			p {
-				font-size: em(15px);
+			@include mappy-bp(wide) {
 			}
-		}
-	}
 
-	.sidebar {
-		border-top: 1px solid $grey1;
+			.widgettitle {
+				font-size: em(24px);
+				font-weight: $fw-normal;
+			}
 
-		@include bp(wide) {
-			border-top: 0;
-			margin-top: 140px;
-		}
-
-		.widget {
-			&:first-child {
-				margin-top: em($gutter * 2);
-
-				@include bp(wide) {
-					margin-top: 0;
+			.textwidget {
+				p {
+					font-size: em(15px);
 				}
 			}
+		}
 
+		.sidebar {
+			border-top: 1px solid $grey1;
 
+			@include bp(wide) {
+				border-top: 0;
+				margin-top: 140px;
+			}
+
+			.widget {
+				&:first-child {
+					margin-top: em($gutter * 2);
+
+					@include bp(wide) {
+						margin-top: 0;
+					}
+				}
+
+			}
 		}
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
