@@ -157,6 +157,7 @@ function theme_setup() {
 	include_once __DIR__ . '/theme-setup.php';
 	include_once __DIR__ . '/layout.php';
 	include_once __DIR__ . '/partials.php';
+	include_once __DIR__ . '/admin/theme-options.php';
 }
 
 /**
@@ -168,17 +169,6 @@ function ym_remove_genesis_seo() {
 	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
 	remove_theme_support( 'genesis-seo-settings-menu' );
 }
-
-add_action( 'init', __NAMESPACE__ . '\ym_register_image_sizes' );
-/**
- * Register child theme image sizes
- */
-function ym_register_image_sizes() {
-	add_image_size( 'small-screens-hero', 500, 500, true );
-	add_image_size( 'acf-uploads-preview', 800, 250 );
-	add_image_size( 'resources-featured-image', 380, 230 );
-}
-
 
 
 add_filter( 'genesis_breadcrumb_args', __NAMESPACE__ . '\breadcrumb_args' );
