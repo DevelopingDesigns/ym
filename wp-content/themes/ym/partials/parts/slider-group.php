@@ -1,4 +1,4 @@
-1<?php
+<?php
 /**
  * Default code for Buttons field group. Disabled by default.
  * Used as module with ACF clone field.
@@ -10,31 +10,28 @@
 
 
 
-$slides = get_field( 'slider', 'option' );
+$slides = get_field( 'slides', 'option' );
 
-$slide_row = get_field( 'slides', 'option' );
 
 echo '<pre>';
 echo print_r( $slides );
 echo '</pre>';
 
 
-if ( $slides ) : ?>
 
-	<?php if ( have_rows( $slides['slides'], 'option' ) ) : ?>
+if ( have_rows( 'slides', 'option' ) ) : ?>
 
-		<ul>
+	<ul>
 
-			<?php while ( have_rows( $slides['slides'], 'option' ) ) : the_row(); ?>
+		<?php while ( have_rows( 'slides', 'option' ) ) : the_row(); ?>
 
-				<?php if ( $slides['add_heading'] ) {
-									get_template_part( 'partials/parts/title', 'group' );
-				}
+			<?php if ( get_sub_field( 'add_heading' ) ) {
+				get_template_part( 'partials/parts/title', 'group' );
+			}
 
-			endwhile; ?>
+		endwhile; ?>
 
-		</ul>
+	</ul>
 
-	<?php endif; ?>
+<?php endif; ?>
 
-<?php endif;
