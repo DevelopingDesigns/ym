@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "landing-pages.css",
+	"sources": [
+		"../src/scss/templates/landing-pages.scss"
+	],
+	"mappings": "",
+	"names": []
+}

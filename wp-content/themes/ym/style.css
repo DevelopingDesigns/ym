@@ -1240,8 +1240,49 @@ section > .wrap {
     color: #a8ad00;
     font-size: 0.9375em; }
 
+.landing-page .banner-content {
+  text-align: center; }
+  @media all and (min-width: 75em) {
+    .landing-page .banner-content {
+      text-align: left; } }
+
+.landing-page .banner-image {
+  padding-top: 100px;
+  padding-bottom: 40px; }
+  .landing-page .banner-image h1,
+  .landing-page .banner-image h2 {
+    color: #fff; }
+  .landing-page .banner-image h1 {
+    font-size: 3em;
+    margin-bottom: 30px; }
+  .landing-page .banner-image h2 {
+    font-size: 1.5em; }
+
+.landing-page .site-inner,
+.landing-page article {
+  margin-top: 0;
+  padding-top: 0; }
+
 .landing-page .site-inner {
-  max-width: 800px; }
+  padding: 0 30px; }
+  .landing-page .site-inner p {
+    font-size: 0.9375em; }
+
+.landing-page .time-and-date {
+  margin-top: 3.75em;
+  margin-bottom: 1.875em; }
+  .landing-page .time-and-date > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.875em; }
+  .landing-page .time-and-date img {
+    margin-right: 1.25em; }
+  .landing-page .time-and-date p {
+    font-size: 1.125em;
+    margin-bottom: 0; }
+
+.landing-page .speaker-info {
+  margin: 3.75em; }
 
 .archive .archive-description {
   background-color: #fff;

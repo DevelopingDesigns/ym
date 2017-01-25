@@ -42,7 +42,7 @@ add_action( 'genesis_after_entry', __NAMESPACE__ . '\after_entry_widget', 5 );
  *  Hook after post widget after the entry content
  */
 function after_entry_widget() {
-	if ( is_single() ) {
+	if ( is_singular( 'news' ) ) {
 		genesis_widget_area( 'after-entry', [
 			'before' => '<div class="after-entry widget-area">',
 			'after'  => '</div>',

@@ -174,7 +174,7 @@ add_action( 'genesis_footer', function () {
  * Force content-sidebar layout setting to all singular pages
  */
 add_action( 'get_header', function () {
-	if ( is_single() || is_archive() ) {
+	if ( is_singular( 'news' ) || is_archive() ) {
 		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_content_sidebar' );
 	}
 } );

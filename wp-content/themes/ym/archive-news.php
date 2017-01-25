@@ -57,22 +57,7 @@ add_filter( 'genesis_pre_get_option_content_archive_limit', function () {
 } );
 
 
-add_action( 'genesis_after_header', function() {
-	//$slides = get_field( 'slides', 'option' );
-	//
-	//if ( $slides ) {
-	//	get_template_part( 'partials/parts/slider', 'group' );
-	//}
 
-	get_template_part( 'partials/parts/slider', 'group' );
-
-	//
-	//$all = get_fields('option');
-	//
-	//echo '<pre>';
-	//echo print_r($all);
-	//echo '</pre>';
-});
 
 
 
