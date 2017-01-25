@@ -63,8 +63,7 @@ function add_banner_image() {
 			         padding: <?php echo the_field( 'padding' ) ?>;">
 			<div class="wrap">
 
-				<div class="banner-content"
-				     style="text-align: <?php echo the_field( 'text_alignment' ) ?>;">
+				<div class="banner-content">
 
 					<?php if ( get_field( 'heading' ) ) : ?>
 						<h1 class="heading"><?php echo the_field( 'heading' ) ?></h1>
@@ -140,12 +139,16 @@ function add_speaker_info() {
 
 	$image = get_field( 'image' );
 	$alt = $image['alt'] ? : the_title_attribute( 'echo=0' );
+	$bio = get_field( 'bio' ); ?>
 
-	echo '<section class="speaker-info">';
+	<section class="speaker-info">
+		<div class="speaker">
+			<img src="<?php echo $image['url'] ?>" alt="' . $alt . '">
+			<div class="bio"><?php echo $bio ?></div>
+		</div>
+	</section>
 
-	echo '<div class="speaker"><img src="' . $image['url'] . '" alt="' . $alt . '"><div class="bio">' . the_field( 'bio' ) . '</div></div>';
-
-	echo '</section>';
+<?php
 }
 
 
