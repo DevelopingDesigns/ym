@@ -1240,8 +1240,29 @@ section > .wrap {
     color: #a8ad00;
     font-size: 0.9375em; }
 
-.landing-page .site-inner {
-  max-width: 800px; }
+.landing-page .banner-image {
+  padding-top: 100px;
+  padding-bottom: 40px; }
+  .landing-page .banner-image h1,
+  .landing-page .banner-image h2 {
+    color: #fff; }
+
+.landing-page .site-inner,
+.landing-page article {
+  margin-top: 0;
+  padding-top: 0; }
+
+.landing-page .time-and-date {
+  margin-top: 5.625em;
+  margin-bottom: 5.625em; }
+  .landing-page .time-and-date > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.875em; }
+  .landing-page .time-and-date img {
+    margin-right: 1.25em; }
+  .landing-page .time-and-date p {
+    margin-bottom: 0; }
 
 .archive .archive-description {
   background-color: #fff;

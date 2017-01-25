@@ -1,3 +1,35 @@
-.landing-page .site-inner {
-	max-width: 800px;
+.landing-page {
+	.banner-image {
+		@include padding(100px null 40px null);
+
+		h1,
+		h2 {
+			color: $white;
+		}
+	}
+
+	.site-inner,
+	article {
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	.time-and-date {
+		@include margin(em($gutter * 3) null);
+
+		> div {
+			display: flex;
+			align-items: center;
+			margin-bottom: em($gutter);
+		}
+
+		img {
+			margin-right: em(20);
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
 }
