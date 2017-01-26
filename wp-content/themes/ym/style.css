@@ -1525,6 +1525,11 @@ section > .wrap {
 .resources-archive .archive-title {
   font-size: 2.5em; }
 
+.resources-archive .soliloquy-container {
+  margin-top: 70px;
+  max-width: 100% !important;
+  max-height: none !important; }
+
 .resources-archive .facetwp-template {
   display: flex;
   flex-flow: row wrap;
