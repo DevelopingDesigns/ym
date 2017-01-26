@@ -659,11 +659,8 @@ i {
   font-style: italic; }
 
 blockquote {
-  font-size: 30px;
   margin: 10px 20px 20px;
-  font-size: 30px;
-  font-weight: 200;
-  max-width: 700px; }
+  font-size: 1.875em; }
 
 .more-link {
   color: #C1CE20;
@@ -1283,16 +1280,23 @@ section > .wrap {
 
 .landing-page .speaker-info {
   margin: 3.75em 0; }
+  @media all and (min-width: 50em) {
+    .landing-page .speaker-info .speaker {
+      display: flex; } }
   .landing-page .speaker-info figure {
     margin: 1.875em 0;
     text-align: center; }
     @media all and (min-width: 50em) {
       .landing-page .speaker-info figure {
+        margin-right: 30px;
         text-align: left; } }
   .landing-page .speaker-info h3 {
     margin: 1.875em 0;
     font-size: 1.25em;
     font-weight: 700; }
+  @media all and (min-width: 50em) {
+    .landing-page .speaker-info p {
+      max-width: 31.25em; } }
 
 .landing-page .key-points {
   padding: 3.75em;
@@ -1342,6 +1346,25 @@ section > .wrap {
       .landing-page .key-points .point:nth-child(4n) {
     margin-right: 0;
     margin-left: auto; } }
+
+.landing-page .testimonial {
+  padding-top: 3.75em;
+  padding-bottom: 3.75em;
+  color: #fff;
+  text-align: center; }
+  .landing-page .testimonial figure {
+    margin-bottom: 3.75em; }
+  .landing-page .testimonial blockquote {
+    font-size: 1.5em;
+    text-align: center; }
+    @media all and (min-width: 50em) {
+      .landing-page .testimonial blockquote {
+        padding-right: 5em;
+        padding-left: 5em; } }
+    @media all and (min-width: 75em) {
+      .landing-page .testimonial blockquote {
+        padding-right: 15em;
+        padding-left: 15em; } }
 
 .archive .archive-description {
   background-color: #fff;
@@ -2476,6 +2499,8 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
       margin: 0; }
     .fc-video .play-container a:hover {
       color: #fff; }
+  .fc-video blockquote {
+    max-width: 700px; }
 
 .fc-resources {
   padding: 30px 0; }

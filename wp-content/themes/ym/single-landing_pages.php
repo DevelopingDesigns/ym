@@ -204,11 +204,41 @@ function add_testimonial() {
 		return;
 	}
 
-	 ?>
+	$bg = get_field( 'background_color' ) ? : '#ffffff';
+	$logo = get_field( 'logo' ); ?>
 
-	<section class="testimonial">
+	<section class="testimonial" style="background-color: <?php echo $bg ?>;">
 		<div class="wrap">
 
+			<article>
+
+				<?php if ( $logo ) : ?>
+					<figure>
+						<img src="<?php echo $logo['url'] ?>"
+					         alt="<?php echo $logo['alt'] ?>"
+					         width="<?php echo $logo['width'] / 2 ?>"
+					         height="<?php echo $logo['height'] / 2 ?>">
+					</figure>
+				<?php endif; ?>
+
+				<?php if ( get_field( 'testimonial' ) ) : ?>
+					<blockquote><?php echo the_field( 'testimonial' ) ?></blockquote>
+				<?php endif; ?>
+
+				<?php if ( get_field( 'name' ) ) : ?>
+					<p><?php echo the_field( 'name' ) ?></p>
+				<?php endif; ?>
+
+
+				<?php if ( get_field( 'company' ) ) : ?>
+					<p><?php echo the_field( 'company' ) ?></p>
+				<?php endif; ?>
+
+				<?php if ( get_field( 'add_cta' ) ) :
+					get_template_part( 'partials/parts/button', 'group' );
+				endif; ?>
+
+			</article>
 
 		</div>
 	</section>

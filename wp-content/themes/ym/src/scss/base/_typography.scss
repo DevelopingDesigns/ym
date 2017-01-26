@@ -74,11 +74,8 @@ i {
 }
 
 blockquote {
-  @include font-size(30);
   @include margin(10px 20px 20px);
-  font-size: 30px;
-  font-weight: $fw-light;
-  max-width: 700px;
+  font-size: em(30);
 }
 
 // Read More Link
