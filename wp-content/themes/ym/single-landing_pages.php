@@ -261,7 +261,7 @@ function add_form() {
 	gravity_form_enqueue_scripts( $form_object['id'], true );
 
 	echo '<div class="signup-form">';
-	gravity_form( $form_object['id'], true, true, false, '', true, 1 );
+	gravity_form( $form_object['id'], false, true, false, '', true, 1 );
 	echo '</div>';
 
 }

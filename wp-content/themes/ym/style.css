@@ -1245,7 +1245,13 @@ section > .wrap {
 
 .landing-page .banner-image {
   padding-top: 100px;
-  padding-bottom: 40px; }
+  padding-bottom: 340px; }
+  @media all and (min-width: 75em) {
+    .landing-page .banner-image {
+      padding-bottom: 80px; } }
+  @media all and (min-width: 75em) {
+    .landing-page .banner-image .banner-content {
+      max-width: 600px; } }
   .landing-page .banner-image h1,
   .landing-page .banner-image h2 {
     color: #fff; }
@@ -1265,13 +1271,97 @@ section > .wrap {
   .landing-page .site-inner p {
     font-size: 0.9375em; }
 
+.landing-page .content {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+
 .landing-page .signup-form {
-  background-color: #F4F4F4;
-  max-width: 20.9375em; }
+  flex: 0 0 auto;
+  width: calc(99.9% * 1/1 - (30px - 30px * 1/1)); }
+
+.landing-page .signup-form:nth-child(1n) {
+  margin-right: 30px;
+  margin-left: 0; }
+
+.landing-page .signup-form:last-child {
+  margin-right: 0; }
+
+.landing-page .signup-form:nth-child(1n) {
+  margin-right: 0;
+  margin-left: auto; }
+  @media all and (min-width: 75em) {
+    .landing-page .signup-form {
+      order: 2;
+      flex: 0 0 auto;
+      width: calc(99.9% * 1/3 - (30px - 30px * 1/3)); }
+    .landing-page .signup-form:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+    .landing-page .signup-form:last-child {
+    margin-right: 0; }
+    .landing-page .signup-form:nth-child(3n) {
+    margin-right: 0;
+    margin-left: auto; } }
+  .landing-page .signup-form > div {
+    transform: translateY(-21.25em); }
+    @media all and (min-width: 75em) {
+      .landing-page .signup-form > div {
+        transform: translateY(-21.25em); } }
+  .landing-page .signup-form .gform_wrapper .top_label div.ginput_container {
+    width: 96%; }
+  .landing-page .signup-form form {
+    padding: 3.75em 1.25em 5em;
+    background-color: #F4F4F4;
+    max-width: 29.6875em; }
+    .landing-page .signup-form form input:not(.button),
+    .landing-page .signup-form form textarea {
+      background-color: #fff; }
+    .landing-page .signup-form form input:not(.button) {
+      padding: 0.625em 1em; }
+    .landing-page .signup-form form textarea {
+      border-radius: 20px;
+      height: 220px; }
+    .landing-page .signup-form form .gform_footer {
+      text-align: center; }
+      .landing-page .signup-form form .gform_footer input {
+        font-weight: 700; }
+
+.landing-page article {
+  flex: 0 0 auto;
+  width: calc(99.9% * 1/1 - (30px - 30px * 1/1));
+  margin-top: -18.75em;
+  order: 1; }
+
+.landing-page article:nth-child(1n) {
+  margin-right: 30px;
+  margin-left: 0; }
+
+.landing-page article:last-child {
+  margin-right: 0; }
+
+.landing-page article:nth-child(1n) {
+  margin-right: 0;
+  margin-left: auto; }
+  @media all and (min-width: 75em) {
+    .landing-page article {
+      flex: 0 0 auto;
+      width: calc(99.9% * 2/3 - (30px - 30px * 2/3));
+      margin-top: 0em; }
+    .landing-page article:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+    .landing-page article:last-child {
+    margin-right: 0; }
+    .landing-page article:nth-child(3n) {
+    margin-right: 0;
+    margin-left: auto; } }
 
 .landing-page .time-and-date {
   margin-top: 3.75em;
-  margin-bottom: 1.875em; }
+  margin-bottom: 7.5em; }
   .landing-page .time-and-date > div {
     display: flex;
     align-items: center;
