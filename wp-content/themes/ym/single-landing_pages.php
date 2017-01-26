@@ -18,6 +18,7 @@ namespace DevDesigns\YM;
 
 
 
+
 add_filter( 'body_class', __NAMESPACE__ . '\add_body_class' );
 /**
  * Add landing page body class to the head

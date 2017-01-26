@@ -8,7 +8,7 @@
 	padding: 60px 0;
 
 	.flex-wrap {
-		lost-center: 1280px;
+		lost-center: 1200px;
 	}
 
 	.widget-title {
@@ -118,6 +118,8 @@
 
 // Footer Top
 .footer-top {
+	background-color: $white;
+
 	.flex-wrap {
 		@include padding(45px 0);
 		border-bottom: 1px solid $grey1;

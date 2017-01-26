@@ -1,6 +1,12 @@
 <?php
 /**
- * News Single
+ * The single product page template file
+ *
+ * Learn more: https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package YM
+ * @since   1.0
+ * @version 1.0
  */
 
 
