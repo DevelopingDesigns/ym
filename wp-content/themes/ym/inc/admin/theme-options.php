@@ -42,3 +42,10 @@ function add_theme_options_page() {
 	}
 }
 
+
+
+/**
+ * Add option to hide gravity forms label
+ */
+add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+

@@ -58,7 +58,7 @@ function add_banner_image() {
 	add_action( 'genesis_after_header', function () {
 		$image = get_field( 'banner_image' ); ?>
 
-		<section class="banner-image <?php echo the_field( 'css_class' ) ?>"
+		<section class="banner-image"
 		         style="background: url(<?php echo $image['sizes']['landing-page'] ?>);
 			         padding: <?php echo the_field( 'padding' ) ?>;">
 			<div class="wrap">
@@ -83,12 +83,6 @@ function add_banner_image() {
 
 	wp_enqueue_script( 'backstretch' );
 
-	wp_localize_script(
-		'app',
-		'BackStretchImg',
-		[ 'src' => $image['sizes']['landing-page'] ]
-	);
-
 	wp_add_inline_script( 'app',
 		'jQuery(document).ready(function($){
 			$(".banner-image").backstretch();
@@ -102,7 +96,7 @@ add_action( 'genesis_entry_header', __NAMESPACE__ . '\add_date_and_time' );
  * Add Event Date and Time
  */
 function add_date_and_time() {
-	if ( ! get_field( 'date' ) || ! get_field( 'time' ) ) {
+	if ( ! get_field( 'add_time' ) ) {
 		return;
 	}
 
@@ -133,7 +127,7 @@ add_action( 'genesis_entry_footer', __NAMESPACE__ . '\add_speaker_info' );
  * Add Event Date and Time
  */
 function add_speaker_info() {
-	if ( ! get_field( 'bio' ) ) {
+	if ( ! get_field( 'add_speaker' ) ) {
 		return;
 	}
 
@@ -143,8 +137,13 @@ function add_speaker_info() {
 
 	<section class="speaker-info">
 		<div class="speaker">
-			<img src="<?php echo $image['url'] ?>" alt="' . $alt . '">
-			<div class="bio"><?php echo $bio ?></div>
+			<figure>
+				<img src="<?php echo $image['url'] ?>" alt="' . $alt . '">
+			</figure>
+			<div class="bio">
+				<h3>About the speaker</h3>
+				<?php echo $bio ?>
+			</div>
 		</div>
 	</section>
 
@@ -153,6 +152,119 @@ function add_speaker_info() {
 
 
 
+add_action( 'genesis_before_footer', __NAMESPACE__ . '\add_key_points', 5 );
+/**
+ * Add Key Points
+ */
+function add_key_points() {
+	if ( ! get_field( 'add_key_points' ) ) {
+		return;
+	}
+
+	$points = get_field( 'points' ); ?>
+
+	<section class="key-points">
+		<div class="wrap">
+
+			<?php if ( get_field( 'add_heading' ) ) :
+				get_template_part( 'partials/parts/title', 'group' );
+			endif; ?>
+
+			<?php if ( have_rows( 'points' ) ) : ?>
+
+				<div class="inner-wrap">
+
+				<?php while ( have_rows( 'points' ) ) : the_row(); ?>
+
+					<div class="point">
+						<h2 class="segment-header"><?php echo the_sub_field( 'heading' ) ?></h2>
+						<p><?php echo the_sub_field( 'description' ) ?></p>
+					</div>
+
+				<?php endwhile; ?>
+
+				</div>
+
+			<?php endif; ?>
+
+		</div>
+	</section>
+
+	<?php
+}
+
+
+
+add_action( 'genesis_before_footer', __NAMESPACE__ . '\add_testimonial', 6 );
+/**
+ * Add Key Points
+ */
+function add_testimonial() {
+	if ( ! get_field( 'add_testimonial' ) ) {
+		return;
+	}
+
+	$bg = get_field( 'background_color' ) ? : '#ffffff';
+	$logo = get_field( 'logo' ); ?>
+
+	<section class="testimonial" style="background-color: <?php echo $bg ?>;">
+		<div class="wrap">
+
+			<article>
+
+				<?php if ( $logo ) : ?>
+					<figure>
+						<img src="<?php echo $logo['url'] ?>"
+					         alt="<?php echo $logo['alt'] ?>"
+					         width="<?php echo $logo['width'] / 2 ?>"
+					         height="<?php echo $logo['height'] / 2 ?>">
+					</figure>
+				<?php endif; ?>
+
+				<?php if ( get_field( 'testimonial' ) ) : ?>
+					<blockquote><?php echo the_field( 'testimonial' ) ?></blockquote>
+				<?php endif; ?>
+
+				<?php if ( get_field( 'name' ) ) : ?>
+					<p><?php echo the_field( 'name' ) ?></p>
+				<?php endif; ?>
+
+
+				<?php if ( get_field( 'company' ) ) : ?>
+					<p><?php echo the_field( 'company' ) ?></p>
+				<?php endif; ?>
+
+				<?php if ( get_field( 'add_cta' ) ) :
+					get_template_part( 'partials/parts/button', 'group' );
+				endif; ?>
+
+			</article>
+
+		</div>
+	</section>
+
+	<?php
+}
+
+
+
+add_action( 'genesis_before_entry', __NAMESPACE__ . '\add_form' );
+/**
+ * Output signup form
+ */
+function add_form() {
+	if ( ! get_field( 'form' ) ) {
+		return;
+	}
+
+	$form_object = get_field( 'form' );
+	gravity_form_enqueue_scripts( $form_object['id'], true );
+
+	echo '<div class="signup-form">';
+	gravity_form( $form_object['id'], false, true, false, '', true, 1 );
+	echo '</div>';
+
+}
 
 
 genesis();

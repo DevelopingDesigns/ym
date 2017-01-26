@@ -127,7 +127,7 @@ add_action( 'genesis_before_footer', function () {
 	echo '</div></div></section>';
 
 
-}, 5 );
+}, 9 );
 
 
 add_filter( 'genesis_structural_wrap-footer-widgets', 'ym_add_inner_wrap_to_footer_widgets', 10, 2 );

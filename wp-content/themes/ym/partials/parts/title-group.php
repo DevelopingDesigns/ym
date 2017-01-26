@@ -8,8 +8,12 @@
  * @link       https://www.developingdesigns.com
  */
 
-$headings  = get_sub_field( 'headings' );
-$add_heading = get_sub_field( 'add_heading' );
+/**
+ * Can be used in repeater/flexible content or regular field group
+ */
+$headings = get_sub_field( 'headings' ) ? : get_field( 'headings' );
+$add_heading = get_sub_field( 'add_heading' ) ? : get_field( 'add_heading' );
+
 $align = get_sub_field( 'heading_alignment' );
 
 $fs_heading = ! $headings['font_size_heading'] ? 'font-size: 3em' : 'font-size: ' . $headings['font_size_heading'];

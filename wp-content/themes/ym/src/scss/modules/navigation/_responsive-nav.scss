@@ -1,6 +1,6 @@
 @include mappy-bp(max-width wide) {
 	.slide-nav-link {
-		@include transform(translate(-20px, 0));
+		@include transform(translate(-20px, 10px));
 		background-color: transparent !important;
 		box-shadow: none !important;
 		color: $green3 !important;
