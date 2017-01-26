@@ -1497,8 +1497,33 @@ section > .wrap {
 .archive-description h1 {
   font-size: 48px; }
 
-.resources-archive .site-inner {
+.resources-archive .site-container {
   background-color: #F7F7F7; }
+
+.resources-archive .facets {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center; }
+  .resources-archive .facets div {
+    flex: 0 0 auto;
+    width: calc(99.9% * 1/3 - (30px - 30px * 1/3)); }
+  .resources-archive .facets div:nth-child(1n) {
+  margin-right: 30px;
+  margin-left: 0; }
+  .resources-archive .facets div:last-child {
+  margin-right: 0; }
+  .resources-archive .facets div:nth-child(3n) {
+  margin-right: 0;
+  margin-left: auto; }
+
+.resources-archive .archive-description {
+  background-color: #F7F7F7; }
+
+.resources-archive .archive-title {
+  font-size: 2.5em; }
 
 .resources-archive .facetwp-template {
   display: flex;

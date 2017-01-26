@@ -1,11 +1,24 @@
 .resources-archive {
 
-	.site-inner {
+	.site-container {
 		background-color: $grey5;
 	}
 
 	.facets {
+		lost-center: 1200px;
+		align-items: center;
 
+		div {
+			lost-column: 1/3;
+		}
+	}
+
+	.archive-description {
+		background-color: $grey5;
+	}
+
+	.archive-title {
+		font-size: em(40);
 	}
 
 	.facetwp-template {
