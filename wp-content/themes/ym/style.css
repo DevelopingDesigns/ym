@@ -1298,12 +1298,19 @@ section > .wrap {
   padding: 3.75em;
   background-color: #F7F7F7;
   text-align: center; }
-  .landing-page .key-points h1 {
-    font-size: 2.375em;
-    margin-bottom: 2.5rem; }
-  .landing-page .key-points h2 {
-    font-size: 1.5em;
+  .landing-page .key-points .fc-title-group {
     margin-bottom: 10rem; }
+    .landing-page .key-points .fc-title-group h1 {
+      font-size: 2.375em;
+      margin-bottom: 2.5rem; }
+    .landing-page .key-points .fc-title-group h2 {
+      font-size: 1.5em; }
+  .landing-page .key-points .inner-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; }
   .landing-page .key-points .point {
     margin-bottom: 10rem; }
     .landing-page .key-points .point h2 {
@@ -1311,6 +1318,30 @@ section > .wrap {
       margin-bottom: 1.25em; }
     .landing-page .key-points .point:last-child {
       margin-bottom: 0; }
+    @media all and (min-width: 50em) {
+      .landing-page .key-points .point {
+        flex: 0 0 auto;
+        width: calc(99.9% * 1/2 - (120px - 120px * 1/2)); }
+      .landing-page .key-points .point:nth-child(1n) {
+    margin-right: 120px;
+    margin-left: 0; }
+      .landing-page .key-points .point:last-child {
+    margin-right: 0; }
+      .landing-page .key-points .point:nth-child(2n) {
+    margin-right: 0;
+    margin-left: auto; } }
+    @media all and (min-width: 75em) {
+      .landing-page .key-points .point {
+        flex: 0 0 auto;
+        width: calc(99.9% * 1/4 - (60px - 60px * 1/4)); }
+      .landing-page .key-points .point:nth-child(1n) {
+    margin-right: 60px;
+    margin-left: 0; }
+      .landing-page .key-points .point:last-child {
+    margin-right: 0; }
+      .landing-page .key-points .point:nth-child(4n) {
+    margin-right: 0;
+    margin-left: auto; } }
 
 .archive .archive-description {
   background-color: #fff;

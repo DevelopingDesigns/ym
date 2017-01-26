@@ -161,14 +161,10 @@ function add_key_points() {
 		return;
 	}
 
-	$heading = get_field( 'kp_heading' );
-	$subheading = get_field( 'kp_subheading' );
 	$points = get_field( 'points' ); ?>
 
 	<section class="key-points">
 		<div class="wrap">
-			<h1 class="heading"><?php echo $heading ?></h1>
-			<h2 class="subheading"><?php echo $subheading ?></h2>
 
 			<?php if ( get_field( 'add_heading' ) ) :
 				get_template_part( 'partials/parts/title', 'group' );
@@ -208,31 +204,11 @@ function add_testimonial() {
 		return;
 	}
 
-	$heading = get_field( 'kp_heading' );
-	$subheading = get_field( 'kp_subheading' );
-	$points = get_field( 'points' ); ?>
+	 ?>
 
-	<section class="key-points">
+	<section class="testimonial">
 		<div class="wrap">
-			<h1 class="heading"><?php echo $heading ?></h1>
-			<h2 class="subheading"><?php echo $subheading ?></h2>
 
-			<?php if ( have_rows( 'points' ) ) : ?>
-
-				<div class="inner-wrap">
-
-					<?php while ( have_rows( 'points' ) ) : the_row(); ?>
-
-						<div class="point">
-							<h2 class="segment-header"><?php echo the_sub_field( 'heading' ) ?></h2>
-							<p><?php echo the_sub_field( 'description' ) ?></p>
-						</div>
-
-					<?php endwhile; ?>
-
-				</div>
-
-			<?php endif; ?>
 
 		</div>
 	</section>

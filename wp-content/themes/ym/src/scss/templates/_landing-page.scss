@@ -83,15 +83,23 @@
 		background-color: $grey5;
 		text-align: center;
 
-		h1 {
-			font-size: em(38);
-			margin-bottom: rem(40);
+		.fc-title-group {
+			margin-bottom: rem(160);
+
+			h1 {
+				font-size: em(38);
+				margin-bottom: rem(40);
+			}
+
+			h2 {
+				font-size: em(24);
+			}
 		}
 
-		h2 {
-			font-size: em(24);
-			margin-bottom: rem(160);
+		.inner-wrap {
+			lost-center: 1200px;
 		}
+
 
 		.point {
 			margin-bottom: rem(160);
@@ -100,11 +108,19 @@
 				font-weight: $fw-bold;
 				margin-bottom: em(20);
 			}
-			
+
 			&:last-child {
 				margin-bottom: 0;
 			}
-		}
+
+			@include bp(large) {
+				lost-column: 1/2 2 120px;
+			}
+
+			@include bp(wide) {
+				lost-column: 1/4 4 60px;
+			}
+ 		}
 	}
 
 }
