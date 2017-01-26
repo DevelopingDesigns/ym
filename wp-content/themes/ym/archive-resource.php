@@ -73,6 +73,10 @@ function add_facets() {
 	</div>
 
 	<?php
+
+	if ( function_exists( 'soliloquy' ) ) {
+		soliloquy( 'resource-center', 'slug' );
+	}
 }
 
 

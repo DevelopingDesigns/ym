@@ -1,11 +1,35 @@
 .resources-archive {
 
-	.site-inner {
+	.site-container {
 		background-color: $grey5;
 	}
 
 	.facets {
+		lost-center: 1200px;
+		align-items: center;
 
+		div {
+			lost-column: 1/3;
+		}
+	}
+
+	.archive-description {
+		@include margin(0);
+		background-color: $grey5;
+	}
+
+	.archive-title {
+		font-size: em(40);
+	}
+
+	.soliloquy-container {
+		margin-top: 70px;
+		max-width: 100% !important;
+		max-height: none !important;
+
+		.soliloquy-image {
+			width: 100%;
+		}
 	}
 
 	.facetwp-template {
