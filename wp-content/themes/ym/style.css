@@ -1282,7 +1282,35 @@ section > .wrap {
     margin-bottom: 0; }
 
 .landing-page .speaker-info {
-  margin: 3.75em; }
+  margin: 3.75em 0; }
+  .landing-page .speaker-info figure {
+    margin: 1.875em 0;
+    text-align: center; }
+    @media all and (min-width: 50em) {
+      .landing-page .speaker-info figure {
+        text-align: left; } }
+  .landing-page .speaker-info h3 {
+    margin: 1.875em 0;
+    font-size: 1.25em;
+    font-weight: 700; }
+
+.landing-page .key-points {
+  padding: 3.75em;
+  background-color: #F7F7F7;
+  text-align: center; }
+  .landing-page .key-points h1 {
+    font-size: 2.375em;
+    margin-bottom: 2.5rem; }
+  .landing-page .key-points h2 {
+    font-size: 1.5em;
+    margin-bottom: 10rem; }
+  .landing-page .key-points .point {
+    margin-bottom: 10rem; }
+    .landing-page .key-points .point h2 {
+      font-weight: 700;
+      margin-bottom: 1.25em; }
+    .landing-page .key-points .point:last-child {
+      margin-bottom: 0; }
 
 .archive .archive-description {
   background-color: #fff;

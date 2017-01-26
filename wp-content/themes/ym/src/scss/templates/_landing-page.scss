@@ -60,7 +60,51 @@
 	}
 
 	.speaker-info {
-		@include margin(em($gutter *2))
+		@include margin(em($gutter *2) 0);
+
+		figure {
+			@include margin(em($gutter) 0);
+			text-align: center;
+
+			@include bp(large) {
+				text-align: left;
+			}
+		}
+
+		h3 {
+			@include margin(em($gutter) 0);
+			font-size: em(20);
+			font-weight: $fw-bold;
+		}
+	}
+
+	.key-points {
+		@include padding(em($gutter * 2));
+		background-color: $grey5;
+		text-align: center;
+
+		h1 {
+			font-size: em(38);
+			margin-bottom: rem(40);
+		}
+
+		h2 {
+			font-size: em(24);
+			margin-bottom: rem(160);
+		}
+
+		.point {
+			margin-bottom: rem(160);
+
+			h2 {
+				font-weight: $fw-bold;
+				margin-bottom: em(20);
+			}
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
 	}
 
 }
