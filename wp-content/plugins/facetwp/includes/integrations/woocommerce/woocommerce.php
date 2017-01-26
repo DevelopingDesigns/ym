@@ -311,6 +311,8 @@ class FacetWP_Integration_WooCommerce
 
         // Ignore product attributes with "Used for variations" ticked
         if ( 0 === strpos( $facet['source'], 'tax/pa_' ) ) {
+            $product = wc_get_product( $post_id );
+
             if ( $product->is_type( 'variable' ) ) {
                 $attrs = $product->get_attributes();
                 $attr_name = str_replace( 'tax/', '', $facet['source'] );
@@ -322,6 +324,7 @@ class FacetWP_Integration_WooCommerce
 
         // Custom woo fields
         if ( 0 === strpos( $facet['source'], 'woo' ) ) {
+            $product = wc_get_product( $post_id );
 
             // Price
             if ( 'woo/price' == $facet['source'] ) {

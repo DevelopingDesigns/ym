@@ -353,6 +353,8 @@ final class FacetWP_Helper
      * @since 2.1
      */
     function safe_value( $value ) {
+        $value = $this->replace_accents( $value );
+
         if ( preg_match( '/[^a-z0-9.\- ]/i', $value ) ) {
             if ( ! preg_match( '/^\d{4}-(0[1-9]|1[012])-([012]\d|3[01])/', $value ) ) {
                 $value = md5( $value );
@@ -360,6 +362,18 @@ final class FacetWP_Helper
         }
         $value = str_replace( ' ', '-', strtolower( $value ) );
         return preg_replace( '/[-]{2,}/', '-', $value );
+    }
+
+
+    /**
+     * Replace accent characters with standard ASCII
+     * @return string
+     * @since 2.7.4
+     */
+    function replace_accents( $str ) {
+        $search = explode( ',', 'ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,ø,Ø,Å,Á,À,Â,Ä,È,É,Ê,Ë,Í,Î,Ï,Ì,Ò,Ó,Ô,Ö,Ú,Ù,Û,Ü,Ÿ,Ç,Æ,Œ' );
+        $replace = explode( ',', 'c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,o,O,A,A,A,A,A,E,E,E,E,I,I,I,I,O,O,O,O,U,U,U,U,Y,C,AE,OE' );
+        return str_replace( $search, $replace, $str );
     }
 
 

@@ -162,6 +162,7 @@
             altInput: true,
             altInputClass: 'flatpickr-alt',
             altFormat: 'Y-m-d',
+            disableMobile: true,
             locale: FWP_JSON.datepicker.locale,
             onChange: function() {
                 FWP.autoload();
@@ -284,8 +285,8 @@
         return params.selected_values[0] + ' - ' + params.selected_values[1];
     });
 
-    $(document).on('blur', '.facetwp-number-min, .facetwp-number-max', function() {
-        FWP.autoload();
+    $(document).on('click', '.facetwp-type-number_range .facetwp-submit', function() {
+        FWP.refresh();
     });
 
     /* ======== Proximity ======== */
