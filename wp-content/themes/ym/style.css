@@ -2936,6 +2936,10 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     left: auto;
     transform: translate(0, -50%); } }
 
+.soliloquy-outer-container .soliloquy-caption-inside h1,
+.soliloquy-outer-container .soliloquy-caption-inside h2 {
+  color: #fff; }
+
 /* # Print Styles
 ---------------------------------------------------------------------------------------------------- */
 @media print {
