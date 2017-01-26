@@ -9,7 +9,17 @@
 	}
 
 	.banner-image {
-		@include padding(100px null 40px null);
+		@include padding(100px null 340px null);
+
+		@include bp(wide) {
+			padding-bottom: 80px;
+		}
+
+		.banner-content {
+			@include bp(wide) {
+				max-width: 600px;
+			}
+		}
 
 		h1,
 		h2 {
@@ -27,7 +37,7 @@
 	}
 
 	.site-inner,
-	article {
+	.entry {
 		margin-top: 0;
 		padding-top: 0;
 	}
@@ -40,13 +50,77 @@
 		}
 	}
 
+	.content {
+		lost-center: 1200px;
+	}
+
 	.signup-form {
-		background-color: $grey4;
-		max-width: em(335);
+		lost-column: 1/1;
+
+		@include bp(wide) {
+			order: 2;
+			lost-column: 1/3;
+		}
+
+		> div {
+			transform: translateY(em(-340));
+
+			@include bp(wide) {
+				transform: translateY(em(-340));
+			}
+		}
+
+		.gform_wrapper .top_label div.ginput_container {
+			width: 96%;
+		}
+
+		form {
+			@include padding(em($gutter * 2) em(20) em(80));
+			background-color: $grey4;
+			max-width: em(475);
+
+			input:not(.button),
+			textarea {
+				background-color: $white;
+			}
+
+			input:not(.button) {
+				@include padding(em(10) 1em);
+			}
+
+			select {
+				background: $white;
+				border-color: $white;
+			}
+
+			textarea {
+				border-radius: 20px;
+				height: 220px;
+			}
+
+			.gform_footer {
+				text-align: center;
+
+				input {
+					font-weight: $fw-bold;
+				}
+			}
+		}
+	}
+
+	.entry {
+		lost-column: 1/1;
+		margin-top: em(-300);
+		order: 1;
+
+		@include bp(wide) {
+			lost-column: 2/3;
+			margin-top: em(0);
+		}
 	}
 
 	.time-and-date {
-		@include margin(em($gutter * 2) null em(30));
+		@include margin(em($gutter * 2) null em($gutter * 2));
 
 		> div {
 			display: flex;
@@ -100,6 +174,10 @@
 		@include padding(em($gutter * 2));
 		background-color: $grey5;
 		text-align: center;
+
+		@include bp(wide) {
+			margin-top: em(0);
+		}
 
 		.fc-title-group {
 			margin-bottom: rem(160);
@@ -155,11 +233,11 @@
 			text-align: center;
 
 			@include bp(large) {
-				@include padding(null em(80));
+				@include padding(null rem(80));
 			}
 
 			@include bp(wide) {
-				@include padding(null em(240));
+				@include padding(null rem(100));
 			}
 		}
 	}
