@@ -23,11 +23,23 @@ if ( have_rows( 'slides', 'option' ) ) : ?>
 
 	<ul>
 
-		<?php while ( have_rows( 'slides', 'option' ) ) : the_row(); ?>
+		<?php while ( have_rows( 'slides', 'option' ) ) : the_row();
 
-			<?php if ( get_sub_field( 'add_heading' ) ) {
+			$image = get_sub_field( 'image' );
+
+			if ( get_sub_field( 'add_heading' ) ) {
 				get_template_part( 'partials/parts/title', 'group' );
 			}
+
+			if ( get_sub_field( 'image' ) ) { ?>
+				<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>">
+			<?php }
+
+
+			if ( get_sub_field( 'add_cta' ) ) {
+				get_template_part( 'partials/parts/button', 'group' );
+			}
+
 
 		endwhile; ?>
 
