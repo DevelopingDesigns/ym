@@ -40,6 +40,11 @@
 		}
 	}
 
+	.signup-form {
+		background-color: $grey4;
+		max-width: em(335);
+	}
+
 	.time-and-date {
 		@include margin(em($gutter * 2) null em(30));
 

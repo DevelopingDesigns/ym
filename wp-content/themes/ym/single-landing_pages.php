@@ -96,7 +96,7 @@ add_action( 'genesis_entry_header', __NAMESPACE__ . '\add_date_and_time' );
  * Add Event Date and Time
  */
 function add_date_and_time() {
-	if ( ! get_field( 'date' ) || ! get_field( 'time' ) || ! class_exists( 'acf' ) ) {
+	if ( ! get_field( 'add_time' ) ) {
 		return;
 	}
 
@@ -246,6 +246,25 @@ function add_testimonial() {
 	<?php
 }
 
+
+
+add_action( 'genesis_before_entry', __NAMESPACE__ . '\add_form' );
+/**
+ * Output signup form
+ */
+function add_form() {
+	if ( ! get_field( 'form' ) ) {
+		return;
+	}
+
+	$form_object = get_field( 'form' );
+	gravity_form_enqueue_scripts( $form_object['id'], true );
+
+	echo '<div class="signup-form">';
+	gravity_form( $form_object['id'], true, true, false, '', true, 1 );
+	echo '</div>';
+
+}
 
 
 genesis();

@@ -1265,6 +1265,10 @@ section > .wrap {
   .landing-page .site-inner p {
     font-size: 0.9375em; }
 
+.landing-page .signup-form {
+  background-color: #F4F4F4;
+  max-width: 20.9375em; }
+
 .landing-page .time-and-date {
   margin-top: 3.75em;
   margin-bottom: 1.875em; }
