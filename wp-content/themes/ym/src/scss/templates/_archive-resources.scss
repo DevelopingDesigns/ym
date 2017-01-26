@@ -14,6 +14,7 @@
 	}
 
 	.archive-description {
+		@include margin(0);
 		background-color: $grey5;
 	}
 
@@ -25,6 +26,10 @@
 		margin-top: 70px;
 		max-width: 100% !important;
 		max-height: none !important;
+
+		.soliloquy-image {
+			width: 100%;
+		}
 	}
 
 	.facetwp-template {

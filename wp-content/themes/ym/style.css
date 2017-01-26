@@ -1520,6 +1520,7 @@ section > .wrap {
   margin-left: auto; }
 
 .resources-archive .archive-description {
+  margin: 0;
   background-color: #F7F7F7; }
 
 .resources-archive .archive-title {
@@ -1529,6 +1530,8 @@ section > .wrap {
   margin-top: 70px;
   max-width: 100% !important;
   max-height: none !important; }
+  .resources-archive .soliloquy-container .soliloquy-image {
+    width: 100%; }
 
 .resources-archive .facetwp-template {
   display: flex;
