@@ -114,3 +114,10 @@ function image_attr_fallback( $attr, $attachment ) {
 
 	return $attr;
 }
+
+
+/**
+ * Hide count from facetwp dropwdown on resource archive
+ */
+add_filter( 'facetwp_facet_dropdown_show_counts', '__return_false' );
+
