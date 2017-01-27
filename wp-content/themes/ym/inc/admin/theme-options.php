@@ -20,7 +20,7 @@ add_action( 'init', __NAMESPACE__ . '\add_news_options_page' );
 function add_news_options_page() {
 	if ( function_exists( 'acf_add_options_sub_page' ) ) {
 		acf_add_options_sub_page( [
-			'title'         => 'News Settings',
+			'title'         => 'Slider Settings',
 			'parent'        => 'edit.php?post_type=news',
 			'capability'    => 'manage_options',
 		] );
