@@ -40,6 +40,7 @@ function add_body_class( $classes ) {
 
 
 
+
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 add_action( 'genesis_loop', __NAMESPACE__ . '\create_loop_with_cpts' );
 /**
@@ -66,17 +67,22 @@ function add_facets() {
 		return;
 	} ?>
 
-	<div class="facets">
-		<?php echo genesis_do_cpt_archive_title_description(); ?>
-		<div class="cpt-facet"><span class="facet-label">Select Type</span><?php echo facetwp_display( 'facet', 'post_types' ); ?></div>
-		<div class="topic-facet"><span class="facet-label">Select Topic</span><?php echo facetwp_display( 'facet', 'topics' ); ?></div>
-	</div>
+	<section class="slider-container">
+		<div class="facets">
+			<div class="wrap">
+				<?php echo genesis_do_cpt_archive_title_description(); ?>
+				<div class="cpt-facet"><?php echo facetwp_display( 'facet', 'post_types' ); ?></div>
+				<div class="topic-facet"><?php echo facetwp_display( 'facet', 'topics' ); ?></div>
+			</div>
+		</div>
+
+		<?php if ( get_field( 'resource_slides', 'option' ) ) :
+			get_template_part( 'partials/parts/resource-slider', 'group' );
+		endif; ?>
+	</section>
 
 	<?php
 
-	if ( function_exists( 'soliloquy' ) ) {
-		soliloquy( 'resource-center', 'slug' );
-	}
 }
 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Default code for Buttons field group. Disabled by default.
+ * Default code for Slider field group. Disabled by default
  * Used as module with ACF clone field.
  *
  * @package    YourMembership
@@ -18,7 +18,7 @@ $slides = get_field( 'slides', 'option' );
 
 if ( have_rows( 'slides', 'option' ) ) :
 
-	$padding = get_field( 'slider_height' ) ? : 'inherit';
+	$padding = get_field( 'slider_height' ) ? : 'unset';
 
 	wp_enqueue_style( 'swiper' );
 
@@ -37,7 +37,7 @@ if ( have_rows( 'slides', 'option' ) ) :
         });'
 	); ?>
 
-<section class="slider-group <?php the_field( 'css_class' ) ?>" style="padding: <?php echo $padding ?>;">
+<div class="slider-group" style="padding: <?php echo $padding ?>;">
 
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
@@ -103,7 +103,11 @@ if ( have_rows( 'slides', 'option' ) ) :
 		<div class="button-prev"></div>
 
 	</div>
-</section>
+</div>
 
-<?php endif; ?>
+<?php
+
+endif;
+
+
 

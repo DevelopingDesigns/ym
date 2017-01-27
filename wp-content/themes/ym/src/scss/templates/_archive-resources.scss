@@ -4,32 +4,86 @@
 		background-color: $grey5;
 	}
 
+	.slider-container {
+		position: relative;
+
+		.slider-group {
+			max-height: unset;
+		}
+
+		.swiper-slide {
+			min-height: 505px;
+
+			.inner-wrap {
+				transform: translateY(88px);
+			}
+
+		}
+
+		h1,
+		h3 {
+			color: $white;
+		}
+
+		.slide-content,
+		figure {
+			lost-column: 1/2;
+		}
+
+		figure {
+			text-align: center;
+		}
+
+		.button-next,
+		.button-prev {
+			margin-top: -22px;
+		}
+	}
+
 	.facets {
-		lost-center: 1200px;
+		@include padding(em(22) null);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 10;
+		max-width: 100%;
+		background-color: rgba(52, 63, 73, 0.2);
 		align-items: center;
 
-		div {
-			lost-column: 1/3;
+		.wrap {
+			lost-center: 1200px;
+			align-items: center;
+
+			> div {
+				lost-column: 1/3;
+			}
+
+		}
+
+		.facetwp-facet {
+			border-radius: 50px;
+			margin-bottom: 0;
+			overflow: hidden;
+			width: 365px;
+		}
+
+		select {
+			border: 0;
+			height: 30px;
+			min-width: 365px;
+			font-size: 16px;
+			text-indent: 10px;
 		}
 	}
 
 	.archive-description {
 		@include margin(0);
-		background-color: $grey5;
+		background-color: transparent;
 	}
 
 	.archive-title {
 		font-size: em(40);
-	}
-
-	.soliloquy-container {
-		margin-top: 70px;
-		max-width: 100% !important;
-		max-height: none !important;
-
-		.soliloquy-image {
-			width: 100%;
-		}
 	}
 
 	.facetwp-template {
@@ -63,7 +117,7 @@
 		@include mappy-bp(1201px) {
 			@include padding(0);
 			background-color: $white;
-			lost-column: 2/6 3 30px;
+			lost-column: 1/3 3 30px;
 			text-align: left;
 		}
 	}

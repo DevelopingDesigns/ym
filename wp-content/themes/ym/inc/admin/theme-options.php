@@ -24,8 +24,26 @@ function add_news_options_page() {
 			'parent'        => 'edit.php?post_type=news',
 			'capability'    => 'manage_options',
 		] );
+
 	}
 }
+
+
+add_action( 'init', __NAMESPACE__ . '\add_resource_options_page' );
+/**
+ * Add ACF options page for News custom post type
+ */
+function add_resource_options_page() {
+	if ( function_exists( 'acf_add_options_sub_page' ) ) {
+		acf_add_options_sub_page( [
+			'title'      => 'Slider Options',
+			'parent'     => 'edit.php?post_type=resource',
+			'capability' => 'manage_options',
+		] );
+
+	}
+}
+
 
 
 add_action( 'init', __NAMESPACE__ . '\add_theme_options_page' );

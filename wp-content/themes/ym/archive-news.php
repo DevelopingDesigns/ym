@@ -69,9 +69,9 @@ add_action( 'genesis_after_header', __NAMESPACE__ . 'add_slider' );
  * Add slider from News Settings
  */
 function add_slider() {
-
-	get_template_part( 'partials/parts/slider', 'group' );
-
+	if ( get_field( 'resource_slides', 'option' ) ) :
+		get_template_part( 'partials/parts/slider', 'group' );
+	endif;
 }
 
 

@@ -496,7 +496,7 @@ select[multiple] {
   box-sizing: border-box;
   font-family: "Gotham A", "Gotham B", sans-serif;
   font-size: 1em;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   padding: 5px;
   transition: border-color 150ms;
   width: 100%; }
@@ -531,7 +531,7 @@ textarea {
   width: 100%; }
 
 select {
-  margin-bottom: 10px;
+  margin-bottom: 0;
   max-width: 100%;
   width: auto; }
 
@@ -1564,7 +1564,8 @@ section > .wrap {
   .archive .archive-description p:last-child {
     margin-bottom: 0; }
   .archive .archive-description h1 {
-    font-size: 46px; }
+    font-size: 46px;
+    margin-bottom: 0; }
 
 .archive .entry {
   padding-top: 0; }
@@ -1607,38 +1608,85 @@ section > .wrap {
 .resources-archive .site-container {
   background-color: #F7F7F7; }
 
-.resources-archive .facets {
-  display: flex;
-  flex-flow: row wrap;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center; }
-  .resources-archive .facets div {
+.resources-archive .slider-container {
+  position: relative; }
+  .resources-archive .slider-container .slider-group {
+    max-height: unset; }
+  .resources-archive .slider-container .swiper-slide {
+    min-height: 505px; }
+    .resources-archive .slider-container .swiper-slide .inner-wrap {
+      transform: translateY(88px); }
+  .resources-archive .slider-container h1,
+  .resources-archive .slider-container h3 {
+    color: #fff; }
+  .resources-archive .slider-container .slide-content,
+  .resources-archive .slider-container figure {
     flex: 0 0 auto;
-    width: calc(99.9% * 1/3 - (30px - 30px * 1/3)); }
-  .resources-archive .facets div:nth-child(1n) {
+    width: calc(99.9% * 1/2 - (30px - 30px * 1/2)); }
+  .resources-archive .slider-container .slide-content:nth-child(1n),
+  .resources-archive .slider-container figure:nth-child(1n) {
   margin-right: 30px;
   margin-left: 0; }
-  .resources-archive .facets div:last-child {
+  .resources-archive .slider-container .slide-content:last-child,
+  .resources-archive .slider-container figure:last-child {
   margin-right: 0; }
-  .resources-archive .facets div:nth-child(3n) {
+  .resources-archive .slider-container .slide-content:nth-child(2n),
+  .resources-archive .slider-container figure:nth-child(2n) {
   margin-right: 0;
   margin-left: auto; }
+  .resources-archive .slider-container figure {
+    text-align: center; }
+  .resources-archive .slider-container .button-next,
+  .resources-archive .slider-container .button-prev {
+    margin-top: -22px; }
+
+.resources-archive .facets {
+  padding-top: 1.375em;
+  padding-bottom: 1.375em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  max-width: 100%;
+  background-color: rgba(52, 63, 73, 0.2);
+  align-items: center; }
+  .resources-archive .facets .wrap {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center; }
+    .resources-archive .facets .wrap > div {
+      flex: 0 0 auto;
+      width: calc(99.9% * 1/3 - (30px - 30px * 1/3)); }
+    .resources-archive .facets .wrap > div:nth-child(1n) {
+  margin-right: 30px;
+  margin-left: 0; }
+    .resources-archive .facets .wrap > div:last-child {
+  margin-right: 0; }
+    .resources-archive .facets .wrap > div:nth-child(3n) {
+  margin-right: 0;
+  margin-left: auto; }
+  .resources-archive .facets .facetwp-facet {
+    border-radius: 50px;
+    margin-bottom: 0;
+    overflow: hidden;
+    width: 365px; }
+  .resources-archive .facets select {
+    border: 0;
+    height: 30px;
+    min-width: 365px;
+    font-size: 16px;
+    text-indent: 10px; }
 
 .resources-archive .archive-description {
   margin: 0;
-  background-color: #F7F7F7; }
+  background-color: transparent; }
 
 .resources-archive .archive-title {
   font-size: 2.5em; }
-
-.resources-archive .soliloquy-container {
-  margin-top: 70px;
-  max-width: 100% !important;
-  max-height: none !important; }
-  .resources-archive .soliloquy-container .soliloquy-image {
-    width: 100%; }
 
 .resources-archive .facetwp-template {
   display: flex;
@@ -1705,7 +1753,7 @@ section > .wrap {
       padding: 0;
       background-color: #fff;
       flex: 0 0 auto;
-      width: calc(99.9% * 2/6 - (30px - 30px * 2/6));
+      width: calc(99.9% * 1/3 - (30px - 30px * 1/3));
       text-align: left; }
     .resources-archive .resource:nth-child(1n) {
     margin-right: 30px;
