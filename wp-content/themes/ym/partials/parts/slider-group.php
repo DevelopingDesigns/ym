@@ -12,10 +12,9 @@
 
 $slides = get_field( 'slides', 'option' );
 
-
-echo '<pre>';
-echo print_r( $slides );
-echo '</pre>';
+//echo '<pre>';
+//echo print_r( $slides );
+//echo '</pre>';
 
 if ( have_rows( 'slides', 'option' ) ) :
 
