@@ -26,6 +26,6 @@ if ( $add_cta ) : ?>
 	   class="<?php echo $button['second_button']['style'] . ' ' . $button['second_button']['size']; ?> button double-button"><?php echo
 		$button['second_button']['text']; ?></a>
 
-	</div>
-
 <?php endif; ?>
+
+	</div>

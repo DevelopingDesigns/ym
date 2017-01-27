@@ -19,31 +19,99 @@ echo '</pre>';
 
 
 
-if ( have_rows( 'slides', 'option' ) ) : ?>
+if ( have_rows( 'slides', 'option' ) ) :
 
-	<ul>
+	$padding = get_field( 'slider_height' ) ? : 'inherit';
 
-		<?php while ( have_rows( 'slides', 'option' ) ) : the_row();
+	wp_enqueue_style( 'swiper' );
 
-			$image = get_sub_field( 'image' );
+	wp_enqueue_script( 'swiper' );
 
-			if ( get_sub_field( 'add_heading' ) ) {
-				get_template_part( 'partials/parts/title', 'group' );
-			}
+	//wp_enqueue_script( 'backstretch' );
 
-			if ( get_sub_field( 'image' ) ) { ?>
-				<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>">
-			<?php }
+	wp_add_inline_script(
+		'swiper',
+		'jQuery(document).ready(function($){
+			var mySwiper = new Swiper (".swiper-container", {
+				pagination: ".swiper-pagination",
+				paginationClickable: true,
+				nextButton: ".swiper-button-next",
+                prevButton: ".swiper-button-prev",
+                spaceBetween: 30
+            }) 
+        });'
+	);
+
+	//wp_add_inline_script( 'app',
+	//	'jQuery(document).ready(function($){
+	//		$(".swiper-slide").backstretch();
+	//	});'
+	//);
+
+	?>
+
+<section class="slider-group <?php the_field( 'css_class' ) ?>" style="padding: <?php echo $padding ?>;">
+
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
 
 
-			if ( get_sub_field( 'add_cta' ) ) {
-				get_template_part( 'partials/parts/button', 'group' );
-			}
+			<?php while ( have_rows( 'slides', 'option' ) ) : the_row();
+
+				$bg_type = get_sub_field( 'bg_type' );
+
+				$bg_img = get_sub_field( 'background_image' );
+				$bg_color = get_sub_field( 'background_color' );
+
+				if ( 'image' === $bg_type ) {
+					$slide_bg = 'background: url( ' . $bg_img['url'] . ') no-repeat;';
+				} else {
+					$slide_bg = 'background-color: ' . $bg_color . ';';
+				}
+
+				$slide_image = get_sub_field( 'image' );
+
+				$align_content = get_sub_field( 'align_content' ) ? : 'left';
+				$align_image = get_sub_field( 'align_image' ) ? : 'right';
+
+				?>
+
+				<div class="swiper-slide" style="<?php echo $slide_bg ?>">
+					<div class="wrap">
+
+						<div class="inner-wrap">
+							<div class="slide-content">
+								<?php if ( get_sub_field( 'add_heading' ) ) :
+									get_template_part( 'partials/parts/title', 'group' );
+								endif; ?>
+
+								<?php if ( get_sub_field( 'add_cta' ) ) :
+									get_template_part( 'partials/parts/button', 'group' );
+								endif; ?>
+							</div>
+
+							<figure>
+								<img src="<?php echo $slide_image['url'] ?>"
+								     alt="<?php echo $slide_image['alt'] ?>"
+								     width="<?php echo $slide_image['width'] / 2 ?>"
+								     height="<?php echo $slide_image['height'] / 2 ?>">
+							</figure>
+						</div>
+
+					</div>
+				</div>
 
 
-		endwhile; ?>
+			<?php endwhile; ?>
 
-	</ul>
+		</div>
+
+		<div class="swiper-pagination"></div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+
+	</div>
+</section>
 
 <?php endif; ?>
 
