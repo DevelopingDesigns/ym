@@ -17,8 +17,6 @@ echo '<pre>';
 echo print_r( $slides );
 echo '</pre>';
 
-
-
 if ( have_rows( 'slides', 'option' ) ) :
 
 	$padding = get_field( 'slider_height' ) ? : 'inherit';
@@ -27,28 +25,18 @@ if ( have_rows( 'slides', 'option' ) ) :
 
 	wp_enqueue_script( 'swiper' );
 
-	//wp_enqueue_script( 'backstretch' );
-
 	wp_add_inline_script(
 		'swiper',
 		'jQuery(document).ready(function($){
 			var mySwiper = new Swiper (".swiper-container", {
 				pagination: ".swiper-pagination",
 				paginationClickable: true,
-				nextButton: ".swiper-button-next",
-                prevButton: ".swiper-button-prev",
+				nextButton: ".button-next",
+                prevButton: ".button-prev",
                 spaceBetween: 30
             }) 
         });'
-	);
-
-	//wp_add_inline_script( 'app',
-	//	'jQuery(document).ready(function($){
-	//		$(".swiper-slide").backstretch();
-	//	});'
-	//);
-
-	?>
+	); ?>
 
 <section class="slider-group <?php the_field( 'css_class' ) ?>" style="padding: <?php echo $padding ?>;">
 
@@ -107,8 +95,8 @@ if ( have_rows( 'slides', 'option' ) ) :
 		</div>
 
 		<div class="swiper-pagination"></div>
-		<div class="swiper-button-next"></div>
-		<div class="swiper-button-prev"></div>
+		<div class="button-next"></div>
+		<div class="button-prev"></div>
 
 	</div>
 </section>

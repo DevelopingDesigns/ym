@@ -3,9 +3,78 @@
 	height: 100%;
 }
 
+.inner-wrap {
+	lost-center: 1200px;
+	justify-content: center;
+	align-items: center;
+
+	div {
+		lost-column: 2/3;
+	}
+
+	figure {
+		lost-column: 1/3;
+	}
+}
+
 .swiper-slide {
 	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
+.slide-content {
+
+	// CTA Section
+	.button-group {
+		> a {
+			@include margin(em($gutter));
+		}
+	}
+
+}
+
+
+.button-next,
+.button-prev {
+	position: absolute;
+	top: 50%;
+	width: width('dist/images/right-arrow.svg');
+	height: height('dist/images/right-arrow.svg');
+	margin-top: -22px;
+	z-index: 10;
+	cursor: pointer;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.button-next {
+	background-image: inline('dist/images/right-arrow.svg');
+	background-size: size('dist/images/right-arrow.svg');
+	left: auto;
+	right: 80px;
+}
+
+.button-prev {
+	background-image: inline('dist/images/left-arrow.svg');
+	background-size: size('dist/images/left-arrow.svg');
+	left: 80px;
+	right: auto;
+}
+
+
+.swiper-pagination {
+	.swiper-pagination-bullet {
+		background-color: $white;
+		opacity: 0.5;
+		width: 12px;
+		height: 12px;
+	}
+
+	.swiper-pagination-bullet-active {
+		background-color: $white;
+		opacity: 1;
+	}
+}
+
