@@ -14,7 +14,7 @@
 $headings = get_sub_field( 'headings' ) ? : get_field( 'headings' );
 $add_heading = get_sub_field( 'add_heading' ) ? : get_field( 'add_heading' );
 
-$align = get_sub_field( 'heading_alignment' );
+$align = $headings['heading_alignment'] ? : 'left';
 
 $fs_heading = ! $headings['font_size_heading'] ? 'font-size: 3em' : 'font-size: ' . $headings['font_size_heading'];
 $fs_subheading = ! $headings['font_size_subheading'] ? 'font-size: 1.875em' : 'font-size: ' . $headings['font_size_subheading'];
@@ -26,7 +26,7 @@ $fs_subheading = ! $headings['font_size_subheading'] ? 'font-size: 1.875em' : 'f
 
 if ( $add_heading ) : ?>
 
-	<div class="fc-title-group" style="text-align: <?php echo $headings['heading_alignment']; ?>;">
+	<div class="fc-title-group" style="text-align: <?php echo $align ?>;">
 
 		<?php if ( $headings['choose_heading'] ) : ?>
 			<h1 style="<?php echo $fs_heading ?>;"><?php echo $headings['heading']; ?></h1>

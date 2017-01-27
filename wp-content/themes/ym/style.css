@@ -927,14 +927,11 @@ img.alignright,
   margin-right: 0;
   margin-left: auto; }
 
-.swiper-slide {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.slide-content .button-group > a {
-  margin: 1.875em; }
+.slide-content {
+  margin-top: 3.75em;
+  margin-bottom: 3.75em; }
+  .slide-content .button-group > a {
+    margin: 1.875em 0 0; }
 
 .button-next,
 .button-prev {
@@ -969,6 +966,9 @@ img.alignright,
 .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #fff;
   opacity: 1; }
+
+div.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 1.875em; }
 
 /* ## Gallery
 --------------------------------------------- */

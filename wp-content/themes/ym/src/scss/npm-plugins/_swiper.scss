@@ -17,19 +17,13 @@
 	}
 }
 
-.swiper-slide {
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .slide-content {
+	@include margin(em($gutter * 2) null);
 
 	// CTA Section
 	.button-group {
 		> a {
-			@include margin(em($gutter));
+			@include margin(em($gutter) 0 0);
 		}
 	}
 
@@ -78,3 +72,6 @@
 	}
 }
 
+div.swiper-container-horizontal > .swiper-pagination-bullets {
+	bottom: em(30);
+}

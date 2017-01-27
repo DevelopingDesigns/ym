@@ -46,11 +46,13 @@ if ( have_rows( 'slides', 'option' ) ) :
 
 			<?php while ( have_rows( 'slides', 'option' ) ) : the_row();
 
+				// Background
 				$bg_type = get_sub_field( 'bg_type' );
 
 				$bg_img = get_sub_field( 'background_image' );
 				$bg_color = get_sub_field( 'background_color' );
 
+				// Image
 				if ( 'image' === $bg_type ) {
 					$slide_bg = 'background: url( ' . $bg_img['url'] . ') no-repeat;';
 				} else {
@@ -59,16 +61,19 @@ if ( have_rows( 'slides', 'option' ) ) :
 
 				$slide_image = get_sub_field( 'image' );
 
-				$align_content = get_sub_field( 'align_content' ) ? : 'left';
-				$align_image = get_sub_field( 'align_image' ) ? : 'right';
+				// Align Content
+				$align_content = get_sub_field( 'align_content' );
+				$align_right = 'order: 0;';
 
-				?>
+				if ( 'right' === $align_content ) {
+					$align_right = 'order: 2; transform: translateX(60px);';
+				} ?>
 
 				<div class="swiper-slide" style="<?php echo $slide_bg ?>">
 					<div class="wrap">
 
 						<div class="inner-wrap">
-							<div class="slide-content">
+							<div class="slide-content" style="<?php echo $align_right ?>">
 								<?php if ( get_sub_field( 'add_heading' ) ) :
 									get_template_part( 'partials/parts/title', 'group' );
 								endif; ?>
