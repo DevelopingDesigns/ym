@@ -897,40 +897,49 @@ img.alignright,
   height: 100%; }
 
 .inner-wrap {
-  display: flex;
-  flex-flow: row wrap;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  align-items: center; }
-  .inner-wrap div {
-    flex: 0 0 auto;
-    width: calc(99.9% * 2/3 - (30px - 30px * 2/3)); }
-  .inner-wrap div:nth-child(1n) {
-  margin-right: 30px;
-  margin-left: 0; }
-  .inner-wrap div:last-child {
-  margin-right: 0; }
-  .inner-wrap div:nth-child(3n) {
-  margin-right: 0;
-  margin-left: auto; }
+  padding: 1.875em 3.75em; }
+  @media all and (min-width: 75em) {
+    .inner-wrap {
+      display: flex;
+      flex-flow: row wrap;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: center;
+      align-items: center; } }
+  @media all and (min-width: 75em) {
+    .inner-wrap div {
+      flex: 0 0 auto;
+      width: calc(99.9% * 2/3 - (30px - 30px * 2/3)); }
+    .inner-wrap div:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+    .inner-wrap div:last-child {
+    margin-right: 0; }
+    .inner-wrap div:nth-child(3n) {
+    margin-right: 0;
+    margin-left: auto; } }
   .inner-wrap figure {
-    flex: 0 0 auto;
-    width: calc(99.9% * 1/3 - (30px - 30px * 1/3)); }
-  .inner-wrap figure:nth-child(1n) {
-  margin-right: 30px;
-  margin-left: 0; }
-  .inner-wrap figure:last-child {
-  margin-right: 0; }
-  .inner-wrap figure:nth-child(3n) {
-  margin-right: 0;
-  margin-left: auto; }
+    display: none; }
+    @media all and (min-width: 75em) {
+      .inner-wrap figure {
+        display: block;
+        flex: 0 0 auto;
+        width: calc(99.9% * 1/3 - (30px - 30px * 1/3));
+        transform: translateX(-30px); }
+      .inner-wrap figure:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+      .inner-wrap figure:last-child {
+    margin-right: 0; }
+      .inner-wrap figure:nth-child(3n) {
+    margin-right: 0;
+    margin-left: auto; } }
 
-.slide-content {
+.slide-content[style] {
   margin-top: 3.75em;
   margin-bottom: 3.75em; }
-  .slide-content .button-group > a {
+  .slide-content[style] .button-group > a {
     margin: 1.875em 0 0; }
 
 .button-next,
@@ -949,13 +958,19 @@ img.alignright,
   background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2224%22%20viewBox%3D%220%200%2014%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFFFFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M9.03755421%2C12.0108164%20L1.29928506%2C3.46111766%20L0.292712853%2C2.34899699%20L2.5169542%2C0.335852574%20L3.52352641%2C1.44797325%20L12.1226915%2C10.9488408%20L13.1794088%2C11.9052679%20L13.0838777%2C12.0108164%20L13.1794088%2C12.1163649%20L12.1226915%2C13.0727919%20L3.78368764%2C22.286218%20L2.77711543%2C23.3983386%20L0.552874082%2C21.3851942%20L1.55944629%2C20.2730735%20L9.03755421%2C12.0108164%20Z%22%2F%3E%0A%3C%2Fsvg%3E');
   background-size: 14px 24px;
   left: auto;
-  right: 80px; }
+  right: 30px; }
+  @media all and (min-width: 75em) {
+    .button-next {
+      right: 80px; } }
 
 .button-prev {
   background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2224%22%20viewBox%3D%220%200%2014%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFFFFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M9.03755421%2C12.0108164%20L1.29928506%2C3.46111766%20L0.292712853%2C2.34899699%20L2.5169542%2C0.335852574%20L3.52352641%2C1.44797325%20L12.1226915%2C10.9488408%20L13.1794088%2C11.9052679%20L13.0838777%2C12.0108164%20L13.1794088%2C12.1163649%20L12.1226915%2C13.0727919%20L3.78368764%2C22.286218%20L2.77711543%2C23.3983386%20L0.552874082%2C21.3851942%20L1.55944629%2C20.2730735%20L9.03755421%2C12.0108164%20Z%22%20transform%3D%22rotate(180%206.966%2012)%22%2F%3E%0A%3C%2Fsvg%3E');
   background-size: 14px 24px;
-  left: 80px;
+  left: 30px;
   right: auto; }
+  @media all and (min-width: 75em) {
+    .button-prev {
+      left: 80px; } }
 
 .swiper-pagination .swiper-pagination-bullet {
   background-color: #fff;
@@ -1573,11 +1588,7 @@ section > .wrap {
     color: #fff; }
 
 .post-type-archive-news .swiper-slide {
-  background-size: cover;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  background-size: cover; }
 
 .post-type-archive-news .slide-content h1,
 .post-type-archive-news .slide-content h3 {

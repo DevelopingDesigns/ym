@@ -63,13 +63,13 @@ if ( have_rows( 'slides', 'option' ) ) :
 
 				// Align Content
 				$align_content = get_sub_field( 'align_content' );
-				$align_right = 'order: 0;';
+				$align_right = 'order: 2;';
 
-				if ( 'right' === $align_content ) {
-					$align_right = 'order: 2; transform: translateX(60px);';
+				if ( 'right' !== $align_content ) {
+					$align_right = '';
 				} ?>
 
-				<div class="swiper-slide" style="<?php echo $slide_bg ?>">
+				<div class="swiper-slide" style="<?php echo $slide_bg; ?>">
 					<div class="wrap">
 
 						<div class="inner-wrap">
@@ -84,10 +84,10 @@ if ( have_rows( 'slides', 'option' ) ) :
 							</div>
 
 							<figure>
-								<img src="<?php echo $slide_image['url'] ?>"
+								<img src="<?php echo $slide_image['sizes']['slider'] ?>"
 								     alt="<?php echo $slide_image['alt'] ?>"
-								     width="<?php echo $slide_image['width'] / 2 ?>"
-								     height="<?php echo $slide_image['height'] / 2 ?>">
+								     width="<?php echo $slide_image['sizes']['slider-width'] ?>"
+								     height="<?php echo $slide_image['sizes']['slider-height'] ?>">
 							</figure>
 						</div>
 

@@ -21,7 +21,8 @@ function register_image_sizes() {
 	add_image_size( 'small-screens-hero', 500, 500, true );
 	add_image_size( 'acf-uploads-preview', 800, 250 );
 	add_image_size( 'resources-featured-image', 380, 230 );
-	add_image_size( 'slider', 1400, 375, true );
+	add_image_size( 'slider-bg', 1400, 375, true );
+	add_image_size( 'slider', 600, 351, true );
 	add_image_size( 'landing-page', 1440, 450 );
 }
 
