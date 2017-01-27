@@ -9,12 +9,15 @@
  */
 
 $button = get_sub_field( 'buttons' ) ? : get_field( 'buttons' );
+
 $add_cta = get_sub_field( 'add_cta' ) ? : get_field( 'add_cta' );
-$align = ! $button['button_alignment'] ? 'text-align: left;' : 'text-align: ' . get_sub_field( 'button_alignment' );
+$align = $button['button_alignment'] ? : 'left';
+
+
 
 if ( $add_cta ) : ?>
 
-	<div class="button-group">
+	<div class="button-group" style="text-align: <?php echo $align ?>;">
 		<a href="<?php echo $button['url']; ?>"
 		   class="<?php echo $button['style'] . ' ' . $button['size']; ?> button double-button"><?php echo $button['text']; ?></a>
 
@@ -26,6 +29,6 @@ if ( $add_cta ) : ?>
 	   class="<?php echo $button['second_button']['style'] . ' ' . $button['second_button']['size']; ?> button double-button"><?php echo
 		$button['second_button']['text']; ?></a>
 
-	</div>
-
 <?php endif; ?>
+
+	</div>

@@ -64,6 +64,16 @@ add_filter( 'genesis_pre_get_option_content_archive_limit', function () {
 
 
 
+add_action( 'genesis_after_header', __NAMESPACE__ . 'add_slider' );
+/**
+ * Add slider from News Settings
+ */
+function add_slider() {
+
+	get_template_part( 'partials/parts/slider', 'group' );
+
+}
+
 
 
 
