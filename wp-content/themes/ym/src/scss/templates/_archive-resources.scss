@@ -4,62 +4,8 @@
 		background-color: $grey5;
 	}
 
-	.facets {
-		@include padding(em(22) null);
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index: 10;
-		max-width: 100%;
-		background-color: rgba(52, 63, 73, 0.2);
-		align-items: center;
-
-		.wrap {
-			lost-center: 1200px;
-			align-items: center;
-			justify-content: center;
-
-			> div {
-				@include bp(wide) {
-					lost-column: 1/3;
-				}
-			}
-
-		}
-
-		.cpt-facet {
-			margin-bottom: em(10);
-		}
-
-		.topic-facet {
-			margin-bottom: em($gutter);
-		}
-
-		.facetwp-facet {
-			border-radius: 50px;
-			margin-bottom: 0;
-			overflow: hidden;
-			width: 365px;
-		}
-
-		select {
-			background-color: $white;
-			border: 0;
-			height: 40px;
-			min-width: 365px;
-			font-size: 16px;
-			text-indent: 10px;
-		}
-	}
-
-	.archive-description {
-		@include margin(em(20) null em(40));
-		background-color: transparent;
-	}
-
 	.archive-title {
-		font-size: em(40);
+		color: $white;
 	}
 
 	.slider-container {
@@ -69,18 +15,26 @@
 			max-height: unset;
 		}
 
+		// Need due to unconventional slider implementation.
 		.swiper-slide {
-			min-height: 505px;
+			min-height: 600px;
 
-			.inner-wrap {
-				transform: translateY(88px);
+			@include bp(600px) {
+				min-height: 500px;
 			}
 
+			@include bp(wide) {
+				min-height: 500px;
+			}
 		}
 
-		h1,
-		h3 {
-			color: $white;
+		// Need due to unconventional slider implementation.
+		.inner-wrap {
+			transform: translate(40px, 230px);
+
+			@include bp(wide) {
+				transform: translateY(120px);
+			}
 		}
 
 		.slide-content,
@@ -94,9 +48,53 @@
 			text-align: center;
 		}
 
+		// Needed because of slider arrows
+		.slide-content {
+			width: 90%;
+
+			@include bp(wide) {
+				width: calc(99.9% * 1 / 2 - (30px - 30px * 1 / 2));
+			}
+
+			.fc-title-group {
+				width: 100%;
+
+				h1,
+				h3 {
+					color: $white;
+				}
+			}
+
+			.button-group > a {
+				@include margin(0.75em 0 1.25em);
+			}
+		}
+
+
+		// Pagination
+		div.swiper-container-horizontal > .swiper-pagination-bullets {
+			bottom: 10px;
+		}
+
 		.button-next,
 		.button-prev {
-			margin-top: -22px;
+			margin-top: 15px;
+		}
+
+		.button-next {
+			right: 15px;
+
+			@include bp(mega) {
+				right: 40px;
+			}
+		}
+
+		.button-prev {
+			left: 15px;
+
+			@include bp(mega) {
+				left: 40px;
+			}
 		}
 	}
 

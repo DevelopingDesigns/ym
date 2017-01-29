@@ -81,7 +81,17 @@ function add_facets() {
 		endif; ?>
 	</section>
 
+
+
 	<?php
+	$js = '(function($) {
+                $(document).on("facetwp-loaded", function() {
+                    $(".facetwp-page.first-page").html("First");
+                    $(".facetwp-page.last-page").html("Last");
+                });
+			})(jQuery);';
+
+	wp_add_inline_script( 'app', $js );
 
 }
 

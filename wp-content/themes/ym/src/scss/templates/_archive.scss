@@ -1,20 +1,4 @@
 .archive {
-	.archive-description {
-		background-color: $white;
-		color: $slate-dark;
-		@include font-size(18);
-		@include margin(em(60) 0);
-
-		p:last-child {
-			margin-bottom: 0;
-		}
-
-		h1 {
-			@include font-size(46);
-			margin-bottom: 0;
-		}
-	}
-
 	.entry {
 		padding-top: 0;
 	}

@@ -117,7 +117,30 @@ function image_attr_fallback( $attr, $attachment ) {
 
 
 /**
- * Hide count from facetwp dropwdown on resource archive
+ * Hide count from facetwp dropdown on resource archive
  */
 add_filter( 'facetwp_facet_dropdown_show_counts', '__return_false' );
+
+
+//add_filter( 'facetwp_pager_html', __NAMESPACE__ . '\facetwp_pager_html', 10, 2 );
+/**
+ * Modify facetwp pagination
+ *
+ * @param $output
+ * @param $params
+ * @return string
+ */
+function facetwp_pager_html( $output, $params ) {
+	$output = '';
+	$page = $params['page'];
+	$total_pages = $params['total_pages'];
+	if ( $page > 1 ) {
+		$output .= '<a class="facetwp-page" data-page="' . ( $page - 1 ) . '">Previous</a>';
+	}
+	if ( $page < $total_pages && $total_pages > 1 ) {
+		$output .= '<a class="facetwp-page" data-page="' . ( $page + 1 ) . '">Next</a>';
+	}
+
+	return $output;
+}
 

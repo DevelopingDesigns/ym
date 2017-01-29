@@ -35,7 +35,20 @@ if ( have_rows( 'resource_slides', 'option' ) ) :
                 spaceBetween: 30
             }) 
         });'
-	); ?>
+	);
+
+	$custom_css = '
+                @media all and (min-width: 50em) {
+                    .align-right {
+                        order: 2;
+                        transform: translate(60px, -10px);
+                    }
+                }
+                ';
+
+	wp_add_inline_style( 'swiper', $custom_css );
+
+	?>
 
 	<div class="slider-group" style="padding: <?php echo $padding ?>;">
 
@@ -53,8 +66,7 @@ if ( have_rows( 'resource_slides', 'option' ) ) :
 					// Image
 					if ( 'image' === $bg_type ) {
 						$slide_bg = 'background: url( ' . $bg_img['url'] . ') no-repeat;';
-					}
-					else {
+					} else {
 						$slide_bg = 'background-color: ' . $bg_color . ';';
 					}
 
@@ -62,17 +74,17 @@ if ( have_rows( 'resource_slides', 'option' ) ) :
 
 					// Align Content
 					$align_content = get_sub_field( 'align_content' );
-					$align_right = 'order: 2;';
+					$align_right = 'align-right';
 
 					if ( 'right' !== $align_content ) {
 						$align_right = '';
 					} ?>
 
-					<div class="swiper-slide" style="<?php echo $slide_bg; ?>">
+					<div class="swiper-slide" style="<?php echo $slide_bg ?>">
 						<div class="wrap">
 
 							<div class="inner-wrap">
-								<div class="slide-content" style="<?php echo $align_right ?>">
+								<div class="<?php echo $align_right ?> slide-content">
 									<?php if ( get_sub_field( 'add_heading' ) ) :
 										get_template_part( 'partials/parts/title', 'group' );
 									endif; ?>
@@ -83,10 +95,6 @@ if ( have_rows( 'resource_slides', 'option' ) ) :
 								</div>
 
 								<figure>
-									<!--<img src="--><?php //echo $slide_image['sizes']['slider'] ?><!--"-->
-									<!--     alt="--><?php //echo $slide_image['alt'] ?><!--"-->
-									<!--     width="--><?php //echo $slide_image['sizes']['slider-width'] ?><!--"-->
-									<!--     height="--><?php //echo $slide_image['sizes']['slider-height'] ?><!--">-->
 									<img src="<?php echo $slide_image['url'] ?>"
 									     alt="<?php echo $slide_image['alt'] ?>"
 									     width="<?php echo $slide_image['width'] / 2 ?>"
