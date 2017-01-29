@@ -50,7 +50,7 @@ if ( have_rows( 'resource_slides', 'option' ) ) :
 
 	?>
 
-	<div class="slider-group" style="padding: <?php echo $padding ?>;">
+	<div class="slider-group">
 
 		<div class="swiper-container">
 			<div class="swiper-wrapper">

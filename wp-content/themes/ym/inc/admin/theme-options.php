@@ -20,7 +20,7 @@ add_action( 'init', __NAMESPACE__ . '\add_news_options_page' );
 function add_news_options_page() {
 	if ( function_exists( 'acf_add_options_sub_page' ) ) {
 		acf_add_options_sub_page( [
-			'title'         => 'Slider Settings',
+			'title'         => 'News Slider Settings',
 			'parent'        => 'edit.php?post_type=news',
 			'capability'    => 'manage_options',
 		] );
@@ -36,7 +36,7 @@ add_action( 'init', __NAMESPACE__ . '\add_resource_options_page' );
 function add_resource_options_page() {
 	if ( function_exists( 'acf_add_options_sub_page' ) ) {
 		acf_add_options_sub_page( [
-			'title'      => 'Slider Options',
+			'title'      => 'Resources Slider Settings',
 			'parent'     => 'edit.php?post_type=resource',
 			'capability' => 'manage_options',
 		] );
@@ -44,6 +44,21 @@ function add_resource_options_page() {
 	}
 }
 
+
+add_action( 'init', __NAMESPACE__ . '\add_whitepaper_options_page' );
+/**
+ * Add ACF options page for News custom post type
+ */
+function add_whitepaper_options_page() {
+	if ( function_exists( 'acf_add_options_sub_page' ) ) {
+		acf_add_options_sub_page( [
+			'title'      => 'Whitepaper Slider Settings',
+			'parent'     => 'edit.php?post_type=whitepapers',
+			'capability' => 'manage_options',
+		] );
+
+	}
+}
 
 
 add_action( 'init', __NAMESPACE__ . '\add_theme_options_page' );
