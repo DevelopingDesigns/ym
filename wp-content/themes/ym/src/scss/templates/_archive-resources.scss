@@ -101,13 +101,14 @@
 
 	.facetwp-template {
 		lost-center: 1200px;
+		justify-content: center;
 	}
 
 	.resource {
 		@include padding(0);
 		background-color: $white;
-		lost-column: 1/1;
 		margin-bottom: 30px;
+		max-width: em(410);
 		text-align: left;
 
 		&:hover {
@@ -115,28 +116,44 @@
 			transition: all 0.3s ease-out;
 		}
 
-		@include mappy-bp(med wide) {
-			@include padding(0);
-			background-color: $white;
-			lost-column: 1/1;
-			max-height: 430px;
-			text-align: left;
+		@include bp(large) {
+			max-width: unset;
+			lost-center: 720px;
+		}
 
-			& > * {
-				lost-waffle: 1/2 0;
+		@include bp(wide) {
+			display: block;
+			max-width: 380px;
+			lost-column: 1/3;
+		}
+
+		> * {
+			@include bp(large) {
+				lost-column: 1/2;
+			}
+
+			@include bp(wide) {
+				lost-column: none;
 			}
 		}
 
-		@include mappy-bp(1201px) {
-			@include padding(0);
-			background-color: $white;
-			lost-column: 1/3 3 30px;
-			text-align: left;
+		figure {
+			@include bp(large) {
+				max-height: 317px;
+			}
+
+			@include bp(large) {
+				max-height: unset;
+			}
 		}
 	}
 
 	.resource-wrap {
-		@include padding(15px 35px);
+		@include padding(em($gutter *2) em($gutter));
+
+		@include bp(wide) {
+			@include padding(0 null em($gutter));
+		}
 	}
 
 	.cat {

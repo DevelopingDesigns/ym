@@ -1753,68 +1753,32 @@ section > .wrap {
   flex-flow: row wrap;
   max-width: 1200px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  justify-content: center; }
 
 .resources-archive .resource {
   padding: 0;
   background-color: #fff;
-  flex: 0 0 auto;
-  width: calc(99.9% * 1/1 - (30px - 30px * 1/1));
   margin-bottom: 30px;
+  max-width: 25.625em;
   text-align: left; }
-
-.resources-archive .resource:nth-child(1n) {
-  margin-right: 30px;
-  margin-left: 0; }
-
-.resources-archive .resource:last-child {
-  margin-right: 0; }
-
-.resources-archive .resource:nth-child(1n) {
-  margin-right: 0;
-  margin-left: auto; }
   .resources-archive .resource:hover {
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease-out; }
-  @media all and (min-width: 40em) and (max-width: 74.9375em) {
+  @media all and (min-width: 50em) {
     .resources-archive .resource {
-      padding: 0;
-      background-color: #fff;
-      flex: 0 0 auto;
-      width: calc(99.9% * 1/1 - (30px - 30px * 1/1));
-      max-height: 430px;
-      text-align: left; }
-    .resources-archive .resource:nth-child(1n) {
-    margin-right: 30px;
-    margin-left: 0; }
-    .resources-archive .resource:last-child {
-    margin-right: 0; }
-    .resources-archive .resource:nth-child(1n) {
-    margin-right: 0;
-    margin-left: auto; }
-      .resources-archive .resource > * {
-        flex: 0 0 auto;
-        width: calc(99.9% * 1/2 - (30px - 30px * 1/2));
-        height: calc(99.9% * 1/2 - (30px - 30px * 1/2)); }
-      .resources-archive .resource > *:nth-child(1n) {
-    margin-right: 30px;
-    margin-bottom: 30px;
-    margin-left: 0; }
-      .resources-archive .resource > *:last-child {
-    margin-right: 0;
-    margin-bottom: 0; }
-      .resources-archive .resource > *:nth-child(0n) {
-    margin-right: 0;
-    margin-left: auto; }
-      .resources-archive .resource > *:nth-last-child(-n + 0) {
-    margin-bottom: 0; } }
-  @media all and (min-width: 75.0625em) {
+      max-width: unset;
+      display: flex;
+      flex-flow: row wrap;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto; } }
+  @media all and (min-width: 75em) {
     .resources-archive .resource {
-      padding: 0;
-      background-color: #fff;
+      display: block;
+      max-width: 380px;
       flex: 0 0 auto;
-      width: calc(99.9% * 1/3 - (30px - 30px * 1/3));
-      text-align: left; }
+      width: calc(99.9% * 1/3 - (30px - 30px * 1/3)); }
     .resources-archive .resource:nth-child(1n) {
     margin-right: 30px;
     margin-left: 0; }
@@ -1823,9 +1787,49 @@ section > .wrap {
     .resources-archive .resource:nth-child(3n) {
     margin-right: 0;
     margin-left: auto; } }
+  @media all and (min-width: 50em) {
+    .resources-archive .resource > * {
+      flex: 0 0 auto;
+      width: calc(99.9% * 1/2 - (30px - 30px * 1/2)); }
+    .resources-archive .resource > *:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+    .resources-archive .resource > *:last-child {
+    margin-right: 0; }
+    .resources-archive .resource > *:nth-child(2n) {
+    margin-right: 0;
+    margin-left: auto; } }
+  @media all and (min-width: 75em) {
+    .resources-archive .resource > * {
+      width: auto; }
+    .resources-archive .resource > *:last-child {
+    float: none;
+    clear: none;
+    margin-right: 0;
+    width: auto; }
+    .resources-archive .resource > *:nth-child(1n) {
+    float: none;
+    clear: none;
+    margin-right: 0;
+    width: auto; }
+    .resources-archive .resource > *:nth-child(1n + 1) {
+    float: none;
+    clear: none;
+    margin-right: 0;
+    width: auto; } }
+  @media all and (min-width: 50em) {
+    .resources-archive .resource figure {
+      max-height: 317px; } }
+  @media all and (min-width: 50em) {
+    .resources-archive .resource figure {
+      max-height: unset; } }
 
 .resources-archive .resource-wrap {
-  padding: 15px 35px; }
+  padding: 3.75em 1.875em; }
+  @media all and (min-width: 75em) {
+    .resources-archive .resource-wrap {
+      padding-top: 0;
+      padding-bottom: 1.875em; } }
 
 .resources-archive .cat {
   font-size: 12px;

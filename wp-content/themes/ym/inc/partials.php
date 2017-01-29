@@ -49,7 +49,7 @@ add_filter( 'get_the_content_more_link', 'ym_excerpt_more' );
 function ym_excerpt_more() {
 	$arrow_url = '/wp-content/themes/ym/dist/images/green-arrow.svg';
 
-	return sprintf( '<p class="link-more"><a href="%s" class="more-link"><img src="' . $arrow_url . '" width="20" height="14"></a></p>', esc_url( get_permalink( get_the_ID() ) ) );
+	return sprintf( '<div class="read-more"><p class="link-more"><a href="%s" class="more-link"><img src="' . $arrow_url . '" width="20" height="14"></a></p></div>', esc_url( get_permalink( get_the_ID() ) ) );
 }
 
 
