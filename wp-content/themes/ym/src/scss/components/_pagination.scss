@@ -1,7 +1,8 @@
 /* ## Pagination
 --------------------------------------------- */
 
-.pagination {
+.pagination,
+.facetwp-pager {
 	clear: both;
 	margin: 40px 0;
 	text-align: center;
@@ -19,8 +20,9 @@
 	display: inline;
 }
 
-.archive-pagination a {
-	background-color: $white;
+.archive-pagination a,
+a.facetwp-page {
+	@include margin(0);
 	border-radius: 50px;
 	color: $slate-dark;
 	cursor: pointer;
@@ -28,17 +30,17 @@
 	font-size: em(11px);
 	padding: 8px 12px;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
 .archive-pagination a:hover,
 .archive-pagination a:focus,
-.archive-pagination .active a {
+.archive-pagination .active a,
+a.facetwp-page.active,
+a.facetwp-page:hover,
+a.facetwp-page:focus {
 	background-color: $green3;
 	color: $white;
+	font-weight: $fw-normal;
 }
 
-@include media($medium-screen-up) {
-	.archive-pagination li a {
-		margin-bottom: 4px;
-	}
-}

@@ -181,7 +181,6 @@ add_action( 'get_header', function () {
 
 
 
-
 /**
  * Function displaying Flexible Content Fields
  */

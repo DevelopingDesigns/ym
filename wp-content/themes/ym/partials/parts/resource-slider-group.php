@@ -117,6 +117,8 @@ if ( have_rows( 'resource_slides', 'option' ) ) :
 		</div>
 	</div>
 
-<?php endif; ?>
+<?php
+
+endif;
 
 

@@ -90,29 +90,18 @@ function mobile_address_bar_color() {
 }
 
 
-add_filter( 'wp_get_attachment_image_attributes', __NAMESPACE__ . '\image_attr_fallback', 10, 2 );
+add_filter( 'post_thumbnail_html', __NAMESPACE__ . '\default_post_image' );
 /**
- * Image Attribute Fallback
+ * Set a default featured image if one isnt set
  *
- * @param $attr
- * @param $attachment
- * @return mixed
+ * @param $html
+ * @return string
  */
-function image_attr_fallback( $attr, $attachment ) {
-	if ( empty( $attachment->post_parent ) ) {
-		return $attr;
-	}
+function default_post_image( $html ) {
+	if ( empty( $html ) )
+		$html = '<img src="' . trailingslashit( get_stylesheet_directory_uri() ) . 'dist/images/default.jpg' . '" />';
 
-	$title = get_the_title( $attachment->post_parent );
-	if ( empty( $attr['alt'] ) ) {
-		$attr['alt'] = $title;
-	}
-
-	if ( empty( $attr['title'] ) ) {
-		$attr['title'] = $title;
-	}
-
-	return $attr;
+	return $html;
 }
 
 
@@ -122,7 +111,7 @@ function image_attr_fallback( $attr, $attachment ) {
 add_filter( 'facetwp_facet_dropdown_show_counts', '__return_false' );
 
 
-//add_filter( 'facetwp_pager_html', __NAMESPACE__ . '\facetwp_pager_html', 10, 2 );
+add_filter( 'facetwp_pager_html', __NAMESPACE__ . '\facetwp_pager_html', 10, 2 );
 /**
  * Modify facetwp pagination
  *
@@ -132,15 +121,53 @@ add_filter( 'facetwp_facet_dropdown_show_counts', '__return_false' );
  */
 function facetwp_pager_html( $output, $params ) {
 	$output = '';
+	$prev = '';
+	$next = '';
 	$page = $params['page'];
 	$total_pages = $params['total_pages'];
+
+
 	if ( $page > 1 ) {
-		$output .= '<a class="facetwp-page" data-page="' . ( $page - 1 ) . '">Previous</a>';
+		$prev .= '<a class="facetwp-page" data-page="' . ( $page - 1 ) . '">Prev</a>';
 	}
 	if ( $page < $total_pages && $total_pages > 1 ) {
-		$output .= '<a class="facetwp-page" data-page="' . ( $page + 1 ) . '">Next</a>';
+		$next .= '<a class="facetwp-page" data-page="' . ( $page + 1 ) . '">Next</a>';
 	}
 
-	return $output;
+	if ( 1 < $total_pages ) {
+
+		if ( 3 < $page ) {
+			$output .= '<a class="facetwp-page first-page" data-page="1">1</a>';
+		}
+
+		if ( 1 < ( $page - 10 ) ) {
+			$output .= '<a class="facetwp-page" data-page="' . ( $page - 10 ) . '">' . ( $page - 10 ) . '</a>';
+		}
+
+		for ( $i = 2; $i > 0; $i-- ) {
+			if ( 0 < ( $page - $i ) ) {
+				$output .= '<a class="facetwp-page" data-page="' . ( $page - $i ) . '">' . ( $page - $i ) . '</a>';
+			}
+		}
+
+		// Current page
+		$output .= '<a class="facetwp-page active" data-page="' . $page . '">' . $page . '</a>';
+
+		for ( $i = 1; $i <= 2; $i++ ) {
+			if ( $total_pages >= ( $page + $i ) ) {
+				$output .= '<a class="facetwp-page" data-page="' . ( $page + $i ) . '">' . ( $page + $i ) . '</a>';
+			}
+		}
+
+		if ( $total_pages > ( $page + 10 ) ) {
+			$output .= '<a class="facetwp-page" data-page="' . ( $page + 10 ) . '">' . ( $page + 10 ) . '</a>';
+		}
+
+		if ( $total_pages > ( $page + 2 ) ) {
+			$output .= '... ' . '<a class="facetwp-page last-page" data-page="' . $total_pages . '">' . $total_pages . '</a>';
+		}
+	}
+
+	return $prev . $output . $next;
 }
 
