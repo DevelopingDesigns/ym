@@ -49,8 +49,11 @@ add_action( 'genesis_loop', __NAMESPACE__ . '\create_loop_with_cpts_whitepapers'
 function create_loop_with_cpts_whitepapers() {
 	if ( ! function_exists( 'facetwp_display' ) ) {
 		return;
-	}
+	} ?>
 
+	<h1>On Demand Webinars</h1>
+	
+	<?php
 	echo facetwp_display( 'template', 'webinars' );
 	echo facetwp_display( 'pager' );
 }

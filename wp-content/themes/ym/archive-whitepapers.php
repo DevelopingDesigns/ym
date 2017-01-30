@@ -76,7 +76,7 @@ function add_facets_whitepapers() {
 		</div>
 
 		<?php if ( get_field( 'resource_slides', 'option' ) ) :
-			get_template_part( 'partials/parts/resource-slider', 'group' );
+			get_template_part( 'partials/parts/sliders/resource', 'slider' );
 		endif; ?>
 	</section>
 

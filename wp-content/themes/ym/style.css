@@ -1724,7 +1724,7 @@ section > .wrap {
       .archive-whitepapers .slider-container .inner-wrap,
       .related-posts .slider-container .inner-wrap,
       .archive-webinars .slider-container .inner-wrap {
-        transform: translateY(120px); } }
+        transform: translateY(90px); } }
   @media all and (min-width: 75em) {
     .archive-resource .slider-container .slide-content,
     .archive-resource .slider-container figure,
