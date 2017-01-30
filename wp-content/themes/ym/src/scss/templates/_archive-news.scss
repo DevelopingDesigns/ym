@@ -1,38 +1,13 @@
 /* ## Archive - News
 ---------------------------- */
-.post-type-archive-news {
+.archive-news {
 	.site-inner {
 		padding-top: 0;
 	}
-}
 
-
-.archive-description {
-	h1 {
-		@include font-size(48);
+	.slider-group {
+		max-height: em(390);
 	}
 }
 
 
-.post-type-archive-news {
-	.swiper-container {
-		width: 100%;
-		height: 100%;
-
-		h1,
-		h3 {
-			color: $white;
-		}
-	}
-
-	.swiper-slide {
-		background-size: cover;
-	}
-
-	.slide-content {
-		h1,
-		h3 {
-			color: $white;
-		}
-	}
-}

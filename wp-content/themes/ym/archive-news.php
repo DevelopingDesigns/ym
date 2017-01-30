@@ -16,6 +16,19 @@
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_content_sidebar' );
 
 
+add_filter( 'body_class', __NAMESPACE__ . '\add_body_class_news' );
+/**
+ * Add landing page body class to the head
+ *
+ * @param $classes
+ * @return array
+ */
+function add_body_class_news( $classes ) {
+	$classes[] = 'archive-news';
+
+	return $classes;
+}
+
 
 /**
  * Reposition Date before Entry Title
@@ -70,7 +83,7 @@ add_action( 'genesis_after_header', __NAMESPACE__ . 'add_slider' );
  */
 function add_slider() {
 	if ( get_field( 'resource_slides', 'option' ) ) :
-		get_template_part( 'partials/parts/slider', 'group' );
+		get_template_part( 'partials/parts/sliders/news', 'slider' );
 	endif;
 }
 

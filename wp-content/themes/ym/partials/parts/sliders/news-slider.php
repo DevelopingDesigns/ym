@@ -33,7 +33,18 @@ if ( have_rows( 'slides', 'option' ) ) :
                 spaceBetween: 30
             }) 
         });'
-	); ?>
+	);
+
+	$custom_css = '
+                @media all and (min-width: 50em) {
+                    .align-right {
+                        order: 2;
+                        transform: translate(60px, -10px);
+                    }
+                }
+                ';
+
+	wp_add_inline_style( 'swiper', $custom_css ); ?>
 
 <div class="slider-group">
 
@@ -60,7 +71,7 @@ if ( have_rows( 'slides', 'option' ) ) :
 
 				// Align Content
 				$align_content = get_sub_field( 'align_content' );
-				$align_right = 'order: 2;';
+				$align_right = 'align-right';
 
 				if ( 'right' !== $align_content ) {
 					$align_right = '';
@@ -70,7 +81,7 @@ if ( have_rows( 'slides', 'option' ) ) :
 					<div class="wrap">
 
 						<div class="inner-wrap">
-							<div class="slide-content" style="<?php echo $align_right ?>">
+							<div class="<?php echo $align_right ?> slide-content">
 								<?php if ( get_sub_field( 'add_heading' ) ) :
 									get_template_part( 'partials/parts/title', 'group' );
 								endif; ?>
