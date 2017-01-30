@@ -77,12 +77,12 @@ add_filter( 'genesis_pre_get_option_content_archive_limit', function () {
 
 
 
-add_action( 'genesis_after_header', __NAMESPACE__ . 'add_slider' );
+add_action( 'genesis_after_header', __NAMESPACE__ . 'add_slider_news' );
 /**
  * Add slider from News Settings
  */
-function add_slider() {
-	if ( get_field( 'resource_slides', 'option' ) ) :
+function add_slider_news() {
+	if ( get_field( 'slides', 'option' ) ) :
 		get_template_part( 'partials/parts/sliders/news', 'slider' );
 	endif;
 }

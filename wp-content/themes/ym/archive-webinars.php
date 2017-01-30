@@ -76,7 +76,7 @@ function add_facets_webinars() {
 		</div>
 
 		<?php if ( get_field( 'webinar_slides', 'option' ) ) :
-			get_template_part( 'partials/parts/webinar-slider', 'group' );
+			get_template_part( 'partials/parts/sliders/webinar', 'slider' );
 		endif; ?>
 	</section>
 

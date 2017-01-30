@@ -8,6 +8,15 @@
 	.slider-group {
 		max-height: em(390);
 	}
+
+	.slide-content {
+		@include margin(em($gutter * 2) null);
+		@include padding(0 em($gutter * 2));
+
+		@include bp(wide) {
+			@include padding(0);
+		}
+	}
 }
 
 

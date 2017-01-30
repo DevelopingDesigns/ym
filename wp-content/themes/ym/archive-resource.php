@@ -33,7 +33,7 @@ add_filter( 'body_class', __NAMESPACE__ . '\add_body_class' );
  * @return array
  */
 function add_body_class( $classes ) {
-	$classes[] = 'resources-archive';
+	$classes[] = 'archive-resource';
 
 	return $classes;
 }
@@ -77,7 +77,7 @@ function add_facets() {
 		</div>
 
 		<?php if ( get_field( 'resource_slides', 'option' ) ) :
-			get_template_part( 'partials/parts/resource-slider', 'group' );
+			get_template_part( 'partials/parts/sliders/resource', 'slider' );
 		endif; ?>
 	</section>
 
