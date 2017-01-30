@@ -31,7 +31,7 @@ function add_news_options_page() {
 
 add_action( 'init', __NAMESPACE__ . '\add_resource_options_page' );
 /**
- * Add ACF options page for News custom post type
+ * Add ACF options page for Resource custom post type
  */
 function add_resource_options_page() {
 	if ( function_exists( 'acf_add_options_sub_page' ) ) {
@@ -47,7 +47,7 @@ function add_resource_options_page() {
 
 add_action( 'init', __NAMESPACE__ . '\add_whitepaper_options_page' );
 /**
- * Add ACF options page for News custom post type
+ * Add ACF options page for Whitepaper custom post type
  */
 function add_whitepaper_options_page() {
 	if ( function_exists( 'acf_add_options_sub_page' ) ) {
@@ -60,6 +60,21 @@ function add_whitepaper_options_page() {
 	}
 }
 
+
+add_action( 'init', __NAMESPACE__ . '\add_webinar_options_page' );
+/**
+ * Add ACF options page for Webinar custom post type
+ */
+function add_webinar_options_page() {
+	if ( function_exists( 'acf_add_options_sub_page' ) ) {
+		acf_add_options_sub_page( [
+			'title'      => 'Webinar Slider Settings',
+			'parent'     => 'edit.php?post_type=webinars',
+			'capability' => 'manage_options',
+		] );
+
+	}
+}
 
 add_action( 'init', __NAMESPACE__ . '\add_theme_options_page' );
 /**

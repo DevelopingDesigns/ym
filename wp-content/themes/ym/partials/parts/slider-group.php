@@ -18,8 +18,6 @@ $slides = get_field( 'slides', 'option' );
 
 if ( have_rows( 'slides', 'option' ) ) :
 
-	$padding = get_field( 'slider_height' ) ? : 'unset';
-
 	wp_enqueue_style( 'swiper' );
 
 	wp_enqueue_script( 'swiper' );
@@ -37,7 +35,7 @@ if ( have_rows( 'slides', 'option' ) ) :
         });'
 	); ?>
 
-<div class="slider-group" style="padding: <?php echo $padding ?>;">
+<div class="slider-group">
 
 	<div class="swiper-container">
 		<div class="swiper-wrapper">

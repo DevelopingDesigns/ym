@@ -24,6 +24,7 @@ function register_image_sizes() {
 	add_image_size( 'slider-bg', 1400, 375, true );
 	add_image_size( 'slider', 600, 351, true );
 	add_image_size( 'landing-page', 1440, 450 );
+	add_image_size( 'upcoming-webinars', 550, 486 );
 }
 
 
