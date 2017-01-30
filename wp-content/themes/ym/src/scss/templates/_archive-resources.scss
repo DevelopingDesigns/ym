@@ -1,5 +1,6 @@
 .resources-archive,
-.archive-whitepapers {
+.archive-whitepapers,
+.related-posts {
 	.site-container {
 		background-color: $grey5;
 	}
@@ -99,7 +100,8 @@
 	}
 
 
-	.facetwp-template {
+	.facetwp-template,
+	.flex-wrap {
 		lost-center: 1200px;
 		justify-content: center;
 	}
@@ -142,7 +144,7 @@
 				max-height: 317px;
 			}
 
-			@include bp(large) {
+			@include bp(wide) {
 				max-height: unset;
 			}
 		}

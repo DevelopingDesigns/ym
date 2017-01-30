@@ -1,0 +1,7 @@
+.related-posts {
+	padding-bottom: em(100);
+
+	.fc-title-group {
+		@include padding(em(100) 0);
+	}
+}

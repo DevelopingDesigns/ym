@@ -1,29 +1,50 @@
 <?php
 /**
- * Default code for a Resources - Content Block
+ * Default code for CTA Section group. Disabled by default.
+ * Used as module with ACF clone field.
  *
  * @package    YourMembership
  * @author     Developing Designs - Joe Dooley
  * @link       https://www.developingdesigns.com
- * @copyright  Joe Dooley, Developing Designs
  */
 
-$resources = get_row( 'posts' );
-$post_objects = $resources['posts'];
+$related_posts = get_field( 'related_posts', 'option' );
+$post_objects = $related_posts['posts'];
 
 //echo '<pre>';
-//print_r( $resources );
+//print_r( $related_posts );
 //echo '</pre>';
+
+
+/**
+ * Heading vars
+ */
+$headings = $related_posts['headings'];
+$align = $headings['heading_alignment'] ? : 'left';
+$fs_heading = ! $headings['font_size_heading'] ? 'font-size: 3em' : 'font-size: ' . $headings['font_size_heading'];
+$fs_subheading = ! $headings['font_size_subheading'] ? 'font-size: 1.875em' :
+	'font-size: ' . $headings['font_size_subheading'];
 
 ?>
 
-<section class="row fc-resources <?php echo $resources['css_class']; ?>"
-         style="background-color: <?php echo $resources['background_color']; ?>;">
+<section class="related-posts"
+         style="background-color: <?php echo $related_posts['background_color']; ?>;">
 	<div class="wrap">
 
-		<?php if ( $resources['add_heading'] ) :
-			get_template_part( 'partials/parts/title', 'group' );
-		endif; ?>
+		<?php if ( $related_posts['add_heading'] ) : ?>
+			<div class="fc-title-group" style="text-align: <?php echo $align ?>;">
+
+				<?php if ( $headings['choose_heading'] ) : ?>
+					<h1 style="<?php echo $fs_heading ?>;"><?php echo $headings['heading']; ?></h1>
+				<?php endif; ?>
+
+				<?php if ( $headings['choose_subheading'] ) : ?>
+					<h3 class="subheading"
+					    style="<?php echo $fs_subheading ?>;"><?php echo $headings['subheading']; ?></h3>
+				<?php endif; ?>
+
+			</div>
+		<?php endif; ?>
 
 		<div class="flex-wrap">
 
@@ -78,4 +99,3 @@ $post_objects = $resources['posts'];
 
 	</div>
 </section>
-

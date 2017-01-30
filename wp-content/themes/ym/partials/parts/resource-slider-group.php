@@ -12,13 +12,16 @@
 
 $slides = get_field( 'resource_slides', 'option' );
 
+
 //echo '<pre>';
 //echo print_r( $slides );
 //echo '</pre>';
 
-if ( have_rows( 'resource_slides', 'option' ) ) :
 
-	$padding = get_field( 'resource_slider_height' ) ? : 'unset';
+$resource_slides = have_rows( 'resource_slides', 'option' );
+
+
+if ( have_rows( 'resource_slides', 'option' ) ) :
 
 	wp_enqueue_style( 'swiper' );
 
@@ -46,9 +49,9 @@ if ( have_rows( 'resource_slides', 'option' ) ) :
                 }
                 ';
 
-	wp_add_inline_style( 'swiper', $custom_css );
+	wp_add_inline_style( 'swiper', $custom_css ); ?>
 
-	?>
+
 
 	<div class="slider-group">
 

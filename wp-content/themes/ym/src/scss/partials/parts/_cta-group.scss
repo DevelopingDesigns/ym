@@ -1,0 +1,11 @@
+.cta-section {
+	@include padding(em(85) 0);
+
+	.fc-title-group {
+		margin-bottom: em($gutter);
+	}
+
+	h1 {
+		color: $white;
+	}
+}

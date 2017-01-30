@@ -85,6 +85,19 @@ function add_facets() {
 }
 
 
+
+add_action( 'genesis_before_footer', __NAMESPACE__ . '\add_cta_section', 8 );
+/**
+ * Add ACF CTA Section
+ */
+function add_cta_section() {
+	if ( get_field( 'add_cta_section', 'option' ) ) {
+		get_template_part( 'partials/parts/cta', 'group' );
+	}
+}
+
+
+
 add_filter( 'genesis_attr_content', __NAMESPACE__ . '\add_facetwp_support' );
 /**
  * Add css classes needed for facetwp
