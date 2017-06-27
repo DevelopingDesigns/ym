@@ -80,10 +80,12 @@ body.browser-msie .acf-repeater .acf-row-handle .acf-icon.-minus {
 .acf-repeater .acf-row.acf-clone {
   display: none !important;
 }
-.acf-repeater .acf-row:hover {
+.acf-repeater .acf-row:hover,
+.acf-repeater .acf-row.-hover {
   /* icons */
 }
-.acf-repeater .acf-row:hover > .acf-row-handle .acf-icon {
+.acf-repeater .acf-row:hover > .acf-row-handle .acf-icon,
+.acf-repeater .acf-row.-hover > .acf-row-handle .acf-icon {
   display: block;
 }
 .acf-repeater > table > tbody > tr.ui-sortable-helper {
@@ -238,33 +240,51 @@ body.browser-msie .acf-repeater .acf-row-handle .acf-icon.-minus {
 }
 /* popup */
 .acf-fc-popup {
-  position: absolute;
+  background: #2F353E;
   border-radius: 5px;
-  background: #32373c;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  min-width: 135px;
+  color: #fff;
+  padding: 7px 0;
+  position: absolute;
+  font-size: 13px;
   z-index: 9999;
-  /* bit */
-  /* focus helper */
+  min-width: 135px;
+  /* tip */
+  /* positions */
+  /* list */
 }
 .acf-fc-popup:before {
+  border: solid;
+  border-color: transparent;
+  border-width: 6px;
   content: "";
-  display: block;
   position: absolute;
-  left: 50%;
-  top: 100%;
-  margin: 0 0 0 -7px;
-  width: 0;
-  height: 0;
-  border: transparent solid 7px;
-  border-top-color: #32373c;
-  z-index: 2;
 }
-.acf-fc-popup.bottom:before {
-  top: auto;
+.acf-fc-popup.-top {
+  margin-top: -8px;
+}
+.acf-fc-popup.-top:before {
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-top-color: #2F353E;
+  border-bottom-width: 0;
+}
+.acf-fc-popup.-bottom {
+  margin-bottom: -8px;
+}
+.acf-fc-popup.-bottom:before {
   bottom: 100%;
-  border-top-color: transparent;
-  border-bottom-color: #32373c;
+  left: 50%;
+  margin-left: -6px;
+  border-bottom-color: #2F353E;
+  border-top-width: 0;
+}
+.acf-fc-popup.-right:before {
+  left: 18px;
+}
+.acf-fc-popup.-left:before {
+  left: auto;
+  right: 18px;
 }
 .acf-fc-popup ul,
 .acf-fc-popup li {
@@ -272,9 +292,6 @@ body.browser-msie .acf-repeater .acf-row-handle .acf-icon.-minus {
   display: block;
   margin: 0;
   padding: 0;
-}
-.acf-fc-popup ul {
-  padding: 7px 0;
 }
 .acf-fc-popup li {
   position: relative;
@@ -310,15 +327,7 @@ body.browser-msie .acf-repeater .acf-row-handle .acf-icon.-minus {
   color: #888;
   background: transparent;
 }
-.acf-fc-popup .focus {
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 100%;
-  top: 0;
-  opacity: 0;
-}
-.acf-fc-popup ul li a .acf-fc-popup ul li a .status .acf-fc-popup ul li a:hover .status {
+.acf-fc-popup ul li a:hover .status {
   border-color: #fff;
   color: #fff;
 }

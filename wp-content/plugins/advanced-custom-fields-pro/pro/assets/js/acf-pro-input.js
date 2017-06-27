@@ -45,7 +45,7 @@
 		initialize: function(){
 			
 			// disable clone
-			acf.disable_form( this.$clone );
+			acf.disable_form( this.$clone, 'repeater' );
 						
 			
 			// render
@@ -132,7 +132,7 @@
 			
 			
 			// enable 
-			acf.enable_form( $el );
+			acf.enable_form( $el, 'repeater' );
 			
 			
 			// move row
@@ -304,7 +304,30 @@
 		
 		_remove: function( e ){ //console.log('_remove');
 			
-			this.remove( e.$el.closest('.acf-row') );
+			// reference
+			var self = this;
+			
+			
+			// vars
+			var $row = e.$el.closest('.acf-row');
+			
+			
+			// add -open class to show controlls
+			$row.addClass('-hover');
+			
+			
+			// confirm
+			acf.tooltip.confirm_remove( e.$el, function( result ){
+				
+				$row.removeClass('-hover');
+				
+				if( result ) {
+					
+					self.remove( $row );
+					
+				}
+				
+			});
 			
 		},
 		
@@ -364,12 +387,9 @@
 		},
 		
 		events: {
-			'click [data-event="add-layout"]': 			'_open',
-			'click [data-event="remove-layout"]': 		'_remove',
-			'click [data-event="collapse-layout"]':		'_collapse',
-			'click .acf-fc-layout-handle':				'_collapse',
-			'click .acf-fc-popup a':					'_add',
-			'blur .acf-fc-popup .focus':				'_close',
+			'click [data-name="add-layout"]': 			'_open',
+			'click [data-name="remove-layout"]': 		'_remove',
+			'click [data-name="collapse-layout"]':		'_collapse',
 			'mouseenter .acf-fc-layout-handle': 		'_mouseenter'
 		},
 		
@@ -377,7 +397,7 @@
 			
 			// vars
 			this.$el = this.$field.find('.acf-flexible-content:first');
-			this.$input = this.$el.siblings('input');
+			this.$input = this.$el.children('input');
 			this.$values = this.$el.children('.values');
 			this.$clones = this.$el.children('.clones');
 			
@@ -400,8 +420,8 @@
 		
 		initialize: function(){
 			
-			// disable clone inputs
-			this.$clones.find('input, textarea, select').attr('disabled', 'disabled');
+			// disable clone
+			acf.disable_form( this.$clones, 'flexible_content' );
 						
 			
 			// render
@@ -461,28 +481,26 @@
 		render_layout_title: function( $layout ){
 			
 			// vars
-			var ajax_data = acf.serialize( $layout );
+			var $input = $layout.children('input');
+			var prefix = $input.attr('name').replace('[acf_fc_layout]', '');
 			
 			
-			// append
-			ajax_data = acf.parse_args( ajax_data, {
+			// ajax data
+			var ajaxdata = {
 				action: 	'acf/fields/flexible_content/layout_title',
 				field_key: 	this.$field.data('key'),
 				i: 			$layout.index(),
-				layout:		$layout.data('layout')
-			});
-			
-			
-			// prepare
-			ajax_data = acf.prepare_for_ajax(ajax_data);
+				layout:		$input.val(),
+				value:		acf.serialize( $layout, prefix )
+			};
 			
 			
 			// ajax get title HTML
 			$.ajax({
-		    	url			: acf.get('ajaxurl'),
-				dataType	: 'html',
-				type		: 'post',
-				data		: ajax_data,
+		    	url:		acf.get('ajaxurl'),
+		    	data:		acf.prepare_for_ajax(ajaxdata),
+				dataType:	'html',
+				type:		'post',
 				success: function( html ){
 					
 					// bail early if no html
@@ -688,8 +706,8 @@
 			$el = acf.duplicate( $clone );
 			
 			
-			// enable inputs (ignore inputs disabled for life)
-			$el.find('input, textarea, select').not('.acf-disabled').removeAttr('disabled');
+			// enable 
+			acf.enable_form( $el, 'flexible_content' );
 			
 				
 			// hide no values message
@@ -790,11 +808,19 @@
 			
 			
 			// reference
-			var $values = this.$values;
+			var self = this;
 			
 			
 			// vars
 			var $popup = $( this.$el.children('.tmpl-popup').html() );
+			
+			
+			// count layouts
+			var layouts = {};
+			this.$values.children('.layout').each(function(){
+				var k = $(this).data('layout');
+				layouts[ k ] = layouts[ k ] ? layouts[ k ] + 1 : 1;
+			});
 			
 			
 			// modify popup
@@ -805,7 +831,7 @@
 					min = $a.data('min') || 0,
 					max = $a.data('max') || 0,
 					name = $a.data('layout'),
-					count = $values.children('.layout[data-layout="' + name + '"]').length;
+					count = layouts[name] || 0;
 				
 				
 				// max
@@ -846,120 +872,200 @@
 			});
 			
 			
-			// add popup
-			e.$el.after( $popup );
-			
-			
 			// within layout?
-			if( e.$el.closest('.acf-fc-layout-controlls').exists() ) {
-				
-				$popup.closest('.layout').addClass('-open');
-				
-			}
-			
-			
-			// vars
-			$popup.css({
-				'margin-top' : 0 - $popup.height() - e.$el.outerHeight() - 15,
-				'margin-left' : ( e.$el.outerWidth() - $popup.width() ) / 2
-			});
-			
-			
-			// check distance to top
-			var dist_to_top = $popup.offset().top,
-				min = ($('#wpadminbar').height() || 0) + 30; // 30px buffer below 'top'
-			
-			if( dist_to_top < min ) {
-				
-				$popup.css({
-					'margin-top' : 15
-				});
-				
-				$popup.addClass('bottom');
+			var $layout = null;
+			if( e.$el.hasClass('acf-icon') ) {
+
+				$layout = e.$el.closest('.layout');
+				$layout.addClass('-open');
 				
 			}
 			
 			
-			// focus
-			$popup.children('.focus').trigger('focus');
-			
-		},
-		
-		_close: function( e ){ //console.log('_close');
-			
-			var $popup = e.$el.parent(),
-				$layout = $popup.closest('.layout');
+			// append
+			$('body').append( $popup );
 			
 			
-			// hide controlls?
-			$layout.removeClass('-open');
+			// position
+			this.position_popup( $popup, e.$el );
 			
 			
-			// remove popup
-			setTimeout(function(){
+			// events
+			var event = function( e, layout ){
 				
+				// prevent all listeners
+				e.preventDefault();
+				e.stopImmediatePropagation();
+				
+				
+				// remove events
+				$popup.off('click', 'a', event_y);
+				$('body').off('click', event_n);
+				
+				
+				// remove tooltip
 				$popup.remove();
 				
-			}, 200);
+				
+				// hide controlls?
+				if( $layout !== null ) {
+					$layout.removeClass('-open');
+				}
+			
+				
+				// callback
+				if( layout !== null ) {
+					self.add( layout, $layout );
+				}
+				
+			};
+			
+			var event_y = function( e ){
+				event( e, $(this).attr('data-layout') );
+			};
+			
+			var event_n = function( e ){
+				event( e, null );
+			};
+			
+			
+			// add events
+			$popup.on('click', 'a', event_y);
+			$('body').on('click', event_n);
 			
 		},
 		
-		_add: function( e ){ //console.log('_add');
-						
-			// vars
-			var $popup = e.$el.closest('.acf-fc-popup'),
-				layout = e.$el.attr('data-layout'),
-				$before = false;
+		
+		/*
+		*  position_popup
+		*
+		*  This function will position a $popup to another element (button)
+		*
+		*  @type	function
+		*  @date	8/6/17
+		*  @since	5.6.0
+		*
+		*  @param	$popup (element)
+		*  @param	$el (element)
+		*  @return	n/a
+		*/
+		
+		position_popup: function( $popup, $el ){
+			
+			// position
+			var tolerance = 10;
+				target_w = $el.outerWidth(),
+				target_h = $el.outerHeight(),
+				target_t = $el.offset().top,
+				target_l = $el.offset().left,
+				popup_w = $popup.outerWidth(),
+				popup_h = $popup.outerHeight();
 			
 			
-			// move row
-			if( $popup.closest('.acf-fc-layout-controlls').exists() ) {
+			// calculate top
+			var top = target_t - popup_h,
+				left = target_l + (target_w / 2) - (popup_w / 2);
 			
-				$before = $popup.closest('.layout');
+			
+			// too far top
+			if( top - $(window).scrollTop() < tolerance ) {
+				
+				$popup.addClass('-bottom');
+				top = target_t + target_h;
+			
+			// default
+			} else {
+				
+				$popup.addClass('-top');
+				
+			}
+			
+			
+			// too far left
+			if( left < tolerance ) {
+				
+				$popup.addClass('-right');
+				left = target_l;
+			
+			
+			// too far right
+			} else if( (left + popup_w + tolerance) > $(window).width() ) {
+				
+				$popup.addClass('-left');
+				left = target_l + target_w - popup_w;
 			
 			}
 			
 			
-			// add row
-			this.add( layout, $before );
+			// update css
+			$popup.css({ 'top': top, 'left': left });
 			
 		},
 		
-		_remove: function( e ){ //console.log('_remove');
+		_remove: function( e ){ console.log('flex _remove');
 			
 			// reference
 			var self = this;
 			
 			
 			// vars
-			var $layout	= e.$el.closest('.layout');
+			var $layout = e.$el.closest('.layout');
+			
+			
+			// add -open class to show controlls
+			$layout.addClass('-open');
+			
+			
+			// confirm
+			acf.tooltip.confirm_remove( e.$el, function( result ){
+				
+				if( result ) {
+					
+					self.remove_layout( $layout );
+					
+				} else {
+					
+					$layout.removeClass('-open');
+					
+				}
+				
+				
+			});
+			
+		},
+		
+		remove_layout: function( $layout ){
+			
+			// reference
+			var self = this;
 			
 			
 			// bail early if validation fails
 			if( !this.validate_remove( $layout.attr('data-layout') ) ) {
-			
 				return;
-				
 			}
 			
 			
-			// close field
-			var end_height = 0,
+			// vars
+			var $message = null,
+				end_height = 0;
+			
+			
+			// show message if no values
+			if( this.count() == 1 ) {
 				$message = this.$el.children('.no-value-message');
-			
-			if( $layout.siblings('.layout').length == 0 ) {
-			
 				end_height = $message.outerHeight();
-				
 			}
-			
-			
-			// action for 3rd party customization
-			acf.do_action('remove', $layout);
 			
 			
 			// remove
 			acf.remove_el( $layout, function(){
+				
+				// show message
+				if( $message !== null ) {
+					$message.show();
+				}
+				
 				
 				// update order
 				self.render();
@@ -967,13 +1073,6 @@
 			
 				// trigger change to allow attachment save
 				self.$input.trigger('change');
-				
-			
-				if( end_height > 0 ) {
-				
-					$message.show();
-					
-				}
 				
 				
 				// sync collapsed order
@@ -1977,7 +2076,7 @@
 				$edit = this.$side.find('.acf-gallery-edit'),
 				$form = this.$side.find('.acf-gallery-side-data'),
 				id = $edit.data('id'),
-				data = acf.serialize_form( $form );
+				data = acf.serialize( $form );
 			
 			
 			// validate
@@ -1993,14 +2092,10 @@
 			data.action = 'acf/fields/gallery/update_attachment';
 			
 			
-			// prepare for ajax
-			acf.prepare_for_ajax(data);
-			
-			
 			// ajax
 			$.ajax({
 				url			: acf.get('ajaxurl'),
-				data		: data,
+				data		: acf.prepare_for_ajax(data),
 				type		: 'post',
 				dataType	: 'json',
 				complete	: function( json ){
