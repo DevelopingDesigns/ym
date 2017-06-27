@@ -6441,7 +6441,10 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    text-align: center; }
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%; }
     @media all and (min-width: 40em) {
       .footer-top .flex-wrap {
         -webkit-box-orient: horizontal;
@@ -6632,7 +6635,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
         .site-footer .flex-wrap .textwidget {
           text-align: center; } }
       .site-footer .flex-wrap .textwidget p {
-        font-size: 0.75rem;
+        font-size: 12px;
         line-height: 17px; }
     .site-footer .flex-wrap .menu {
       margin: 0;
@@ -6651,7 +6654,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
         padding-right: 10px;
         padding-left: 10px;
         color: #ABB3BE;
-        font-size: 0.75rem;
+        font-size: 12px;
         line-height: 17px; }
         .site-footer .flex-wrap .menu a:hover, .site-footer .flex-wrap .menu a:focus {
           color: #343F49; }
@@ -6986,7 +6989,8 @@ a.arrow-text-link {
     width: 100%; }
 
 .upcoming-videos .play-btn-container {
-  position: absolute; }
+  position: absolute;
+  width: 80px; }
   .upcoming-videos .play-btn-container > div {
     height: auto !important;
     width: auto !important; }
