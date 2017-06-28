@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme menu functions
+ * YM child theme menu functions
  */
 
 add_action( 'init', 'menus_create' );
@@ -13,6 +13,7 @@ function menus_create() {
 		'footer_utility' => __( 'Footer Utility', 'ym' ),
 		'primary' => __( 'Primary', 'ym' ),
 		'social' => __( 'Social Media', 'ym' ),
+		'page_404' => __( 'Page 404', 'ym' ),
 	];
 
 	register_nav_menus( $locations );

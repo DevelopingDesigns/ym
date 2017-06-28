@@ -345,7 +345,7 @@ add_action( 'genesis_after_content', __NAMESPACE__ . '\add_form' );
  * Output signup form
  */
 function add_form() {
-	if ( ! get_field( 'form' ) ) {
+	if ( ! get_field( 'form_type' ) ) {
 		return;
 	}
 
@@ -366,9 +366,9 @@ function add_form() {
 		echo '<div class="signup-form" style="margin-bottom: ' . $form_margin . '">';
 		gravity_form( $form_object['id'], false, true, false, '', true, 1 );
 		echo '</div>';
-	}
-	else { ?>
+	} else { ?>
 		<div class="signup-form"><?php echo $pardot_form ?></div>
+
 		<?php
 
 	}

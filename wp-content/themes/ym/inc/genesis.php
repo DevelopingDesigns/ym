@@ -63,16 +63,9 @@ function theme_setup() {
 		'width'      => 180,
 		'height'     => 83,
 		'flex-height' => true,
-		'flex-width'  => true
+		'flex-width'  => true,
 	) );
 
-
-	add_theme_support( 'genesis-menus', [
-			'primary'   => __( 'After Header Menu', 'ym' ),
-			'secondary' => __( 'Footer Menu', 'ym' ),
-			'utility'   => __( 'Utility Menu', 'ym' ),
-		]
-	);
 
 	/**
 	 * Remove site description

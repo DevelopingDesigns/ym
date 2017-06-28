@@ -1,0 +1,73 @@
+.error404 {
+	#site-inner-404 {
+		flex-direction: column-reverse;
+		lost-flex-container: column;
+		align-items: center;
+		justify-content: center;
+
+		@include bp(large) {
+			lost-flex-container: row;
+			justify-content: space-evenly;
+		}
+
+		> * {
+			@include bp(large) {
+				lost-column: 5/12 0 0;
+			}
+		}
+
+		article {
+			padding-top: 0;
+		}
+
+		aside {
+		}
+	}
+}
+
+#site-inner-404 {
+	padding: 0;
+
+	header {
+		h1 {
+			font-size: rem(100);
+			font-weight: $fw-boldest;
+			color: $green3;
+			letter-spacing: -1.88px;
+			padding-bottom: rem(40);
+
+			@include bp(large) {
+				font-size: rem(125);
+			}
+
+			@include bp(wide) {
+				font-size: em(150);
+				padding-bottom: rem(40);
+			}
+
+		}
+
+		h2 {
+			color: $green3;
+		}
+	}
+
+	.intro {
+		font-size: rem(18);
+		letter-spacing: normal;
+		color: $slate-light;
+	}
+
+	// Crazy CSS due to SuperSide Me plugin adding display: none
+	// to all <nav> tag's below 1200px
+	nav#nav-menu-404 {
+		display: block;
+
+		a {
+			font-weight: $fw-medium;
+			font-size: rem(16);
+			color: $green1;
+			line-height: 28px;
+		}
+	}
+}

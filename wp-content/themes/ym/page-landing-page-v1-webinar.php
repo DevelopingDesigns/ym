@@ -327,7 +327,7 @@ add_action( 'genesis_before_entry', __NAMESPACE__ . '\add_form' );
  * Output signup form
  */
 function add_form() {
-	if ( ! get_field( 'form' ) ) {
+	if ( ! get_field( 'form_type' ) ) {
 		return;
 	}
 
