@@ -41,7 +41,8 @@ if ( $hero_slides ) :
 				nextButton: ".button-next",
                 prevButton: ".button-prev",
                 spaceBetween: 30,
-                height: "500px"
+                height: "500px",
+                loop: true
             })
         });'
 	);

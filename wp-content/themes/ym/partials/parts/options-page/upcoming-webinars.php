@@ -22,45 +22,50 @@ if ( have_rows( 'webinars', 'option' ) ) : ?>
 			<?php while ( have_rows( 'webinars', 'option' ) ) : the_row();
 
 				$post_object = get_sub_field( 'webinar' );
-				//$post_url = get_permalink( $post_object->ID );
-				//$post_title = $post_object->post_title;
-				//
-				//$image = get_sub_field( 'featured_image' );
-				//$date = get_sub_field( 'date' );
-				//$time = get_sub_field( 'time' );
-				//
-				//$excerpt = $post_object->post_content;
-				//
-				///**
-				// * Buttons
-				// */
-				//$add_cta = get_sub_field( 'add_cta' );
-				//$button = get_sub_field( 'buttons' );
-
 
 				if ( $post_object ) :
 
 					$post = $post_object;
-
 					setup_postdata( $post );
 
-
-					$post_url = get_permalink( $post->ID );
-					$post_title = $post->post_title;
-
 					$image = get_sub_field( 'featured_image' );
-					$date = get_sub_field( 'date' );
-					$time = get_sub_field( 'time' );
-
-					$excerpt = $post->post_content;
+					$date  = get_sub_field( 'date' );
+					$time  = get_sub_field( 'time' );
 
 					/**
 					 * Buttons
 					 */
 					$add_cta = get_sub_field( 'add_cta' );
-					$button = get_sub_field( 'buttons' );
+					$button  = get_sub_field( 'buttons' );
 
-					?>
+
+					/**
+					 * Custom fields for related posts field group. Lets users
+					 * define a custom title/excerpt/link/link target on archive
+					 * pages.
+					 */
+					$customize_related_posts = get_field( 'customize_related_posts', $post->ID );
+
+					$custom_title = get_field( 'rp_post_title', $post->ID );
+					$custom_excerpt = get_field( 'rp_post_excerpt', $post->ID );
+
+					$title = $customize_related_posts ? $custom_title : get_the_title();
+
+					$link = get_field( 'rp_url', $post->ID );
+					$link_to = get_field( 'rp_link_type' );
+					$resource_link = get_field( 'rp_url' );
+
+					if ( 'internal' === $link_to ) {
+						$link = $resource_link;
+					} elseif ( 'external' === $link_to ) {
+						$link = $resource_link;
+					} else {
+						$link = get_permalink();
+					}
+
+					$link_target = get_field( 'rp_target' );
+					$target = $link_target ? '_blank' : '_self'; ?>
+
 
 					<article class="webinar" itemscope="" itemtype="http://schema.org/CreativeWork">
 
@@ -83,12 +88,22 @@ if ( have_rows( 'webinars', 'option' ) ) : ?>
 								<?php endif; ?>
 
 								<div class="entry-header">
-									<h4 class="title" itemprop="headline"><?php echo $post_title ?></h4>
+									<h4 class="title" itemprop="headline">
+										<a class="link" href="<?php echo $link; ?>" rel="bookmark" target="<?php echo $target ?>"><?php echo $title ?></a>
+									</h4>
 								</div>
 							</header>
 
-							<?php if ( $excerpt ) : ?>
-								<div class="entry-content" itemprop="text"><?php echo wp_trim_words( $excerpt, '30' ) ?></div>
+							<?php
+							$excerpt = get_the_content();
+							$trimmed_excerpt = wp_trim_words( $excerpt, '30' );
+
+							$is_excerpt = $customize_related_posts ? $custom_excerpt : $trimmed_excerpt; ?>
+
+							<?php if ( $is_excerpt ) : ?>
+								<a class="link-excerpt" href="<?php echo $link ?>" target="<?php echo $target ?>">
+									<div class="entry-content" itemprop="text"><?php echo $is_excerpt ?></div>
+								</a>
 							<?php endif; ?>
 
 							<?php
@@ -133,10 +148,12 @@ if ( have_rows( 'webinars', 'option' ) ) : ?>
 
 								<div class="button-group">
 									<a href="<?php echo $button['url']; ?>"
+									   target="<?php echo $target ?>"
 									   class="<?php echo $button['style'] . ' ' . $button['size']; ?> button double-button"><?php echo $button['text']; ?></a>
 
 									<?php if ( $button['add_another_cta'] ) : ?>
 										<a href="<?php echo $button['second_button']['url']; ?>"
+										   target="<?php echo $target ?>"
 										   class="<?php echo $button['second_button']['style'] . ' ' . $button['second_button']['size']; ?> button double-button"><?php echo $button['second_button']['text']; ?></a>
 									<?php endif; ?>
 								</div>
