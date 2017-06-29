@@ -51,7 +51,7 @@ else:
      * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
      *
      * Pantheon sets these values for you also. If you want to shuffle them you
-     * must contact support: https://pantheon.io/docs/getting-support 
+     * must contact support: https://pantheon.io/docs/getting-support
      *
      * @since 2.6.0
      */
@@ -67,7 +67,7 @@ else:
 
     /** A couple extra tweaks to help things run well on Pantheon. **/
     if (isset($_SERVER['HTTP_HOST'])) {
-        // HTTP is still the default scheme for now. 
+        // HTTP is still the default scheme for now.
         $scheme = 'http';
         // If we have detected that the end use is HTTPS, make sure we pass that
         // through here, so <img> tags and the like don't generate mixed-mode
@@ -144,9 +144,31 @@ define('WPLANG', '');
  * You may want to examine $_ENV['PANTHEON_ENVIRONMENT'] to set this to be
  * "true" in dev, but false in test and live.
  */
-if ( ! defined( 'WP_DEBUG' ) ) {
-    define('WP_DEBUG', false);
+
+/**
+ * For developers: WordPress debugging mode.
+ *
+ * Debugging is enabled in Local, Dev, and Multi-Dev environments
+ * and disabled on your Test and Live environments.
+ *
+ * Unless you have to disable WP_DEBUG on a Dev site you shouldn't have
+ * to worry about setting WP_DEBUG to true or false depending on your
+ * environment anymore.
+ *
+ * @since 4.4
+ */
+if ( defined( 'PANTHEON_ENVIRONMENT' ) ) {
+	if ( ! in_array( PANTHEON_ENVIRONMENT, array( 'test', 'live' ), true ) ) {
+		define( 'WP_DEBUG', true );
+		define( 'WP_DEBUG_LOG', true );
+		define( 'WP_DEBUG_DISPLAY', false );
+	} else {
+		define( 'WP_DEBUG', false );
+		define( 'WP_DEBUG_LOG', false );
+		define( 'WP_DEBUG_DISPLAY', false );
+	}
 }
+
 
 /* That's all, stop editing! Happy Pressing. */
 
