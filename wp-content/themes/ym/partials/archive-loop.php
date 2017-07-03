@@ -116,8 +116,10 @@ wp_add_inline_script( 'equal-heights-js',
 
 		<?php if ( has_post_thumbnail() ) : ?>
 			<figure class="featured-image">
-				<a class="entry-image-link" href="<?php echo $link ?>" title="<?php the_title_attribute(); ?>"
-				   aria-hidden="true" target="<?php echo $target ?>">
+				<a class="entry-image-link"
+				   href="<?php echo $link ?>"
+				   title="<?php the_title_attribute(); ?>"
+				   target="<?php echo $target ?>">
 					<?php the_post_thumbnail( 'resources-featured-image' ); ?>
 				</a>
 			</figure>

@@ -51,7 +51,7 @@ function create_loop_with_cpts_infographics() {
 		return;
 	}
 
-	echo facetwp_display( 'template', 'infographics' );
+	echo facetwp_display( 'template', 'infographic' );
 }
 
 
