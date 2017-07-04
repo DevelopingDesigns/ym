@@ -5,8 +5,6 @@ class FacetWP_Facet_Dropdown
 
     function __construct() {
         $this->label = __( 'Dropdown', 'fwp' );
-
-        add_filter( 'facetwp_store_unfiltered_post_ids', array( $this, 'store_unfiltered_post_ids' ) );
     }
 
 
@@ -99,14 +97,14 @@ class FacetWP_Facet_Dropdown
             }
 
             // Determine whether to show counts
-            $display_value .= $result['facet_display_value'];
+            $display_value .= esc_attr( $result['facet_display_value'] );
             $show_counts = apply_filters( 'facetwp_facet_dropdown_show_counts', true, array( 'facet' => $facet ) );
 
             if ( $show_counts ) {
                 $display_value .= ' (' . $result['counter'] . ')';
             }
 
-            $output .= '<option value="' . $result['facet_value'] . '"' . $selected . '>' . $display_value . '</option>';
+            $output .= '<option value="' . esc_attr( $result['facet_value'] ) . '"' . $selected . '>' . $display_value . '</option>';
         }
 
         $output .= '</select>';
@@ -187,8 +185,7 @@ class FacetWP_Facet_Dropdown
                 <div class="facetwp-tooltip">
                     <span class="icon-question">?</span>
                     <div class="facetwp-tooltip-content">
-                        If <strong>Data source</strong> is a taxonomy, enter the
-                        parent term's ID if you want to show child terms.
+                        To show only child terms, enter the parent <a href="https://facetwp.com/how-to-find-a-wordpress-terms-id/" target="_blank">term ID</a>.
                         Otherwise, leave blank.
                     </div>
                 </div>
@@ -233,17 +230,5 @@ class FacetWP_Facet_Dropdown
             <td><input type="text" class="facet-count" value="20" /></td>
         </tr>
 <?php
-    }
-
-
-    /**
-     * Store unfiltered post IDs if a dropdown facet exists
-     */
-    function store_unfiltered_post_ids( $boolean ) {
-        if ( FWP()->helper->facet_setting_exists( 'type', 'dropdown' ) ) {
-            return true;
-        }
-
-        return $boolean;
     }
 }

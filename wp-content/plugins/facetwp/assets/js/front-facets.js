@@ -1,5 +1,12 @@
 (function($) {
 
+    /* ======== IE11 .val() fix ======== */
+
+    $.fn.pVal = function() {
+        var val = $(this).eq(0).val();
+        return val === $(this).attr('placeholder') ? '' : val;
+    }
+
     /* ======== Autocomplete ======== */
 
     wp.hooks.addAction('facetwp/refresh/autocomplete', function($this, facet_name) {
@@ -11,7 +18,7 @@
         $('.facetwp-autocomplete').each(function() {
             var $this = $(this);
             $this.autocomplete({
-                serviceUrl: ajaxurl,
+                serviceUrl: FWP_JSON.ajaxurl,
                 type: 'POST',
                 minChars: 3,
                 deferRequestBy: 200,
@@ -46,20 +53,23 @@
     });
 
     wp.hooks.addFilter('facetwp/selections/checkboxes', function(output, params) {
-        var labels = [];
+        var choices = [];
         $.each(params.selected_values, function(idx, val) {
-            var label = params.el.find('.facetwp-checkbox[data-value="' + val + '"]').clone();
-            label.find('.facetwp-counter').remove();
-            label.find('.facetwp-expand').remove();
-            labels.push(label.text());
+            var choice = params.el.find('.facetwp-checkbox[data-value="' + val + '"]').clone();
+            choice.find('.facetwp-counter').remove();
+            choice.find('.facetwp-expand').remove();
+            choices.push({
+                value: val,
+                label: choice.text()
+            });
         });
-        return labels.join(' / ');
+        return choices;
     });
 
     $(document).on('click', '.facetwp-type-checkboxes .facetwp-expand', function(e) {
         $wrap = $(this).parent('.facetwp-checkbox').next('.facetwp-depth');
         $wrap.toggleClass('visible');
-        var content = $wrap.hasClass('visible') ? '[-]' : '[+]';
+        var content = $wrap.hasClass('visible') ? FWP_JSON['collapse'] : FWP_JSON['expand'];
         $(this).text(content);
         e.stopPropagation();
     });
@@ -82,23 +92,31 @@
             $el.text($el.text().replace('{num}', num));
         });
 
-        // hierarchy support
-        var show_toggles = wp.hooks.applyFilters( 'facetwp/checkboxes/show_toggles', true );
+        // are children visible?
+        $('.facetwp-type-checkboxes').each(function() {
+            var $facet = $(this);
+            var name = $facet.attr('data-name');
 
-        if (show_toggles && 1 > $('.facetwp-type-checkboxes .facetwp-expand').length) {
-            $('.facetwp-type-checkboxes .facetwp-depth').each(function() {
-                var $parent = $(this).prev('.facetwp-checkbox');
-                $parent.append(' <span class="facetwp-expand">[+]</span>');
-            });
+            // hierarchy toggles
+            if ('yes' === FWP.settings[name]['show_expanded']) {
+                $facet.find('.facetwp-depth').addClass('visible');
+            }
 
-            // un-hide groups with selected items
-            $('.facetwp-type-checkboxes .facetwp-checkbox.checked').each(function() {
-                $(this).parents('.facetwp-depth').each(function() {
-                    $(this).prev('.facetwp-checkbox').find('.facetwp-expand').text('[-]');
-                    $(this).addClass('visible');
+            if (1 > $facet.find('.facetwp-expand').length) {
+                $facet.find('.facetwp-depth').each(function() {
+                    var which = $(this).hasClass('visible') ? 'collapse' : 'expand';
+                    $(this).prev('.facetwp-checkbox').append(' <span class="facetwp-expand">' + FWP_JSON[which] + '</span>');
                 });
-            });
-        }
+
+                // un-hide groups with selected items
+                $facet.find('.facetwp-checkbox.checked').each(function() {
+                    $(this).parents('.facetwp-depth').each(function() {
+                        $(this).prev('.facetwp-checkbox').find('.facetwp-expand').text(FWP_JSON['collapse']);
+                        $(this).addClass('visible');
+                    });
+                });
+            }
+        });
     });
 
     /* ======== Radio ======== */
@@ -112,13 +130,16 @@
     });
 
     wp.hooks.addFilter('facetwp/selections/radio', function(output, params) {
-        var labels = [];
+        var choices = [];
         $.each(params.selected_values, function(idx, val) {
-            var label = params.el.find('.facetwp-radio[data-value="' + val + '"]').clone();
-            label.find('.facetwp-counter').remove();
-            labels.push(label.text());
+            var choice = params.el.find('.facetwp-radio[data-value="' + val + '"]').clone();
+            choice.find('.facetwp-counter').remove();
+            choices.push({
+                value: val,
+                label: choice.text()
+            });
         });
-        return labels.join(' / ');
+        return choices;
     });
 
     $(document).on('click', '.facetwp-type-radio .facetwp-radio:not(.disabled)', function() {
@@ -133,8 +154,8 @@
     /* ======== Date Range ======== */
 
     wp.hooks.addAction('facetwp/refresh/date_range', function($this, facet_name) {
-        var min = $this.find('.facetwp-date-min').val() || '';
-        var max = $this.find('.facetwp-date-max').val() || '';
+        var min = $this.find('.facetwp-date-min').pVal() || '';
+        var max = $this.find('.facetwp-date-max').pVal() || '';
         FWP.facets[facet_name] = ('' !== min || '' !== max) ? [min, max] : [];
     });
 
@@ -180,14 +201,16 @@
         };
 
         $dates.each(function() {
-            var facet_name = $(this).closest('.facetwp-facet').attr('data-name');
+            var $this = $(this);
+            var facet_name = $this.closest('.facetwp-facet').attr('data-name');
             flatpickr_opts.altFormat = FWP.settings[facet_name].format;
 
             var opts = wp.hooks.applyFilters('facetwp/set_options/date_range', flatpickr_opts, {
-                'facet_name': facet_name
+                'facet_name': facet_name,
+                'element': $this
             });
-            new Flatpickr(this, opts);
-            $(this).addClass('ready');
+            new flatpickr(this, opts);
+            $this.addClass('ready');
         });
     });
 
