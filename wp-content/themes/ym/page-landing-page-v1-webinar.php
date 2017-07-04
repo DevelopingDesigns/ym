@@ -13,7 +13,7 @@
 
 /**
  * Template Name: Landing Page - Webinar/Demo V1
- * Template Post Type: page, post, landingpages, landing_pages, company_event, career_event, webinars, whitepapers, videos, infographics, casestudy, product, upcoming_webinars
+ * Template Post Type: page, post, landingpages, landing_pages, company_event, career_event, webinars, whitepapers, videos, infographics, casestudy, product, toolkit
  */
 
 namespace DevDesigns\YM;

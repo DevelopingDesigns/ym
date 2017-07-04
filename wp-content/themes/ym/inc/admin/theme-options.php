@@ -155,3 +155,19 @@ function add_infographics_options_page() {
 		] );
 	}
 }
+
+
+add_action( 'init', __NAMESPACE__ . '\add_toolkit_options_page' );
+/**
+ * Add ACF options page for toolkit custom post type
+ */
+function add_toolkit_options_page() {
+	if ( function_exists( 'acf_add_options_sub_page' ) ) {
+		acf_add_options_sub_page( [
+			'title'      => 'Tool Kits Archive Options',
+			'parent'     => 'edit.php?post_type=toolkit',
+			'capability' => 'manage_options',
+		] );
+
+	}
+}

@@ -11,7 +11,7 @@
 
 /**
  * Template Name: Landing Page - Content Download V3
- * Template Post Type: page, post, landingpages, landing_pages, company_event, career_event, webinars, whitepapers, videos, infographics, casestudy, product
+ * Template Post Type: page, post, landingpages, landing_pages, company_event, career_event, webinars, whitepapers, videos, infographics, casestudy, product, toolkit
  */
 
 namespace DevDesigns\YM;

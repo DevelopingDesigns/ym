@@ -12,6 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
+/**
+ * Require menu's post type
+ */
+require_once __DIR__ . '/custom-post-types/custom-post-types.php';
+
+
 /**
  * Require menu's post type
  */

@@ -70,6 +70,7 @@ function change_home_to_resource_center_in_breadcrumbs( $args ) {
 		'casestudy',
 		'post',
 		'landing_pages',
+		'toolkits',
 	];
 
 	if ( ! is_post_type_archive( $post_types ) && ! is_home() && ! is_singular( $post_types ) && ! is_category() && ! is_date() ) {
@@ -102,6 +103,7 @@ function change_home_link_in_breadcrumbs_for_resources( $crumb ) {
 		'casestudy',
 		'post',
 		'landing_pages',
+		'toolkits',
 	];
 
 	if ( ! is_post_type_archive( $post_types ) && ! is_home() && ! is_singular( $post_types ) && ! is_category() && ! is_date() ) {

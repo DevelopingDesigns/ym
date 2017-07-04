@@ -163,7 +163,7 @@ add_filter( 'facetwp_template_force_load', '__return_true' );
  */
 function fwp_load_more() {
 
-	if ( ! is_post_type_archive( [ 'webinars', 'whitepapers', 'resource_center', 'videos', 'infographics', 'casestudy' ] ) && ! is_home() ) {
+	if ( ! is_post_type_archive( [ 'webinars', 'whitepapers', 'resource_center', 'videos', 'infographics', 'casestudy', 'toolkit' ] ) && ! is_home() ) {
 		return;
 	} ?>
 
@@ -230,10 +230,11 @@ function fwp_load_more() {
 
 add_filter( 'wp_head', __NAMESPACE__ . '\preselect_archive_cpt_facet', 99 );
 /**
- * Pre Select Webinars Post Type on Webinar archive
+ * Preselect FacetWP Post Type. The post type option is
+ * parsed out of the URL fragments with regex and the $_SERVER superglobal.
  */
 function preselect_archive_cpt_facet() {
-	if ( ! is_post_type_archive( [ 'webinars', 'whitepapers', 'videos', 'infographics', 'casestudy' ] ) ) {
+	if ( ! is_post_type_archive( [ 'webinars', 'whitepapers', 'videos', 'infographics', 'casestudy', 'toolkit' ] ) ) {
 		return;
 	}
 

@@ -4068,7 +4068,8 @@ body.v5-landing-page.landing-page {
 .archive-webinars .site-container,
 .archive-videos .site-container,
 .archive-case-studies .site-container,
-.archive-infographics .site-container {
+.archive-infographics .site-container,
+.archive-toolkit .site-container {
   background-color: #F7F7F7; }
 
 .archive-resource-center .site-inner,
@@ -4077,7 +4078,8 @@ body.v5-landing-page.landing-page {
 .archive-webinars .site-inner,
 .archive-videos .site-inner,
 .archive-case-studies .site-inner,
-.archive-infographics .site-inner {
+.archive-infographics .site-inner,
+.archive-toolkit .site-inner {
   padding-top: 0; }
 
 .archive-resource-center .archive-title,
@@ -4086,7 +4088,8 @@ body.v5-landing-page.landing-page {
 .archive-webinars .archive-title,
 .archive-videos .archive-title,
 .archive-case-studies .archive-title,
-.archive-infographics .archive-title {
+.archive-infographics .archive-title,
+.archive-toolkit .archive-title {
   color: #fff; }
 
 .archive-resource-center .slider-container,
@@ -4095,7 +4098,8 @@ body.v5-landing-page.landing-page {
 .archive-webinars .slider-container,
 .archive-videos .slider-container,
 .archive-case-studies .slider-container,
-.archive-infographics .slider-container {
+.archive-infographics .slider-container,
+.archive-toolkit .slider-container {
   position: relative; }
   .archive-resource-center .slider-container .slide-content,
   .archive-whitepapers .slider-container .slide-content,
@@ -4103,7 +4107,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .slider-container .slide-content,
   .archive-videos .slider-container .slide-content,
   .archive-case-studies .slider-container .slide-content,
-  .archive-infographics .slider-container .slide-content {
+  .archive-infographics .slider-container .slide-content,
+  .archive-toolkit .slider-container .slide-content {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4121,7 +4126,8 @@ body.v5-landing-page.landing-page {
 .archive-webinars .swiper-container,
 .archive-videos .swiper-container,
 .archive-case-studies .swiper-container,
-.archive-infographics .swiper-container {
+.archive-infographics .swiper-container,
+.archive-toolkit .swiper-container {
   position: relative; }
   .archive-resource-center .swiper-container .slider-group,
   .archive-whitepapers .swiper-container .slider-group,
@@ -4129,7 +4135,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .slider-group,
   .archive-videos .swiper-container .slider-group,
   .archive-case-studies .swiper-container .slider-group,
-  .archive-infographics .swiper-container .slider-group {
+  .archive-infographics .swiper-container .slider-group,
+  .archive-toolkit .swiper-container .slider-group {
     max-height: unset; }
   .archive-resource-center .swiper-container .inner-wrap,
   .archive-whitepapers .swiper-container .inner-wrap,
@@ -4137,7 +4144,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .inner-wrap,
   .archive-videos .swiper-container .inner-wrap,
   .archive-case-studies .swiper-container .inner-wrap,
-  .archive-infographics .swiper-container .inner-wrap {
+  .archive-infographics .swiper-container .inner-wrap,
+  .archive-toolkit .swiper-container .inner-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4156,7 +4164,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .inner-wrap,
       .archive-videos .swiper-container .inner-wrap,
       .archive-case-studies .swiper-container .inner-wrap,
-      .archive-infographics .swiper-container .inner-wrap {
+      .archive-infographics .swiper-container .inner-wrap,
+      .archive-toolkit .swiper-container .inner-wrap {
         -webkit-box-align: end;
             -ms-flex-align: end;
                 align-items: flex-end;
@@ -4171,7 +4180,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .slide-image,
   .archive-videos .swiper-container .slide-image,
   .archive-case-studies .swiper-container .slide-image,
-  .archive-infographics .swiper-container .slide-image {
+  .archive-infographics .swiper-container .slide-image,
+  .archive-toolkit .swiper-container .slide-image {
     display: none; }
     @media all and (min-width: 68.75em) {
       .archive-resource-center .swiper-container .slide-image,
@@ -4180,7 +4190,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-image,
       .archive-videos .swiper-container .slide-image,
       .archive-case-studies .swiper-container .slide-image,
-      .archive-infographics .swiper-container .slide-image {
+      .archive-infographics .swiper-container .slide-image,
+      .archive-toolkit .swiper-container .slide-image {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -4195,7 +4206,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-image:nth-child(1n),
       .archive-videos .swiper-container .slide-image:nth-child(1n),
       .archive-case-studies .swiper-container .slide-image:nth-child(1n),
-      .archive-infographics .swiper-container .slide-image:nth-child(1n) {
+      .archive-infographics .swiper-container .slide-image:nth-child(1n),
+      .archive-toolkit .swiper-container .slide-image:nth-child(1n) {
     margin-right: 0;
     margin-left: 0; }
       .archive-resource-center .swiper-container .slide-image:last-child,
@@ -4204,7 +4216,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-image:last-child,
       .archive-videos .swiper-container .slide-image:last-child,
       .archive-case-studies .swiper-container .slide-image:last-child,
-      .archive-infographics .swiper-container .slide-image:last-child {
+      .archive-infographics .swiper-container .slide-image:last-child,
+      .archive-toolkit .swiper-container .slide-image:last-child {
     margin-right: 0; }
       .archive-resource-center .swiper-container .slide-image:nth-child(0n),
       .archive-whitepapers .swiper-container .slide-image:nth-child(0n),
@@ -4212,7 +4225,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-image:nth-child(0n),
       .archive-videos .swiper-container .slide-image:nth-child(0n),
       .archive-case-studies .swiper-container .slide-image:nth-child(0n),
-      .archive-infographics .swiper-container .slide-image:nth-child(0n) {
+      .archive-infographics .swiper-container .slide-image:nth-child(0n),
+      .archive-toolkit .swiper-container .slide-image:nth-child(0n) {
     margin-right: 0;
     margin-left: auto; } }
   .archive-resource-center .swiper-container .slide-content,
@@ -4221,7 +4235,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .slide-content,
   .archive-videos .swiper-container .slide-content,
   .archive-case-studies .swiper-container .slide-content,
-  .archive-infographics .swiper-container .slide-content {
+  .archive-infographics .swiper-container .slide-content,
+  .archive-toolkit .swiper-container .slide-content {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
@@ -4234,7 +4249,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .slide-content:nth-child(1n),
   .archive-videos .swiper-container .slide-content:nth-child(1n),
   .archive-case-studies .swiper-container .slide-content:nth-child(1n),
-  .archive-infographics .swiper-container .slide-content:nth-child(1n) {
+  .archive-infographics .swiper-container .slide-content:nth-child(1n),
+  .archive-toolkit .swiper-container .slide-content:nth-child(1n) {
   margin-right: 0;
   margin-left: 0; }
   .archive-resource-center .swiper-container .slide-content:last-child,
@@ -4243,7 +4259,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .slide-content:last-child,
   .archive-videos .swiper-container .slide-content:last-child,
   .archive-case-studies .swiper-container .slide-content:last-child,
-  .archive-infographics .swiper-container .slide-content:last-child {
+  .archive-infographics .swiper-container .slide-content:last-child,
+  .archive-toolkit .swiper-container .slide-content:last-child {
   margin-right: 0; }
   .archive-resource-center .swiper-container .slide-content:nth-child(0n),
   .archive-whitepapers .swiper-container .slide-content:nth-child(0n),
@@ -4251,7 +4268,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .slide-content:nth-child(0n),
   .archive-videos .swiper-container .slide-content:nth-child(0n),
   .archive-case-studies .swiper-container .slide-content:nth-child(0n),
-  .archive-infographics .swiper-container .slide-content:nth-child(0n) {
+  .archive-infographics .swiper-container .slide-content:nth-child(0n),
+  .archive-toolkit .swiper-container .slide-content:nth-child(0n) {
   margin-right: 0;
   margin-left: auto; }
     @media all and (min-width: 43.75em) and (max-width: 68.6875em) {
@@ -4261,7 +4279,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content,
       .archive-videos .swiper-container .slide-content,
       .archive-case-studies .swiper-container .slide-content,
-      .archive-infographics .swiper-container .slide-content {
+      .archive-infographics .swiper-container .slide-content,
+      .archive-toolkit .swiper-container .slide-content {
         -webkit-transform: translateY(40px);
                 transform: translateY(40px); } }
     @media all and (min-width: 68.75em) {
@@ -4271,7 +4290,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content,
       .archive-videos .swiper-container .slide-content,
       .archive-case-studies .swiper-container .slide-content,
-      .archive-infographics .swiper-container .slide-content {
+      .archive-infographics .swiper-container .slide-content,
+      .archive-toolkit .swiper-container .slide-content {
         -webkit-box-flex: 0;
             -ms-flex: 0 0 auto;
                 flex: 0 0 auto;
@@ -4284,7 +4304,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content:nth-child(1n),
       .archive-videos .swiper-container .slide-content:nth-child(1n),
       .archive-case-studies .swiper-container .slide-content:nth-child(1n),
-      .archive-infographics .swiper-container .slide-content:nth-child(1n) {
+      .archive-infographics .swiper-container .slide-content:nth-child(1n),
+      .archive-toolkit .swiper-container .slide-content:nth-child(1n) {
     margin-right: 0;
     margin-left: 0; }
       .archive-resource-center .swiper-container .slide-content:last-child,
@@ -4293,7 +4314,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content:last-child,
       .archive-videos .swiper-container .slide-content:last-child,
       .archive-case-studies .swiper-container .slide-content:last-child,
-      .archive-infographics .swiper-container .slide-content:last-child {
+      .archive-infographics .swiper-container .slide-content:last-child,
+      .archive-toolkit .swiper-container .slide-content:last-child {
     margin-right: 0; }
       .archive-resource-center .swiper-container .slide-content:nth-child(0n),
       .archive-whitepapers .swiper-container .slide-content:nth-child(0n),
@@ -4301,7 +4323,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content:nth-child(0n),
       .archive-videos .swiper-container .slide-content:nth-child(0n),
       .archive-case-studies .swiper-container .slide-content:nth-child(0n),
-      .archive-infographics .swiper-container .slide-content:nth-child(0n) {
+      .archive-infographics .swiper-container .slide-content:nth-child(0n),
+      .archive-toolkit .swiper-container .slide-content:nth-child(0n) {
     margin-right: 0;
     margin-left: auto; } }
     @media all and (min-width: 81.25em) {
@@ -4311,7 +4334,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content,
       .archive-videos .swiper-container .slide-content,
       .archive-case-studies .swiper-container .slide-content,
-      .archive-infographics .swiper-container .slide-content {
+      .archive-infographics .swiper-container .slide-content,
+      .archive-toolkit .swiper-container .slide-content {
         min-height: 550px;
         -webkit-box-flex: 0;
             -ms-flex: 0 0 auto;
@@ -4323,7 +4347,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content:nth-child(1n),
       .archive-videos .swiper-container .slide-content:nth-child(1n),
       .archive-case-studies .swiper-container .slide-content:nth-child(1n),
-      .archive-infographics .swiper-container .slide-content:nth-child(1n) {
+      .archive-infographics .swiper-container .slide-content:nth-child(1n),
+      .archive-toolkit .swiper-container .slide-content:nth-child(1n) {
     margin-right: 0;
     margin-left: 0; }
       .archive-resource-center .swiper-container .slide-content:last-child,
@@ -4332,7 +4357,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content:last-child,
       .archive-videos .swiper-container .slide-content:last-child,
       .archive-case-studies .swiper-container .slide-content:last-child,
-      .archive-infographics .swiper-container .slide-content:last-child {
+      .archive-infographics .swiper-container .slide-content:last-child,
+      .archive-toolkit .swiper-container .slide-content:last-child {
     margin-right: 0; }
       .archive-resource-center .swiper-container .slide-content:nth-child(0n),
       .archive-whitepapers .swiper-container .slide-content:nth-child(0n),
@@ -4340,7 +4366,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content:nth-child(0n),
       .archive-videos .swiper-container .slide-content:nth-child(0n),
       .archive-case-studies .swiper-container .slide-content:nth-child(0n),
-      .archive-infographics .swiper-container .slide-content:nth-child(0n) {
+      .archive-infographics .swiper-container .slide-content:nth-child(0n),
+      .archive-toolkit .swiper-container .slide-content:nth-child(0n) {
     margin-right: 0;
     margin-left: auto; } }
     @media all and (min-width: 43.75em) and (max-width: 68.6875em) {
@@ -4350,7 +4377,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content .fc-title-group,
       .archive-videos .swiper-container .slide-content .fc-title-group,
       .archive-case-studies .swiper-container .slide-content .fc-title-group,
-      .archive-infographics .swiper-container .slide-content .fc-title-group {
+      .archive-infographics .swiper-container .slide-content .fc-title-group,
+      .archive-toolkit .swiper-container .slide-content .fc-title-group {
         margin-top: auto; } }
     .archive-resource-center .swiper-container .slide-content .button-group,
     .archive-whitepapers .swiper-container .slide-content .button-group,
@@ -4358,7 +4386,8 @@ body.v5-landing-page.landing-page {
     .archive-webinars .swiper-container .slide-content .button-group,
     .archive-videos .swiper-container .slide-content .button-group,
     .archive-case-studies .swiper-container .slide-content .button-group,
-    .archive-infographics .swiper-container .slide-content .button-group {
+    .archive-infographics .swiper-container .slide-content .button-group,
+    .archive-toolkit .swiper-container .slide-content .button-group {
       margin-bottom: 5.3125rem; }
       @media all and (min-width: 43.75em) and (max-width: 68.6875em) {
         .archive-resource-center .swiper-container .slide-content .button-group,
@@ -4367,7 +4396,8 @@ body.v5-landing-page.landing-page {
         .archive-webinars .swiper-container .slide-content .button-group,
         .archive-videos .swiper-container .slide-content .button-group,
         .archive-case-studies .swiper-container .slide-content .button-group,
-        .archive-infographics .swiper-container .slide-content .button-group {
+        .archive-infographics .swiper-container .slide-content .button-group,
+        .archive-toolkit .swiper-container .slide-content .button-group {
           margin-bottom: auto; } }
       @media all and (min-width: 81.25em) {
         .archive-resource-center .swiper-container .slide-content .button-group,
@@ -4376,7 +4406,8 @@ body.v5-landing-page.landing-page {
         .archive-webinars .swiper-container .slide-content .button-group,
         .archive-videos .swiper-container .slide-content .button-group,
         .archive-case-studies .swiper-container .slide-content .button-group,
-        .archive-infographics .swiper-container .slide-content .button-group {
+        .archive-infographics .swiper-container .slide-content .button-group,
+        .archive-toolkit .swiper-container .slide-content .button-group {
           margin-bottom: 4.6875rem; } }
       .archive-resource-center .swiper-container .slide-content .button-group > a,
       .archive-whitepapers .swiper-container .slide-content .button-group > a,
@@ -4384,7 +4415,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .slide-content .button-group > a,
       .archive-videos .swiper-container .slide-content .button-group > a,
       .archive-case-studies .swiper-container .slide-content .button-group > a,
-      .archive-infographics .swiper-container .slide-content .button-group > a {
+      .archive-infographics .swiper-container .slide-content .button-group > a,
+      .archive-toolkit .swiper-container .slide-content .button-group > a {
         margin: 0.75em 0 1.25em; }
   .archive-resource-center .swiper-container .fc-title-group,
   .archive-whitepapers .swiper-container .fc-title-group,
@@ -4392,7 +4424,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .fc-title-group,
   .archive-videos .swiper-container .fc-title-group,
   .archive-case-studies .swiper-container .fc-title-group,
-  .archive-infographics .swiper-container .fc-title-group {
+  .archive-infographics .swiper-container .fc-title-group,
+  .archive-toolkit .swiper-container .fc-title-group {
     padding: 0;
     width: 100%; }
     .archive-resource-center .swiper-container .fc-title-group > *,
@@ -4401,7 +4434,8 @@ body.v5-landing-page.landing-page {
     .archive-webinars .swiper-container .fc-title-group > *,
     .archive-videos .swiper-container .fc-title-group > *,
     .archive-case-studies .swiper-container .fc-title-group > *,
-    .archive-infographics .swiper-container .fc-title-group > * {
+    .archive-infographics .swiper-container .fc-title-group > *,
+    .archive-toolkit .swiper-container .fc-title-group > * {
       text-align: left; }
       @media all and (min-width: 50em) {
         .archive-resource-center .swiper-container .fc-title-group > *,
@@ -4410,7 +4444,8 @@ body.v5-landing-page.landing-page {
         .archive-webinars .swiper-container .fc-title-group > *,
         .archive-videos .swiper-container .fc-title-group > *,
         .archive-case-studies .swiper-container .fc-title-group > *,
-        .archive-infographics .swiper-container .fc-title-group > * {
+        .archive-infographics .swiper-container .fc-title-group > *,
+        .archive-toolkit .swiper-container .fc-title-group > * {
           -webkit-box-flex: 0;
               -ms-flex: 0 0 auto;
                   flex: 0 0 auto;
@@ -4423,7 +4458,8 @@ body.v5-landing-page.landing-page {
         .archive-webinars .swiper-container .fc-title-group > *:nth-child(1n),
         .archive-videos .swiper-container .fc-title-group > *:nth-child(1n),
         .archive-case-studies .swiper-container .fc-title-group > *:nth-child(1n),
-        .archive-infographics .swiper-container .fc-title-group > *:nth-child(1n) {
+        .archive-infographics .swiper-container .fc-title-group > *:nth-child(1n),
+        .archive-toolkit .swiper-container .fc-title-group > *:nth-child(1n) {
     margin-right: 30px;
     margin-left: 0; }
         .archive-resource-center .swiper-container .fc-title-group > *:last-child,
@@ -4432,7 +4468,8 @@ body.v5-landing-page.landing-page {
         .archive-webinars .swiper-container .fc-title-group > *:last-child,
         .archive-videos .swiper-container .fc-title-group > *:last-child,
         .archive-case-studies .swiper-container .fc-title-group > *:last-child,
-        .archive-infographics .swiper-container .fc-title-group > *:last-child {
+        .archive-infographics .swiper-container .fc-title-group > *:last-child,
+        .archive-toolkit .swiper-container .fc-title-group > *:last-child {
     margin-right: 0; }
         .archive-resource-center .swiper-container .fc-title-group > *:nth-child(12n),
         .archive-whitepapers .swiper-container .fc-title-group > *:nth-child(12n),
@@ -4440,7 +4477,8 @@ body.v5-landing-page.landing-page {
         .archive-webinars .swiper-container .fc-title-group > *:nth-child(12n),
         .archive-videos .swiper-container .fc-title-group > *:nth-child(12n),
         .archive-case-studies .swiper-container .fc-title-group > *:nth-child(12n),
-        .archive-infographics .swiper-container .fc-title-group > *:nth-child(12n) {
+        .archive-infographics .swiper-container .fc-title-group > *:nth-child(12n),
+        .archive-toolkit .swiper-container .fc-title-group > *:nth-child(12n) {
     margin-right: 0;
     margin-left: auto; } }
     .archive-resource-center .swiper-container .fc-title-group > *:first-child,
@@ -4449,7 +4487,8 @@ body.v5-landing-page.landing-page {
     .archive-webinars .swiper-container .fc-title-group > *:first-child,
     .archive-videos .swiper-container .fc-title-group > *:first-child,
     .archive-case-studies .swiper-container .fc-title-group > *:first-child,
-    .archive-infographics .swiper-container .fc-title-group > *:first-child {
+    .archive-infographics .swiper-container .fc-title-group > *:first-child,
+    .archive-toolkit .swiper-container .fc-title-group > *:first-child {
       margin-bottom: 1.25rem; }
     .archive-resource-center .swiper-container .fc-title-group > *:last-child,
     .archive-whitepapers .swiper-container .fc-title-group > *:last-child,
@@ -4457,7 +4496,8 @@ body.v5-landing-page.landing-page {
     .archive-webinars .swiper-container .fc-title-group > *:last-child,
     .archive-videos .swiper-container .fc-title-group > *:last-child,
     .archive-case-studies .swiper-container .fc-title-group > *:last-child,
-    .archive-infographics .swiper-container .fc-title-group > *:last-child {
+    .archive-infographics .swiper-container .fc-title-group > *:last-child,
+    .archive-toolkit .swiper-container .fc-title-group > *:last-child {
       margin-bottom: 1.25rem; }
     .archive-resource-center .swiper-container .fc-title-group h2,
     .archive-whitepapers .swiper-container .fc-title-group h2,
@@ -4465,7 +4505,8 @@ body.v5-landing-page.landing-page {
     .archive-webinars .swiper-container .fc-title-group h2,
     .archive-videos .swiper-container .fc-title-group h2,
     .archive-case-studies .swiper-container .fc-title-group h2,
-    .archive-infographics .swiper-container .fc-title-group h2 {
+    .archive-infographics .swiper-container .fc-title-group h2,
+    .archive-toolkit .swiper-container .fc-title-group h2 {
       line-height: 36px; }
   .archive-resource-center .swiper-container .swiper-pagination-bullets,
   .archive-whitepapers .swiper-container .swiper-pagination-bullets,
@@ -4473,7 +4514,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .swiper-pagination-bullets,
   .archive-videos .swiper-container .swiper-pagination-bullets,
   .archive-case-studies .swiper-container .swiper-pagination-bullets,
-  .archive-infographics .swiper-container .swiper-pagination-bullets {
+  .archive-infographics .swiper-container .swiper-pagination-bullets,
+  .archive-toolkit .swiper-container .swiper-pagination-bullets {
     bottom: 1.5625rem; }
   .archive-resource-center .swiper-container .button-next,
   .archive-resource-center .swiper-container .button-prev,
@@ -4488,7 +4530,9 @@ body.v5-landing-page.landing-page {
   .archive-case-studies .swiper-container .button-next,
   .archive-case-studies .swiper-container .button-prev,
   .archive-infographics .swiper-container .button-next,
-  .archive-infographics .swiper-container .button-prev {
+  .archive-infographics .swiper-container .button-prev,
+  .archive-toolkit .swiper-container .button-next,
+  .archive-toolkit .swiper-container .button-prev {
     margin-top: 0; }
   .archive-resource-center .swiper-container .button-next,
   .archive-whitepapers .swiper-container .button-next,
@@ -4496,7 +4540,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .button-next,
   .archive-videos .swiper-container .button-next,
   .archive-case-studies .swiper-container .button-next,
-  .archive-infographics .swiper-container .button-next {
+  .archive-infographics .swiper-container .button-next,
+  .archive-toolkit .swiper-container .button-next {
     right: 20px; }
     @media all and (min-width: 90em) {
       .archive-resource-center .swiper-container .button-next,
@@ -4505,7 +4550,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .button-next,
       .archive-videos .swiper-container .button-next,
       .archive-case-studies .swiper-container .button-next,
-      .archive-infographics .swiper-container .button-next {
+      .archive-infographics .swiper-container .button-next,
+      .archive-toolkit .swiper-container .button-next {
         right: 40px; } }
   .archive-resource-center .swiper-container .button-prev,
   .archive-whitepapers .swiper-container .button-prev,
@@ -4513,7 +4559,8 @@ body.v5-landing-page.landing-page {
   .archive-webinars .swiper-container .button-prev,
   .archive-videos .swiper-container .button-prev,
   .archive-case-studies .swiper-container .button-prev,
-  .archive-infographics .swiper-container .button-prev {
+  .archive-infographics .swiper-container .button-prev,
+  .archive-toolkit .swiper-container .button-prev {
     left: 20px; }
     @media all and (min-width: 90em) {
       .archive-resource-center .swiper-container .button-prev,
@@ -4522,7 +4569,8 @@ body.v5-landing-page.landing-page {
       .archive-webinars .swiper-container .button-prev,
       .archive-videos .swiper-container .button-prev,
       .archive-case-studies .swiper-container .button-prev,
-      .archive-infographics .swiper-container .button-prev {
+      .archive-infographics .swiper-container .button-prev,
+      .archive-toolkit .swiper-container .button-prev {
         left: 40px; } }
 
 .swiper-container .inner-wrap.align-right {
