@@ -1,6 +1,7 @@
 .ad-widget {
 	@include padding(em(30) em(25));
-	background: $teal1;
+	//background-color: $teal1;
+	background-color: $black2;
 	text-align: center;
 
 	@include bp(small wide) {
@@ -18,7 +19,6 @@
 	.btn-large {
 		min-width: 0;
 	}
-
 }
 
 

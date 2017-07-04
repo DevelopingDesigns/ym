@@ -555,8 +555,6 @@ select {
 ul,
 ol {
   list-style-type: none;
-  font-size: 0.9375em;
-  line-height: 23px;
   margin-bottom: 2.5em;
   margin-left: 1.25em;
   padding-left: 0.5em; }
@@ -5141,8 +5139,21 @@ body.team-template article.content-wrap {
           -webkit-box-flex: 3;
               -ms-flex: 3;
                   flex: 3; } }
-    .blog-post #genesis-sidebar-mobile .gform_wrapper input {
-      max-width: 400px; }
+    .blog-post #genesis-sidebar-mobile .widget.gform_widget .gform_wrapper ul li.gfield:first-child {
+      padding-right: 0; }
+      .blog-post #genesis-sidebar-mobile .widget.gform_widget .gform_wrapper ul li.gfield:first-child input {
+        margin-left: 0;
+        max-width: 400px; }
+    .blog-post #genesis-sidebar-mobile .widget.gform_widget .gform_wrapper .gform_footer:not(.top_label) {
+      margin-left: 0;
+      margin-top: 1.5625rem;
+      padding: 0;
+      width: 100%; }
+      .blog-post #genesis-sidebar-mobile .widget.gform_widget .gform_wrapper .gform_footer:not(.top_label) input.button {
+        line-height: 15px;
+        margin: 0;
+        min-height: 0;
+        width: auto; }
   .blog-post #genesis-sidebar-primary {
     margin-bottom: 3.75rem;
     margin-top: 0;
@@ -5171,6 +5182,16 @@ body.team-template article.content-wrap {
       @media all and (min-width: 75em) {
         .blog-post #genesis-sidebar-primary .widget:nth-child(1), .blog-post #genesis-sidebar-primary .widget:nth-child(2), .blog-post #genesis-sidebar-primary .widget:nth-child(3), .blog-post #genesis-sidebar-primary .widget.gform_widget {
           display: block; } }
+    @media all and (min-width: 75em) {
+      .blog-post #genesis-sidebar-primary .widget.gform_widget .gform_wrapper ul li.gfield:first-child {
+        padding-right: 0; }
+        .blog-post #genesis-sidebar-primary .widget.gform_widget .gform_wrapper ul li.gfield:first-child input {
+          margin-left: 0; }
+      .blog-post #genesis-sidebar-primary .widget.gform_widget .gform_wrapper .gform_footer:not(.top_label) {
+        margin-left: 0;
+        margin-top: 1.5625rem;
+        padding: 0;
+        width: 100%; } }
   .blog-post .social-media-menu-widget h6 {
     text-align: center; }
     @media all and (min-width: 75em) {
@@ -5721,7 +5742,7 @@ body.contact-us .locations {
 
 .ad-widget {
   padding: 1.875em 1.5625em;
-  background: #1EAEB4;
+  background-color: #343f49;
   text-align: center; }
   @media all and (min-width: 30em) and (max-width: 74.9375em) {
     .ad-widget {
