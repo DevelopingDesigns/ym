@@ -88,9 +88,6 @@ abstract class BaseHandler
 	*/
 	protected function syncMenu()
 	{
-		if ( get_option('nestedpages_menusync') !== 'sync' ) return;
-		if ( get_option('nestedpages_disable_menu') == 'true' ) return;
-		
 		if ( $_POST['post_type'] == 'page' ) {
 			if ( $_POST['syncmenu'] !== 'sync' ){
 				return update_option('nestedpages_menusync', 'nosync');

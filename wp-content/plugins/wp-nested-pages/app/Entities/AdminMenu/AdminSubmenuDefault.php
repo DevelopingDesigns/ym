@@ -22,11 +22,6 @@ class AdminSubmenuDefault
 	*/
 	private $post_type_repo;
 
-	/**
-	* Menu Hook
-	*/
-	private $hook;
-
 	public function __construct($post_type)
 	{
 		$this->post_type = $post_type;
@@ -53,7 +48,7 @@ class AdminSubmenuDefault
 	*/
 	private function addSubMenu($parent_slug)
 	{
-		$this->hook = add_submenu_page( 
+		add_submenu_page( 
 			$parent_slug,
 			$this->post_type_repo->getSubmenuText($this->post_type),
 			$this->post_type_repo->getSubmenuText($this->post_type),
@@ -61,14 +56,6 @@ class AdminSubmenuDefault
 			$this->post_type_repo->getMenuSlug($this->post_type),
 			Listing::admin_menu($this->post_type->name)
 		);
-	}
-
-	/**
-	* Get the Menu Hook
-	*/
-	public function getHook()
-	{
-		return $this->hook;
 	}
 
 }

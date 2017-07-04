@@ -6,7 +6,6 @@ $row_classes = '';
 if ( !$this->post_type->hierarchical ) $row_classes .= ' non-hierarchical';
 if ( !$this->user->canSortPages() ) $row_classes .= ' no-sort';
 if ( $this->isSearch() ) $row_classes .= ' search';
-$assigned_pt = ( $this->post_type->name == 'page' && array_key_exists($this->post->id, $this->assigned_pt_pages) ) ? get_post_type_object($this->assigned_pt_pages[$this->post->id]) : false;
 ?>
 <div class="row<?php echo $row_classes; ?>">
 	
@@ -21,7 +20,7 @@ $assigned_pt = ( $this->post_type->name == 'page' && array_key_exists($this->pos
 	<div class="row-inner">
 		<i class="np-icon-sub-menu"></i>
 		
-		<?php if ( $this->user->canSortPages() && !$this->isSearch() && !$this->post_type_settings->disable_sorting ) : ?>
+		<?php if ( $this->user->canSortPages() && !$this->isSearch() ) : ?>
 		<i class="handle np-icon-menu"></i>
 		<?php endif; ?>
 
@@ -29,10 +28,8 @@ $assigned_pt = ( $this->post_type->name == 'page' && array_key_exists($this->pos
 			<span class="title">
 				<?php 
 					echo apply_filters( 'the_title', $this->post->title, $this->post->id, $view = 'nestedpages_title' ); 
-					if ( !$assigned_pt ) :
-						if ( $this->post->id == get_option('page_on_front') ) echo ' <em class="np-page-type"><strong>&ndash; ' . __('Front Page', 'wp-nested-pages') . '</strong></em>';
-						if ( $this->post->id == get_option('page_for_posts') ) echo ' <em class="np-page-type"><strong>&ndash; ' . __('Posts Page', 'wp-nested-pages') . '</strong></em>';
-					endif;
+					if ( $this->post->id == get_option('page_on_front') ) echo ' <em class="np-page-type"><strong>&ndash; ' . __('Front Page', 'wp-nested-pages') . '</strong></em>';
+					if ( $this->post->id == get_option('page_for_posts') ) echo ' <em class="np-page-type"><strong>&ndash; ' . __('Posts Page', 'wp-nested-pages') . '</strong></em>';
 				?>
 			</span>
 			<?php 
@@ -66,15 +63,6 @@ $assigned_pt = ( $this->post_type->name == 'page' && array_key_exists($this->pos
 			?>
 		</a>
 
-		<?php if ( $assigned_pt ) : ?>
-		<ul class="np-assigned-pt-actions">
-			<?php if ( current_user_can('publish_posts') ) : ?>
-			<li><a href="<?php echo $this->post_type_repo->addNewPostLink($assigned_pt->name); ?>" class=""><?php echo $assigned_pt->labels->add_new; ?></a></li>
-			<?php endif; ?>
-			<li><a href="<?php echo $this->post_type_repo->allPostsLink($assigned_pt->name); ?>" class=""><?php echo $assigned_pt->labels->all_items . ' (' . wp_count_posts($assigned_pt->name)->publish . ')'; ?></a></li>
-		</ul>
-		<?php endif; ?>
-
 		<!-- Responsive Toggle Button -->
 		<a href="#" class="np-toggle-edit"><i class="np-icon-pencil"></i></a>
 
@@ -98,12 +86,12 @@ $assigned_pt = ( $this->post_type->name == 'page' && array_key_exists($this->pos
 			<?php if ( $this->post->comment_status == 'open' ) : $comments = wp_count_comments($this->post->id); $cs = 'open' ?>
 
 			
-			
 			<a href="<?php echo admin_url( 'edit-comments.php?p=' . get_the_id() ); ?>" class="np-btn">
 				<i class="np-icon-bubble"></i> <?php echo $comments->total_comments; ?>
 			</a>
 			
 			<?php else : $cs = 'closed'; endif; ?>
+
 
 			<?php if ( current_user_can('publish_pages') && $this->post_type->hierarchical && !$this->isSearch() ) : ?>
 		
@@ -146,7 +134,6 @@ $assigned_pt = ( $this->post_type->name == 'page' && array_key_exists($this->pos
 				data-datepicker="<?php echo date_i18n('n/j/Y', $this->post->date->datepicker); ?>"
 				data-time="<?php echo date_i18n('H:i', $this->post->date->datepicker); ?>"
 				data-formattedtime="<?php echo date_i18n('g:i', $this->post->date->datepicker); ?>"
-				data-timeformat="<?php echo get_option('time_format'); ?>"
 				data-ampm="<?php echo date('a', $this->post->date->datepicker); ?>">
 				<?php _e('Quick Edit'); ?>
 			</a>

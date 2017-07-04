@@ -4,7 +4,6 @@ namespace NestedPages\Activation\Updates;
 
 use NestedPages\Entities\NavMenu\NavMenuRepository;
 use NestedPages\Entities\NavMenu\NavMenuSyncListing;
-use NestedPages\Activation\Updates\CustomFieldsToHidden;
 
 /**
 * Required Version Upgrades
@@ -41,7 +40,6 @@ class Updates
 		$this->convertMenuToID();
 		$this->enablePagePostType();
 		$this->enabledDatepicker();
-		$this->convertCustomFieldsToHidden();
 	}
 
 	/**
@@ -130,16 +128,6 @@ class Updates
 			if ( get_option('nestedpages_menusync') !== 'sync' ) return;
 			$syncer = new NavMenuSyncListing;
 			$syncer->sync();
-		}
-	}
-
-	/**
-	* Convert the Nested Pages custom fields to hidden fields
-	*/
-	private function convertCustomFieldsToHidden()
-	{
-		if ( version_compare( $this->current_version, '1.7.0', '<=' ) ){
-			new CustomFieldsToHidden;
 		}
 	}
 

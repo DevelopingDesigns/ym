@@ -56,14 +56,9 @@ NestedPages.Formatter = function()
 		$.each($(NestedPages.selectors.lists), function(i, v){
 			var parent_count = $(this).parents(NestedPages.selectors.lists).length;
 			var padding = 0;
-			if ( !NestedPages.jsData.sortable ) padding = 10;
 			if ( parent_count > 0 ){
 				var padding = ( parent_count * 20 ) + padding;
 				$(this).find('.row-inner').css('padding-left', padding + 'px');
-				return;
-			}
-			if ( !NestedPages.jsData.sortable ){
-				$(this).find('.row-inner').css('padding-left', '10px');	
 				return;
 			}
 			$(this).find('.row-inner').css('padding-left', '0px');

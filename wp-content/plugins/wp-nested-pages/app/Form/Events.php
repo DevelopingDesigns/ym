@@ -47,8 +47,7 @@ class Events
 			'admin_post_npCategoryFilter',
 			'admin_post_npBulkActions',
 			'wp_ajax_npmanualMenuSync',
-			'admin_post_npBulkEdit',
-			'wp_ajax_nppostSearch'
+			'admin_post_npBulkEdit'
 		);
 		$this->setHandlers();
 	}

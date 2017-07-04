@@ -8,23 +8,10 @@ use NestedPages\Entities\NavMenu\NavMenuSyncMenu;
 */
 class NavMenuActions 
 {
-	private $hookPriority = 10;
 
 	public function __construct()
 	{
-		if ( get_option('nestedpages_menusync') !== 'sync' ) return;
-		if ( get_option('nestedpages_disable_menu') == 'true' ) return;
-		$this->addUpdateHook();
-	}
-
-	private function addUpdateHook()
-	{
-		add_action( 'wp_update_nav_menu', array($this, 'syncMenu'), $this->hookPriority, 2 );
-	}
-
-	private function removeUpdateHook()
-	{
-		remove_action( 'wp_update_nav_menu', array($this, 'syncMenu'), $this->hookPriority);
+		add_action( 'wp_update_nav_menu', array($this, 'syncMenu'), 10 ,2 );
 	}
 
 	/**
@@ -32,9 +19,9 @@ class NavMenuActions
 	*/
 	public function syncMenu($menu_id, $menu_data = null)
 	{
-		$this->removeUpdateHook();
+		// Core calls action twice. Only want it to run once. 
+		// Don't need it to run in wp_update_nav_menu_object function
 		if ( $menu_data == null ) $sync = new NavMenuSyncMenu($menu_id);
-		$this->addUpdateHook();
 	}
 
 }

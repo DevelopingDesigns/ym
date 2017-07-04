@@ -35,6 +35,7 @@ class EnabledMenus
 	*/
 	private $user;
 
+
 	public function __construct()
 	{
 		$this->post_type_repo = new PostTypeRepository;
@@ -57,7 +58,6 @@ class EnabledMenus
 	private function loopEnabledTypes()
 	{
 		$c = 1; // Counter for position
-		global $np_page_params;
 		foreach($this->enabled_types as $key => $type){	
 			if ( $type->np_enabled !== true ) continue;
 			if ( $type->replace_menu ) {
@@ -69,10 +69,9 @@ class EnabledMenus
 				}
 			} else {
 				$default = new AdminSubmenuDefault($type);
-				$np_page_params[$default->getHook()] = array('post_type' => $type->name);
 			}
 			$c++;
-		}
+		}		
 	}
 
 	/**
@@ -81,8 +80,7 @@ class EnabledMenus
 	*/
 	private function addMenu($c)
 	{
-		global $np_page_params;
-		$hook = add_menu_page( 
+		add_menu_page( 
 			__($this->post_type->labels->name),
 			__($this->post_type->labels->name),
 			$this->post_type->cap->edit_posts,
@@ -91,7 +89,6 @@ class EnabledMenus
 			$this->menuIcon(),
 			$this->menuPosition($c)
 		);
-		$np_page_params[$hook] = array('post_type' => $this->post_type->name);
 	}
 
 	/**

@@ -65,12 +65,8 @@ class Validation
 		// Make sure fields are filled out
 		if ( $data['np_date'] == "" || $data['np_time'] == "" ) return $this->sendDateError();
 		
-		$time_format = get_option('time_format');
-		if ( $time_format == 'H:i' ){
-			$this->checkValidTime($data['np_time']);
-		} else {
-			$this->checkValidFormattedTime($data['np_time']);
-		}
+
+		$this->checkValidFormattedTime($data['np_time']);
 
 		$date = date('Y-m-d H:i:s', strtotime($data['np_date'] . ' ' . $data['np_time'] . ' ' . $data['np_ampm']));
 		if ( $date ==  '1970-01-01 00:00:00' ) return $this->sendDateError();
