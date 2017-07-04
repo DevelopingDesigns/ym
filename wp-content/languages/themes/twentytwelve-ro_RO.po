@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Twelve package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-06-04 21:57:59+0000\n"
+"PO-Revision-Date: 2017-07-02 06:50:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -139,19 +139,19 @@ msgstr "Navigare articole"
 
 #: functions.php:289
 msgid "Second Front Page Widget Area"
-msgstr "A doua zonă de widget-uri pentru prima pagină"
+msgstr "A doua zonă asamblabilă pentru pagina din față"
 
 #: functions.php:281 functions.php:291
 msgid "Appears when using the optional Front Page template with a page set as Static Front Page"
-msgstr "Se afișează când este folosit șablonul pentru prima pagină și prima pagină este setată ca o pagină statică."
+msgstr "Apare la folosirea șablonului opțional pagina din față cu o pagină setată ca pagină din față statică."
 
 #: functions.php:279
 msgid "First Front Page Widget Area"
-msgstr "Prima zonă de widget-uri pentru prima pagină"
+msgstr "Prima zonă asamblabilă pentru pagina din față"
 
 #: functions.php:271
 msgid "Appears on posts and pages except the optional Front Page template, which has its own widgets"
-msgstr "Se afișează pe articole și pagini care nu folosesc șablonul de primă pagină, care are widget-urile lui"
+msgstr "Apare în articole și pagini cu excepția șablonului opțional pagina din față, care are propriile sale piese"
 
 #: functions.php:269
 msgid "Main Sidebar"
@@ -311,7 +311,7 @@ msgstr "Se pare că nu putem găsi ceea ce cauți. Probabil o căutare poate aju
 
 #: 404.php:17
 msgid "This is somewhat embarrassing, isn&rsquo;t it?"
-msgstr "Nu e bine, nu-i așa?"
+msgstr "Este oarecum jenant, nu-i așa?"
 
 #. #-#-#-#-#  twentytwelve.pot (Twenty Twelve 2.3)  #-#-#-#-#
 #. Author URI of the plugin/theme
