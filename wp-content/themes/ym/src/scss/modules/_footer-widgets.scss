@@ -272,8 +272,8 @@
 		}
 
 		h3 {
-			font-size: em(16);
-			font-weight: $fw-bold;
+			font-size: em(16) !important;
+			font-weight: $fw-bold !important;
 			margin-bottom: rem(10);
 
 			@include bp(wide) {
@@ -302,15 +302,16 @@
 				display: flex;
 			}
 
-			.top_label {
+			.left_label {
 				div.ginput_container {
 					margin: 0;
 
 					input {
 						background-color: $grey4;
 						color: $slate;
-						margin-bottom: 0;
-						min-width: 333px;
+						margin: 0;
+						//min-width: 333px;
+						min-width: 190px;
 
 						@include bp(small) {
 							min-width: 190px;
@@ -319,11 +320,30 @@
 				}
 			}
 
+			.gform_body {
+				margin-right: 1.25em;
+			}
+
+			form {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.gform_footer {
+				margin: 0;
+				padding: 0;
+
+				input {
+					font-size: 0.8em;
+					margin: 0;
+				}
+			}
+
 		}
 
 		.gfield_required,
-		.gfield_label,
-		.gform_wrapper .gform_footer {
+		.gfield_label {
 			display: none;
 		}
 
@@ -333,7 +353,7 @@
 	.widget:last-child {
 		@include bp(med) {
 			flex: 1;
-			padding-left: rem(30);
+			//padding-left: rem(30);
 		}
 
 		@include bp(wide) {
@@ -343,7 +363,7 @@
 		h6 {
 			font-size: em(16);
 			font-weight: $fw-bold;
-			margin-bottom: rem(10);
+			margin-bottom: rem(20);
 
 			@include bp(wide) {
 				margin-bottom: 0;

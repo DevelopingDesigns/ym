@@ -4,6 +4,13 @@ div.gform_wrapper {
 		font-size: em(12);
 	}
 
+	input:not([type=radio]):not([type=checkbox]):not([type=image]):not([type=file]) {
+		@include bp(max-width 641px) {
+			line-height: 15px;
+			min-height: 0;
+		}
+	}
+
 	select {
 		background: $white;
 		border-color: $white;
