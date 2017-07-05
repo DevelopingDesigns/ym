@@ -233,5 +233,32 @@ function add_facetwp_support( $attributes ) {
 }
 
 
+/**
+ * Output JSON-LD schema data within wp_head for the author
+ * and author job title.
+ */
+add_action( 'wp_head', function () {
+
+	$author_name  = get_field( 'author_name' );
+	$author_title = get_field( 'author_title' );
+
+	if ( ! $author_name || ! $author_title ) {
+		return;
+	} ?>
+
+	<script type='application/ld+json'>
+		{
+			'@context': 'http://www.schema.org',
+			'@type': 'person',
+			'name': "<?php echo $author_name ?>",
+			'jobTitle': "<?php echo $author_title ?>"
+		}
+	</script>
+
+	<?php
+
+}, 5 );
+
+
 genesis();
 

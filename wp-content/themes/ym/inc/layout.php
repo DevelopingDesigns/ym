@@ -46,7 +46,7 @@ add_filter( 'genesis_seo_title', 'ym_custom_logo', 10, 3 );
 function ym_custom_logo( $title, $inside, $wrap ) {
 	// Check to see if the Custom Logo function exists and set what goes inside the wrapping tags.
 	if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) :
-		$mobile_logo = '<img src="/wp-content/themes/ym/dist/images/small-logo.svg" width="49" height="57" class="custom-logo" alt="YourMembership" itemprop="logo">';
+		$mobile_logo = '<img src="/wp-content/themes/ym/dist/images/small-logo.svg" width="49" height="57" class="custom-logo" alt="YourMembership" itemprop="headline">';
 		$desktop_logo = '<img src="/wp-content/themes/ym/dist/images/desktop-logo.svg" width="180" height="80" class="desktop-logo" alt="YourMembership">';
 
 		$logo = $desktop_logo . $mobile_logo;
