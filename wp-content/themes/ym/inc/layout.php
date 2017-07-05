@@ -272,7 +272,42 @@ function customize_sitemap() {
 
 	$sitemap .= '<div class="sitemap-content-block">';
 	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Recent Posts:', 'genesis' ), $heading );
-	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&limit=20&echo=0' ) );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&limit=40&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'YM News:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&limit=10&post_type=news&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Whitepapers:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&post_type=whitepapers&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Case Studies:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&post_type=casestudy&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Infographics:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&post_type=infographics&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Webinars:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&post_type=webinars&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Tool Kits:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&post_type=toolkit&echo=0' ) );
+	$sitemap .= '</div>';
+	
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Sales Resources:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&post_type=sales_resources&echo=0' ) );
 	$sitemap .= '</div>';
 
 	$sitemap .= '<div class="sitemap-content-block">';
