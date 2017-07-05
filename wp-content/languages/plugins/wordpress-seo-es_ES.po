@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-05-23 10:31:59+0000\n"
+"PO-Revision-Date: 2017-07-05 09:32:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -89,7 +89,7 @@ msgstr "Mantente al día"
 #. translators: %1$s resolves to Local SEO
 #: admin/config-ui/components/class-component-suggestions.php:74
 msgid "If you want to outrank the competition in a specific town or region, check out our %1$s plugin! You’ll be able to easily insert Google maps, opening hours, contact information and a store locator. Besides that %1$s helps you to improve the usability of your contact page."
-msgstr "¡Si quieres ganar la competición en una región o ciudad específica echa un vistazo a nuestro plugin %1$s! Podrás insertar fácilmente mapas de Google, horarios de apertura, información de contacto y localizadores de tienda. Además de todo esto %1$s te ayuda a mejorar la usabilidad de tu página de contacto. "
+msgstr "¡Si quieres ganar a tu competencia en una región o ciudad específica echa un vistazo a nuestro plugin %1$s! Podrás insertar fácilmente mapas de Google, horarios de apertura, información de contacto y localizadores de tienda. Además de todo esto %1$s te ayuda a mejorar la usabilidad de tu página de contacto. "
 
 #: admin/config-ui/components/class-component-suggestions.php:72
 msgid "Attract more customers near you"
@@ -98,7 +98,7 @@ msgstr "Atrae más clientes cerca de ti"
 #. translators: %1$s resolves to Yoast SEO
 #: admin/config-ui/components/class-component-suggestions.php:60
 msgid "Do you want to know all the ins and outs of the %1$s plugin? Do you want to learn all about our advanced settings? Want to be able to really get the most out of the %1$s plugin? Check out our %1$s plugin training and start outranking the competition!"
-msgstr "¿Quieres conocer todos los secretos del plugin %1$s? ¿Quieres aprender todo sobre nuestros ajustes avanzados? ¿Quieres ser realmente capaz de sacar el máximo partido del plugin %1$s? ¡Echa un vistazo a nuestro entrenamiento del plugin %1$s y empieza a ganar la competición!"
+msgstr "¿Quieres conocer todos los secretos del plugin %1$s? ¿Quieres aprender todo sobre nuestros ajustes avanzados? ¿Quieres ser realmente capaz de sacar el máximo partido del plugin %1$s? ¡Echa un vistazo a nuestro entrenamiento del plugin %1$s y empieza a ganar a tu competencia!"
 
 #. translators: %1$s resolves to Yoast SEO, %2$s resolves to Yoast SEO plugin
 #. training
@@ -122,12 +122,12 @@ msgstr "Actualizar a premium"
 #. translators: %1$s resolves to Yoast SEO Premium
 #: admin/config-ui/components/class-component-suggestions.php:34
 msgid "Do you want to outrank your competition? %1$s gives you awesome additional features that'll help you to set up your SEO strategy like a professional. Use the multiple focus keywords functionality, the redirect manager and our internal linking tool. %1$s will also give you access to premium support."
-msgstr "¿Quieres ganar la competición? %1$s te ofrece fantásticas características adicionales que te ayudarán a configurar tu estrategia SEO como un profesional. Utiliza la funcionalidad de múltiples palabras clave objetivo, el gestor de redirecciones y nuestra herramienta de enlaces internos. %1$s también te dará acceso a soporte premium."
+msgstr "¿Quieres ganar a tu competencia? %1$s te ofrece fantásticas características adicionales que te ayudarán a configurar tu estrategia SEO como un profesional. Utiliza la funcionalidad de múltiples palabras clave objetivo, el gestor de redirecciones y nuestra herramienta de enlaces internos. %1$s también te dará acceso a soporte premium."
 
 #. translators: %s resolves to Yoast SEO Premium
 #: admin/config-ui/components/class-component-suggestions.php:32
 msgid "Outrank the competition with %s"
-msgstr "Gana la competición con %s"
+msgstr "Gana a tu competencia con %s"
 
 #: admin/config-ui/components/class-component-configuration-choices.php:67
 msgid "Configuration service"
@@ -556,7 +556,7 @@ msgstr "No hay nuevos avisos."
 #. </a>
 #: admin/google_search_console/views/gsc-display.php:126
 msgid "Please refer to %1$sour article about how to connect your website to Google Search Console%2$s if you need assistance."
-msgstr "Por favor, revisa %1$snuestro artículo sobre cómo conectar tu web a Google Search Console%2$s si necesitas ayuda.."
+msgstr "Por favor, si necesitas ayuda, revisa %1$snuestro artículo sobre cómo conectar tu web a Google Search Console%2$s."
 
 #: admin/class-bulk-editor-list-table.php:857
 msgid "Save all"
@@ -1301,7 +1301,7 @@ msgstr "Varios autores"
 
 #: admin/config-ui/class-configuration-structure.php:49
 msgid "Post type visibility"
-msgstr "Visibilidad de tipo de contenido"
+msgstr "Visibilidad de tipos de contenido"
 
 #: admin/config-ui/class-configuration-structure.php:31
 msgid "Social profiles"
@@ -1361,7 +1361,7 @@ msgstr "Ver créditos"
 #. translators: %1$s expands to Yoast SEO
 #: admin/views/tabs/dashboard/general.php:40
 msgid "Take a look at the people that create %1$s."
-msgstr "Echa un vistazo a la gente que ha creado %1$s."
+msgstr "Conoce a las personas que hah creado %1$s."
 
 #: admin/views/about.php:54
 msgid "Team and contributors"
@@ -1913,7 +1913,7 @@ msgstr "No se han encontrado resultados."
 #: admin/class-admin.php:154 admin/class-admin.php:266
 #: admin/pages/dashboard.php:58 inc/wpseo-non-ajax-functions.php:268
 msgid "Dashboard"
-msgstr "Panel de Control"
+msgstr "Escritorio"
 
 #. translators: %1$s resolves to the starting tag of the link to the permalink
 #. settings page, %2$s resolves to the closing tag of the link
@@ -3511,7 +3511,7 @@ msgstr "Ocultar"
 
 #: admin/views/tabs/metas/post-types.php:39
 msgid "Date in Snippet Preview"
-msgstr "Fecha en la vista previa del Snippet"
+msgstr "Fecha en la vista previa del snippet"
 
 #: admin/views/tabs/metas/archives.php:37
 #: admin/views/tabs/metas/archives.php:53
@@ -3559,7 +3559,7 @@ msgstr "Plantilla de la meta description"
 #: admin/views/tabs/metas/post-types.php:30
 #: admin/views/tabs/metas/taxonomies.php:30
 msgid "Title template"
-msgstr "Plantilla de título"
+msgstr "Plantilla del title"
 
 #: admin/views/tabs/metas/general.php:22
 msgid "Symbols are shown in the size they'll appear in the search results."
@@ -3635,7 +3635,7 @@ msgstr "Bing Webmaster Tools"
 
 #: admin/views/tabs/dashboard/webmaster-tools.php:13
 msgid "You can use the boxes below to verify with the different Webmaster Tools, if your site is already verified, you can just forget about these. Enter the verify meta values for:"
-msgstr "Puedes utilizar las casillas de abajo para verificar en las diferentes Herramientas para Webmasters, si tu sitio ya está verificado puedes olvidarte de esto. Introduce los valores meta de verificación para:"
+msgstr "Puedes utilizar las casillas de abajo para verificar en las diferentes Herramientas para webmasters, si tu sitio ya está verificado puedes olvidarte de esto. Introduce los valores meta de verificación para:"
 
 #: admin/views/tabs/dashboard/knowledge-graph.php:49
 msgid "Your name"
@@ -3787,15 +3787,15 @@ msgstr "La creación de redirecciones es una característica de %s"
 
 #: admin/google_search_console/class-gsc.php:307
 msgid "Errors that only occurred when your site was crawled by Googlebot for feature phones (errors didn't appear for desktop)."
-msgstr "Errores que sólo se produjeron cuando tu sitio fue rastreado por Googlebot para teléfonos móviles sencillos (los errores no aparecieron para la versión de escritorio)."
+msgstr "Errores que sólo se produjeron cuando tu sitio fue rastreado por Googlebot para teléfonos móviles sencillos (los errores no aparecieron en la versión de escritorio)."
 
 #: admin/google_search_console/class-gsc.php:306
 msgid "Errors that occurred only when your site was crawled by Googlebot-Mobile (errors didn't appear for desktop)."
-msgstr "Los errores que se produjeron sólo cuando tu sitio fue rastreado por Googlebot-Mobile (estos errores no aparecieron en la versión de escritorio)."
+msgstr "Los errores que se produjeron sólo cuando tu sitio lo rastreó Googlebot-Mobile (estos errores no aparecieron en la versión de escritorio)."
 
 #: admin/google_search_console/class-gsc.php:305
 msgid "Errors that occurred when your site was crawled by Googlebot."
-msgstr "Errores que se produjeron cuando tu sitio fue rastreado por Googlebot."
+msgstr "Errores que se produjeron cuando Googlebot rastreó tu sitio."
 
 #: admin/google_search_console/class-gsc.php:304
 msgid "Issue categories"
@@ -3847,7 +3847,7 @@ msgstr "Primer detectado"
 
 #: admin/google_search_console/class-gsc-table.php:103
 msgid "Last crawled"
-msgstr "Último rastreado."
+msgstr "Último rastreo"
 
 #: admin/google_search_console/class-gsc-table.php:102
 msgid "URL"
@@ -4639,7 +4639,7 @@ msgstr "Tipo de contenido"
 
 #: admin/class-bulk-editor-list-table.php:968
 msgid "WP Page Title"
-msgstr "Titulo de pagina de WP"
+msgstr "Título de página de WP"
 
 #: admin/class-bulk-editor-list-table.php:800
 #: admin/google_search_console/class-gsc-table.php:206
@@ -4798,7 +4798,7 @@ msgstr "Extensiones"
 
 #: admin/class-admin.php:221 inc/wpseo-non-ajax-functions.php:306
 msgid "Search Console"
-msgstr "Consola de búsqueda"
+msgstr "Search Console"
 
 #: admin/class-admin.php:212 inc/wpseo-non-ajax-functions.php:299
 msgid "Tools"
