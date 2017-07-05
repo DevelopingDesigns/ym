@@ -494,7 +494,6 @@ legend {
 
 label {
   display: block;
-  font-weight: 600;
   margin-bottom: 10px; }
 
 input,
@@ -3343,8 +3342,6 @@ body.v5-landing-page.landing-page {
         @media all and (min-width: 75em) {
           .blog #genesis-sidebar-primary .gform_widget > div {
             max-width: none; } }
-      .blog #genesis-sidebar-primary .gform_widget .gform_wrapper {
-        margin: 0; }
       .blog #genesis-sidebar-primary .gform_widget .widget-title {
         font-size: 1.25em;
         font-weight: 500;
@@ -3352,16 +3349,47 @@ body.v5-landing-page.landing-page {
         @media all and (min-width: 75em) {
           .blog #genesis-sidebar-primary .gform_widget .widget-title {
             text-align: left; } }
+      .blog #genesis-sidebar-primary .gform_widget .gform_wrapper {
+        margin: 0; }
+        .blog #genesis-sidebar-primary .gform_widget .gform_wrapper form {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center; }
+          @media all and (min-width: 75em) {
+            .blog #genesis-sidebar-primary .gform_widget .gform_wrapper form {
+              display: block; } }
+        .blog #genesis-sidebar-primary .gform_widget .gform_wrapper .gform_body {
+          margin-right: 1.4em; }
+          @media all and (min-width: 75em) {
+            .blog #genesis-sidebar-primary .gform_widget .gform_wrapper .gform_body {
+              margin-right: 0; } }
+        .blog #genesis-sidebar-primary .gform_widget .gform_wrapper ul.gform_fields li.gfield {
+          margin: 0;
+          padding-right: 0; }
+        .blog #genesis-sidebar-primary .gform_widget .gform_wrapper .left_label li.hidden_label input,
+        .blog #genesis-sidebar-primary .gform_widget .gform_wrapper .right_label li.hidden_label input {
+          margin: 0; }
+          @media all and (max-width: 74.9375em) {
+            .blog #genesis-sidebar-primary .gform_widget .gform_wrapper .left_label li.hidden_label input,
+            .blog #genesis-sidebar-primary .gform_widget .gform_wrapper .right_label li.hidden_label input {
+              min-width: 230px; } }
       .blog #genesis-sidebar-primary .gform_widget .gform_footer {
-        padding: 0.625rem 0 0;
-        text-align: center; }
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        width: auto; }
         @media all and (min-width: 75em) {
           .blog #genesis-sidebar-primary .gform_widget .gform_footer {
+            margin-left: 0;
+            margin-top: 1.25em;
             text-align: left; } }
         .blog #genesis-sidebar-primary .gform_widget .gform_footer .gform_button {
-          font-size: 0.6875em;
+          font-size: 0.8em;
           font-weight: 600;
-          max-width: 8.75rem; }
+          margin: 0; }
     .blog #genesis-sidebar-primary .social-media-menu-widget h6 {
       font-size: 0.9375rem;
       text-align: center; }
@@ -3382,7 +3410,8 @@ body.v5-landing-page.landing-page {
       @media all and (min-width: 75em) {
         .blog #genesis-sidebar-primary .social-media-menu-widget img {
           width: 1.5625rem; } }
-    .blog #genesis-sidebar-primary .category-dropdown {
+    .blog #genesis-sidebar-primary .widget_archive,
+    .blog #genesis-sidebar-primary .widget_taxonomy_dropdown_widget {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -3394,10 +3423,18 @@ body.v5-landing-page.landing-page {
           -ms-flex-align: center;
               align-items: center; }
       @media all and (min-width: 75em) {
-        .blog #genesis-sidebar-primary .category-dropdown {
-          -webkit-box-align: start;
-              -ms-flex-align: start;
-                  align-items: flex-start; } }
+        .blog #genesis-sidebar-primary .widget_archive,
+        .blog #genesis-sidebar-primary .widget_taxonomy_dropdown_widget {
+          display: block; } }
+      .blog #genesis-sidebar-primary .widget_archive select,
+      .blog #genesis-sidebar-primary .widget_taxonomy_dropdown_widget select {
+        background-color: #fff;
+        font-size: 1.25em;
+        width: 17.5rem; }
+        @media all and (min-width: 75em) {
+          .blog #genesis-sidebar-primary .widget_archive select,
+          .blog #genesis-sidebar-primary .widget_taxonomy_dropdown_widget select {
+            width: 100%; } }
   .blog .facetwp-template {
     display: -webkit-box;
     display: -ms-flexbox;
