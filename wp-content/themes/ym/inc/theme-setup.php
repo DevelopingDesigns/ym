@@ -255,3 +255,5 @@ function preselect_archive_cpt_facet() {
         })(jQuery);'
 	);
 }
+
+

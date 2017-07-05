@@ -247,3 +247,50 @@ function ym_flexible_content() {
 
 }
 
+
+add_filter( 'genesis_sitemap_output', __NAMESPACE__ . '\customize_sitemap' );
+/**
+ * Replace the default site map with Genesis
+ *
+ * @author Reasons to Use Genesis
+ * @link   http://reasonstousegenesis.com/genesis-sitemap-output/
+ *
+ * @param string $heading
+ *
+ * @return string
+ */
+function customize_sitemap() {
+
+	$heading = ( genesis_a11y( 'headings' ) ? 'h2' : 'h4' );
+
+	ob_start();
+
+	$sitemap = '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Pages:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_list_pages( 'title_li=&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Recent Posts:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&limit=20&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Monthly:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=monthly&limit=12&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Categories:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_list_categories( 'sort_column=name&title_li=&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= '<div class="sitemap-content-block">';
+	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Authors:', 'genesis' ), $heading );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_list_authors( 'exclude_admin=0&optioncount=1&exclude=39&echo=0' ) );
+	$sitemap .= '</div>';
+
+	$sitemap .= ob_get_clean();
+
+	return $sitemap;
+}

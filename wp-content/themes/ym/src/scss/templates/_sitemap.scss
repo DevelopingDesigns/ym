@@ -1,0 +1,11 @@
+.page-template-page_archive {
+	@include bp(large) {
+		.entry-content {
+			lost-flex-container: row;
+
+			> div {
+				lost-column: 1/2;
+			}
+		}
+	}
+}

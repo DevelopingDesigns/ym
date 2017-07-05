@@ -5741,6 +5741,29 @@ body.contact-us .locations {
       color: #a8ad00;
       line-height: 28px; }
 
+@media all and (min-width: 50em) {
+  .page-template-page_archive .entry-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap; }
+    .page-template-page_archive .entry-content > div {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 auto;
+              flex: 0 0 auto;
+      width: calc(99.9% * 1/2 - (30px - 30px * 1/2)); }
+    .page-template-page_archive .entry-content > div:nth-child(1n) {
+    margin-right: 30px;
+    margin-left: 0; }
+    .page-template-page_archive .entry-content > div:last-child {
+    margin-right: 0; }
+    .page-template-page_archive .entry-content > div:nth-child(2n) {
+    margin-right: 0;
+    margin-left: auto; } }
+
 /* ## Widgets
 ----------------------------- */
 .widget {
