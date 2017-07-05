@@ -196,9 +196,10 @@ function add_cta_section_and_related_posts() {
 	}
 
 	$bg_color = get_field( 'cta_bg_color' );
+	$bg_image = get_field( 'cta_bg_image' );
 	$cta_content = get_field( 'cta_content' ); ?>
 
-	<section class="cta-section" style="background-color: <?php echo $bg_color ?>">
+	<section class="cta-section" style="background-color: <?php echo $bg_color ?>; background-image: url(<?php echo $bg_image['url'] ?>);">
 		<div class="wrap">
 
 			<div class="entry-content-cta">
