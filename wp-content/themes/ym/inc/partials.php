@@ -177,24 +177,3 @@ function change_home_link_in_breadcrumbs_for_news( $crumb ) {
 	return preg_replace( '/href="[^"]*"/', 'href="' . get_post_type_archive_link( 'news' ) . '"', $crumb );
 
 }
-
-
-//add_filter( 'genesis_attr_breadcrumb-link-wrap', __NAMESPACE__ . '\itemListElementRemovalToFixStructuredDataError' );
-///**
-// * Add attributes for breadcrumb item element.
-// *
-// * @since 2.2.0
-// *
-// * @param array $attributes Existing attributes for breadcrumb item element.
-// *
-// * @return array Amended attributes for breadcrumb item element.
-// */
-//function itemListElementRemovalToFixStructuredDataError( $attributes ) {
-//
-//	$attributes['itemprop']  = 'itemListElement';
-//	$attributes['itemscope'] = true;
-//	$attributes['itemtype']  = 'https://schema.org/ListItem';
-//
-//	return $attributes;
-//
-//}
