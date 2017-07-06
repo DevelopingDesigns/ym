@@ -1,8 +1,5 @@
 ul,
 ol {
-  list-style-type: none;
-  //font-size: em(15);
-  //line-height: 23px;
   margin-bottom: em(40);
   margin-left: em(20);
   padding-left: em(8);
@@ -12,25 +9,50 @@ ol {
   }
 }
 
-.checkmark-list {
-  list-style-image: inline('dist/images/checkmark.svg');
-  background-size: size('dist/images/checkmark@2x.png', 2);
+ul {
+  li:not(.menu-item) {
+    list-style-type: disc;
+  }
 }
 
-li:not(.menu-item) {
-  list-style-type: disc;
+ol {
+  li {
+    list-style-type: unset;
+  }
 }
 
 dl {
-  margin-bottom: 10px;
+  overflow: hidden;
 
   dt {
+    clear: left;
+    float: left;
     font-weight: 600;
-    margin-top: 10px;
+
+    &::after {
+      content: ": ";
+    }
   }
 
   dd {
-    margin: 0;
+    overflow: hidden;
+    padding-left: em(8);
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+}
+
+
+// Checkmark List. ie...
+//
+// <ul class="checkmark-list">
+//     <li>Checkmark List Item</li>
+//     <li>Checkmark List Item</li>
+//     <li>Checkmark List Item</li>
+// </ul>
+//
+.checkmark-list {
+  list-style-image: inline('dist/images/checkmark.svg');
+  background-size: size('dist/images/checkmark@2x.png', 2);
 }
 
