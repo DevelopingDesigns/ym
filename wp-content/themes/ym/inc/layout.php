@@ -267,12 +267,12 @@ function customize_sitemap() {
 
 	$sitemap = '<div>';
 	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Pages:', 'genesis' ), $heading );
-	$sitemap .= sprintf( '<ul>%s</ul>', wp_list_pages( 'title_li=&echo=0' ) );
+	$sitemap .= sprintf( '<ul>%1$s %2$s</ul>', wp_list_pages( 'post_type=product&title_li=&echo=0' ), wp_list_pages( 'title_li=&echo=0' ) );
 	$sitemap .= '</div>';
 
 	$sitemap .= '<div>';
 	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Recent Posts:', 'genesis' ), $heading );
-	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&limit=40&echo=0' ) );
+	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&limit=25&echo=0' ) );
 	$sitemap .= '</div>';
 
 	$sitemap .= '<div>';
@@ -303,11 +303,6 @@ function customize_sitemap() {
 	$sitemap .= '<div>';
 	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Tool Kits:', 'genesis' ), $heading );
 	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&post_type=toolkit&echo=0' ) );
-	$sitemap .= '</div>';
-
-	$sitemap .= '<div>';
-	$sitemap .= sprintf( '<%2$s>%1$s</%2$s>', __( 'Sales Resources:', 'genesis' ), $heading );
-	$sitemap .= sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&post_type=sales_resources&echo=0' ) );
 	$sitemap .= '</div>';
 
 	$sitemap .= '<div>';
