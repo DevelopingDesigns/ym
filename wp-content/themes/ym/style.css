@@ -563,7 +563,7 @@ ol {
   ol {
     margin-bottom: 0; }
 
-ul li:not(.menu-item) {
+.entry-content ul {
   list-style-type: disc; }
 
 ol li {
@@ -653,7 +653,7 @@ textarea:focus,
 a {
   color: #a8ad00;
   text-decoration: none; }
-  a:hover {
+  a:hover, a:focus {
     color: #C1CE20; }
 
 p {
@@ -6023,6 +6023,7 @@ body.fixed-header .ubermenu .ubermenu-target {
     float: right; }
 
 .menu {
+  list-style-type: none;
   margin-bottom: 0;
   margin-left: 0;
   padding-bottom: 0;

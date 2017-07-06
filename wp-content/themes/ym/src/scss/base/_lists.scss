@@ -10,7 +10,7 @@ ol {
 }
 
 ul {
-  li:not(.menu-item) {
+  .entry-content & {
     list-style-type: disc;
   }
 }

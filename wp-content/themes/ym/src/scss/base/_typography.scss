@@ -33,7 +33,8 @@ a {
   color: $green1;
   text-decoration: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $green3;
   }
 }
