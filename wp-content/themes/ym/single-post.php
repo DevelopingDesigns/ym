@@ -247,12 +247,12 @@ add_action( 'wp_head', function () {
 		return;
 	} ?>
 
-	<script type='application/ld+json'>
+	<script type="application/ld+json">
 		{
-			'@context': 'http://www.schema.org',
-			'@type': 'person',
-			'name': "<?php echo $author_name ?>",
-			'jobTitle': "<?php echo $author_title ?>"
+			"@context": "http://www.schema.org",
+			"@type": "person",
+			"name": "<?php echo $author_name ?>",
+			"jobTitle": "<?php echo $author_title ?>"
 		}
 	</script>
 
