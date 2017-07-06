@@ -135,7 +135,7 @@ function blog_post_breadcrumbs( $crumb, $args ) {
 	}
 
 	if ( is_singular( 'post' ) || is_category() ) {
-		return '<a href="' . get_permalink( get_option( 'page_for_posts' ) ) . '" itemprop="item"><span itemprop="name">' . get_the_title( get_option( 'page_for_posts' ) ) . '</span></a> ' . $args['sep'] . ' ' . $crumb;
+		return '<a href="' . get_permalink( get_option( 'page_for_posts' ) ) . '"><span itemprop="name">' . get_the_title( get_option( 'page_for_posts' ) ) . '</span></a> ' . $args['sep'] . ' ' . $crumb;
 	} else {
 		return $crumb;
 	}
