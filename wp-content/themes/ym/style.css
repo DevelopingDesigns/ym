@@ -6293,7 +6293,7 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
       #side-menu .menu-item:not(.menu-item-has-children) a:hover {
         color: #8f9300; }
     #side-menu .mobile-cta {
-      padding: 1.4375rem 0;
+      padding: 0;
       background-color: #fff; }
       #side-menu .mobile-cta a {
         margin: 0 auto;
@@ -6302,7 +6302,9 @@ nav.ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target:after 
         box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
         color: #fff !important;
         font-weight: 500 !important;
-        min-height: auto;
+        margin-top: 32px;
+        margin-bottom: 32px;
+        min-height: 0;
         text-align: center;
         text-transform: uppercase;
         transition: all 0.1s ease-in-out;

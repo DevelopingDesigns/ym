@@ -138,7 +138,7 @@
 		}
 
 		.mobile-cta {
-			@include padding(rem(23) 0);
+			padding: 0;
 			background-color: $white;
 
 			a {
@@ -148,7 +148,9 @@
 				box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
 				color: $white !important;
 				font-weight: $fw-medium !important;
-				min-height: auto;
+				margin-top: 32px;
+				margin-bottom: 32px;
+				min-height: 0;
 				text-align: center;
 				text-transform: uppercase;
 				transition: all 0.1s ease-in-out;
