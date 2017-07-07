@@ -97,7 +97,8 @@ if ( $slider_content ) :
 				paginationClickable: true,
 				nextButton: "' . $ns_class . ' .button-next svg",
                 prevButton: "' . $ns_class . ' .button-prev svg",
-                spaceBetween: 30
+                spaceBetween: 30,
+                loop: true
             })
         });'
 		);
@@ -113,7 +114,8 @@ if ( $slider_content ) :
 				nextButton: "' . $ns_class . ' .button-next svg",
                 prevButton: "' . $ns_class . ' .button-prev svg",
                 spaceBetween: 30,
-                autoPlay: 3000
+                autoPlay: 3000,
+                loop: true
             })
         });'
 		);
@@ -131,6 +133,7 @@ if ( $slider_content ) :
                 grabCursor: true,
                 centeredSlides: true,
                 slidesPerView: "auto",
+                loop: true,
                 coverflow: {
                     rotate: 50,
                     stretch: 0,

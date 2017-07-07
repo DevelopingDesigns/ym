@@ -106,7 +106,8 @@ if ( $slides ) :
                 prevButton: "' . $ns_class . ' .button-prev svg",
                 spaceBetween: 0,
                 autoplay: "' . $autoplay . '",
-                autoplayStopOnLast: "' . $autoplay_stop_on_last . '"
+                autoplayStopOnLast: "' . $autoplay_stop_on_last . '",
+                loop: true
             })
         });'
 		);
@@ -123,7 +124,8 @@ if ( $slides ) :
                 prevButton: "' . $ns_class . ' .button-prev svg",
                 spaceBetween: 30,
                 autoplay: "' . $autoplay . '",
-                autoplayStopOnLast: "' . $autoplay_stop_on_last . '"
+                autoplayStopOnLast: "' . $autoplay_stop_on_last . '",
+                loop: true
             })
         });'
 		);
@@ -143,6 +145,7 @@ if ( $slides ) :
                 slidesPerView: "auto",
                 autoplay: "' . $autoplay . '",
                 autoplayStopOnLast: "' . $autoplay_stop_on_last . '",
+                loop: true,
                 coverflow: {
                     rotate: 50,
                     stretch: 0,
