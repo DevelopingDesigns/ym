@@ -3437,6 +3437,7 @@ body.v5-landing-page.landing-page {
       .blog #genesis-sidebar-primary .widget_archive select,
       .blog #genesis-sidebar-primary .widget_taxonomy_dropdown_widget select {
         background-color: #fff;
+        border: 0;
         font-size: 1.25em;
         width: 17.5rem; }
         @media all and (min-width: 75em) {
@@ -3875,6 +3876,7 @@ body.v5-landing-page.landing-page {
       .archive-blog #genesis-sidebar-primary .widget_archive select,
       .archive-blog #genesis-sidebar-primary .widget_taxonomy_dropdown_widget select {
         background-color: #fff;
+        border: 0;
         font-size: 1.25em;
         width: 17.5rem; }
         @media all and (min-width: 75em) {

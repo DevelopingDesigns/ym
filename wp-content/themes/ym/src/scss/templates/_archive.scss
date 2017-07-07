@@ -259,7 +259,7 @@
 			}
 		}
 
-		
+
 
 		// Archive Dropdown Widget/Tag Widget
 		.widget_archive,
@@ -274,6 +274,7 @@
 
 			select {
 				background-color: $white;
+				border: 0;
 				font-size: 1.25em;
 				width: rem(280);
 
