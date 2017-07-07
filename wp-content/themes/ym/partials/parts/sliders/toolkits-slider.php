@@ -49,7 +49,8 @@ if ( have_rows( 'toolkits_slides', 'option' ) ) :
 				pagination: ".swiper-pagination",
 				paginationClickable: true,
 				nextButton: ".button-next",
-                prevButton: ".button-prev"
+                prevButton: ".button-prev",
+                loop: true
             }) 
         });'
 	);

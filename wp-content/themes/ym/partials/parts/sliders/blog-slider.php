@@ -43,7 +43,8 @@ if ( have_rows( 'blog_slides', get_option( 'page_for_posts' ) ) ) :
 				pagination: ".swiper-pagination",
 				paginationClickable: true,
 				nextButton: ".button-next",
-                prevButton: ".button-prev"
+                prevButton: ".button-prev",
+                loop: true
             }) 
         });'
 	);

@@ -50,7 +50,8 @@ if ( have_rows( 'infographics_slides', 'option' ) ) :
 				pagination: ".swiper-pagination",
 				paginationClickable: true,
 				nextButton: ".button-next",
-                prevButton: ".button-prev"
+                prevButton: ".button-prev",
+                loop: true
             }) 
         });'
 	);

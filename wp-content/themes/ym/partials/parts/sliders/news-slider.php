@@ -46,7 +46,8 @@ if ( have_rows( 'slides', 'option' ) ) :
 				pagination: ".swiper-pagination",
 				paginationClickable: true,
 				nextButton: ".button-next",
-                prevButton: ".button-prev"
+                prevButton: ".button-prev",
+                loop: true
             }) 
         });'
 	);
