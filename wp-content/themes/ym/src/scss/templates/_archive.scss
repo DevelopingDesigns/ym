@@ -161,48 +161,69 @@
 				}
 			}
 
-			.gform_wrapper {
-				@include margin(0);
-
-				.gfield {
-					padding-right: 0;
-				}
-
-				.ginput_container {
-					input {
-						padding-bottom: rem(12);
-						padding-top: rem(12);
-					}
-				}
-			}
-
 			.widget-title {
-				font-size: rem(20);
+				font-size: em(20);
 				font-weight: $fw-medium;
-				line-height: 28px;
 				text-align: center;
 
 				@include bp(wide) {
 					text-align: left;
+				}
+			}
+
+			.gform_wrapper {
+				@include margin(0);
+
+				form {
+					display: flex;
+					align-items: center;
+
+					@include bp(wide) {
+						display: block;
+					}
+				}
+
+				.gform_body {
+					margin-right: 1.4em;
+
+					@include bp(wide) {
+						margin-right: 0;
+					}
+				}
+
+				ul.gform_fields li.gfield {
+					margin: 0;
+					padding-right: 0;
+				}
+
+				.left_label li.hidden_label input,
+				.right_label li.hidden_label input {
+					@include bp(max-width wide) {
+						min-width: 230px;
+					}
+
+					margin: 0;
 				}
 			}
 
 			.gform_footer {
-				@include padding(rem(10) 0 0);
+				padding: 0;
+				margin: 0;
 				text-align: center;
+				width: auto;
 
 				@include bp(wide) {
+					margin-left: 0;
+					margin-top: 1.25em;
 					text-align: left;
 				}
 
 				.gform_button {
-					font-size: em(11);
+					font-size: 0.8em;
 					font-weight: $fw-bold;
-					max-width: rem(140);
-					min-width: rem(140);
+					margin: 0;
 				}
 			}
-
 		}
 
 		// Social Media Widget

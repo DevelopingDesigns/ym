@@ -131,7 +131,7 @@
 				.left_label li.hidden_label input,
 				.right_label li.hidden_label input {
 					@include bp(max-width wide) {
-						min-width: 230px;
+						min-width: 300px;
 					}
 
 					margin: 0;
