@@ -16,7 +16,7 @@ class acf_field {
 	/*
 	*  __construct
 	*
-	*  This construcor registeres many actions and filters
+	*  This function will initialize the field type
 	*
 	*  @type	function
 	*  @date	5/03/2014
@@ -27,6 +27,10 @@ class acf_field {
 	*/
 	
 	function __construct() {
+		
+		// initialize
+		$this->initialize();
+		
 		
 		// register info
 		acf_register_field_type_info(array(
@@ -70,6 +74,26 @@ class acf_field {
 		$this->add_action("acf/field_group/admin_head",				array($this, 'field_group_admin_head'), 10, 0);
 		$this->add_action("acf/field_group/admin_footer",			array($this, 'field_group_admin_footer'), 10, 0);
 		
+	}
+	
+	
+	/*
+	*  initialize
+	*
+	*  This function will initialize the field type
+	*
+	*  @type	function
+	*  @date	27/6/17
+	*  @since	5.6.0
+	*
+	*  @param	n/a
+	*  @return	n/a
+	*/
+	
+	function initialize() {
+		
+		/* do nothing */
+			
 	}
 	
 	

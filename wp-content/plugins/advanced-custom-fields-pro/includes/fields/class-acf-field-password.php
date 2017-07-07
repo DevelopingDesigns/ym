@@ -17,7 +17,7 @@ class acf_field_password extends acf_field {
 	
 	
 	/*
-	*  __construct
+	*  initialize
 	*
 	*  This function will setup the field type data
 	*
@@ -29,7 +29,7 @@ class acf_field_password extends acf_field {
 	*  @return	n/a
 	*/
 	
-	function __construct() {
+	function initialize() {
 		
 		// vars
 		$this->name = 'password';
@@ -42,9 +42,6 @@ class acf_field_password extends acf_field {
 			'disabled'		=> 0,
 		);
 		
-		
-		// do not delete!
-    	parent::__construct();
 	}
 		
 	
@@ -62,55 +59,8 @@ class acf_field_password extends acf_field {
 	
 	function render_field( $field ) {
 		
-		// vars
-		$atts = array();
-		$o = array( 'type', 'id', 'class', 'name', 'value', 'placeholder' );
-		$s = array( 'readonly', 'disabled' );
-		$e = '';
+		acf_get_field_type('text')->render_field( $field );
 		
-		
-		// prepend
-		if( $field['prepend'] !== '' ) {
-		
-			$field['class'] .= ' acf-is-prepended';
-			$e .= '<div class="acf-input-prepend">' . $field['prepend'] . '</div>';
-			
-		}
-		
-		
-		// append
-		if( $field['append'] !== '' ) {
-		
-			$field['class'] .= ' acf-is-appended';
-			$e .= '<div class="acf-input-append">' . $field['append'] . '</div>';
-			
-		}
-		
-		
-		// append atts
-		foreach( $o as $k ) {
-		
-			$atts[ $k ] = $field[ $k ];	
-			
-		}
-		
-		
-		// append special atts
-		foreach( $s as $k ) {
-		
-			if( !empty($field[ $k ]) ) $atts[ $k ] = $k;
-			
-		}
-		
-		
-		// render
-		$e .= '<div class="acf-input-wrap">';
-		$e .= '<input ' . acf_esc_attr( $atts ) . ' />';
-		$e .= '</div>';
-		
-		
-		// return
-		echo $e;
 	}
 	
 	

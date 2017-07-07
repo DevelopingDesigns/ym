@@ -97,7 +97,7 @@ class acf_field_image extends acf_field {
 		$url = '';
 		$alt = '';
 		$div = array(
-			'class'					=> 'acf-image-uploader acf-cf',
+			'class'					=> 'acf-image-uploader',
 			'data-preview_size'		=> $field['preview_size'],
 			'data-library'			=> $field['library'],
 			'data-mime_types'		=> $field['mime_types'],

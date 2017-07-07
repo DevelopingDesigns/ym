@@ -123,18 +123,20 @@ class acf_field_link extends acf_field {
 		$link = $this->get_link( $field['value'] );
 		
 		
-		// value
-		if( $link['url'] ) $div['class'] .= ' -value';
+		// classes
+		if( $link['url'] ) {
+			$div['class'] .= ' -value';
+		}
 		
-		
-		// target
-		if( $link['target'] === '_blank' ) $div['class'] .= ' -external';
+		if( $link['target'] === '_blank' ) {
+			$div['class'] .= ' -external';
+		}
 		
 		/*<textarea id="<?php echo esc_attr($field['id']); ?>-textarea"><?php
 			echo esc_textarea('<a href="'.$link['url'].'" target="'.$link['target'].'">'.$link['title'].'</a>');
 		?></textarea>*/
 ?>
-<div <?php echo acf_esc_attr( $div ); ?>>
+<div <?php acf_esc_attr_e($div); ?>>
 	
 	<div class="acf-hidden">
 		<a class="link-node" href="<?php echo esc_url($link['url']); ?>" target="<?php echo esc_attr($link['target']); ?>"><?php echo esc_html($link['title']); ?></a>

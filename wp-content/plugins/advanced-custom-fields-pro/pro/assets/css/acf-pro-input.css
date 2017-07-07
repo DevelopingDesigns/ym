@@ -1,3 +1,16 @@
+/*--------------------------------------------------------------------------------------------
+*
+*	Vars
+*
+*--------------------------------------------------------------------------------------------*/
+/* colors */
+/* acf-field */
+/* responsive */
+/*--------------------------------------------------------------------------------------------
+*
+*	Mixins
+*
+*--------------------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------------------
 *
 *  Repeater
@@ -509,6 +522,11 @@ html[dir="rtl"] .acf-gallery .acf-gallery-attachment {
   background: #F1F1F1;
   border-bottom: #DFDFDF solid 1px;
 }
+.acf-gallery .acf-gallery-side-info:after {
+  clear: both;
+  content: "";
+  display: table;
+}
 .acf-gallery .acf-gallery-side-info img {
   float: left;
   width: auto;
@@ -626,9 +644,16 @@ html[dir="rtl"] .acf-gallery .acf-gallery-side-data th.label {
 }
 /* media modal selected */
 .acf-media-modal .attachment.acf-selected {
-  box-shadow: 0 0 0 3px #fff inset, 0 0 0 7px #1e8cbe inset !important;
-  opacity: 0.5;
+  box-shadow: 0 0 0 3px #fff inset, 0 0 0 7px #0073aa inset !important;
 }
 .acf-media-modal .attachment.acf-selected .check {
   display: none !important;
+}
+.acf-media-modal .attachment.acf-selected .thumbnail {
+  opacity: 0.25 !important;
+}
+.acf-media-modal .attachment.acf-selected .attachment-preview:before {
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  position: relative;
 }

@@ -17,7 +17,7 @@ class acf_field_textarea extends acf_field {
 	
 	
 	/*
-	*  __construct
+	*  initialize
 	*
 	*  This function will setup the field type data
 	*
@@ -29,7 +29,7 @@ class acf_field_textarea extends acf_field {
 	*  @return	n/a
 	*/
 	
-	function __construct() {
+	function initialize() {
 		
 		// vars
 		$this->name = 'textarea';
@@ -42,9 +42,6 @@ class acf_field_textarea extends acf_field {
 			'rows'			=> ''
 		);
 		
-		
-		// do not delete!
-    	parent::__construct();
 	}
 	
 	
@@ -64,52 +61,28 @@ class acf_field_textarea extends acf_field {
 		
 		// vars
 		$atts = array();
-		$o = array( 'id', 'class', 'name', 'placeholder', 'rows' );
-		$s = array( 'readonly', 'disabled' );
-		$e = '';
-		
-		
-		// maxlength
-		if( $field['maxlength'] ) {
-		
-			$o[] = 'maxlength';
-			
-		}
+		$keys = array( 'id', 'class', 'name', 'value', 'placeholder', 'rows', 'maxlength', 'readonly', 'disabled' );
 		
 		
 		// rows
-		if( empty($field['rows']) ) {
-		
+		if( !$field['rows'] ) {
 			$field['rows'] = 8;
-			
 		}
 		
 		
-		// append atts
-		foreach( $o as $k ) {
-		
-			$atts[ $k ] = $field[ $k ];	
+		// atts
+		foreach( $keys as $k ) {
+			
+			if( !empty($field[ $k ]) ) $atts[ $k ] = $field[ $k ];
 			
 		}
-		
-		
-		// append special atts
-		foreach( $s as $k ) {
-		
-			if( !empty($field[ $k ]) ) $atts[ $k ] = $k;
-			
-		}
-		
-
-		$e .= '<textarea ' . acf_esc_attr( $atts ) . ' >';
-		$e .= esc_textarea( $field['value'] );
-		$e .= '</textarea>';
 		
 		
 		// return
-		echo $e;
+		echo acf_get_textarea_input( $atts );
 		
 	}
+	
 	
 	/*
 	*  render_field_settings()
@@ -125,14 +98,6 @@ class acf_field_textarea extends acf_field {
 	*/
 	
 	function render_field_settings( $field ) {
-		
-		// ACF4 migration
-		if( empty($field['ID']) ) {
-			
-			$field['new_lines'] = 'wpautop';
-			
-		}
-		
 		
 		// default_value
 		acf_render_field_setting( $field, array(

@@ -29,7 +29,7 @@ class acf_field_select extends acf_field {
 	*  @return	n/a
 	*/
 	
-	function __construct() {
+	function initialize() {
 		
 		// vars
 		$this->name = 'select';
@@ -64,10 +64,6 @@ class acf_field_select extends acf_field {
 		// ajax
 		add_action('wp_ajax_acf/fields/select/query',				array($this, 'ajax_query'));
 		add_action('wp_ajax_nopriv_acf/fields/select/query',		array($this, 'ajax_query'));
-		
-		
-		// do not delete!
-    	parent::__construct();
     	
 	}
 	
@@ -194,27 +190,24 @@ class acf_field_select extends acf_field {
 		if( !$field ) return false;
 		
 		
+		// get choices
+		$choices = acf_get_array($field['choices']);
+		if( empty($field['choices']) ) return false;
+		
+		
 		// vars
    		$results = array();
-   		$s = false;
-   		$is_search = false;
+   		$s = null;
    		
    		
    		// search
 		if( $options['s'] !== '' ) {
 			
 			// strip slashes (search may be integer)
-			$s = wp_unslash( strval($options['s']) );
-			
-			
-			// update vars
-			$is_search = true;
+			$s = strval( $options['s'] );
+			$s = wp_unslash( $s );
 			
 		}
-		
-		
-		// bail ealry if no choices
-		if( empty($field['choices']) ) return false;
 		
 		
 		// loop 
@@ -225,7 +218,7 @@ class acf_field_select extends acf_field {
 			
 			
 			// if searching, but doesn't exist
-			if( $is_search && stripos($v, $s) === false ) continue;
+			if( is_string($s) && stripos($v, $s) === false ) continue;
 			
 			
 			// append
@@ -264,23 +257,19 @@ class acf_field_select extends acf_field {
 	function render_field( $field ) {
 		
 		// convert
-		$field['value'] = acf_get_array($field['value'], false);
-		$field['choices'] = acf_get_array($field['choices']);
+		$value = acf_get_array($field['value']);
+		$choices = acf_get_array($field['choices']);
 		
 		
 		// placeholder
 		if( empty($field['placeholder']) ) {
-		
 			$field['placeholder'] = _x('Select', 'verb', 'acf');
-			
 		}
 		
 		
 		// add empty value (allows '' to be selected)
-		if( empty($field['value']) ) {
-			
-			$field['value'] = array('');
-			
+		if( empty($value) ) {
+			$value = array('');
 		}
 		
 		
@@ -289,13 +278,13 @@ class acf_field_select extends acf_field {
 		if( $field['allow_null'] && !$field['multiple'] ) {
 			
 			$prepend = array(''	=> '- ' . $field['placeholder'] . ' -');
-			$field['choices'] = $prepend + $field['choices'];
+			$choices = $prepend + $choices;
 			
 		}
 		
 		
 		// vars
-		$atts = array(
+		$select = array(
 			'id'				=> $field['id'],
 			'class'				=> $field['class'],
 			'name'				=> $field['name'],
@@ -310,33 +299,23 @@ class acf_field_select extends acf_field {
 		// multiple
 		if( $field['multiple'] ) {
 		
-			$atts['multiple'] = 'multiple';
-			$atts['size'] = 5;
-			$atts['name'] .= '[]';
+			$select['multiple'] = 'multiple';
+			$select['size'] = 5;
+			$select['name'] .= '[]';
 			
 		}
 		
 		
 		// special atts
-		foreach( array( 'readonly', 'disabled' ) as $k ) {
-		
-			if( !empty($field[ $k ]) ) $atts[ $k ] = $k;
-			
-		}
-		
-		
-		// custom  ajax action
-		if( !empty($field['ajax_action']) ) {
-			
-			$atts['data-ajax_action'] = $field['ajax_action'];
-			
-		}
+		if( !empty($field['readonly']) ) $select['readonly'] = $field['readonly'];
+		if( !empty($field['disabled']) ) $select['disabled'] = $field['disabled'];
+		if( !empty($field['ajax_action']) ) $select['data-ajax_action'] = $field['ajax_action'];
 		
 		
 		// hidden input
 		if( $field['ui'] ) {
 			
-			$v = $field['value'];
+			$v = $value;
 			
 			if( $field['multiple'] ) {
 				
@@ -364,86 +343,16 @@ class acf_field_select extends acf_field {
 		}
 		
 		
-		
-		// open
-		echo '<select ' . acf_esc_attr($atts) . '>';	
-		
-		
-		// walk
-		$this->walk( $field['choices'], $field['value'] );
+		// append
+		$select['value'] = $value;
+		$select['choices'] = $choices;
 		
 		
-		// close
-		echo '</select>';
+		// render
+		acf_select_input( $select );
 		
 	}
-	
-	
-	/*
-	*  walk
-	*
-	*  description
-	*
-	*  @type	function
-	*  @date	22/12/2015
-	*  @since	5.3.2
-	*
-	*  @param	$post_id (int)
-	*  @return	$post_id (int)
-	*/
-	
-	function walk( $choices, $values ) {
 		
-		// bail ealry if no choices
-		if( empty($choices) ) return;
-		
-		
-		// loop
-		foreach( $choices as $k => $v ) {
-			
-			// optgroup
-			if( is_array($v) ){
-				
-				// optgroup
-				echo '<optgroup label="' . esc_attr($k) . '">';
-				
-				
-				// walk
-				$this->walk( $v, $values );
-				
-				
-				// close optgroup
-				echo '</optgroup>';
-				
-				
-				// break
-				continue;
-				
-			}
-			
-			
-			// vars
-			$search = html_entity_decode($k);
-			$pos = array_search($search, $values);
-			$atts = array( 'value' => $k );
-			
-			
-			// validate selected
-			if( $pos !== false ) {
-				
-				$atts['selected'] = 'selected';
-				$atts['data-i'] = $pos;
-				
-			}
-			
-			
-			// option
-			echo '<option ' . acf_esc_attr($atts) . '>' . $v . '</option>';
-			
-		}
-		
-	}
-	
 	
 	/*
 	*  render_field_settings()

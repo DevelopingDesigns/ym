@@ -144,6 +144,10 @@ class acf_loop {
 		// append
 		$this->loops[] = $loop;
 		
+		
+		// return
+		return $loop;
+		
 	}
 	
 	

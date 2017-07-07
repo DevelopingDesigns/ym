@@ -96,7 +96,7 @@ class acf_field_file extends acf_field {
 		);
 		
 		$div = array(
-			'class'				=> 'acf-file-uploader acf-cf',
+			'class'				=> 'acf-file-uploader',
 			'data-library' 		=> $field['library'],
 			'data-mime_types'	=> $field['mime_types'],
 			'data-uploader'		=> $uploader

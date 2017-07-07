@@ -496,106 +496,9 @@ function acf_merge_atts( $atts, $extra = array() ) {
 }
 
 
-/*
-*  acf_esc_attr
-*
-*  This function will return a render of an array of attributes to be used in markup
-*
-*  @type	function
-*  @date	1/10/13
-*  @since	5.0.0
-*
-*  @param	$atts (array)
-*  @return	n/a
-*/
-
-function acf_esc_attr( $atts ) {
-	
-	// is string?
-	if( is_string($atts) ) {
-		
-		$atts = trim( $atts );
-		return esc_attr( $atts );
-		
-	}
-	
-	
-	// validate
-	if( empty($atts) ) {
-		
-		return '';
-		
-	}
-	
-	
-	// vars
-	$e = array();
-	
-	
-	// loop through and render
-	foreach( $atts as $k => $v ) {
-		
-		// object
-		if( is_array($v) || is_object($v) ) {
-			
-			$v = json_encode($v);
-		
-		// boolean	
-		} elseif( is_bool($v) ) {
-			
-			$v = $v ? 1 : 0;
-		
-		// string
-		} elseif( is_string($v) ) {
-			
-			$v = trim($v);
-			
-		}
-		
-		
-		// append
-		$e[] = $k . '="' . esc_attr( $v ) . '"';
-	}
-	
-	
-	// echo
-	return implode(' ', $e);
-	
-}
-
-function acf_esc_attr_e( $atts ) {
-	
-	echo acf_esc_attr( $atts );
-	
-}
 
 
-/*
-*  acf_hidden_input
-*
-*  description
-*
-*  @type	function
-*  @date	3/02/2014
-*  @since	5.0.0
-*
-*  @param	$post_id (int)
-*  @return	$post_id (int)
-*/
 
-function acf_get_hidden_input( $atts ) {
-	
-	$atts['type'] = 'hidden';
-	
-	return '<input ' . acf_esc_attr( $atts ) . ' />';
-	
-}
-
-function acf_hidden_input( $atts ) {
-	
-	echo acf_get_hidden_input( $atts );
-	
-}
 
 
 /*
@@ -1510,34 +1413,28 @@ function acf_decode_taxonomy_term( $value ) {
 *  @return	(array)
 */
 
-function acf_get_array( $var = false, $delimiter = ',' ) {
+function acf_get_array( $var = false, $delimiter = '' ) {
 	
-	// is array?
+	// array
 	if( is_array($var) ) {
-	
 		return $var;
-	
 	}
 	
 	
 	// bail early if empty
-	if( empty($var) && !is_numeric($var) ) {
-		
+	if( acf_is_empty($var) ) {
 		return array();
-		
 	}
 	
 	
 	// string 
 	if( is_string($var) && $delimiter ) {
-		
 		return explode($delimiter, $var);
-		
 	}
 	
 	
 	// place in array
-	return array( $var );
+	return (array) $var;
 	
 }
 

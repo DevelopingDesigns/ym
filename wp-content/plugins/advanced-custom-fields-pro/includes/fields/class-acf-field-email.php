@@ -17,7 +17,7 @@ class acf_field_email extends acf_field {
 	
 	
 	/*
-	*  __construct
+	*  initialize
 	*
 	*  This function will setup the field type data
 	*
@@ -29,7 +29,7 @@ class acf_field_email extends acf_field {
 	*  @return	n/a
 	*/
 	
-	function __construct() {
+	function initialize() {
 		
 		// vars
 		$this->name = 'email';
@@ -41,9 +41,6 @@ class acf_field_email extends acf_field {
 			'append'		=> ''
 		);
 		
-		
-		// do not delete!
-    	parent::__construct();
 	}
 		
 	
@@ -63,53 +60,43 @@ class acf_field_email extends acf_field {
 		
 		// vars
 		$atts = array();
-		$o = array( 'type', 'id', 'class', 'name', 'value', 'placeholder' );
-		$s = array( 'readonly', 'disabled' );
+		$keys = array( 'type', 'id', 'class', 'name', 'value', 'placeholder', 'readonly', 'disabled', 'pattern' );
 		$e = '';
 		
 		
 		// prepend
-		if( $field['prepend'] !== "" ) {
+		if( $field['prepend'] !== '' ) {
 		
 			$field['class'] .= ' acf-is-prepended';
-			$e .= '<div class="acf-input-prepend">' . $field['prepend'] . '</div>';
+			$e .= '<div class="acf-input-prepend">' . acf_esc_html($field['prepend']) . '</div>';
 			
 		}
 		
 		
 		// append
-		if( $field['append'] !== "" ) {
+		if( $field['append'] !== '' ) {
 		
 			$field['class'] .= ' acf-is-appended';
-			$e .= '<div class="acf-input-append">' . $field['append'] . '</div>';
+			$e .= '<div class="acf-input-append">' . acf_esc_html($field['append']) . '</div>';
 			
 		}
 		
 		
-		// append atts
-		foreach( $o as $k ) {
-		
-			$atts[ $k ] = $field[ $k ];	
+		// atts
+		foreach( $keys as $k ) {
 			
-		}
-		
-		
-		// append special atts
-		foreach( $s as $k ) {
-		
-			if( !empty($field[ $k ]) ) $atts[ $k ] = $k;
+			if( !empty($field[ $k ]) ) $atts[ $k ] = $field[ $k ];
 			
 		}
 		
 		
 		// render
-		$e .= '<div class="acf-input-wrap">';
-		$e .= '<input ' . acf_esc_attr( $atts ) . ' />';
-		$e .= '</div>';
+		$e .= '<div class="acf-input-wrap">' . acf_get_text_input( $atts ) . '</div>';
 		
 		
 		// return
 		echo $e;
+		
 	}
 	
 	

@@ -1,11 +1,16 @@
 /*--------------------------------------------------------------------------------------------
 *
-*	vars
+*	Vars
 *
 *--------------------------------------------------------------------------------------------*/
 /* colors */
 /* acf-field */
 /* responsive */
+/*--------------------------------------------------------------------------------------------
+*
+*	Mixins
+*
+*--------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------
 *
 *	acf-field
@@ -460,11 +465,11 @@ html[dir="rtl"] input.acf-is-prepended.acf-is-appended {
   opacity: 0.5;
   color: #A9A9A9;
 }
-.acf-url.valid i {
-  opacity: 1;
-}
 .acf-url input[type="url"] {
   padding-left: 25px;
+}
+.acf-url.-valid i {
+  opacity: 1;
 }
 /*---------------------------------------------------------------------------------------------
 *
@@ -921,19 +926,29 @@ html[dir="rtl"] .pac-container .pac-item {
 .acf-relationship .filters {
   border: #DFDFDF solid 1px;
   background: #fff;
+  /* widths */
 }
-.acf-relationship .filters .inner {
-  padding: 7px 7px 7px 0;
-  margin: 0;
-}
-.acf-relationship .filters li:first-child .inner {
-  padding-left: 7px;
-}
-.acf-relationship .filters input {
-  border-color: transparent;
-  box-shadow: none;
+.acf-relationship .filters:after {
+  clear: both;
+  content: "";
+  display: table;
 }
 .acf-relationship .filters .filter {
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 100%;
+  /* inner padding */
+}
+.acf-relationship .filters .filter span {
+  display: block;
+  padding: 7px 7px 7px 0;
+}
+.acf-relationship .filters .filter:first-child span {
+  padding-left: 7px;
+}
+.acf-relationship .filters .filter input,
+.acf-relationship .filters .filter select {
   height: 28px;
   line-height: 28px;
   padding: 2px;
@@ -942,10 +957,25 @@ html[dir="rtl"] .pac-container .pac-item {
   float: none;
   /* potential fix for media popup? */
 }
-.acf-relationship .filters .filter:focus,
-.acf-relationship .filters .filter:active {
+.acf-relationship .filters .filter input:focus,
+.acf-relationship .filters .filter select:focus,
+.acf-relationship .filters .filter input:active,
+.acf-relationship .filters .filter select:active {
   outline: none;
   box-shadow: none;
+}
+.acf-relationship .filters .filter input {
+  border-color: transparent;
+  box-shadow: none;
+}
+.acf-relationship .filters.-f2 .filter {
+  width: 50%;
+}
+.acf-relationship .filters.-f3 .filter {
+  width: 25%;
+}
+.acf-relationship .filters.-f3 .filter.-search {
+  width: 50%;
 }
 .acf-relationship .list {
   margin: 0;
@@ -1032,6 +1062,11 @@ html[dir="rtl"] .pac-container .pac-item {
   margin-top: -1px;
   /* choices */
   /* values */
+}
+.acf-relationship .selection:after {
+  clear: both;
+  content: "";
+  display: table;
 }
 .acf-relationship .selection .values,
 .acf-relationship .selection .choices {
@@ -1524,6 +1559,11 @@ html[dir="rtl"] .form-table > tbody > tr.acf-tab-wrap .acf-tab-group {
 *--------------------------------------------------------------------------------------------*/
 .acf-image-uploader {
   position: relative;
+}
+.acf-image-uploader:after {
+  clear: both;
+  content: "";
+  display: table;
 }
 .acf-image-uploader .view {
   float: left;

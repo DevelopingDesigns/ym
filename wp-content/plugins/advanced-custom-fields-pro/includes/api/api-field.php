@@ -1778,6 +1778,25 @@ function acf_get_sub_field( $selector, $field ) {
 	$sub_field = false;
 	
 	
+	// check sub_fields
+	if( isset($field['sub_fields']) ) {
+		
+		// loop
+		foreach( $field['sub_fields'] as $_sub_field ) {
+			
+			// check name and key
+			if( acf_is_field($_sub_field, $selector) ) {
+				
+				$sub_field = $_sub_field;
+				break;
+				
+			}
+			
+		}
+		
+	}
+	
+	
 	// filter for 3rd party customization
 	$sub_field = apply_filters( "acf/get_sub_field", $sub_field, $selector, $field );
 	$sub_field = apply_filters( "acf/get_sub_field/type={$field['type']}", $sub_field, $selector, $field );
@@ -1785,6 +1804,45 @@ function acf_get_sub_field( $selector, $field ) {
 	
 	// return
 	return $sub_field;
+	
+}
+
+
+/*
+*  acf_is_field
+*
+*  This function will compare a $selector against a $field array
+*
+*  @type	function
+*  @date	1/7/17
+*  @since	5.6.0
+*
+*  @param	$post_id (int)
+*  @return	$post_id (int)
+*/
+
+function acf_is_field( $field, $selector = '' ) {
+	
+	// vars
+	$keys = array(
+		'ID',
+		'name',
+		'key',
+		'_name',
+		'_key',
+	);
+	
+	
+	// loop
+	foreach( $keys as $k ) {
+		
+		if( isset($field[ $k ]) && $field[ $k ] === $selector ) return true;
+		
+	}
+	
+	
+	// return
+	return false;
 	
 }
 

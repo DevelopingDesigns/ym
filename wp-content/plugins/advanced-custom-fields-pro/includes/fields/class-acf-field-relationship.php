@@ -414,147 +414,100 @@ class acf_field_relationship extends acf_field {
 		// data types
 		$field['post_type'] = acf_get_array( $field['post_type'] );
 		$field['taxonomy'] = acf_get_array( $field['taxonomy'] );
+		$field['filters'] = acf_get_array( $field['filters'] );
 		
 		
-		// width for select filters
-		$width = array(
-			'search'	=> 0,
-			'post_type'	=> 0,
-			'taxonomy'	=> 0
+		// filters
+		$filters = array(
+			'count'		=> count($field['filters']),
+			'search'	=> false,
+			'post_type'	=> false,
+			'taxonomy'	=> false
 		);
 		
-		if( !empty($field['filters']) ) {
+		foreach( $field['filters'] as $filter ) {
+			$filters[ $filter ] = true;
+		}
+		
+		
+		// filter - post_type
+		if( $filters['post_type'] ) {
 			
-			$width = array(
-				'search'	=> 50,
-				'post_type'	=> 25,
-				'taxonomy'	=> 25
+			// choices
+			$choices = array(
+				''	=> __('Select post type', 'acf')
 			);
 			
-			foreach( array_keys($width) as $k ) {
-				
-				if( ! in_array($k, $field['filters']) ) {
-				
-					$width[ $k ] = 0;
-					
-				}
-				
-			}
+			
+			// get post types
+			$post_types = acf_get_pretty_post_types($field['post_type']);
 			
 			
-			// search
-			if( $width['search'] == 0 ) {
-			
-				$width['post_type'] = ( $width['post_type'] == 0 ) ? 0 : 50;
-				$width['taxonomy'] = ( $width['taxonomy'] == 0 ) ? 0 : 50;
-				
-			}
-			
-			// post_type
-			if( $width['post_type'] == 0 ) {
-			
-				$width['taxonomy'] = ( $width['taxonomy'] == 0 ) ? 0 : 50;
-				
-			}
+			// append
+			$choices = $choices + $post_types;
 			
 			
-			// taxonomy
-			if( $width['taxonomy'] == 0 ) {
-			
-				$width['post_type'] = ( $width['post_type'] == 0 ) ? 0 : 50;
-				
-			}
-			
-			
-			// search
-			if( $width['post_type'] == 0 && $width['taxonomy'] == 0 ) {
-			
-				$width['search'] = ( $width['search'] == 0 ) ? 0 : 100;
-				
-			}
-		}
-		
-		
-		// post type filter
-		$post_types = array();
-		
-		if( $width['post_type'] ) {
-			
-			if( !empty($field['post_type']) ) {
-			
-				$post_types = $field['post_type'];
-				
-			}
-			
-			$post_types = acf_get_pretty_post_types($post_types);
+			// set filter
+			$filters['post_type'] = $choices;
 			
 		}
 		
+
 		
 		// taxonomy filter
-		$taxonomies = array();
-		$term_groups = array();
-		
-		if( $width['taxonomy'] ) {
+		if( $filters['taxonomy'] ) {
 			
-			// taxonomies
+			// vars
+			$taxonomies = array();
+			$choices = array(
+				''	=> __('Select taxonomy', 'acf')
+			);
+			
+			
+			// get taxonomies from  setting
 			if( !empty($field['taxonomy']) ) {
 				
-				// get the field's terms
-				$term_groups = acf_get_array( $field['taxonomy'] );
-				$term_groups = acf_decode_taxonomy_terms( $term_groups );
-				
-				
-				// update taxonomies
+				$term_groups = acf_decode_taxonomy_terms( $field['taxonomy'] );
 				$taxonomies = array_keys($term_groups);
+			
 			
 			} elseif( !empty($field['post_type']) ) {
 				
-				// loop over post types and find connected taxonomies
+				// loop
 				foreach( $field['post_type'] as $post_type ) {
 					
+					// get connected taxonomies
 					$post_taxonomies = get_object_taxonomies( $post_type );
 					
-					// bail early if no taxonomies
-					if( empty($post_taxonomies) ) {
-						
-						continue;
-						
+
+					// loop
+					foreach( $post_taxonomies as $name ) {
+						$taxonomies[ $name ] = 1;						
 					}
-						
-					foreach( $post_taxonomies as $post_taxonomy ) {
-						
-						if( !in_array($post_taxonomy, $taxonomies) ) {
 							
-							$taxonomies[] = $post_taxonomy;
-							
-						}
-						
-					}
-								
 				}
 				
-			} else {
 				
-				$taxonomies = acf_get_taxonomies();
+				// convert back to array
+				$taxonomies = array_keys($taxonomies);
 				
 			}
 			
 			
 			// terms
-			$term_groups = acf_get_taxonomy_terms( $taxonomies );
+			$groups = acf_get_taxonomy_terms( $taxonomies );
 			
 			
 			// update $term_groups with specific terms
 			if( !empty($field['taxonomy']) ) {
 				
-				foreach( array_keys($term_groups) as $taxonomy ) {
+				foreach( $groups as $taxonomy => $terms ) {
 					
-					foreach( array_keys($term_groups[ $taxonomy ]) as $term ) {
+					foreach( $terms as $slug => $name ) {
 						
-						if( ! in_array($term, $field['taxonomy']) ) {
+						if( !in_array($slug, $field['taxonomy']) ) {
 							
-							unset($term_groups[ $taxonomy ][ $term ]);
+							unset($groups[ $taxonomy ][ $slug ]);
 							
 						}
 						
@@ -563,121 +516,94 @@ class acf_field_relationship extends acf_field {
 				}
 				
 			}
+
+			
+			// append
+			$choices = $choices + $groups;
+			
+			
+			// set filter
+			$filters['taxonomy'] = $choices;
 			
 		}
-		// end taxonomy filter
-			
+		
 		?>
 <div <?php acf_esc_attr_e($atts); ?>>
 	
-	<div class="acf-hidden">
-		<input type="hidden" name="<?php echo $field['name']; ?>" value="" />
-	</div>
+	<?php acf_hidden_input( array('name' => $field['name'], 'value' => '') ); ?>
 	
-	<?php if( $width['search'] || $width['post_type'] || $width['taxonomy'] ): ?>
-	<div class="filters">
+	<?php 
+	
+	/* filters */	
+	if( $filters['count'] ): ?>
+	<div class="filters -f<?php echo esc_attr($filters['count']); ?>">
+		<?php 
+	
+		/* search */	
+		if( $filters['search'] ): ?>
+		<div class="filter -search">
+			<span>
+				<?php acf_text_input( array('placeholder' => __("Search...",'acf'), 'data-filter' => 's') ); ?>
+			</span>
+		</div>
+		<?php endif; 
 		
-		<ul class="acf-hl">
 		
-			<?php if( $width['search'] ): ?>
-			<li style="width:<?php echo $width['search']; ?>%;">
-				<div class="inner">
-				<input class="filter" data-filter="s" placeholder="<?php _e("Search...",'acf'); ?>" type="text" />
-				</div>
-			</li>
-			<?php endif; ?>
-			
-			<?php if( $width['post_type'] ): ?>
-			<li style="width:<?php echo $width['post_type']; ?>%;">
-				<div class="inner">
-				<select class="filter" data-filter="post_type">
-					<option value=""><?php _e('Select post type','acf'); ?></option>
-					<?php foreach( $post_types as $k => $v ): ?>
-						<option value="<?php echo $k; ?>"><?php echo $v; ?></option>
-					<?php endforeach; ?>
-				</select>
-				</div>
-			</li>
-			<?php endif; ?>
-			
-			<?php if( $width['taxonomy'] ): ?>
-			<li style="width:<?php echo $width['taxonomy']; ?>%;">
-				<div class="inner">
-				<select class="filter" data-filter="taxonomy">
-					<option value=""><?php _e('Select taxonomy','acf'); ?></option>
-					<?php foreach( $term_groups as $k_opt => $v_opt ): ?>
-						<optgroup label="<?php echo $k_opt; ?>">
-							<?php foreach( $v_opt as $k => $v ): ?>
-								<option value="<?php echo $k; ?>"><?php echo $v; ?></option>
-							<?php endforeach; ?>
-						</optgroup>
-					<?php endforeach; ?>
-				</select>
-				</div>
-			</li>
-			<?php endif; ?>
-		</ul>
+		/* post_type */	
+		if( $filters['post_type'] ): ?>
+		<div class="filter -post_type">
+			<span>
+				<?php acf_select_input( array('choices' => $filters['post_type'], 'data-filter' => 'post_type') ); ?>
+			</span>
+		</div>
+		<?php endif; 
 		
+		
+		/* post_type */	
+		if( $filters['taxonomy'] ): ?>
+		<div class="filter -taxonomy">
+			<span>
+				<?php acf_select_input( array('choices' => $filters['taxonomy'], 'data-filter' => 'taxonomy') ); ?>
+			</span>
+		</div>
+		<?php endif; ?>		
 	</div>
 	<?php endif; ?>
 	
-	<div class="selection acf-cf">
-	
+	<div class="selection">
 		<div class="choices">
-		
 			<ul class="acf-bl list"></ul>
-			
 		</div>
-		
 		<div class="values">
-		
 			<ul class="acf-bl list">
-			
-				<?php if( !empty($field['value']) ): 
-					
-					// get posts
-					$posts = acf_get_posts(array(
-						'post__in' => $field['value'],
-						'post_type'	=> $field['post_type']
-					));
-					
-					
-					// set choices
-					if( !empty($posts) ):
-						
-						foreach( array_keys($posts) as $i ):
-							
-							// vars
-							$post = acf_extract_var( $posts, $i );
-							
-							
-							?><li>
-								<input type="hidden" name="<?php echo $field['name']; ?>[]" value="<?php echo $post->ID; ?>" />
-								<span data-id="<?php echo $post->ID; ?>" class="acf-rel-item">
-									<?php echo $this->get_post_title( $post, $field ); ?>
-									<a href="#" class="acf-icon -minus small dark" data-name="remove_item"></a>
-								</span>
-							</li><?php
-							
-						endforeach;
-						
-					endif;
+			<?php if( !empty($field['value']) ): 
 				
-				endif; ?>
+				// get posts
+				$posts = acf_get_posts(array(
+					'post__in' => $field['value'],
+					'post_type'	=> $field['post_type']
+				));
 				
+				
+				// loop
+				foreach( $posts as $post ): ?>
+					<li>
+						<?php acf_hidden_input( array('name' => $field['name'].'[]', 'value' => $post->ID) ); ?>
+						<span data-id="<?php echo esc_attr($post->ID); ?>" class="acf-rel-item">
+							<?php echo $this->get_post_title( $post, $field ); ?>
+							<a href="#" class="acf-icon -minus small dark" data-name="remove_item"></a>
+						</span>
+					</li>
+				<?php endforeach; ?>
+			<?php endif; ?>
 			</ul>
-			
-			
-			
 		</div>
-		
 	</div>
-	
 </div>
 		<?php
 	}
 	
-	
+
 	
 	/*
 	*  render_field_settings()

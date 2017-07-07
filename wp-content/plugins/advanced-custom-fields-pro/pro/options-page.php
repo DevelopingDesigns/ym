@@ -184,7 +184,7 @@ class acf_options_page {
 		
 		
 		// create default parent if not yet exists
-		if( $page['parent_slug'] == 'acf-options' && $this-get_page('acf-options') === null ) {
+		if( $page['parent_slug'] == 'acf-options' && !$this->get_page('acf-options') ) {
 			
 			$this->add_page( '' );
 			

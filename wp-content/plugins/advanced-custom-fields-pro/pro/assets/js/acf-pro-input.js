@@ -1493,6 +1493,40 @@
 		
 		
 		/*
+		*  get_value
+		*
+		*  description
+		*
+		*  @type	function
+		*  @date	27/6/17
+		*  @since	5.6.0
+		*
+		*  @param	$post_id (int)
+		*  @return	$post_id (int)
+		*/
+		
+		get_value: function(){
+			
+			// vars
+			var value = [];
+			
+			
+			// find and add attachment ids
+			this.get_attachments().each(function(){
+				
+				// vars
+				value.push( $(this).data('id') );
+				
+			});
+			
+			
+			// return
+			return value;
+			
+		},
+		
+		
+		/*
 		*  get_attachment
 		*
 		*  This function will return an attachment
@@ -1608,7 +1642,6 @@
 			if( this.o.max > 0 && this.count() >= this.o.max ) {
 			
 				acf.validation.add_warning( this.$field, acf._e('gallery', 'max'));
-				
 				return;
 				
 			}
@@ -1618,6 +1651,12 @@
 			var self = this,
 				$field = this.$field;
 			
+			
+			// get selected values
+			this.get_attachments().each(function(){
+				
+				
+			})
 			
 			// popup
 			var frame = acf.media.popup({
@@ -1629,26 +1668,13 @@
 				multiple:	'add',
 				library:	this.o.library,
 				mime_types: this.o.mime_types,
+				selected:	this.get_value(),
 				select: function( attachment, i ) {
 					
 					// add
 					self.set('$field', $field).add_attachment( attachment, i );
 					
 				}
-			});
-			
-			
-			// modify DOM
-			frame.on('content:activate:browse', function(){
-				
-				self.render_collection( frame );
-				
-				frame.content.get().collection.on( 'reset add', function(){
-				    
-					self.render_collection( frame );
-				    
-			    });
-				
 			});
 			
 		},
@@ -2234,52 +2260,6 @@
 				}
 			});
 			
-		},
-		
-		
-		
-		render_collection: function( frame ){
-			
-			var self = this;
-			
-			
-			// Note: Need to find a differen 'on' event. Now that attachments load custom fields, this function can't rely on a timeout. Instead, hook into a render function foreach item
-			
-			// set timeout for 0, then it will always run last after the add event
-			setTimeout(function(){
-			
-			
-				// vars
-				var $content	= frame.content.get().$el
-					collection	= frame.content.get().collection || null;
-					
-
-				
-				if( collection ) {
-					
-					var i = -1;
-					
-					collection.each(function( item ){
-					
-						i++;
-						
-						var $li = $content.find('.attachments > .attachment:eq(' + i + ')');
-						
-						
-						// if image is already inside the gallery, disable it!
-						if( self.get_attachment(item.id).exists() ) {
-						
-							item.off('selection:single');
-							$li.addClass('acf-selected');
-							
-						}
-						
-					});
-					
-				}
-			
-			}, 10);
-			
 		}
 		
 	});
@@ -2301,8 +2281,19 @@
 	var acf_gallery_manager = acf.model.extend({
 		
 		actions: {
+			'ready':				'ready',
 			'validation_begin': 	'validation_begin',
 			'validation_failure': 	'validation_failure'
+		},
+		
+		ready: function(){
+			
+			// customize wp.media views
+			if( acf.isset(window, 'wp', 'media', 'view') ) {
+				
+				this.customize_Attachment();
+			
+			}
 		},
 		
 		validation_begin: function(){
@@ -2322,6 +2313,40 @@
 			$('.acf-gallery-side-data').each(function(){
 				
 				acf.enable_form( $(this), 'gallery' );
+				
+			});
+			
+		},
+		
+		customize_Attachment: function(){
+			
+			// vars
+			var AttachmentLibrary = wp.media.view.Attachment.Library;
+			
+			
+			// extend
+			wp.media.view.Attachment.Library = AttachmentLibrary.extend({
+				
+				render: function() {
+					
+					// vars
+					var frame = acf.media.frame();
+					var selected = acf.maybe_get(frame, 'acf.selected');
+					var id = acf.maybe_get(this, 'model.attributes.id');
+					
+					
+					// select
+					if( selected && selected.indexOf(id) > -1 ) {
+						
+						this.$el.addClass('acf-selected');
+						
+					}
+					
+						
+					// return
+					return AttachmentLibrary.prototype.render.apply( this, arguments );
+					
+				}
 				
 			});
 			

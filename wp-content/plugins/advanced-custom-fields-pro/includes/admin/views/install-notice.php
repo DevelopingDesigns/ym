@@ -13,7 +13,7 @@ if( !acf_get_setting('pro') ) {
 }
 
 ?>
-<div id="acf-upgrade-notice" class="acf-cf">
+<div id="acf-upgrade-notice">
 	
 	<div class="inner">
 		
@@ -49,6 +49,8 @@ if( !acf_get_setting('pro') ) {
 		<?php endif; ?>
 		
 		</div>
+		
+		<div class="clear"></div>
 		
 	</div>
 	

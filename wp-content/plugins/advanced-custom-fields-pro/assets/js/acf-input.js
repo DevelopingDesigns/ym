@@ -1745,6 +1745,10 @@ var acf;
 					// loop
 					$.each(v, function(k2,v2){
 						
+						// convert string
+						k2 = k2 + '';
+						
+						
 						// vars
 						var i = k2.indexOf('[');
 						
@@ -2665,12 +2669,13 @@ var acf;
 			
 			// vars
 			var model = this,
-				event = name.substr(0,name.indexOf(' ')),
-				selector = name.substr(name.indexOf(' ')+1);
+				i = name.indexOf(' '),
+				event = (i > 0) ? name.substr(0,i) : name,
+				selector = (i > 0) ? name.substr(i+1) : '';
 			
 			
-			// add event
-			$(document).on(event, selector, function( e ){
+			// event
+			var fn = function( e ){
 				
 				// append $el to event object
 				e.$el = $(this);
@@ -2678,16 +2683,22 @@ var acf;
 				
 				// event
 				if( typeof model.event === 'function' ) {
-					
 					e = model.event( e );
-					
 				}
 				
 				
 				// callback
 				model[ callback ].apply(model, [e]);
 				
-			});
+			};
+			
+			
+			// add event
+			if( selector ) {
+				$(document).on(event, selector, fn);
+			} else {
+				$(document).on(event, fn);
+			}
 			
 		},
 		
@@ -7113,6 +7124,7 @@ var acf;
 			'click a[data-name="add"]': 	'add',
 			'click a[data-name="edit"]': 	'edit',
 			'click a[data-name="remove"]':	'remove',
+			'change .link-node':			'change',
 		},
 		
 		
@@ -7139,12 +7151,7 @@ var acf;
 		
 		add: function( e ){
 			
-			// open
-			wpLink.open( null, null, null, this.$node.get(0) );
-			
-			
-			// always show title (WP will hide title if empty)
-			$('#wp-link-wrap').addClass('has-text-field');
+			acf.link.open( this.$node );
 			
 		},
 		
@@ -7160,7 +7167,7 @@ var acf;
 			
 		},
 		
-		update: function( e ){
+		change: function( e, value ){
 			
 			// vars
 			var val = {
@@ -7168,16 +7175,7 @@ var acf;
 				'url': this.$node.attr('href'),
 				'target': this.$node.attr('target')
 			};
-			
-			
-			// allow blank title
-			if( val.title == val.url ) {
-				
-				var $input = $('#wp-link-text');
-				if( $input.length ) val.title = $input.val();
-				
-			}
-			
+						
 			
 			// vars
 			this.val( val );
@@ -7224,7 +7222,7 @@ var acf;
 	
 	
 	/*
-	*  wplink_manager
+	*  acf.link
 	*
 	*  This model will handle adding tabs and groups
 	*
@@ -7236,21 +7234,151 @@ var acf;
 	*  @return	$post_id (int)
 	*/
 	
-	var wplink_manager = acf.model.extend({
+	acf.link = acf.model.extend({
+		
+		active: false,
+		$textarea: null,
+		$node: null,
 		
 		events: {
-			'click #wp-link-submit': '_click'
+			'click #wp-link-submit': '_update',
+			'wplink-open': '_open',
+			'wplink-close': '_close',
+		},
+				
+		atts: function( value ){
+			
+			// update
+			if( typeof value !== 'undefined' ) {
+				
+				this.$node.html( value.title );
+				this.$node.attr('href', value.url);
+				this.$node.attr('target', value.target);
+				this.$node.trigger('change', [value]);
+				return true;
+				
+			}
+			
+			
+			// get
+			return {
+				'title':	this.$node.html(),
+				'url': 		this.$node.attr('href'),
+				'target': 	this.$node.attr('target')
+			};
+			
 		},
 		
-		_click: function( e ){
+		inputs: function( value ){
 			
-			acf.fields.link.update( e );
+			// update
+			if( typeof value !== 'undefined' ) {
+				
+				$('#wp-link-text').val( value.title );
+				$('#wp-link-url').val( value.url );
+				$('#wp-link-target').prop('checked', value.target === '_blank' );
+				return true;
+				
+			}
+			
+			
+			// get
+			return {
+				'title':	$('#wp-link-text').val(),
+				'url':		$('#wp-link-url').val(),
+				'target':	$('#wp-link-target').prop('checked') ? '_blank' : ''
+			};
+			
+		},
+		
+		open: function( $node ){
+			
+			// create textarea
+			var $textarea = $('<textarea id="acf-link-textarea"></textarea>');
+			
+			
+			// append textarea
+			$node.before( $textarea );
+			
+			
+			// update vars
+			this.active = true;
+			this.$node = $node;
+			this.$textarea = $textarea;
+			
+			
+			// get atts
+			var atts = this.atts();
+			
+			
+			// open link
+			wpLink.open( 'acf-link-textarea', atts.url, atts.title, null );
+			
+			
+			// always show title (WP will hide title if empty)
+			$('#wp-link-wrap').addClass('has-text-field');
+			
+		},
+		
+		reset: function(){
+			
+			this.active = false;
+			this.$textarea.remove();
+			this.$textarea = null;
+			this.$node = null;	
+			
+		},
+		
+		_open: function( e ){
+			
+			// bail early if not active
+			if( !this.active ) return;
+			
+			
+			// get atts
+			var val = this.atts();
+			
+			
+			// update WP inputs
+			this.inputs( val );
+			
+		},
+		
+		_close: function( e ){
+			
+			// bail early if not active
+			if( !this.active ) return;
+			
+			
+			// reset vars
+			// use timeout to allow _update() function to check vars
+			setTimeout(function(){
+				
+				acf.link.reset();
+				
+			}, 100);
+			
+		},
+		
+		_update: function( e ){
+			
+			// bail early if not active
+			if( !this.active ) return;
+			
+			
+			// get atts
+			var val = this.inputs();
+			
+			
+			// update node
+			this.atts( val );
 						
 		}
 	
 	});
 	
-	// listen to AJAX for wp-link-ajax and append post_id to value
+	
+	// todo - listen to AJAX for wp-link-ajax and append post_id to value
 	
 
 })(jQuery);
@@ -8768,7 +8896,7 @@ var acf;
 			
 			// get elements
 			this.$el = this.$field.find('.acf-relationship');
-			this.$input = this.$el.find('.acf-hidden input');
+			this.$input = this.$el.children('input[type="hidden"]');
 			this.$choices = this.$el.find('.choices'),
 			this.$values = this.$el.find('.values');
 			
@@ -12025,12 +12153,12 @@ var acf;
 			// add class
 			if( this.is_valid() ) {
 				
-				this.$input.parent().addClass('valid');
+				this.$input.parent().addClass('-valid');
 			
 			// remove class	
 			} else {
 				
-				this.$input.parent().removeClass('valid');
+				this.$input.parent().removeClass('-valid');
 				
 			}
 			

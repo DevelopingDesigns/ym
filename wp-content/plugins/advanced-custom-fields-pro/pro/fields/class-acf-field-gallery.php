@@ -348,7 +348,7 @@ class acf_field_gallery extends acf_field {
 		}
 		
 		?>
-		<div class="acf-gallery-side-info acf-cf">
+		<div class="acf-gallery-side-info">
 			<img src="<?php echo $thumb; ?>" alt="<?php echo $attachment['alt']; ?>" />
 			<p class="filename"><strong><?php echo $attachment['filename']; ?></strong></p>
 			<p class="uploaded"><?php echo $attachment['dateFormatted']; ?></p>

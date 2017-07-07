@@ -2,7 +2,7 @@
 	
 	<h1><?php _e("Add-ons",'acf'); ?></h1>
 	
-	<div class="add-ons-list acf-cf">
+	<div class="add-ons-list">
 		
 		<?php if( !empty($json) ): ?>
 			

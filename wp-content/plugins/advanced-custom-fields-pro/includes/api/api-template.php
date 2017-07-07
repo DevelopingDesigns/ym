@@ -497,8 +497,20 @@ function have_rows( $selector, $post_id = false ) {
 		$value = acf_extract_var( $field, 'value' );
 		
 		
+		// bail early if value is either empty or a non array
+		if( !acf_is_array($value) ) return false;
+		
+		
+		// allow for non repeatable data (group)
+		if( !isset($value[0]) ) {
+			
+			$value = array( $value );
+			
+		}
+		
+		
 		// add loop
-		acf_add_loop(array(
+		$active_loop = acf_add_loop(array(
 			'selector'	=> $selector,
 			'name'		=> $field['name'], // used by update_sub_field
 			'value'		=> $value,
@@ -516,8 +528,20 @@ function have_rows( $selector, $post_id = false ) {
 		$post_id = $active_loop['post_id'];
 		
 		
+		// bail early if value is either empty or a non array
+		if( !acf_is_array($value) ) return false;
+		
+		
+		// allow for non repeatable data (group)
+		if( !isset($value[0]) ) {
+			
+			$value = array( $value );
+			
+		}
+		
+		
 		// add loop
-		acf_add_loop(array(
+		$active_loop = acf_add_loop(array(
 			'selector'	=> $selector,
 			'name'		=> $active_loop['name'] . '_' . $active_loop['i'] . '_' . $sub_field['name'], // used by update_sub_field
 			'value'		=> $value,
@@ -530,12 +554,8 @@ function have_rows( $selector, $post_id = false ) {
 	}	
 	
 	
-	// update vars
-	$active_loop = acf_get_loop('active');
-	
-	
 	// return true if next row exists
-	if( $active_loop && is_array($active_loop['value']) && isset($active_loop['value'][ $active_loop['i']+1 ]) ) {
+	if( $active_loop && isset($active_loop['value'][ $active_loop['i']+1 ]) ) {
 		
 		return true;
 		
