@@ -259,40 +259,26 @@
 			}
 		}
 
-		// Archive Selector
-		.widget_archive {
-			.widget-title {
-				font-size: rem(30);
-				line-height: 38px;
-				text-align: center;
+		
 
-				@include bp(wide) {
-					margin-bottom: rem(20);
-					text-align: left;
-				}
-			}
+		// Archive Dropdown Widget/Tag Widget
+		.widget_archive,
+		.widget_taxonomy_dropdown_widget {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 
-			> div {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-
-				@include bp(wide) {
-					align-items: flex-start;
-				}
+			@include bp(wide) {
+				display: block;
 			}
 
 			select {
-				width: 100%;
-				height: em(40);
-				border: 0;
-				background: $white;
-				font-size: em(14);
-				text-indent: 1em;
-				max-width: 278px;
+				background-color: $white;
+				font-size: 1.25em;
+				width: rem(280);
 
 				@include bp(wide) {
-					max-width: none;
+					width: 100%;
 				}
 			}
 		}
